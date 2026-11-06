@@ -1,0 +1,72 @@
+{
+  "id": "lesson_0_1_safe_pass",
+  "title_en": "Gate & Safe Pass",
+  "title_ru": "Ворота и Safe Pass",
+  "tags": [
+    "safety",
+    "induction"
+  ],
+  "scene_ru": "Site induction · первый день. Ворота / КПП на объекте в Ireland.",
+  "your_role": "electrician",
+  "partner_role": "foreman",
+  "cards": [
+    {
+      "en": "Safe Pass",
+      "ru": "Safe Pass (карта безопасности)"
+    },
+    {
+      "en": "site induction",
+      "ru": "вводный инструктаж на объекте"
+    },
+    {
+      "en": "sign in",
+      "ru": "отметиться / записаться на входе"
+    },
+    {
+      "en": "gate",
+      "ru": "ворота / КПП"
+    }
+  ],
+  "lines": [
+    {
+      "en": "Have you got your Safe Pass?",
+      "ru": "У тебя есть Safe Pass?",
+      "role": "foreman",
+      "tip_ru": "Safe Pass — обязательная карта безопасности на стройке в Ireland"
+    },
+    {
+      "en": "Yes. Here's my card.",
+      "ru": "Да. Вот моя карта.",
+      "role": "electrician",
+      "practice": true
+    },
+    {
+      "en": "Good. Sign in at the gate, then sit down for the induction.",
+      "ru": "Хорошо. Отметься на воротах, потом садись на инструктаж.",
+      "role": "foreman"
+    },
+    {
+      "en": "Where do I sign in?",
+      "ru": "Где мне отметиться?",
+      "role": "electrician",
+      "practice": true
+    },
+    {
+      "en": "Sign in at the cabin by the gate.",
+      "ru": "Отметься в вагончике у ворот.",
+      "role": "foreman",
+      "tip_ru": "cabin = вагончик / бытовка на объекте"
+    }
+  ],
+  "say_today": [
+    {
+      "en": "Here's my Safe Pass.",
+      "ru": "Вот мой Safe Pass."
+    },
+    {
+      "en": "Where do I sign in?",
+      "ru": "Где мне отметиться?"
+    }
+  ],
+  "order": 1
+}

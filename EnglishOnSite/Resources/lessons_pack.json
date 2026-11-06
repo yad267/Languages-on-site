@@ -1,0 +1,648 @@
+{
+  "schema": 1,
+  "content_version": 4,
+  "title": "English On Site — Site induction + Containment",
+  "lessons": [
+    {
+      "id": "lesson_0_1_safe_pass",
+      "title_en": "Gate & Safe Pass",
+      "title_ru": "Ворота и Safe Pass",
+      "tags": [
+        "safety",
+        "induction"
+      ],
+      "scene_ru": "Site induction · первый день. Ворота / КПП на объекте в Ireland.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "Safe Pass",
+          "ru": "Safe Pass (карта безопасности)"
+        },
+        {
+          "en": "site induction",
+          "ru": "вводный инструктаж на объекте"
+        },
+        {
+          "en": "sign in",
+          "ru": "отметиться / записаться на входе"
+        },
+        {
+          "en": "gate",
+          "ru": "ворота / КПП"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Have you got your Safe Pass?",
+          "ru": "У тебя есть Safe Pass?",
+          "role": "foreman",
+          "tip_ru": "Safe Pass — обязательная карта безопасности на стройке в Ireland"
+        },
+        {
+          "en": "Yes. Here's my card.",
+          "ru": "Да. Вот моя карта.",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Good. Sign in at the gate, then sit down for the induction.",
+          "ru": "Хорошо. Отметься на воротах, потом садись на инструктаж.",
+          "role": "foreman"
+        },
+        {
+          "en": "Where do I sign in?",
+          "ru": "Где мне отметиться?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Sign in at the cabin by the gate.",
+          "ru": "Отметься в вагончике у ворот.",
+          "role": "foreman",
+          "tip_ru": "cabin = вагончик / бытовка на объекте"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Here's my Safe Pass.",
+          "ru": "Вот мой Safe Pass."
+        },
+        {
+          "en": "Where do I sign in?",
+          "ru": "Где мне отметиться?"
+        }
+      ],
+      "order": 1
+    },
+    {
+      "id": "lesson_0_2_induction",
+      "title_en": "Induction & emergency",
+      "title_ru": "Инструктаж и аварийный сбор",
+      "tags": [
+        "safety",
+        "induction"
+      ],
+      "scene_ru": "Site induction · правила объекта и аварийный сбор (Ireland).",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "site rules",
+          "ru": "правила объекта"
+        },
+        {
+          "en": "assembly point",
+          "ru": "место сбора (muster point)"
+        },
+        {
+          "en": "first aider",
+          "ru": "человек с первой помощью"
+        },
+        {
+          "en": "report a hazard",
+          "ru": "сообщить об опасности"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Listen carefully. These are the site rules.",
+          "ru": "Слушай внимательно. Это правила объекта.",
+          "role": "foreman"
+        },
+        {
+          "en": "Where is the assembly point?",
+          "ru": "Где место сбора?",
+          "role": "electrician",
+          "practice": true,
+          "tip_ru": "assembly point = muster point — куда идти по тревоге"
+        },
+        {
+          "en": "Outside the canteen. If the alarm goes, go there.",
+          "ru": "Снаружи у столовой. Если сирена — иди туда.",
+          "role": "foreman",
+          "tip_ru": "canteen = столовая / бытовка с едой на объекте"
+        },
+        {
+          "en": "Who is the first aider?",
+          "ru": "Кто отвечает за первую помощь?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Ask in the cabin. Report any hazard straight away.",
+          "ru": "Спроси в вагончике. О любой опасности сообщай сразу.",
+          "role": "foreman"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the assembly point?",
+          "ru": "Где место сбора?"
+        },
+        {
+          "en": "I need to report a hazard.",
+          "ru": "Мне нужно сообщить об опасности."
+        }
+      ],
+      "order": 2
+    },
+    {
+      "id": "lesson_0_3_ppe",
+      "title_en": "PPE — ready for site",
+      "title_ru": "СИЗ — можно на объект",
+      "tags": [
+        "safety",
+        "induction"
+      ],
+      "scene_ru": "Site induction · полный СИЗ и допуск на сайт (Ireland).",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "PPE",
+          "ru": "средства индивидуальной защиты (СИЗ)"
+        },
+        {
+          "en": "hard hat",
+          "ru": "каска"
+        },
+        {
+          "en": "high-visibility vest (hi-vis)",
+          "ru": "светоотражающий жилет"
+        },
+        {
+          "en": "safety boots",
+          "ru": "защитные ботинки"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Wear full PPE before you go on site.",
+          "ru": "Надень полный СИЗ, прежде чем выходить на объект.",
+          "role": "foreman",
+          "tip_ru": "PPE = personal protective equipment / СИЗ"
+        },
+        {
+          "en": "Hard hat, hi-vis, and safety boots?",
+          "ru": "Каска, жилет и защитные ботинки?",
+          "role": "electrician",
+          "practice": true,
+          "tip_ru": "hi-vis = high-visibility vest"
+        },
+        {
+          "en": "Yes. And safety glasses.",
+          "ru": "Да. И защитные очки.",
+          "role": "foreman"
+        },
+        {
+          "en": "Am I allowed on site now?",
+          "ru": "Мне уже можно на объект?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "After induction — yes. Stay on the walkways.",
+          "ru": "После инструктажа — да. Ходи только по дорожкам.",
+          "role": "foreman",
+          "tip_ru": "walkways = пешеходные дорожки на объекте"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need full PPE before I go on site.",
+          "ru": "Мне нужен полный СИЗ, прежде чем идти на объект."
+        },
+        {
+          "en": "Am I allowed on site now?",
+          "ru": "Мне уже можно на объект?"
+        }
+      ],
+      "order": 3
+    },
+    {
+      "id": "lesson_1_1_tray_basket",
+      "order": 4,
+      "title_en": "Tray & basket",
+      "title_ru": "Tray и basket",
+      "tags": [
+        "electrical",
+        "containment"
+      ],
+      "scene_ru": "Containment · кабель на объекте Ireland. Tray и basket.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "cable tray",
+          "ru": "лоток для кабеля (tray)"
+        },
+        {
+          "en": "cable basket",
+          "ru": "корзина / сетчатый лоток (basket)"
+        },
+        {
+          "en": "containment",
+          "ru": "трасса / система прокладки кабеля"
+        },
+        {
+          "en": "run",
+          "ru": "протяжка / участок трассы"
+        }
+      ],
+      "lines": [
+        {
+          "en": "We need cable tray to the plant room.",
+          "ru": "Нужен tray до щитовой.",
+          "role": "foreman",
+          "tip_ru": "plant room = щитовая / техпомещение"
+        },
+        {
+          "en": "Basket or tray?",
+          "ru": "Basket или tray?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Tray on the main run. Basket for the short drop.",
+          "ru": "Tray на основной трассе. Basket на короткий спуск.",
+          "role": "foreman"
+        },
+        {
+          "en": "How many metres of tray?",
+          "ru": "Сколько метров tray?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "About twenty metres. Mark it on the drawing.",
+          "ru": "Около двадцати метров. Отметь на чертеже.",
+          "role": "foreman"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do we need basket or tray here?",
+          "ru": "Нам нужен basket или tray здесь?"
+        },
+        {
+          "en": "How many metres of tray?",
+          "ru": "Сколько метров tray?"
+        }
+      ]
+    },
+    {
+      "id": "lesson_1_2_trunking",
+      "order": 5,
+      "title_en": "Trunking",
+      "title_ru": "Trunking",
+      "tags": [
+        "electrical",
+        "containment"
+      ],
+      "scene_ru": "Containment · trunking по стене / потолку.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "trunking",
+          "ru": "кабель-канал / короб (trunking)"
+        },
+        {
+          "en": "lid",
+          "ru": "крышка trunking"
+        },
+        {
+          "en": "bend",
+          "ru": "угол / поворот"
+        },
+        {
+          "en": "fix",
+          "ru": "наполнение (сколько кабеля внутри)"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Run trunking along this wall.",
+          "ru": "Веди trunking вдоль этой стены.",
+          "role": "foreman"
+        },
+        {
+          "en": "Do we need lids on now?",
+          "ru": "Крышки ставить сейчас?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Fit the lids after the cables are in.",
+          "ru": "Крышки — после прокладки кабелей.",
+          "role": "foreman"
+        },
+        {
+          "en": "Is the fill OK?",
+          "ru": "Наполнение в норме?",
+          "role": "electrician",
+          "practice": true,
+          "tip_ru": "fill = насколько trunking заполнен кабелем"
+        },
+        {
+          "en": "Leave space for two more circuits.",
+          "ru": "Оставь место ещё на две цепи.",
+          "role": "foreman"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do we need lids on now?",
+          "ru": "Крышки ставить сейчас?"
+        },
+        {
+          "en": "Is the fill OK?",
+          "ru": "Наполнение в норме?"
+        }
+      ]
+    },
+    {
+      "id": "lesson_1_3_unistrut",
+      "order": 6,
+      "title_en": "Unistrut & threaded rod",
+      "title_ru": "Unistrut и шпилька",
+      "tags": [
+        "electrical",
+        "containment"
+      ],
+      "scene_ru": "Containment · Unistrut и threaded rod под потолком.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "Unistrut",
+          "ru": "монтажный профиль Unistrut"
+        },
+        {
+          "en": "threaded rod",
+          "ru": "резьбовая шпилька"
+        },
+        {
+          "en": "channel nut",
+          "ru": "гайка в профиль (channel nut)"
+        },
+        {
+          "en": "drop rod",
+          "ru": "подвес / шпилька вниз"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Hang the tray on Unistrut.",
+          "ru": "Подвесь tray на Unistrut.",
+          "role": "foreman"
+        },
+        {
+          "en": "What length of threaded rod?",
+          "ru": "Какая длина шпильки?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Use one-metre drops and cut them square.",
+          "ru": "Бери метровые подвесы и режь их ровно.",
+          "role": "foreman"
+        },
+        {
+          "en": "Channel nuts are in the bag.",
+          "ru": "Channel nuts в сумке.",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Tighten them before you load the tray.",
+          "ru": "Затяни до того, как грузить tray.",
+          "role": "foreman"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What length of threaded rod?",
+          "ru": "Какая длина шпильки?"
+        },
+        {
+          "en": "Channel nuts are in the bag.",
+          "ru": "Channel nuts в сумке."
+        }
+      ]
+    },
+    {
+      "id": "lesson_1_4_tools_cut",
+      "order": 7,
+      "title_en": "Measure & cut",
+      "title_ru": "Замер и резка",
+      "tags": [
+        "tools",
+        "containment"
+      ],
+      "scene_ru": "Containment · замер и резка tray / Unistrut.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "tape measure",
+          "ru": "рулетка"
+        },
+        {
+          "en": "cut",
+          "ru": "резать"
+        },
+        {
+          "en": "deburr",
+          "ru": "снять заусенцы"
+        },
+        {
+          "en": "mark out",
+          "ru": "разметить"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Measure twice, cut once.",
+          "ru": "Два раза замерь, один раз режь.",
+          "role": "foreman"
+        },
+        {
+          "en": "Where do I mark the cut?",
+          "ru": "Где отметить рез?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "At two point four metres. Use the tape.",
+          "ru": "На двух метрах сорока. Бери рулетку.",
+          "role": "foreman"
+        },
+        {
+          "en": "I'll deburr the edges.",
+          "ru": "Сниму заусенцы.",
+          "role": "electrician",
+          "practice": true,
+          "tip_ru": "deburr = убрать острые края после реза"
+        },
+        {
+          "en": "Good. Don't leave sharp edges on site.",
+          "ru": "Хорошо. На объекте без острых краёв.",
+          "role": "foreman"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where do I mark the cut?",
+          "ru": "Где отметить рез?"
+        },
+        {
+          "en": "I'll deburr the edges.",
+          "ru": "Сниму заусенцы."
+        }
+      ]
+    },
+    {
+      "id": "lesson_1_5_hang_tray",
+      "order": 8,
+      "title_en": "Hang the tray",
+      "title_ru": "Подвесить tray",
+      "tags": [
+        "electrical",
+        "containment"
+      ],
+      "scene_ru": "Containment · подвеска tray на объекте.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "level",
+          "ru": "по уровню / ровно"
+        },
+        {
+          "en": "support",
+          "ru": "опора / подвес"
+        },
+        {
+          "en": "span",
+          "ru": "пролёт между опорами"
+        },
+        {
+          "en": "join",
+          "ru": "стык / соединить"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Hang the first section level.",
+          "ru": "Подвесь первый кусок по уровню.",
+          "role": "foreman"
+        },
+        {
+          "en": "What's the max span?",
+          "ru": "Какой максимальный пролёт?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Every metre and a half on this tray.",
+          "ru": "Каждые полтора метра на этом tray.",
+          "role": "foreman"
+        },
+        {
+          "en": "The join is tight.",
+          "ru": "Стык плотный.",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Check it's level before you walk away.",
+          "ru": "Проверь уровень, прежде чем уходить.",
+          "role": "foreman"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What's the max span?",
+          "ru": "Какой максимальный пролёт?"
+        },
+        {
+          "en": "The join is tight.",
+          "ru": "Стык плотный."
+        }
+      ]
+    },
+    {
+      "id": "lesson_1_6_earth_tidy",
+      "order": 9,
+      "title_en": "Earth & tidy",
+      "title_ru": "Земля и порядок",
+      "tags": [
+        "safety",
+        "containment"
+      ],
+      "scene_ru": "Containment · заземление лотка и уборка трассы.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "cards": [
+        {
+          "en": "earth bond",
+          "ru": "заземляющая перемычка"
+        },
+        {
+          "en": "continuity",
+          "ru": "непрерывность (земли)"
+        },
+        {
+          "en": "tidy up",
+          "ru": "убрать / навести порядок"
+        },
+        {
+          "en": "offcuts",
+          "ru": "обрезки"
+        }
+      ],
+      "lines": [
+        {
+          "en": "Bond the tray to earth.",
+          "ru": "Свяжи tray с землёй.",
+          "role": "foreman",
+          "tip_ru": "earth bond = перемычка на заземление"
+        },
+        {
+          "en": "Where do I land the bond?",
+          "ru": "Куда сажать перемычку?",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "On the steel and on the tray joint.",
+          "ru": "На сталь и на стык tray.",
+          "role": "foreman"
+        },
+        {
+          "en": "Continuity looks good.",
+          "ru": "Непрерывность в порядке.",
+          "role": "electrician",
+          "practice": true
+        },
+        {
+          "en": "Tidy the offcuts. Don't leave metal on the floor.",
+          "ru": "Убери обрезки. Металл на полу не оставляй.",
+          "role": "foreman"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where do I land the bond?",
+          "ru": "Куда сажать перемычку?"
+        },
+        {
+          "en": "Continuity looks good.",
+          "ru": "Непрерывность в порядке."
+        }
+      ]
+    }
+  ]
+}

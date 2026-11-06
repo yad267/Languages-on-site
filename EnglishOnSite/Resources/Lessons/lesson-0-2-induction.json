@@ -1,0 +1,72 @@
+{
+  "id": "lesson_0_2_induction",
+  "title_en": "Induction & emergency",
+  "title_ru": "Инструктаж и аварийный сбор",
+  "tags": [
+    "safety",
+    "induction"
+  ],
+  "scene_ru": "Site induction · правила объекта и аварийный сбор (Ireland).",
+  "your_role": "electrician",
+  "partner_role": "foreman",
+  "cards": [
+    {
+      "en": "site rules",
+      "ru": "правила объекта"
+    },
+    {
+      "en": "assembly point",
+      "ru": "место сбора (muster point)"
+    },
+    {
+      "en": "first aider",
+      "ru": "человек с первой помощью"
+    },
+    {
+      "en": "report a hazard",
+      "ru": "сообщить об опасности"
+    }
+  ],
+  "lines": [
+    {
+      "en": "Listen carefully. These are the site rules.",
+      "ru": "Слушай внимательно. Это правила объекта.",
+      "role": "foreman"
+    },
+    {
+      "en": "Where is the assembly point?",
+      "ru": "Где место сбора?",
+      "role": "electrician",
+      "practice": true,
+      "tip_ru": "assembly point = muster point — куда идти по тревоге"
+    },
+    {
+      "en": "Outside the canteen. If the alarm goes, go there.",
+      "ru": "Снаружи у столовой. Если сирена — иди туда.",
+      "role": "foreman",
+      "tip_ru": "canteen = столовая / бытовка с едой на объекте"
+    },
+    {
+      "en": "Who is the first aider?",
+      "ru": "Кто отвечает за первую помощь?",
+      "role": "electrician",
+      "practice": true
+    },
+    {
+      "en": "Ask in the cabin. Report any hazard straight away.",
+      "ru": "Спроси в вагончике. О любой опасности сообщай сразу.",
+      "role": "foreman"
+    }
+  ],
+  "say_today": [
+    {
+      "en": "Where is the assembly point?",
+      "ru": "Где место сбора?"
+    },
+    {
+      "en": "I need to report a hazard.",
+      "ru": "Мне нужно сообщить об опасности."
+    }
+  ],
+  "order": 2
+}

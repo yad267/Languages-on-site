@@ -1,0 +1,206 @@
+[
+  {
+    "en": "Can you hit the hall switch?",
+    "ru": "Можешь щёлкнуть выключатель в коридоре?",
+    "tag": "sockets",
+    "tip_ru": "hit the switch = щёлкнуть выключатель на объекте"
+  },
+  {
+    "en": "Yeah, I'm on it.",
+    "ru": "Да, сейчас сделаю.",
+    "tag": "electrical",
+    "tip_ru": "I'm on it = сейчас займусь"
+  },
+  {
+    "en": "I'm upstairs.",
+    "ru": "Я наверху.",
+    "tag": "electrical",
+    "tip_ru": "upstairs / downstairs — этажи на объекте"
+  },
+  {
+    "en": "I'm downstairs.",
+    "ru": "Я внизу.",
+    "tag": "electrical",
+    "tip_ru": ""
+  },
+  {
+    "en": "Is the socket live?",
+    "ru": "Розетка под напряжением?",
+    "tag": "sockets",
+    "tip_ru": "live = под напряжением"
+  },
+  {
+    "en": "The socket is dead.",
+    "ru": "Розетка без напряжения.",
+    "tag": "sockets",
+    "tip_ru": "dead = обесточено"
+  },
+  {
+    "en": "I isolated it downstairs.",
+    "ru": "Я отключил её внизу.",
+    "tag": "electrical",
+    "tip_ru": "isolate = отключить / изолировать"
+  },
+  {
+    "en": "We need two doubles.",
+    "ru": "Нужны две двойные розетки.",
+    "tag": "sockets",
+    "tip_ru": "double = двойная розетка"
+  },
+  {
+    "en": "Back boxes are in.",
+    "ru": "Подрозетники стоят.",
+    "tag": "sockets",
+    "tip_ru": "back box = подрозетник"
+  },
+  {
+    "en": "Check the earth.",
+    "ru": "Проверь заземление.",
+    "tag": "electrical",
+    "tip_ru": "earth = заземление (Ireland/UK)"
+  },
+  {
+    "en": "Earth continuity looks good.",
+    "ru": "Непрерывность земли в порядке.",
+    "tag": "electrical",
+    "tip_ru": ""
+  },
+  {
+    "en": "Where's the consumer unit?",
+    "ru": "Где щит?",
+    "tag": "electrical",
+    "tip_ru": "consumer unit = щит"
+  },
+  {
+    "en": "Flip the main isolator off.",
+    "ru": "Выключи главный изолятор.",
+    "tag": "electrical",
+    "tip_ru": "isolator = изолятор / рубильник"
+  },
+  {
+    "en": "Isolator is off.",
+    "ru": "Изолятор выключен.",
+    "tag": "electrical",
+    "tip_ru": ""
+  },
+  {
+    "en": "Board is dead.",
+    "ru": "Щит без напряжения.",
+    "tag": "electrical",
+    "tip_ru": ""
+  },
+  {
+    "en": "Mount the camera above the porch.",
+    "ru": "Поставь камеру над крыльцом.",
+    "tag": "cctv",
+    "tip_ru": ""
+  },
+  {
+    "en": "Bracket is fixed.",
+    "ru": "Кронштейн закреплён.",
+    "tag": "cctv",
+    "tip_ru": ""
+  },
+  {
+    "en": "Run the cable through the loft.",
+    "ru": "Протяни кабель через чердак.",
+    "tag": "cctv",
+    "tip_ru": "loft = чердак"
+  },
+  {
+    "en": "Cable run is done.",
+    "ru": "Кабель протянут.",
+    "tag": "cctv",
+    "tip_ru": "cable run = трасса кабеля"
+  },
+  {
+    "en": "Where is the power supply?",
+    "ru": "Где блок питания?",
+    "tag": "cctv",
+    "tip_ru": "PSU / power supply = блок питания"
+  },
+  {
+    "en": "Check the PoE switch.",
+    "ru": "Проверь PoE-свитч.",
+    "tag": "cctv",
+    "tip_ru": ""
+  },
+  {
+    "en": "Pass me the drill.",
+    "ru": "Передай дрель.",
+    "tag": "tools",
+    "tip_ru": ""
+  },
+  {
+    "en": "Use an eight mil drill bit.",
+    "ru": "Возьми сверло восемь миллиметров.",
+    "tag": "tools",
+    "tip_ru": "drill bit = сверло"
+  },
+  {
+    "en": "Bit is in.",
+    "ru": "Сверло вставлено.",
+    "tag": "tools",
+    "tip_ru": ""
+  },
+  {
+    "en": "Watch the pipes in that wall.",
+    "ru": "Осторожно, в стене трубы.",
+    "tag": "safety",
+    "tip_ru": ""
+  },
+  {
+    "en": "I scanned it.",
+    "ru": "Просканировал.",
+    "tag": "safety",
+    "tip_ru": ""
+  },
+  {
+    "en": "Get an extension lead.",
+    "ru": "Возьми удлинитель.",
+    "tag": "tools",
+    "tip_ru": "extension lead = удлинитель"
+  },
+  {
+    "en": "Keep the lead clear of the wet floor.",
+    "ru": "Не клади удлинитель на мокрый пол.",
+    "tag": "safety",
+    "tip_ru": ""
+  },
+  {
+    "en": "Make sure it's isolated.",
+    "ru": "Убедись, что отключено.",
+    "tag": "safety",
+    "tip_ru": ""
+  },
+  {
+    "en": "Lock off the breaker.",
+    "ru": "Заблокируй автомат.",
+    "tag": "safety",
+    "tip_ru": "lock off = LOTO / блокировка"
+  },
+  {
+    "en": "Test before you touch.",
+    "ru": "Проверь перед тем как трогать.",
+    "tag": "safety",
+    "tip_ru": ""
+  },
+  {
+    "en": "Is there a spur here?",
+    "ru": "Тут есть отвод?",
+    "tag": "sockets",
+    "tip_ru": "spur = отвод от кольца"
+  },
+  {
+    "en": "Chase the wall carefully.",
+    "ru": "Штроби аккуратно.",
+    "tag": "tools",
+    "tip_ru": "chase = штробить"
+  },
+  {
+    "en": "Vacuum the dust.",
+    "ru": "Пылесось пыль.",
+    "tag": "tools",
+    "tip_ru": ""
+  }
+]

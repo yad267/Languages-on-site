@@ -1,0 +1,1805 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "en": "know",
+      "ru": "знать",
+      "example": "I know.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "get",
+      "ru": "получить",
+      "example": "Get the ladder.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "just",
+      "ru": "просто; только что",
+      "example": "Just a minute.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "think",
+      "ru": "думать",
+      "example": "I think it's loose.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "want",
+      "ru": "хотеть",
+      "example": "I want a longer one.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "say",
+      "ru": "говорить",
+      "example": "What did he say?",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "here",
+      "ru": "здесь",
+      "example": "Put it here.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "see",
+      "ru": "видеть",
+      "example": "I see the problem.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "really",
+      "ru": "действительно",
+      "example": "Do you really need it?",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "tell",
+      "ru": "говорить",
+      "example": "Tell him we need clamps.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "good",
+      "ru": "хороший",
+      "example": "Good work.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "now",
+      "ru": "сейчас",
+      "example": "Do it now.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "make",
+      "ru": "делать; заставлять",
+      "example": "Make sure it's tight.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "time",
+      "ru": "время",
+      "example": "We don't have time.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "thing",
+      "ru": "вещь",
+      "example": "Pass me that thing.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "take",
+      "ru": "брать",
+      "example": "Take this end.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "mean",
+      "ru": "значить, иметь в виду",
+      "example": "What do you mean?",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "sorry",
+      "ru": "извини(те)",
+      "example": "Sorry.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "there",
+      "ru": "там",
+      "example": "Over there.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "great",
+      "ru": "отличный; потрясающий",
+      "example": "Great.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "right",
+      "ru": "правый; правильный",
+      "example": "That's right.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "then",
+      "ru": "затем, тогда",
+      "example": "Then tighten it.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "talk",
+      "ru": "говорить",
+      "example": "Talk to the supervisor.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "look",
+      "ru": "смотреть",
+      "example": "Look at the mark.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "need",
+      "ru": "нуждаться",
+      "example": "I need PPE.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "guy",
+      "ru": "парни, ребята",
+      "example": "Hey guys.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "little",
+      "ru": "маленький",
+      "example": "A little more.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "give",
+      "ru": "давать",
+      "example": "Give me the clamp.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "too",
+      "ru": "тоже",
+      "example": "Your knuckles are kind of hairy too.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "way",
+      "ru": "способ, путь",
+      "example": "You have come a long way, baby.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "never",
+      "ru": "никогда",
+      "example": "Never stand under the load.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "call",
+      "ru": "звонить; вызывать",
+      "example": "Call the supervisor.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "wait",
+      "ru": "ждать",
+      "example": "Wait here.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "come",
+      "ru": "приходить",
+      "example": "Come here.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "maybe",
+      "ru": "может быть",
+      "example": "Maybe later.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "back",
+      "ru": "назад",
+      "example": "Move back.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "day",
+      "ru": "день",
+      "example": "We use lots of words, every day.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "people",
+      "ru": "люди",
+      "example": "How many people?",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "man",
+      "ru": "человек; мужчина",
+      "example": "Ask that man.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "let",
+      "ru": "позволять",
+      "example": "Uh, okay, let me call you back.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "feel",
+      "ru": "чувствовать",
+      "example": "I bet you feel pretty silly.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "happen",
+      "ru": "происходить",
+      "example": "Something kind of cool just happened.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "please",
+      "ru": "пожалуйста",
+      "example": "Help me, please.",
+      "part_of_speech": "interjection / междометие"
+    },
+    {
+      "en": "big",
+      "ru": "большой",
+      "example": "Big tray.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "try",
+      "ru": "пробовать, пытаться",
+      "example": "Try this one.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "night",
+      "ru": "ночь",
+      "example": "A little bit of Pam, all night long.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "leave",
+      "ru": "уезжать, оставлять",
+      "example": "Leave it there.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "still",
+      "ru": "до сих пор; всё ещё",
+      "example": "Still loose.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "very",
+      "ru": "очень",
+      "example": "Very heavy.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "fine",
+      "ru": "ладно; хороший",
+      "example": "That's fine.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "woman",
+      "ru": "женщина",
+      "example": "Women live longer than men.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "nice",
+      "ru": "хороший, милый",
+      "example": "Nice one.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "new",
+      "ru": "новый",
+      "example": "New bolt.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "again",
+      "ru": "снова",
+      "example": "Do it again.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "believe",
+      "ru": "верить",
+      "example": "I believe that's wrong.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "find",
+      "ru": "находить",
+      "example": "Find the Unistrut.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "work",
+      "ru": "работать",
+      "example": "I work on site.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "actually",
+      "ru": "на самом деле",
+      "example": "Actually, we need two.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "even",
+      "ru": "даже",
+      "example": "Even better.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "hear",
+      "ru": "слышать",
+      "example": "I can't hear you.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "girl",
+      "ru": "девочка; девушка",
+      "example": "Little girl misses her cat.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "ever",
+      "ru": "когда-либо",
+      "example": "Have you ever used this?",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "ask",
+      "ru": "спрашивать, просить",
+      "example": "Ask him.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "year",
+      "ru": "год",
+      "example": "This year.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "stop",
+      "ru": "прекращать",
+      "example": "Stop!",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "keep",
+      "ru": "держать",
+      "example": "Keep it level.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "start",
+      "ru": "начинать",
+      "example": "Start now.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "life",
+      "ru": "жизнь",
+      "example": "On site.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "play",
+      "ru": "играть",
+      "example": "I don't even remember who played.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "put",
+      "ru": "класть",
+      "example": "Put it down.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "meet",
+      "ru": "встречаться",
+      "example": "Meet at the gate.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "use",
+      "ru": "использовать",
+      "example": "Use this.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "help",
+      "ru": "помогать",
+      "example": "Help me.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "guess",
+      "ru": "догадываться; полагать",
+      "example": "I guess so.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "listen",
+      "ru": "слушать",
+      "example": "Listen!",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "bad",
+      "ru": "плохой",
+      "example": "Bad idea.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "together",
+      "ru": "вместе",
+      "example": "Lift together.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "better",
+      "ru": "лучше",
+      "example": "Better.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "always",
+      "ru": "всегда",
+      "example": "Always wear PPE.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "place",
+      "ru": "место",
+      "example": "Workplace.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "sure",
+      "ru": "уверенный; несомненный",
+      "example": "Are you sure?",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "stuff",
+      "ru": "материал; хлам (разг )",
+      "example": "Move your stuff.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "best",
+      "ru": "лучший",
+      "example": "Best option.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "remember",
+      "ru": "помнить",
+      "example": "Remember Safe Pass.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "job",
+      "ru": "работа",
+      "example": "Job done.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "room",
+      "ru": "комната",
+      "example": "Make room.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "other",
+      "ru": "другой",
+      "example": "The other end.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "only",
+      "ru": "только; исключительно",
+      "example": "Only one left.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "name",
+      "ru": "имя, название",
+      "example": "What's your name?",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "tonight",
+      "ru": "сегодня вечером",
+      "example": "Use “tonight” on site.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "late",
+      "ru": "поздний, опоздавший",
+      "example": "Don't be late.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "live",
+      "ru": "жить",
+      "example": "I don’t know how she can live like this.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "today",
+      "ru": "сегодня",
+      "example": "I called the bank today.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "bring",
+      "ru": "приносить",
+      "example": "Bring clamps.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "wrong",
+      "ru": "неправильный",
+      "example": "Wrong size.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "else",
+      "ru": "ещё; кроме",
+      "example": "What else?",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "money",
+      "ru": "деньги",
+      "example": "Who pays?",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "stay",
+      "ru": "оставаться",
+      "example": "Stay clear.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "phone",
+      "ru": "звонить по телефону",
+      "example": "Phone the office.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "home",
+      "ru": "домой",
+      "example": "Go home.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "idea",
+      "ru": "идея",
+      "example": "Good idea.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "old",
+      "ru": "старый",
+      "example": "Old clamp.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "crazy",
+      "ru": "сумасшедший",
+      "example": "She did some terrible, crazy, selfish stuff.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "minute",
+      "ru": "минута",
+      "example": "One minute.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "house",
+      "ru": "дом",
+      "example": "I put security lights on my house.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "boy",
+      "ru": "мальчик",
+      "example": "All right, bring it home, boys.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "another",
+      "ru": "другой",
+      "example": "Another bolt.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "problem",
+      "ru": "проблема",
+      "example": "No problem.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "forget",
+      "ru": "забывать",
+      "example": "Don't forget gloves.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "cool",
+      "ru": "прохладный; классный",
+      "example": "Let it cool.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "whole",
+      "ru": "целый; весь",
+      "example": "The whole tray.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "door",
+      "ru": "дверь",
+      "example": "Close the door.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "eat",
+      "ru": "есть",
+      "example": "Eat after lunch break.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "totally",
+      "ru": "полностью",
+      "example": "My sleep cycle's totally out of whack.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "watch",
+      "ru": "смотреть",
+      "example": "Watch your step.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "probably",
+      "ru": "вероятно",
+      "example": "Probably tomorrow.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "move",
+      "ru": "двигаться",
+      "example": "Move it.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "lose",
+      "ru": "терять, проигрывать",
+      "example": "I don’t want to lose him.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "dad",
+      "ru": "папа",
+      "example": "Dad didn't come home last night.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "care",
+      "ru": "заботиться; забота",
+      "example": "Cookies says someone really cares.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "hate",
+      "ru": "ненавидеть",
+      "example": "I hate playing three-handed poker.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "buy",
+      "ru": "покупать",
+      "example": "Buying a new water heater would solve this.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "hand",
+      "ru": "рука",
+      "example": "Maybe I'll play with my left hand.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "game",
+      "ru": "игра",
+      "example": "Don't hate the player, hate thegame.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "wear",
+      "ru": "носить",
+      "example": "You never even wear that T-shirt.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "weird",
+      "ru": "странный",
+      "example": "Hey, a weird thing happened at brunch.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "sleep",
+      "ru": "спать",
+      "example": "I haven’t slept so well in years!",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "mother",
+      "ru": "мать",
+      "example": "Make no mistake, I'm a good mother.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "tomorrow",
+      "ru": "завтра",
+      "example": "They want to see you again tomorrow.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "office",
+      "ru": "офис",
+      "example": "Ed keeps calling people into his office.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "away",
+      "ru": "прочь",
+      "example": "Why did she run away?",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "kill",
+      "ru": "убивать",
+      "example": "Boys don't just kill their sisters.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "hot",
+      "ru": "горячий",
+      "example": "Hot — careful.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "understand",
+      "ru": "понимать",
+      "example": "Hi, I understand your agency handles",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "week",
+      "ru": "неделя",
+      "example": "Last week, Michael sent out this mysterious",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "excuse",
+      "ru": "извинять",
+      "example": "Excuse me, these are expensive collector's",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "head",
+      "ru": "голова",
+      "example": "That guy is holding a human head.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "question",
+      "ru": "вопрос",
+      "example": "Robin is the big unanswered question in my",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "worry",
+      "ru": "беспокоиться",
+      "example": "I'm just worried about the test results.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "hour",
+      "ru": "час",
+      "example": "One hour left.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "suppose",
+      "ru": "полагать; допускать",
+      "example": "I suppose we’re ready.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "real",
+      "ru": "реальный",
+      "example": "I owe you a real breakup call.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "hard",
+      "ru": "жёсткий; сильный",
+      "example": "Hard hat.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "part",
+      "ru": "часть",
+      "example": "Missing part.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "already",
+      "ru": "уже",
+      "example": "You've made too much progress already.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "morning",
+      "ru": "утро",
+      "example": "Good morning! - Good morning.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "dinner",
+      "ru": "ужин",
+      "example": "Fairview Chamber of Commerce, the",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "die",
+      "ru": "умирать",
+      "example": "Old habits die hard.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "ready",
+      "ru": "готовый",
+      "example": "I'm ready.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "yet",
+      "ru": "ещё",
+      "example": "Aw, well, I'm not totally back yet.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "car",
+      "ru": "автомобиль",
+      "example": "I don't race cars or make popcorn.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "honey",
+      "ru": "милая, милый",
+      "example": "I guess she's changed her mind, honey.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "hope",
+      "ru": "надеяться",
+      "example": "I hope it wasn't just beginner's luck.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "win",
+      "ru": "выигрывать",
+      "example": "Please let the Knicks win.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "number",
+      "ru": "число",
+      "example": "What's the number?",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "long",
+      "ru": "длинный",
+      "example": "Too long.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "anyway",
+      "ru": "как бы то ни было",
+      "example": "I'm feeling kind of nauseous, anyway.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "show",
+      "ru": "показать",
+      "example": "Now he's showing us his poking device.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "seem",
+      "ru": "казаться",
+      "example": "All right, it seems pretty simple.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "family",
+      "ru": "семья",
+      "example": "They'll get married, start a family.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "word",
+      "ru": "слово",
+      "example": "We use lots of words, every day.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "person",
+      "ru": "человек",
+      "example": "I'm a very, very bad person.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "miss",
+      "ru": "пропускать",
+      "example": "I'm sorry I missed your party, again.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "pay",
+      "ru": "платить",
+      "example": "Maybe we shouldn't pay our phone bill.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "drink",
+      "ru": "пить",
+      "example": "I thought, you know, we would drink",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "also",
+      "ru": "тоже; к тому же",
+      "example": "I also get to present an award.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "apartment",
+      "ru": "квартира",
+      "example": "New apartment, new stories.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "month",
+      "ru": "месяц",
+      "example": "Three months ago, you broke my heart.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "couple",
+      "ru": "пара",
+      "example": "Just a couple of his best swimmers.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "deal",
+      "ru": "сделка",
+      "example": "You got yourself a very weird deal.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "father",
+      "ru": "отец",
+      "example": "We have located the biological father.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "child",
+      "ru": "ребёнок",
+      "example": "The Big Book of Children's Names.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "sound",
+      "ru": "звучать",
+      "example": "I know it sounds crazy, but still.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "spend",
+      "ru": "тратить",
+      "example": "She spent a year in Antarctica studying",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "run",
+      "ru": "бежать; управлять",
+      "example": "Wow, so you run your own restaurant!",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "change",
+      "ru": "менять, изменяться",
+      "example": "Use “change” on site.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "world",
+      "ru": "мир",
+      "example": "The world is filled with good fathers.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "sweet",
+      "ru": "сладкий",
+      "example": "Isn’t he the sweetest?",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "school",
+      "ru": "школа",
+      "example": "He never went to school.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "throw",
+      "ru": "бросать",
+      "example": "You threw broccoli at her.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "lady",
+      "ru": "леди, девушка",
+      "example": "Again, don't blame the pretty lady.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "eye",
+      "ru": "глаз",
+      "example": "Keep an eye on him.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "anymore",
+      "ru": "больше, уже",
+      "example": "Well, look, it's hardly snowing anymore.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "ago",
+      "ru": "тому назад",
+      "example": "Left us six months ago for Office Depot.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "exactly",
+      "ru": "точно",
+      "example": "What happened exactly?",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "speak",
+      "ru": "говорить",
+      "example": "I think I spoke too quickly.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "sit",
+      "ru": "сидеть",
+      "example": "Just sit there and color.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "face",
+      "ru": "лицо",
+      "example": "Don’t know, I couldn’t see his face.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "break",
+      "ru": "ломать",
+      "example": "Don't break it.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "plan",
+      "ru": "план",
+      "example": "Check the plan.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "sometime",
+      "ru": "иногда",
+      "example": "I mean, sometimes persistence pays off.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "pick",
+      "ru": "выбирать",
+      "example": "I'm really glad I picked you guys.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "true",
+      "ru": "верный; истинный",
+      "example": "True love is great.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "point",
+      "ru": "точка; смысл",
+      "example": "That's the whole point of getting drunk.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "read",
+      "ru": "читать",
+      "example": "That's fine, you just read the paper.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "serious",
+      "ru": "серьёзный",
+      "example": "You know that I'm very serious here.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "easy",
+      "ru": "лёгкий",
+      "example": "Well, I gotta say, it was easy.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "realize",
+      "ru": "осуществлять; осознавать",
+      "example": "She's realized she's made a huge mistake.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "wish",
+      "ru": "желать",
+      "example": "I just wish you'd said something sooner.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "relationship",
+      "ru": "отношения",
+      "example": "Relationships aren't easy; they're hard",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "hurt",
+      "ru": "причинять боль",
+      "example": "You better not hurt that little bat.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "chance",
+      "ru": "шанс",
+      "example": "I guess I really missed my chance.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "send",
+      "ru": "посылать",
+      "example": "I sent it a couple days ago.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "different",
+      "ru": "другой",
+      "example": "Different size.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "damn",
+      "ru": "чертов",
+      "example": "Just eat your damn soup.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "perfect",
+      "ru": "идеальный",
+      "example": "I know the perfect place too.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "important",
+      "ru": "важный",
+      "example": "That's not really important right now.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "write",
+      "ru": "писать",
+      "example": "No, I write children's books.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "matter",
+      "ru": "дело",
+      "example": "It was also a private family matter.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "picture",
+      "ru": "картинка",
+      "example": "We have pictures of cute babies we don't",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "reason",
+      "ru": "причина",
+      "example": "She's always finding reasons to hug me.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "high",
+      "ru": "высокий",
+      "example": "Too high.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "food",
+      "ru": "еда",
+      "example": "Mother Hodge, your food will get cold.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "lie",
+      "ru": "лгать; лежать",
+      "example": "I think frosting makes me lie.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "check",
+      "ru": "проверить",
+      "example": "Check the drawing.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "fact",
+      "ru": "факт",
+      "example": "The fact is, you are drinking grape soda.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "hit",
+      "ru": "ударять; попадать",
+      "example": "I just figured we hit a dog.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "doctor",
+      "ru": "врач",
+      "example": "You don't expect doctors to get sick.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "business",
+      "ru": "дело; бизнес",
+      "example": "It’s none of your business.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "moment",
+      "ru": "момент",
+      "example": "That moment right before the lips touch.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "decide",
+      "ru": "решать",
+      "example": "We decided to name the girl baby Erica.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "once",
+      "ru": "однажды",
+      "example": "I broke my leg once too.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "news",
+      "ru": "новости",
+      "example": "I'm afraid I've got some bad news.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "bed",
+      "ru": "кровать",
+      "example": "Honey, you made the bed again.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "promise",
+      "ru": "обещать",
+      "example": "Carlos, you promised you'd come home",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "young",
+      "ru": "молодой",
+      "example": "Nice to meet you, young man.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "drive",
+      "ru": "ездить",
+      "example": "Were you going to drive there?",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "book",
+      "ru": "книга",
+      "example": "She's doing a book signing right now.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "paper",
+      "ru": "бумага; газета; документ",
+      "example": "I found your old condo closing papers.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "line",
+      "ru": "линия",
+      "example": "On the line.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "hair",
+      "ru": "волосы",
+      "example": "Uh, does he have like, dark hair, bushy",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "hold",
+      "ru": "держать",
+      "example": "Hold it steady.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "end",
+      "ru": "конец",
+      "example": "Hold this end.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "dead",
+      "ru": "мёртвый",
+      "example": "I just assumed you were dead inside.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "fire",
+      "ru": "уволить",
+      "example": "Where is the fire exit?",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "seriously",
+      "ru": "серьёзно",
+      "example": "Seriously, gal pal Rachel Green.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "card",
+      "ru": "карта",
+      "example": "Tomorrow I'm canceling your creditcards.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "mind",
+      "ru": "ум",
+      "example": "More blessings could make me lose",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "luck",
+      "ru": "удача",
+      "example": "Good luck in there baby.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "ring",
+      "ru": "кольцо",
+      "example": "His dog ended up as ring bearer.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "glad",
+      "ru": "довольный",
+      "example": "I'm glad you came here tonight, Ted.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "open",
+      "ru": "открывать",
+      "example": "Open the gate.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "absolutely",
+      "ru": "абсолютно, именно",
+      "example": "Australian, mate? - Absolutely! - 'Ello, mate.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "invite",
+      "ru": "приглашать",
+      "example": "Wait, I've already invited someone.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "learn",
+      "ru": "учиться",
+      "example": "I've learned you're a wee bit touchy.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "excite",
+      "ru": "волновать",
+      "example": "I just have a very exciting offer.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "table",
+      "ru": "стол",
+      "example": "Come set the table for dinner.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "while",
+      "ru": "промежуток времени",
+      "example": "I’ll be here for a while.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "steal",
+      "ru": "красть",
+      "example": "Druthers just thinks someone stole his ball.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "almost",
+      "ru": "почти",
+      "example": "My God, we almost killed an innocent",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "company",
+      "ru": "компания",
+      "example": "My insurance company's cutting my check.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "finally",
+      "ru": "наконец-то",
+      "example": "Maybe he's finally getting on board.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "turn",
+      "ru": "поворачивать",
+      "example": "Turn it off.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "box",
+      "ru": "коробка",
+      "example": "Open the box.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "bathroom",
+      "ru": "ванная комната",
+      "example": "The duck's using our bathroom anyway.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "mad",
+      "ru": "сумасшедший",
+      "example": "Use “mad” on site.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "wonder",
+      "ru": "удивляться",
+      "example": "I wonder why he’s so happy today.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "soon",
+      "ru": "скоро",
+      "example": "Hope you get this message soon.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "stand",
+      "ru": "стоять",
+      "example": "Stand clear.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "pants",
+      "ru": "брюки",
+      "example": "Even they don't want those pants back.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "dude",
+      "ru": "чувак",
+      "example": "The dude’s crazy.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "street",
+      "ru": "улица",
+      "example": "The whole street's dying to see you.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "gift",
+      "ru": "подарок",
+      "example": "Well, just enjoy the gift basket.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "gay",
+      "ru": "гомосексуальный",
+      "example": "It's a very gay friendly neighborhood.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "finish",
+      "ru": "заканчивать; кончаться",
+      "example": "We've just finished Thanksgiving dinner.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "special",
+      "ru": "особенный",
+      "example": "Use “special” on site.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "cut",
+      "ru": "резать",
+      "example": "Cut it to length.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "city",
+      "ru": "город",
+      "example": "Let’s show her the city!",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "pregnant",
+      "ru": "беременный",
+      "example": "I've never come home pregnant.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "sick",
+      "ru": "больной",
+      "example": "She’s called in sick again.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "terrible",
+      "ru": "ужасный",
+      "example": "Tampa Bay's got a terrible team.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "message",
+      "ru": "сообщение",
+      "example": "I just got this weird message from Ross.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "save",
+      "ru": "экономить, копить",
+      "example": "And also, it saves gas money.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "team",
+      "ru": "команда",
+      "example": "Good teamwork.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "sell",
+      "ru": "продавать",
+      "example": "I'm selling Brown Bird cookies.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "walk",
+      "ru": "идти пешком; гулять",
+      "example": "Do you want to drive or walk?",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "boss",
+      "ru": "босс",
+      "example": "Ask the boss.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "mistake",
+      "ru": "ошибка",
+      "example": "She made a mistake, a mistake named",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "dream",
+      "ru": "мечта",
+      "example": "It's my greatest dream come true.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "foot",
+      "ru": "стопа",
+      "example": "Okay, legs, knees and feet.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "trust",
+      "ru": "доверять, верить",
+      "example": "Trust me, it only gets worse.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "catch",
+      "ru": "ловить",
+      "example": "It just kinda caught me off guard.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "touch",
+      "ru": "касаться",
+      "example": "The moment right before the lips touch.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "lunch",
+      "ru": "обед",
+      "example": "And Kevin had Greek food for lunch again.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "amazing",
+      "ru": "удивительный",
+      "example": "You have an amazing job, good friends.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "key",
+      "ru": "ключ",
+      "example": "Find the key.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "small",
+      "ru": "небольшой",
+      "example": "Honey, it was only a small neighborhood",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "teach",
+      "ru": "учить",
+      "example": "They did, taught by some Harvard Business",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "alone",
+      "ru": "в одиночестве",
+      "example": "So, you know, just leave mealone.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "stick",
+      "ru": "липнуть; придерживаться",
+      "example": "The leather sticks to my butt.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "enjoy",
+      "ru": "наслаждаться",
+      "example": "So, enjoy this moment, enjoy your dream.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "police",
+      "ru": "полиция",
+      "example": "Okay, I'll call the realpolice.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "scare",
+      "ru": "пугать",
+      "example": "Okay, just a littlescared.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "free",
+      "ru": "свободный",
+      "example": "Ministers don't ride the subway for free.",
+      "part_of_speech": "adjective / прилагательное"
+    },
+    {
+      "en": "side",
+      "ru": "сторона",
+      "example": "This side.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "definitely",
+      "ru": "определённо",
+      "example": "And long distance definitely isn't an option.",
+      "part_of_speech": "adverb / наречие"
+    },
+    {
+      "en": "rest",
+      "ru": "остаток",
+      "example": "What do you wanna do the rest of the day?",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "truth",
+      "ru": "правда",
+      "example": "Nobody ever tells kids the truth.",
+      "part_of_speech": "noun / существительное"
+    },
+    {
+      "en": "become",
+      "ru": "становиться",
+      "example": "People don't become poor overnight.",
+      "part_of_speech": "verb / глагол"
+    },
+    {
+      "en": "half",
+      "ru": "половинный",
+      "example": "Four and a half stories per week.",
+      "part_of_speech": "adjective / прилагательное"
+    }
+  ]
+}

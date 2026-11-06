@@ -1,0 +1,752 @@
+{
+  "version": 1,
+  "verbs": [
+    {
+      "lemma": "be",
+      "base": "be",
+      "past": "was",
+      "pp": "been",
+      "third": "is",
+      "type": "be",
+      "ru": "быть"
+    },
+    {
+      "lemma": "have",
+      "base": "have",
+      "past": "had",
+      "pp": "had",
+      "third": "has",
+      "type": "do",
+      "ru": "иметь"
+    },
+    {
+      "lemma": "need",
+      "base": "need",
+      "past": "needed",
+      "pp": "needed",
+      "third": "needs",
+      "type": "do",
+      "ru": "нужно"
+    },
+    {
+      "lemma": "want",
+      "base": "want",
+      "past": "wanted",
+      "pp": "wanted",
+      "third": "wants",
+      "type": "do",
+      "ru": "хотеть"
+    },
+    {
+      "lemma": "get",
+      "base": "get",
+      "past": "got",
+      "pp": "got",
+      "third": "gets",
+      "type": "do",
+      "ru": "получить/добраться"
+    },
+    {
+      "lemma": "go",
+      "base": "go",
+      "past": "went",
+      "pp": "gone",
+      "third": "goes",
+      "type": "do",
+      "ru": "идти"
+    },
+    {
+      "lemma": "come",
+      "base": "come",
+      "past": "came",
+      "pp": "come",
+      "third": "comes",
+      "type": "do",
+      "ru": "прийти"
+    },
+    {
+      "lemma": "see",
+      "base": "see",
+      "past": "saw",
+      "pp": "seen",
+      "third": "sees",
+      "type": "do",
+      "ru": "видеть"
+    },
+    {
+      "lemma": "look",
+      "base": "look",
+      "past": "looked",
+      "pp": "looked",
+      "third": "looks",
+      "type": "do",
+      "ru": "смотреть"
+    },
+    {
+      "lemma": "check",
+      "base": "check",
+      "past": "checked",
+      "pp": "checked",
+      "third": "checks",
+      "type": "do",
+      "ru": "проверить"
+    },
+    {
+      "lemma": "sign",
+      "base": "sign",
+      "past": "signed",
+      "pp": "signed",
+      "third": "signs",
+      "type": "do",
+      "ru": "подписать/отметиться"
+    },
+    {
+      "lemma": "put",
+      "base": "put",
+      "past": "put",
+      "pp": "put",
+      "third": "puts",
+      "type": "do",
+      "ru": "класть/ставить"
+    },
+    {
+      "lemma": "take",
+      "base": "take",
+      "past": "took",
+      "pp": "taken",
+      "third": "takes",
+      "type": "do",
+      "ru": "брать"
+    },
+    {
+      "lemma": "give",
+      "base": "give",
+      "past": "gave",
+      "pp": "given",
+      "third": "gives",
+      "type": "do",
+      "ru": "давать"
+    },
+    {
+      "lemma": "bring",
+      "base": "bring",
+      "past": "brought",
+      "pp": "brought",
+      "third": "brings",
+      "type": "do",
+      "ru": "принести"
+    },
+    {
+      "lemma": "cut",
+      "base": "cut",
+      "past": "cut",
+      "pp": "cut",
+      "third": "cuts",
+      "type": "do",
+      "ru": "резать"
+    },
+    {
+      "lemma": "drill",
+      "base": "drill",
+      "past": "drilled",
+      "pp": "drilled",
+      "third": "drills",
+      "type": "do",
+      "ru": "сверлить"
+    },
+    {
+      "lemma": "fix",
+      "base": "fix",
+      "past": "fixed",
+      "pp": "fixed",
+      "third": "fixes",
+      "type": "do",
+      "ru": "починить"
+    },
+    {
+      "lemma": "fit",
+      "base": "fit",
+      "past": "fitted",
+      "pp": "fitted",
+      "third": "fits",
+      "type": "do",
+      "ru": "установить/подогнать"
+    },
+    {
+      "lemma": "hang",
+      "base": "hang",
+      "past": "hung",
+      "pp": "hung",
+      "third": "hangs",
+      "type": "do",
+      "ru": "вешать"
+    },
+    {
+      "lemma": "hold",
+      "base": "hold",
+      "past": "held",
+      "pp": "held",
+      "third": "holds",
+      "type": "do",
+      "ru": "держать"
+    },
+    {
+      "lemma": "isolate",
+      "base": "isolate",
+      "past": "isolated",
+      "pp": "isolated",
+      "third": "isolates",
+      "type": "do",
+      "ru": "обесточить"
+    },
+    {
+      "lemma": "switch",
+      "base": "switch",
+      "past": "switched",
+      "pp": "switched",
+      "third": "switches",
+      "type": "do",
+      "ru": "переключить"
+    },
+    {
+      "lemma": "turn",
+      "base": "turn",
+      "past": "turned",
+      "pp": "turned",
+      "third": "turns",
+      "type": "do",
+      "ru": "повернуть/вкл"
+    },
+    {
+      "lemma": "open",
+      "base": "open",
+      "past": "opened",
+      "pp": "opened",
+      "third": "opens",
+      "type": "do",
+      "ru": "открыть"
+    },
+    {
+      "lemma": "close",
+      "base": "close",
+      "past": "closed",
+      "pp": "closed",
+      "third": "closes",
+      "type": "do",
+      "ru": "закрыть"
+    },
+    {
+      "lemma": "start",
+      "base": "start",
+      "past": "started",
+      "pp": "started",
+      "third": "starts",
+      "type": "do",
+      "ru": "начать"
+    },
+    {
+      "lemma": "stop",
+      "base": "stop",
+      "past": "stopped",
+      "pp": "stopped",
+      "third": "stops",
+      "type": "do",
+      "ru": "остановить"
+    },
+    {
+      "lemma": "wait",
+      "base": "wait",
+      "past": "waited",
+      "pp": "waited",
+      "third": "waits",
+      "type": "do",
+      "ru": "ждать"
+    },
+    {
+      "lemma": "call",
+      "base": "call",
+      "past": "called",
+      "pp": "called",
+      "third": "calls",
+      "type": "do",
+      "ru": "позвонить"
+    },
+    {
+      "lemma": "ask",
+      "base": "ask",
+      "past": "asked",
+      "pp": "asked",
+      "third": "asks",
+      "type": "do",
+      "ru": "спросить"
+    },
+    {
+      "lemma": "tell",
+      "base": "tell",
+      "past": "told",
+      "pp": "told",
+      "third": "tells",
+      "type": "do",
+      "ru": "сказать"
+    },
+    {
+      "lemma": "say",
+      "base": "say",
+      "past": "said",
+      "pp": "said",
+      "third": "says",
+      "type": "do",
+      "ru": "говорить"
+    },
+    {
+      "lemma": "know",
+      "base": "know",
+      "past": "knew",
+      "pp": "known",
+      "third": "knows",
+      "type": "do",
+      "ru": "знать"
+    },
+    {
+      "lemma": "think",
+      "base": "think",
+      "past": "thought",
+      "pp": "thought",
+      "third": "thinks",
+      "type": "do",
+      "ru": "думать"
+    },
+    {
+      "lemma": "work",
+      "base": "work",
+      "past": "worked",
+      "pp": "worked",
+      "third": "works",
+      "type": "do",
+      "ru": "работать"
+    },
+    {
+      "lemma": "help",
+      "base": "help",
+      "past": "helped",
+      "pp": "helped",
+      "third": "helps",
+      "type": "do",
+      "ru": "помочь"
+    },
+    {
+      "lemma": "use",
+      "base": "use",
+      "past": "used",
+      "pp": "used",
+      "third": "uses",
+      "type": "do",
+      "ru": "использовать"
+    },
+    {
+      "lemma": "make",
+      "base": "make",
+      "past": "made",
+      "pp": "made",
+      "third": "makes",
+      "type": "do",
+      "ru": "сделать"
+    },
+    {
+      "lemma": "move",
+      "base": "move",
+      "past": "moved",
+      "pp": "moved",
+      "third": "moves",
+      "type": "do",
+      "ru": "двигать"
+    },
+    {
+      "lemma": "lift",
+      "base": "lift",
+      "past": "lifted",
+      "pp": "lifted",
+      "third": "lifts",
+      "type": "do",
+      "ru": "поднять"
+    },
+    {
+      "lemma": "pull",
+      "base": "pull",
+      "past": "pulled",
+      "pp": "pulled",
+      "third": "pulls",
+      "type": "do",
+      "ru": "тянуть"
+    },
+    {
+      "lemma": "push",
+      "base": "push",
+      "past": "pushed",
+      "pp": "pushed",
+      "third": "pushes",
+      "type": "do",
+      "ru": "толкать"
+    },
+    {
+      "lemma": "measure",
+      "base": "measure",
+      "past": "measured",
+      "pp": "measured",
+      "third": "measures",
+      "type": "do",
+      "ru": "мерить"
+    },
+    {
+      "lemma": "mark",
+      "base": "mark",
+      "past": "marked",
+      "pp": "marked",
+      "third": "marks",
+      "type": "do",
+      "ru": "отметить"
+    },
+    {
+      "lemma": "run",
+      "base": "run",
+      "past": "ran",
+      "pp": "run",
+      "third": "runs",
+      "type": "do",
+      "ru": "протянуть/пустить"
+    },
+    {
+      "lemma": "feed",
+      "base": "feed",
+      "past": "fed",
+      "pp": "fed",
+      "third": "feeds",
+      "type": "do",
+      "ru": "затянуть кабель"
+    },
+    {
+      "lemma": "terminate",
+      "base": "terminate",
+      "past": "terminated",
+      "pp": "terminated",
+      "third": "terminates",
+      "type": "do",
+      "ru": "оконцевать"
+    },
+    {
+      "lemma": "earth",
+      "base": "earth",
+      "past": "earthed",
+      "pp": "earthed",
+      "third": "earths",
+      "type": "do",
+      "ru": "заземлить"
+    },
+    {
+      "lemma": "test",
+      "base": "test",
+      "past": "tested",
+      "pp": "tested",
+      "third": "tests",
+      "type": "do",
+      "ru": "протестировать"
+    },
+    {
+      "lemma": "prove",
+      "base": "prove",
+      "past": "proved",
+      "pp": "proved",
+      "third": "proves",
+      "type": "do",
+      "ru": "доказать dead"
+    },
+    {
+      "lemma": "wear",
+      "base": "wear",
+      "past": "wore",
+      "pp": "worn",
+      "third": "wears",
+      "type": "do",
+      "ru": "носить (СИЗ)"
+    },
+    {
+      "lemma": "carry",
+      "base": "carry",
+      "past": "carried",
+      "pp": "carried",
+      "third": "carries",
+      "type": "do",
+      "ru": "нести"
+    },
+    {
+      "lemma": "leave",
+      "base": "leave",
+      "past": "left",
+      "pp": "left",
+      "third": "leaves",
+      "type": "do",
+      "ru": "оставить/уйти"
+    },
+    {
+      "lemma": "find",
+      "base": "find",
+      "past": "found",
+      "pp": "found",
+      "third": "finds",
+      "type": "do",
+      "ru": "найти"
+    },
+    {
+      "lemma": "show",
+      "base": "show",
+      "past": "showed",
+      "pp": "shown",
+      "third": "shows",
+      "type": "do",
+      "ru": "показать"
+    },
+    {
+      "lemma": "read",
+      "base": "read",
+      "past": "read",
+      "pp": "read",
+      "third": "reads",
+      "type": "do",
+      "ru": "читать"
+    },
+    {
+      "lemma": "write",
+      "base": "write",
+      "past": "wrote",
+      "pp": "written",
+      "third": "writes",
+      "type": "do",
+      "ru": "писать"
+    },
+    {
+      "lemma": "clean",
+      "base": "clean",
+      "past": "cleaned",
+      "pp": "cleaned",
+      "third": "cleans",
+      "type": "do",
+      "ru": "убрать"
+    },
+    {
+      "lemma": "pack",
+      "base": "pack",
+      "past": "packed",
+      "pp": "packed",
+      "third": "packs",
+      "type": "do",
+      "ru": "упаковать"
+    },
+    {
+      "lemma": "park",
+      "base": "park",
+      "past": "parked",
+      "pp": "parked",
+      "third": "parks",
+      "type": "do",
+      "ru": "припарковать"
+    },
+    {
+      "lemma": "enter",
+      "base": "enter",
+      "past": "entered",
+      "pp": "entered",
+      "third": "enters",
+      "type": "do",
+      "ru": "войти"
+    },
+    {
+      "lemma": "exit",
+      "base": "exit",
+      "past": "exited",
+      "pp": "exited",
+      "third": "exits",
+      "type": "do",
+      "ru": "выйти"
+    },
+    {
+      "lemma": "follow",
+      "base": "follow",
+      "past": "followed",
+      "pp": "followed",
+      "third": "follows",
+      "type": "do",
+      "ru": "следовать"
+    },
+    {
+      "lemma": "keep",
+      "base": "keep",
+      "past": "kept",
+      "pp": "kept",
+      "third": "keeps",
+      "type": "do",
+      "ru": "держать/хранить"
+    },
+    {
+      "lemma": "stay",
+      "base": "stay",
+      "past": "stayed",
+      "pp": "stayed",
+      "third": "stays",
+      "type": "do",
+      "ru": "остаться"
+    },
+    {
+      "lemma": "stand",
+      "base": "stand",
+      "past": "stood",
+      "pp": "stood",
+      "third": "stands",
+      "type": "do",
+      "ru": "стоять"
+    },
+    {
+      "lemma": "sit",
+      "base": "sit",
+      "past": "sat",
+      "pp": "sat",
+      "third": "sits",
+      "type": "do",
+      "ru": "сидеть"
+    },
+    {
+      "lemma": "climb",
+      "base": "climb",
+      "past": "climbed",
+      "pp": "climbed",
+      "third": "climbs",
+      "type": "do",
+      "ru": "лезть"
+    },
+    {
+      "lemma": "reach",
+      "base": "reach",
+      "past": "reached",
+      "pp": "reached",
+      "third": "reaches",
+      "type": "do",
+      "ru": "достать"
+    },
+    {
+      "lemma": "connect",
+      "base": "connect",
+      "past": "connected",
+      "pp": "connected",
+      "third": "connects",
+      "type": "do",
+      "ru": "подключить"
+    },
+    {
+      "lemma": "disconnect",
+      "base": "disconnect",
+      "past": "disconnected",
+      "pp": "disconnected",
+      "third": "disconnects",
+      "type": "do",
+      "ru": "отключить"
+    },
+    {
+      "lemma": "replace",
+      "base": "replace",
+      "past": "replaced",
+      "pp": "replaced",
+      "third": "replaces",
+      "type": "do",
+      "ru": "заменить"
+    },
+    {
+      "lemma": "remove",
+      "base": "remove",
+      "past": "removed",
+      "pp": "removed",
+      "third": "removes",
+      "type": "do",
+      "ru": "снять"
+    },
+    {
+      "lemma": "install",
+      "base": "install",
+      "past": "installed",
+      "pp": "installed",
+      "third": "installs",
+      "type": "do",
+      "ru": "смонтировать"
+    },
+    {
+      "lemma": "mount",
+      "base": "mount",
+      "past": "mounted",
+      "pp": "mounted",
+      "third": "mounts",
+      "type": "do",
+      "ru": "закрепить"
+    },
+    {
+      "lemma": "secure",
+      "base": "secure",
+      "past": "secured",
+      "pp": "secured",
+      "third": "secures",
+      "type": "do",
+      "ru": "закрепить надёжно"
+    },
+    {
+      "lemma": "tighten",
+      "base": "tighten",
+      "past": "tightened",
+      "pp": "tightened",
+      "third": "tightens",
+      "type": "do",
+      "ru": "затянуть"
+    },
+    {
+      "lemma": "loosen",
+      "base": "loosen",
+      "past": "loosened",
+      "pp": "loosened",
+      "third": "loosens",
+      "type": "do",
+      "ru": "ослабить"
+    },
+    {
+      "lemma": "cover",
+      "base": "cover",
+      "past": "covered",
+      "pp": "covered",
+      "third": "covers",
+      "type": "do",
+      "ru": "накрыть"
+    },
+    {
+      "lemma": "label",
+      "base": "label",
+      "past": "labelled",
+      "pp": "labelled",
+      "third": "labels",
+      "type": "do",
+      "ru": "промаркировать"
+    },
+    {
+      "lemma": "report",
+      "base": "report",
+      "past": "reported",
+      "pp": "reported",
+      "third": "reports",
+      "type": "do",
+      "ru": "сообщить"
+    },
+    {
+      "lemma": "confirm",
+      "base": "confirm",
+      "past": "confirmed",
+      "pp": "confirmed",
+      "third": "confirms",
+      "type": "do",
+      "ru": "подтвердить"
+    }
+  ]
+}

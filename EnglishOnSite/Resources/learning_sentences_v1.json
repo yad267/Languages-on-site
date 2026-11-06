@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "en": "I understand.",
+      "ru": "Я понимаю.",
+      "category": "general"
+    },
+    {
+      "en": "I don't understand.",
+      "ru": "Я не понимаю.",
+      "category": "general"
+    },
+    {
+      "en": "Can you repeat that, please?",
+      "ru": "Можешь повторить, пожалуйста?",
+      "category": "general"
+    },
+    {
+      "en": "Speak slowly, please.",
+      "ru": "Говори медленнее, пожалуйста.",
+      "category": "general"
+    },
+    {
+      "en": "What does that mean?",
+      "ru": "Что это значит?",
+      "category": "general"
+    },
+    {
+      "en": "How do you say this in English?",
+      "ru": "Как это сказать по-английски?",
+      "category": "general"
+    },
+    {
+      "en": "One moment, please.",
+      "ru": "Секунду, пожалуйста.",
+      "category": "general"
+    },
+    {
+      "en": "I'm ready.",
+      "ru": "Я готов.",
+      "category": "general"
+    },
+    {
+      "en": "I'm finished. / I'm done.",
+      "ru": "Я закончил.",
+      "category": "general"
+    },
+    {
+      "en": "Not yet.",
+      "ru": "Ещё нет.",
+      "category": "general"
+    },
+    {
+      "en": "Almost done.",
+      "ru": "Почти готово.",
+      "category": "general"
+    },
+    {
+      "en": "Same again.",
+      "ru": "То же самое ещё раз.",
+      "category": "general"
+    },
+    {
+      "en": "More, please. / That's enough.",
+      "ru": "Ещё / Хватит.",
+      "category": "general"
+    },
+    {
+      "en": "Before / after / next.",
+      "ru": "До / после / следующий.",
+      "category": "general"
+    },
+    {
+      "en": "Left / right / up / down.",
+      "ru": "Влево / вправо / вверх / вниз.",
+      "category": "general"
+    },
+    {
+      "en": "Inside / outside / under / over.",
+      "ru": "Внутри / снаружи / под / над.",
+      "category": "general"
+    },
+    {
+      "en": "Heavy / light / long / short.",
+      "ru": "Тяжёлый / лёгкий / длинный / короткий.",
+      "category": "general"
+    },
+    {
+      "en": "Bring it here. / Take it there.",
+      "ru": "Принеси сюда / Отнеси туда.",
+      "category": "general"
+    },
+    {
+      "en": "Show me.",
+      "ru": "Покажи мне.",
+      "category": "general"
+    },
+    {
+      "en": "I got it. / Understood.",
+      "ru": "Понял.",
+      "category": "general"
+    },
+    {
+      "en": "Where is the Unistrut?",
+      "ru": "Где юнистрат?",
+      "category": "site"
+    },
+    {
+      "en": "We need a longer tray.",
+      "ru": "Нужен более длинный лоток.",
+      "category": "site"
+    },
+    {
+      "en": "Put the basket underneath.",
+      "ru": "Поставь корзину снизу.",
+      "category": "site"
+    },
+    {
+      "en": "Hand me a clamp.",
+      "ru": "Дай зажим.",
+      "category": "site"
+    },
+    {
+      "en": "I need a nut and a washer.",
+      "ru": "Нужны гайка и шайба.",
+      "category": "site"
+    },
+    {
+      "en": "Is this the right size bolt?",
+      "ru": "Это болт нужного размера?",
+      "category": "site"
+    },
+    {
+      "en": "Don't overtighten it.",
+      "ru": "Не перетягивай.",
+      "category": "site"
+    },
+    {
+      "en": "It's loose. Tighten it.",
+      "ru": "Слабо. Затяни.",
+      "category": "site"
+    },
+    {
+      "en": "Mark it here.",
+      "ru": "Отметь здесь.",
+      "category": "site"
+    },
+    {
+      "en": "Measure twice, cut once.",
+      "ru": "Отмерь дважды, режь один раз.",
+      "category": "site"
+    },
+    {
+      "en": "Keep it level.",
+      "ru": "Держи по уровню.",
+      "category": "site"
+    },
+    {
+      "en": "Support this end.",
+      "ru": "Поддержи этот конец.",
+      "category": "site"
+    },
+    {
+      "en": "Mind the cable.",
+      "ru": "Осторожно, кабель.",
+      "category": "site"
+    },
+    {
+      "en": "Is the power off?",
+      "ru": "Питание выключено?",
+      "category": "site"
+    },
+    {
+      "en": "Lock out / tag out.",
+      "ru": "Блокировка / бирка (LOTO).",
+      "category": "site"
+    },
+    {
+      "en": "Where is the fire exit?",
+      "ru": "Где пожарный выход?",
+      "category": "site"
+    },
+    {
+      "en": "First aid kit.",
+      "ru": "Аптечка.",
+      "category": "site"
+    },
+    {
+      "en": "Report it to the supervisor.",
+      "ru": "Сообщи бригадиру.",
+      "category": "site"
+    },
+    {
+      "en": "I need a longer ladder.",
+      "ru": "Нужна более длинная лестница.",
+      "category": "site"
+    },
+    {
+      "en": "Don't stand under the load.",
+      "ru": "Не стой под грузом.",
+      "category": "site"
+    },
+    {
+      "en": "Clear the area.",
+      "ru": "Освободи зону.",
+      "category": "site"
+    },
+    {
+      "en": "Wear your gloves.",
+      "ru": "Надень перчатки.",
+      "category": "site"
+    },
+    {
+      "en": "Put your hard hat on.",
+      "ru": "Надень каску.",
+      "category": "site"
+    },
+    {
+      "en": "Hi-vis must be on.",
+      "ru": "Жилет должен быть надет.",
+      "category": "site"
+    },
+    {
+      "en": "Induction is at eight.",
+      "ru": "Инструктаж в восемь.",
+      "category": "site"
+    },
+    {
+      "en": "Have you got your Safe Pass?",
+      "ru": "Есть Safe Pass?",
+      "category": "site"
+    },
+    {
+      "en": "Lay the tools out tidily.",
+      "ru": "Разложи инструмент аккуратно.",
+      "category": "site"
+    },
+    {
+      "en": "Sweep up / tidy the scrap.",
+      "ru": "Подмети / убери обрезки.",
+      "category": "site"
+    },
+    {
+      "en": "This piece is too short.",
+      "ru": "Эта деталь слишком короткая.",
+      "category": "site"
+    },
+    {
+      "en": "We need another length.",
+      "ru": "Нужен ещё один кусок/длина.",
+      "category": "site"
+    },
+    {
+      "en": "Stand by.",
+      "ru": "Жди наготове.",
+      "category": "commands"
+    },
+    {
+      "en": "Hold it steady.",
+      "ru": "Держи ровно/устойчиво.",
+      "category": "commands"
+    },
+    {
+      "en": "Lift together. / On three.",
+      "ru": "Поднимаем вместе / На счёт три.",
+      "category": "commands"
+    },
+    {
+      "en": "Lower it slowly.",
+      "ru": "Опускай медленно.",
+      "category": "commands"
+    },
+    {
+      "en": "Don't let go.",
+      "ru": "Не отпускай.",
+      "category": "commands"
+    },
+    {
+      "en": "Let go now.",
+      "ru": "Теперь отпускай.",
+      "category": "commands"
+    },
+    {
+      "en": "Move back.",
+      "ru": "Отойди назад.",
+      "category": "commands"
+    },
+    {
+      "en": "Stay clear.",
+      "ru": "Не подходи / держись в стороне.",
+      "category": "commands"
+    },
+    {
+      "en": "That's square. / That's plumb.",
+      "ru": "По угольнику / По отвесу.",
+      "category": "commands"
+    },
+    {
+      "en": "Check the drawing.",
+      "ru": "Сверься с чертежом.",
+      "category": "commands"
+    },
+    {
+      "en": "As per the drawing.",
+      "ru": "Как на чертеже.",
+      "category": "commands"
+    },
+    {
+      "en": "Leave it for now.",
+      "ru": "Пока оставь.",
+      "category": "commands"
+    },
+    {
+      "en": "We'll finish it after break.",
+      "ru": "Доделаем после перерыва.",
+      "category": "commands"
+    },
+    {
+      "en": "Who's got the 13 mil spanner?",
+      "ru": "У кого ключ на 13?",
+      "category": "commands"
+    },
+    {
+      "en": "Grab the spirit level.",
+      "ru": "Возьми уровень.",
+      "category": "commands"
+    },
+    {
+      "en": "Cable-tie that.",
+      "ru": "Стяни хомутом/стяжкой.",
+      "category": "commands"
+    },
+    {
+      "en": "Earth that tray.",
+      "ru": "Заземли этот лоток.",
+      "category": "commands"
+    },
+    {
+      "en": "Pack up.",
+      "ru": "Собирайся / упаковывай.",
+      "category": "commands"
+    },
+    {
+      "en": "Last job for today.",
+      "ru": "Последняя задача на сегодня.",
+      "category": "commands"
+    },
+    {
+      "en": "Good work. / Nice one.",
+      "ru": "Хорошая работа.",
+      "category": "commands"
+    }
+  ]
+}

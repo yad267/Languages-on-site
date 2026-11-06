@@ -1,0 +1,27 @@
+---
+description: After every English OnSite code change — build Simulator, exercise the feature, fix to green, report in copyable text fence
+alwaysApply: true
+---
+
+# English OnSite — Simulator verify after every change
+
+Project: `~/Developer/EnglishOnSite/` · scheme **EnglishOnSite**.
+
+After **every** code edit you make in this repo, you personally:
+
+1. **Build** scheme `EnglishOnSite` for iOS Simulator (`xcodebuild` or equivalent). Do not stop at editing files.
+2. **Exercise the feature you changed** on Simulator (install/launch via `simctl` when needed) — not only `BUILD SUCCEEDED`.
+3. **Fix and rebuild** until Simulator is green for that scenario.
+4. **Report** in a single markdown code fence with language `text` (Copy button):
+   - BUILD result
+   - exactly what you verified on Simulator
+
+## Physical iPhone / Watch
+
+Offer the owner a physical device **only** when mic / STT / Watch / field conditions are required, or when Simulator already passed and a field test is still mandatory.
+
+## Do not
+
+- Ask the owner to press ⌘R instead of you when Simulator is available on this Mac.
+- Skip feature smoke-test after a “successful” compile.
+- Change this workflow unless the owner explicitly overrides it for that turn.

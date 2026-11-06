@@ -1,0 +1,455 @@
+{
+  "version": 1,
+  "verbs": [
+    {
+      "lemma": "be",
+      "base": "be",
+      "past": "was",
+      "pp": "been",
+      "third": "is",
+      "type": "be",
+      "ru": "быть"
+    },
+    {
+      "lemma": "have",
+      "base": "have",
+      "past": "had",
+      "pp": "had",
+      "third": "has",
+      "type": "do",
+      "ru": "иметь"
+    },
+    {
+      "lemma": "do",
+      "base": "do",
+      "past": "did",
+      "pp": "done",
+      "third": "does",
+      "type": "do",
+      "ru": "делать"
+    },
+    {
+      "lemma": "go",
+      "base": "go",
+      "past": "went",
+      "pp": "gone",
+      "third": "goes",
+      "type": "do",
+      "ru": "идти"
+    },
+    {
+      "lemma": "come",
+      "base": "come",
+      "past": "came",
+      "pp": "come",
+      "third": "comes",
+      "type": "do",
+      "ru": "приходить"
+    },
+    {
+      "lemma": "get",
+      "base": "get",
+      "past": "got",
+      "pp": "got",
+      "third": "gets",
+      "type": "do",
+      "ru": "получать"
+    },
+    {
+      "lemma": "make",
+      "base": "make",
+      "past": "made",
+      "pp": "made",
+      "third": "makes",
+      "type": "do",
+      "ru": "делать/готовить"
+    },
+    {
+      "lemma": "take",
+      "base": "take",
+      "past": "took",
+      "pp": "taken",
+      "third": "takes",
+      "type": "do",
+      "ru": "брать"
+    },
+    {
+      "lemma": "give",
+      "base": "give",
+      "past": "gave",
+      "pp": "given",
+      "third": "gives",
+      "type": "do",
+      "ru": "давать"
+    },
+    {
+      "lemma": "see",
+      "base": "see",
+      "past": "saw",
+      "pp": "seen",
+      "third": "sees",
+      "type": "do",
+      "ru": "видеть"
+    },
+    {
+      "lemma": "know",
+      "base": "know",
+      "past": "knew",
+      "pp": "known",
+      "third": "knows",
+      "type": "do",
+      "ru": "знать"
+    },
+    {
+      "lemma": "think",
+      "base": "think",
+      "past": "thought",
+      "pp": "thought",
+      "third": "thinks",
+      "type": "do",
+      "ru": "думать"
+    },
+    {
+      "lemma": "want",
+      "base": "want",
+      "past": "wanted",
+      "pp": "wanted",
+      "third": "wants",
+      "type": "do",
+      "ru": "хотеть"
+    },
+    {
+      "lemma": "need",
+      "base": "need",
+      "past": "needed",
+      "pp": "needed",
+      "third": "needs",
+      "type": "do",
+      "ru": "нуждаться"
+    },
+    {
+      "lemma": "like",
+      "base": "like",
+      "past": "liked",
+      "pp": "liked",
+      "third": "likes",
+      "type": "do",
+      "ru": "нравиться"
+    },
+    {
+      "lemma": "love",
+      "base": "love",
+      "past": "loved",
+      "pp": "loved",
+      "third": "loves",
+      "type": "do",
+      "ru": "любить"
+    },
+    {
+      "lemma": "live",
+      "base": "live",
+      "past": "lived",
+      "pp": "lived",
+      "third": "lives",
+      "type": "do",
+      "ru": "жить"
+    },
+    {
+      "lemma": "work",
+      "base": "work",
+      "past": "worked",
+      "pp": "worked",
+      "third": "works",
+      "type": "do",
+      "ru": "работать"
+    },
+    {
+      "lemma": "call",
+      "base": "call",
+      "past": "called",
+      "pp": "called",
+      "third": "calls",
+      "type": "do",
+      "ru": "звонить"
+    },
+    {
+      "lemma": "ask",
+      "base": "ask",
+      "past": "asked",
+      "pp": "asked",
+      "third": "asks",
+      "type": "do",
+      "ru": "спрашивать"
+    },
+    {
+      "lemma": "tell",
+      "base": "tell",
+      "past": "told",
+      "pp": "told",
+      "third": "tells",
+      "type": "do",
+      "ru": "рассказывать"
+    },
+    {
+      "lemma": "say",
+      "base": "say",
+      "past": "said",
+      "pp": "said",
+      "third": "says",
+      "type": "do",
+      "ru": "сказать"
+    },
+    {
+      "lemma": "speak",
+      "base": "speak",
+      "past": "spoke",
+      "pp": "spoken",
+      "third": "speaks",
+      "type": "do",
+      "ru": "говорить"
+    },
+    {
+      "lemma": "buy",
+      "base": "buy",
+      "past": "bought",
+      "pp": "bought",
+      "third": "buys",
+      "type": "do",
+      "ru": "покупать"
+    },
+    {
+      "lemma": "pay",
+      "base": "pay",
+      "past": "paid",
+      "pp": "paid",
+      "third": "pays",
+      "type": "do",
+      "ru": "платить"
+    },
+    {
+      "lemma": "eat",
+      "base": "eat",
+      "past": "ate",
+      "pp": "eaten",
+      "third": "eats",
+      "type": "do",
+      "ru": "есть"
+    },
+    {
+      "lemma": "drink",
+      "base": "drink",
+      "past": "drank",
+      "pp": "drunk",
+      "third": "drinks",
+      "type": "do",
+      "ru": "пить"
+    },
+    {
+      "lemma": "sleep",
+      "base": "sleep",
+      "past": "slept",
+      "pp": "slept",
+      "third": "sleeps",
+      "type": "do",
+      "ru": "спать"
+    },
+    {
+      "lemma": "wake",
+      "base": "wake",
+      "past": "woke",
+      "pp": "woken",
+      "third": "wakes",
+      "type": "do",
+      "ru": "просыпаться"
+    },
+    {
+      "lemma": "cook",
+      "base": "cook",
+      "past": "cooked",
+      "pp": "cooked",
+      "third": "cooks",
+      "type": "do",
+      "ru": "готовить"
+    },
+    {
+      "lemma": "clean",
+      "base": "clean",
+      "past": "cleaned",
+      "pp": "cleaned",
+      "third": "cleans",
+      "type": "do",
+      "ru": "убирать"
+    },
+    {
+      "lemma": "help",
+      "base": "help",
+      "past": "helped",
+      "pp": "helped",
+      "third": "helps",
+      "type": "do",
+      "ru": "помогать"
+    },
+    {
+      "lemma": "meet",
+      "base": "meet",
+      "past": "met",
+      "pp": "met",
+      "third": "meets",
+      "type": "do",
+      "ru": "встречать"
+    },
+    {
+      "lemma": "wait",
+      "base": "wait",
+      "past": "waited",
+      "pp": "waited",
+      "third": "waits",
+      "type": "do",
+      "ru": "ждать"
+    },
+    {
+      "lemma": "walk",
+      "base": "walk",
+      "past": "walked",
+      "pp": "walked",
+      "third": "walks",
+      "type": "do",
+      "ru": "гулять"
+    },
+    {
+      "lemma": "drive",
+      "base": "drive",
+      "past": "drove",
+      "pp": "driven",
+      "third": "drives",
+      "type": "do",
+      "ru": "водить"
+    },
+    {
+      "lemma": "read",
+      "base": "read",
+      "past": "read",
+      "pp": "read",
+      "third": "reads",
+      "type": "do",
+      "ru": "читать"
+    },
+    {
+      "lemma": "write",
+      "base": "write",
+      "past": "wrote",
+      "pp": "written",
+      "third": "writes",
+      "type": "do",
+      "ru": "писать"
+    },
+    {
+      "lemma": "watch",
+      "base": "watch",
+      "past": "watched",
+      "pp": "watched",
+      "third": "watches",
+      "type": "do",
+      "ru": "смотреть"
+    },
+    {
+      "lemma": "listen",
+      "base": "listen",
+      "past": "listened",
+      "pp": "listened",
+      "third": "listens",
+      "type": "do",
+      "ru": "слушать"
+    },
+    {
+      "lemma": "play",
+      "base": "play",
+      "past": "played",
+      "pp": "played",
+      "third": "plays",
+      "type": "do",
+      "ru": "играть"
+    },
+    {
+      "lemma": "open",
+      "base": "open",
+      "past": "opened",
+      "pp": "opened",
+      "third": "opens",
+      "type": "do",
+      "ru": "открывать"
+    },
+    {
+      "lemma": "close",
+      "base": "close",
+      "past": "closed",
+      "pp": "closed",
+      "third": "closes",
+      "type": "do",
+      "ru": "закрывать"
+    },
+    {
+      "lemma": "start",
+      "base": "start",
+      "past": "started",
+      "pp": "started",
+      "third": "starts",
+      "type": "do",
+      "ru": "начинать"
+    },
+    {
+      "lemma": "finish",
+      "base": "finish",
+      "past": "finished",
+      "pp": "finished",
+      "third": "finishes",
+      "type": "do",
+      "ru": "заканчивать"
+    },
+    {
+      "lemma": "feel",
+      "base": "feel",
+      "past": "felt",
+      "pp": "felt",
+      "third": "feels",
+      "type": "do",
+      "ru": "чувствовать"
+    },
+    {
+      "lemma": "leave",
+      "base": "leave",
+      "past": "left",
+      "pp": "left",
+      "third": "leaves",
+      "type": "do",
+      "ru": "уходить"
+    },
+    {
+      "lemma": "stay",
+      "base": "stay",
+      "past": "stayed",
+      "pp": "stayed",
+      "third": "stays",
+      "type": "do",
+      "ru": "оставаться"
+    },
+    {
+      "lemma": "bring",
+      "base": "bring",
+      "past": "brought",
+      "pp": "brought",
+      "third": "brings",
+      "type": "do",
+      "ru": "приносить"
+    },
+    {
+      "lemma": "find",
+      "base": "find",
+      "past": "found",
+      "pp": "found",
+      "third": "finds",
+      "type": "do",
+      "ru": "находить"
+    }
+  ]
+}

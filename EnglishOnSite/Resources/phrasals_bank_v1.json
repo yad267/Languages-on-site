@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "phrasals": [
+    {
+      "en": "put up",
+      "ru": "смонтировать / повесить",
+      "example_en": "Can you put up the cable tray?"
+    },
+    {
+      "en": "put back",
+      "ru": "положить обратно",
+      "example_en": "Can you put back the cable tray?"
+    },
+    {
+      "en": "put on",
+      "ru": "надеть",
+      "example_en": "Can you put on the cable tray?"
+    },
+    {
+      "en": "put off",
+      "ru": "отложить",
+      "example_en": "Can you put off the cable tray?"
+    },
+    {
+      "en": "put together",
+      "ru": "собрать",
+      "example_en": "Can you put together the cable tray?"
+    },
+    {
+      "en": "put away",
+      "ru": "убрать",
+      "example_en": "Can you put away the cable tray?"
+    },
+    {
+      "en": "take off",
+      "ru": "снять (одежду/крышку)",
+      "example_en": "Can you take off the cable tray?"
+    },
+    {
+      "en": "take down",
+      "ru": "снять со стены",
+      "example_en": "Can you take down the cable tray?"
+    },
+    {
+      "en": "take out",
+      "ru": "вынуть",
+      "example_en": "Can you take out the cable tray?"
+    },
+    {
+      "en": "turn on",
+      "ru": "включить",
+      "example_en": "Can you turn on the cable tray?"
+    },
+    {
+      "en": "turn off",
+      "ru": "выключить",
+      "example_en": "Can you turn off the cable tray?"
+    },
+    {
+      "en": "switch on",
+      "ru": "включить",
+      "example_en": "Can you switch on the cable tray?"
+    },
+    {
+      "en": "switch off",
+      "ru": "обесточить / выкл",
+      "example_en": "Can you switch off the cable tray?"
+    },
+    {
+      "en": "sign in",
+      "ru": "отметиться",
+      "example_en": "Can you sign in the cable tray?"
+    },
+    {
+      "en": "sign out",
+      "ru": "выйти с объекта",
+      "example_en": "Can you sign out the cable tray?"
+    },
+    {
+      "en": "hand in",
+      "ru": "сдать",
+      "example_en": "Can you hand in the cable tray?"
+    },
+    {
+      "en": "hand over",
+      "ru": "передать",
+      "example_en": "Can you hand over the cable tray?"
+    },
+    {
+      "en": "pack away",
+      "ru": "убрать инструменты",
+      "example_en": "Can you pack away the cable tray?"
+    },
+    {
+      "en": "hang on",
+      "ru": "подожди",
+      "example_en": "Can you hang on the cable tray?"
+    },
+    {
+      "en": "hang up",
+      "ru": "повесить трубку",
+      "example_en": "Can you hang up the cable tray?"
+    },
+    {
+      "en": "look for",
+      "ru": "искать",
+      "example_en": "Can you look for the cable tray?"
+    },
+    {
+      "en": "look after",
+      "ru": "присмотреть",
+      "example_en": "Can you look after the cable tray?"
+    },
+    {
+      "en": "look out",
+      "ru": "осторожно",
+      "example_en": "Can you look out the cable tray?"
+    },
+    {
+      "en": "come in",
+      "ru": "войти",
+      "example_en": "Can you come in the cable tray?"
+    },
+    {
+      "en": "come back",
+      "ru": "вернуться",
+      "example_en": "Can you come back the cable tray?"
+    },
+    {
+      "en": "go back",
+      "ru": "вернуться назад",
+      "example_en": "Can you go back the cable tray?"
+    },
+    {
+      "en": "go ahead",
+      "ru": "продолжай",
+      "example_en": "Can you go ahead the cable tray?"
+    },
+    {
+      "en": "hold on",
+      "ru": "держи / подожди",
+      "example_en": "Can you hold on the cable tray?"
+    },
+    {
+      "en": "hold up",
+      "ru": "задерживать",
+      "example_en": "Can you hold up the cable tray?"
+    },
+    {
+      "en": "set up",
+      "ru": "настроить",
+      "example_en": "Can you set up the cable tray?"
+    },
+    {
+      "en": "break down",
+      "ru": "сломаться",
+      "example_en": "Can you break down the cable tray?"
+    },
+    {
+      "en": "fill in",
+      "ru": "заполнить форму",
+      "example_en": "Can you fill in the cable tray?"
+    },
+    {
+      "en": "fill out",
+      "ru": "заполнить",
+      "example_en": "Can you fill out the cable tray?"
+    },
+    {
+      "en": "check in",
+      "ru": "отметиться",
+      "example_en": "Can you check in the cable tray?"
+    },
+    {
+      "en": "check out",
+      "ru": "проверить / уйти",
+      "example_en": "Can you check out the cable tray?"
+    },
+    {
+      "en": "plug in",
+      "ru": "включить в розетку",
+      "example_en": "Can you plug in the cable tray?"
+    },
+    {
+      "en": "plug out",
+      "ru": "вынуть из розетки",
+      "example_en": "Can you plug out the cable tray?"
+    },
+    {
+      "en": "run out",
+      "ru": "закончиться",
+      "example_en": "Can you run out the cable tray?"
+    },
+    {
+      "en": "work out",
+      "ru": "разобраться",
+      "example_en": "Can you work out the cable tray?"
+    },
+    {
+      "en": "carry on",
+      "ru": "продолжать",
+      "example_en": "Can you carry on the cable tray?"
+    },
+    {
+      "en": "get in",
+      "ru": "залезть / войти",
+      "example_en": "Can you get in the cable tray?"
+    },
+    {
+      "en": "get out",
+      "ru": "выйти",
+      "example_en": "Can you get out the cable tray?"
+    },
+    {
+      "en": "get off",
+      "ru": "сойти",
+      "example_en": "Can you get off the cable tray?"
+    },
+    {
+      "en": "get on",
+      "ru": "сесть / начать",
+      "example_en": "Can you get on the cable tray?"
+    },
+    {
+      "en": "keep on",
+      "ru": "продолжать",
+      "example_en": "Can you keep on the cable tray?"
+    },
+    {
+      "en": "keep off",
+      "ru": "не наступать",
+      "example_en": "Can you keep off the cable tray?"
+    },
+    {
+      "en": "shut down",
+      "ru": "выключить систему",
+      "example_en": "Can you shut down the cable tray?"
+    },
+    {
+      "en": "power up",
+      "ru": "подать питание",
+      "example_en": "Can you power up the cable tray?"
+    },
+    {
+      "en": "power down",
+      "ru": "снять питание",
+      "example_en": "Can you power down the cable tray?"
+    },
+    {
+      "en": "lock out",
+      "ru": "блокировка LOTO",
+      "example_en": "Can you lock out the cable tray?"
+    },
+    {
+      "en": "tag out",
+      "ru": "бирка LOTO",
+      "example_en": "Can you tag out the cable tray?"
+    },
+    {
+      "en": "clean up",
+      "ru": "убрать за собой",
+      "example_en": "Can you clean up the cable tray?"
+    },
+    {
+      "en": "tidy up",
+      "ru": "навести порядок",
+      "example_en": "Can you tidy up the cable tray?"
+    },
+    {
+      "en": "clear away",
+      "ru": "убрать с прохода",
+      "example_en": "Can you clear away the cable tray?"
+    },
+    {
+      "en": "lay out",
+      "ru": "разложить",
+      "example_en": "Can you lay out the cable tray?"
+    },
+    {
+      "en": "mark out",
+      "ru": "разметить",
+      "example_en": "Can you mark out the cable tray?"
+    },
+    {
+      "en": "wire up",
+      "ru": "развести проводку",
+      "example_en": "Can you wire up the cable tray?"
+    },
+    {
+      "en": "earth out",
+      "ru": "посадить на землю",
+      "example_en": "Can you earth out the cable tray?"
+    },
+    {
+      "en": "prove dead",
+      "ru": "доказать отсутствие напряжения",
+      "example_en": "Can you prove dead the cable tray?"
+    },
+    {
+      "en": "call out",
+      "ru": "вызвать аварию",
+      "example_en": "Can you call out the cable tray?"
+    },
+    {
+      "en": "log in",
+      "ru": "войти в систему",
+      "example_en": "Can you log in the cable tray?"
+    },
+    {
+      "en": "log out",
+      "ru": "выйти из системы",
+      "example_en": "Can you log out the cable tray?"
+    }
+  ]
+}

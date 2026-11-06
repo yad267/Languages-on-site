@@ -1,0 +1,888 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 60;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B14PHRASALHUBBUILD001 /* PhrasalHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14PHRASALHUBFILE001 /* PhrasalHubView.swift */; };
+		B17ADDPHRASEBUILD001 /* AddMyPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */; };
+		B17LANGDETECTBUILD01 /* LanguageDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17LANGDETECTFILE01 /* LanguageDetect.swift */; };
+		B17CANONBUILD000001 /* MyPhraseCanonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17CANONFILE000001 /* MyPhraseCanonService.swift */; };
+		D1LESSONSCONFIGBUILD1 /* LessonsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1LESSONSCONFIGFILE1 /* LessonsConfig.swift */; };
+		C8PRINTBUILD0000008 /* TutorPrintSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8PRINTFILE0000008 /* TutorPrintSheetView.swift */; };
+		C7VBANKBUILD0000007 /* TutorVerbBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7VBANKFILE0000007 /* TutorVerbBankView.swift */; };
+		C6VFORMBUILD0000006 /* TutorVerbFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6VFORMFILE0000006 /* TutorVerbFormsView.swift */; };
+		C5WRITEBUILD0000005 /* TutorWriteDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5WRITEFILE0000005 /* TutorWriteDrillView.swift */; };
+		C4SPEAKBUILD0000004 /* TutorSpeakDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */; };
+		C3EXHUBBUILD0000003 /* TutorExercisesHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */; };
+		C2GRAMMARBUILD00002 /* GrammarPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2GRAMMARFILE00002 /* GrammarPatterns.swift */; };
+		C1BANKSTOREBUILD001 /* TutorBankStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BANKSTOREFILE001 /* TutorBankStore.swift */; };
+		B3OPPJSONBUILD00003 /* opposites_bank_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = B3OPPJSONFILE000003 /* opposites_bank_v1.json */; };
+		L6SENTJSONBUILD0006 /* learning_sentences_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L6SENTJSONFILE00006 /* learning_sentences_v1.json */; };
+		L5PHRASJSONBUILD0005 /* learning_phrasals_site_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L5PHRASJSONFILE0005 /* learning_phrasals_site_v1.json */; };
+		L4WORDSJSONBUILD0004 /* learning_words_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L4WORDSJSONFILE0004 /* learning_words_v1.json */; };
+		L3BANKVIEWBUILD0003 /* LearningBankView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L3BANKVIEWFILE00003 /* LearningBankView.swift */; };
+		L2BANKSWIFTBUILD0002 /* LearningBankStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L2BANKSWIFTFILE0002 /* LearningBankStore.swift */; };
+		L1AUDIOSWIFTBUILD001 /* LibraryAudioStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L1AUDIOSWIFTFILE0001 /* LibraryAudioStore.swift */; };
+		B2PHRASJSONBUILD0002 /* phrasals_bank_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = B2PHRASJSONFILE0002 /* phrasals_bank_v1.json */; };
+		B1VERBJSONBUILD0001 /* verbs_bank_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = B1VERBJSONFILE00001 /* verbs_bank_v1.json */; };
+		G1PHRASGENBUILD0001 /* phrasals_general_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = G1PHRASGENFILE0001 /* phrasals_general_v1.json */; };
+		G2OPPGENBUILD000002 /* opposites_general_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = G2OPPGENFILE000002 /* opposites_general_v1.json */; };
+		G3VERBGENBUILD00003 /* verbs_general_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = G3VERBGENFILE00003 /* verbs_general_v1.json */; };
+		G4SEARCHBUILD000004 /* TutorPhrasalSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */; };
+		A2TUTOR04PAIRSBUILD004 /* TutorPairsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2TUTOR04PAIRSFILE004 /* TutorPairsView.swift */; };
+		A2TUTOR03WHYBUILD00003 /* TutorWhyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2TUTOR03WHYFILE00003 /* TutorWhyView.swift */; };
+		A2TUTOR02TALKBUILD0002 /* TutorTalkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2TUTOR02TALKFILE0002 /* TutorTalkView.swift */; };
+		A2TUTOR01LEGACYBUILD01 /* SiteTutorLegacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2TUTOR01LEGACYFILE01 /* SiteTutorLegacyView.swift */; };
+		A1E05C02B2C34D5E8F901234 /* EosSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E05C01B2C34D5E8F901234 /* EosSyncService.swift */; };
+		F301A2B3C4D5E6F708090B22 /* LessonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301A2B3C4D5E6F708090B21 /* LessonStore.swift */; };
+		F301A2B3C4D5E6F708090B12 /* LessonPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F301A2B3C4D5E6F708090B11 /* LessonPack.swift */; };
+		F301A2B3C4D5E6F708090B02 /* lessons_pack.json in Resources */ = {isa = PBXBuildFile; fileRef = F301A2B3C4D5E6F708090B01 /* lessons_pack.json */; };
+		F201A2B3C4D5E6F708090A12 /* lesson-0-1-safe-pass.json in Resources */ = {isa = PBXBuildFile; fileRef = F201A2B3C4D5E6F708090A11 /* lesson-0-1-safe-pass.json */; };
+		F201A2B3C4D5E6F708090A22 /* lesson-0-2-induction.json in Resources */ = {isa = PBXBuildFile; fileRef = F201A2B3C4D5E6F708090A21 /* lesson-0-2-induction.json */; };
+		F201A2B3C4D5E6F708090A32 /* lesson-0-3-ppe.json in Resources */ = {isa = PBXBuildFile; fileRef = F201A2B3C4D5E6F708090A31 /* lesson-0-3-ppe.json */; };
+		2DFDFC2FA0B94A3EBA9565FC /* ElevenLabsTTS.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B155691E544A309C30313F /* ElevenLabsTTS.swift */; };
+		49D56FF2D596450A8831F8EB /* ElevenLabsConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB93D8A441E4EC39D87DE61 /* ElevenLabsConfig.swift */; };
+		68387E2F72A14531AEAF169B /* NavChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB271BA7C7B4576A8B865C1 /* NavChrome.swift */; };
+		10C8AF3653444817A806B437 /* ReviewSessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76070AC21D8E4FD4AF6B35C1 /* ReviewSessionView.swift */; };
+		186F99D6885C4B6294266E15 /* AudioSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95ADC5C6EEB4AB4B1010D62 /* AudioSessionManager.swift */; };
+		1C91E2078F404BFB9814E3E1 /* WatchPhoneMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBC592A91C4AC684C36019 /* WatchPhoneMessages.swift */; };
+		28851D683EBD4674AF9655C7 /* WatchConnectivityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B3D576283C46BDBDE0CC50 /* WatchConnectivityClient.swift */; };
+		291449976F084B63936875A2 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DC29239AB646BC87EEA74C /* PlayerView.swift */; };
+		3B3C27A639324F909BB086D7 /* LessonRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DE02CC959974126809F9B36 /* LessonRepository.swift */; };
+		416CE18C4756467EB03C25AC /* SitePhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 982D665158B64C0493FC4C40 /* SitePhrase.swift */; };
+		4631DC110CC64F99AA660706 /* SpeechCommandListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEA417D3AAD4A2099080EA0 /* SpeechCommandListener.swift */; };
+		46523771E8A34CD4816AADC7 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C13E06267EB48959D5C7865 /* KeychainStore.swift */; };
+		47B4A0164A0D47B996BFF78F /* VoiceCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0D6926DA44C44962EB7D4 /* VoiceCommands.swift */; };
+		4B64CD7E9B454BDEB8E0AD69 /* LibraryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF0838E2C614A3CB0C7D4D6 /* LibraryItem.swift */; };
+		4B909EAB0D8345DB84F3C24B /* EnglishOnSiteWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7295015A73984EDFA03A7F63 /* EnglishOnSiteWatchApp.swift */; };
+		4CDB26121D2E437FA9833223 /* WatchSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD9318BFED0A45C5980D2669 /* WatchSpeaker.swift */; };
+		52192CDFAE4F4163823CD736 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01CBFEE45954175B1E14CDB /* HapticFeedback.swift */; };
+		53B12827FD7044C096AA6059 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39844DD447CD43988E6F6B3A /* Assets.xcassets */; };
+		5828CEA1E8754C59A5FFF077 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DFBDCFC9604D4DB3AA7ED9 /* LibraryView.swift */; };
+		58CA5A4B9435451C8145DB96 /* LessonPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D21590B68D2410C976EEBA1 /* LessonPlayer.swift */; };
+		5B875DA30971401393706B82 /* LibraryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66042CDB5E44E3B9EA8029A /* LibraryStore.swift */; };
+		6BFF56CC9CF5400DA9490982 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BEFD914F6D421386FB53E3 /* Assets.xcassets */; };
+		6C3878F82DBB4A1D9BE0A9C0 /* TimedSpeechCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E91C5CB9024E17B4B3ADFA /* TimedSpeechCapture.swift */; };
+		7550969D9BF945D6ABB5E9FB /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D502758921FE42249194420F /* TranslationService.swift */; };
+		79480C35FA914117804D712E /* RememberCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D4705B68B84CD8B7618078 /* RememberCaptureService.swift */; };
+		7AF4B07F4C164FC5A688932C /* CreateLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70505D2DCC243ED88F2DF1D /* CreateLessonView.swift */; };
+		7DCE1A3F5E4E4794B4E5427E /* PhoneSpeechTranscriber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87CA81A0304492D8FAF1BF4 /* PhoneSpeechTranscriber.swift */; };
+		82EE3E4D3BDB4C3D9B45D318 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DBFC032E43472C937520D1 /* SettingsView.swift */; };
+		86000C264CB446B9A61CBAFB /* WatchOfflineBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68501B7476A04CD194EF19B6 /* WatchOfflineBank.swift */; };
+		870B22D0153543F296A98D55 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF5B1CD4A547C289A5DC8F /* HomeView.swift */; };
+		8F9F8F64D7634D5FBECCAE39 /* SitePhraseBank.json in Resources */ = {isa = PBXBuildFile; fileRef = F4DC786A4B84434398725196 /* SitePhraseBank.json */; };
+		9D310F9A28CA4C68B6317741 /* WatchAppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4CC8DB3C2EA44B39AE55524 /* WatchAppModel.swift */; };
+		A39D9953840C41A78B6BF8F5 /* WatchHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499C677F6F5147108329B14F /* WatchHomeView.swift */; };
+		A90F4E705D794CCD93E10AA2 /* WatchSpeechCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAB612105F84C29956070F4 /* WatchSpeechCapture.swift */; };
+		AF1FFC1BAF8B4999B551AF8D /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AAD728D7C804353A29AA17B /* AppSettings.swift */; };
+		B8D93ACE030E4E57BE2FC994 /* SpeechSpeaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4726A37135493386B965D0 /* SpeechSpeaker.swift */; };
+		C1A324EAA215484B8DF781F8 /* PhoneWatchBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537ED273B494412BAD23CBFC /* PhoneWatchBridge.swift */; };
+		CE2D77618F5F4D46916AD732 /* EnglishOnSiteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9A62ECCFE4E2E889D1B0C /* EnglishOnSiteApp.swift */; };
+		D119A8AFD0594D3190A724F4 /* WatchPhoneMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CEBC592A91C4AC684C36019 /* WatchPhoneMessages.swift */; };
+		D42222C881D1490AAB3D7F7C /* CoachSourceBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7869819CC03411B90C4AC3C /* CoachSourceBadge.swift */; };
+		D8034170B6A9410DBEB9A47C /* PhoneLessonRelay.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAC115E41E945E098E09B0B /* PhoneLessonRelay.swift */; };
+		DC700F4F20734303ABDD2D2B /* WatchPhraseBank.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CA025E3EB09412BACAC9536 /* WatchPhraseBank.json */; };
+		E2690924126F4C8F93CA8088 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49A2E51669E745EA81AA403D /* ContentView.swift */; };
+		E49F221D71AC491BBF607418 /* GeminiSiteCoachService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22BBF05FAD14B29A6C5EDA0 /* GeminiSiteCoachService.swift */; };
+		EDEFDBA982A64B2E9BE1CBB9 /* EnglishOnSiteWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = AFD0629CA4044956BCB122DE /* EnglishOnSiteWatch.app */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EFD010FDDEAE4815810CFC39 /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806B2BCEBA4B4D578DDBE38A /* Lesson.swift */; };
+		FC768F53D4014E7093A8E29F /* TranslateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28810E1B112840A3829F24AD /* TranslateView.swift */; };
+		F101A2B3C4D5E6F708090A1C /* RoleplayScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = F101A2B3C4D5E6F708090A1B /* RoleplayScript.swift */; };
+		F102A2B3C4D5E6F708090A1C /* DocumentTextExtractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F102A2B3C4D5E6F708090A1B /* DocumentTextExtractor.swift */; };
+		F103A2B3C4D5E6F708090A1C /* RoleplayRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F103A2B3C4D5E6F708090A1B /* RoleplayRepository.swift */; };
+		F104A2B3C4D5E6F708090A1C /* RoleplayParserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F104A2B3C4D5E6F708090A1B /* RoleplayParserService.swift */; };
+		F105A2B3C4D5E6F708090A1C /* RoleplayLoopEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = F105A2B3C4D5E6F708090A1B /* RoleplayLoopEngine.swift */; };
+		F106A2B3C4D5E6F708090A1C /* ImportRoleplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F106A2B3C4D5E6F708090A1B /* ImportRoleplayView.swift */; };
+		F107A2B3C4D5E6F708090A1C /* RoleplayHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F107A2B3C4D5E6F708090A1B /* RoleplayHubView.swift */; };
+		F108A2B3C4D5E6F708090A1C /* RoleplayLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */; };
+		F109A2B3C4D5E6F708090A1C /* SiteTutorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */; };
+		F110A2B3C4D5E6F708090A1C /* PhraseSimilarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */; };
+		F111A2B3C4D5E6F708090A1C /* PhraseLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111A2B3C4D5E6F708090A1B /* PhraseLoopView.swift */; };
+		F112A2B3C4D5E6F708090A1C /* ElevenLabsAudioCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112A2B3C4D5E6F708090A1B /* ElevenLabsAudioCache.swift */; };
+		F113A2B3C4D5E6F708090A1C /* AppSecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */; };
+		F114A2B3C4D5E6F708090A1C /* Secrets.local.swift in Sources */ = {isa = PBXBuildFile; fileRef = F114A2B3C4D5E6F708090A1B /* Secrets.local.swift */; };
+		F115A2B3C4D5E6F708090A1C /* TutorPhrasalDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F115A2B3C4D5E6F708090A1B /* TutorPhrasalDetailView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D62A69AEA8384E7E83BC9ECD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36FECA7A90554FA5A151AA47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3A420C3846D49658617C0B3;
+			remoteInfo = EnglishOnSiteWatch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		757C7B034CB14B1E8FB40CC4 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EDEFDBA982A64B2E9BE1CBB9 /* EnglishOnSiteWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		D1LESSONSCONFIGFILE1 /* LessonsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsConfig.swift; sourceTree = "<group>"; };
+		C8PRINTFILE0000008 /* TutorPrintSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPrintSheetView.swift; sourceTree = "<group>"; };
+		C7VBANKFILE0000007 /* TutorVerbBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorVerbBankView.swift; sourceTree = "<group>"; };
+		C6VFORMFILE0000006 /* TutorVerbFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorVerbFormsView.swift; sourceTree = "<group>"; };
+		C5WRITEFILE0000005 /* TutorWriteDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorWriteDrillView.swift; sourceTree = "<group>"; };
+		C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorSpeakDrillView.swift; sourceTree = "<group>"; };
+		C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorExercisesHubView.swift; sourceTree = "<group>"; };
+		C2GRAMMARFILE00002 /* GrammarPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarPatterns.swift; sourceTree = "<group>"; };
+		C1BANKSTOREFILE001 /* TutorBankStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorBankStore.swift; sourceTree = "<group>"; };
+		B3OPPJSONFILE000003 /* opposites_bank_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = opposites_bank_v1.json; sourceTree = "<group>"; };
+		B2PHRASJSONFILE0002 /* phrasals_bank_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = phrasals_bank_v1.json; sourceTree = "<group>"; };
+		B1VERBJSONFILE00001 /* verbs_bank_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verbs_bank_v1.json; sourceTree = "<group>"; };
+		G1PHRASGENFILE0001 /* phrasals_general_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = phrasals_general_v1.json; sourceTree = "<group>"; };
+		G2OPPGENFILE000002 /* opposites_general_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = opposites_general_v1.json; sourceTree = "<group>"; };
+		G3VERBGENFILE00003 /* verbs_general_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = verbs_general_v1.json; sourceTree = "<group>"; };
+		G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPhrasalSearchView.swift; sourceTree = "<group>"; };
+		B14PHRASALHUBFILE001 /* PhrasalHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhrasalHubView.swift; sourceTree = "<group>"; };
+		B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMyPhraseView.swift; sourceTree = "<group>"; };
+		B17LANGDETECTFILE01 /* LanguageDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageDetect.swift; sourceTree = "<group>"; };
+		B17CANONFILE000001 /* MyPhraseCanonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPhraseCanonService.swift; sourceTree = "<group>"; };
+		A2TUTOR04PAIRSFILE004 /* TutorPairsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPairsView.swift; sourceTree = "<group>"; };
+		A2TUTOR03WHYFILE00003 /* TutorWhyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorWhyView.swift; sourceTree = "<group>"; };
+		A2TUTOR02TALKFILE0002 /* TutorTalkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorTalkView.swift; sourceTree = "<group>"; };
+		A2TUTOR01LEGACYFILE01 /* SiteTutorLegacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTutorLegacyView.swift; sourceTree = "<group>"; };
+		A1E05C01B2C34D5E8F901234 /* EosSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EosSyncService.swift; sourceTree = "<group>"; };
+		F301A2B3C4D5E6F708090B21 /* LessonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonStore.swift; sourceTree = "<group>"; };
+		F301A2B3C4D5E6F708090B11 /* LessonPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPack.swift; sourceTree = "<group>"; };
+		F301A2B3C4D5E6F708090B01 /* lessons_pack.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_pack.json; sourceTree = "<group>"; };
+		F201A2B3C4D5E6F708090A11 /* lesson-0-1-safe-pass.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lesson-0-1-safe-pass.json"; sourceTree = "<group>"; };
+		F201A2B3C4D5E6F708090A21 /* lesson-0-2-induction.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lesson-0-2-induction.json"; sourceTree = "<group>"; };
+		F201A2B3C4D5E6F708090A31 /* lesson-0-3-ppe.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "lesson-0-3-ppe.json"; sourceTree = "<group>"; };
+		B6B155691E544A309C30313F /* ElevenLabsTTS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsTTS.swift; sourceTree = "<group>"; };
+		7DB93D8A441E4EC39D87DE61 /* ElevenLabsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsConfig.swift; sourceTree = "<group>"; };
+		6EB271BA7C7B4576A8B865C1 /* NavChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavChrome.swift; sourceTree = "<group>"; };
+		0DE02CC959974126809F9B36 /* LessonRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonRepository.swift; sourceTree = "<group>"; };
+		15BEFD914F6D421386FB53E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CA025E3EB09412BACAC9536 /* WatchPhraseBank.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WatchPhraseBank.json; sourceTree = "<group>"; };
+		1CEBC592A91C4AC684C36019 /* WatchPhoneMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchPhoneMessages.swift; sourceTree = "<group>"; };
+		1D4726A37135493386B965D0 /* SpeechSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechSpeaker.swift; sourceTree = "<group>"; };
+		28810E1B112840A3829F24AD /* TranslateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateView.swift; sourceTree = "<group>"; };
+		2C13E06267EB48959D5C7865 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		2EE0D6926DA44C44962EB7D4 /* VoiceCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceCommands.swift; sourceTree = "<group>"; };
+		30BF5B1CD4A547C289A5DC8F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		32DFBDCFC9604D4DB3AA7ED9 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		35DBFC032E43472C937520D1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		39844DD447CD43988E6F6B3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		46DC29239AB646BC87EEA74C /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		481D8EBC9E294DE2A4712FFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		499C677F6F5147108329B14F /* WatchHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHomeView.swift; sourceTree = "<group>"; };
+		49A2E51669E745EA81AA403D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		537ED273B494412BAD23CBFC /* PhoneWatchBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneWatchBridge.swift; sourceTree = "<group>"; };
+		54CA0806DD3D4EAF92480256 /* EnglishOnSite.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishOnSite.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AAB612105F84C29956070F4 /* WatchSpeechCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSpeechCapture.swift; sourceTree = "<group>"; };
+		5BEA417D3AAD4A2099080EA0 /* SpeechCommandListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechCommandListener.swift; sourceTree = "<group>"; };
+		5D21590B68D2410C976EEBA1 /* LessonPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPlayer.swift; sourceTree = "<group>"; };
+		65E91C5CB9024E17B4B3ADFA /* TimedSpeechCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimedSpeechCapture.swift; sourceTree = "<group>"; };
+		68501B7476A04CD194EF19B6 /* WatchOfflineBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchOfflineBank.swift; sourceTree = "<group>"; };
+		7295015A73984EDFA03A7F63 /* EnglishOnSiteWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishOnSiteWatchApp.swift; sourceTree = "<group>"; };
+		76070AC21D8E4FD4AF6B35C1 /* ReviewSessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSessionView.swift; sourceTree = "<group>"; };
+		7AAD728D7C804353A29AA17B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		806B2BCEBA4B4D578DDBE38A /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		853572B2333D4E99A4297F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		982D665158B64C0493FC4C40 /* SitePhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitePhrase.swift; sourceTree = "<group>"; };
+		A95ADC5C6EEB4AB4B1010D62 /* AudioSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSessionManager.swift; sourceTree = "<group>"; };
+		AD9318BFED0A45C5980D2669 /* WatchSpeaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSpeaker.swift; sourceTree = "<group>"; };
+		AFD0629CA4044956BCB122DE /* EnglishOnSiteWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EnglishOnSiteWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B66042CDB5E44E3B9EA8029A /* LibraryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryStore.swift; sourceTree = "<group>"; };
+		B87CA81A0304492D8FAF1BF4 /* PhoneSpeechTranscriber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneSpeechTranscriber.swift; sourceTree = "<group>"; };
+		C7869819CC03411B90C4AC3C /* CoachSourceBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachSourceBadge.swift; sourceTree = "<group>"; };
+		C7D4705B68B84CD8B7618078 /* RememberCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberCaptureService.swift; sourceTree = "<group>"; };
+		D4CC8DB3C2EA44B39AE55524 /* WatchAppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppModel.swift; sourceTree = "<group>"; };
+		D502758921FE42249194420F /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
+		D70505D2DCC243ED88F2DF1D /* CreateLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLessonView.swift; sourceTree = "<group>"; };
+		D9F9A62ECCFE4E2E889D1B0C /* EnglishOnSiteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishOnSiteApp.swift; sourceTree = "<group>"; };
+		E3B3D576283C46BDBDE0CC50 /* WatchConnectivityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityClient.swift; sourceTree = "<group>"; };
+		F01CBFEE45954175B1E14CDB /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
+		F22BBF05FAD14B29A6C5EDA0 /* GeminiSiteCoachService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiSiteCoachService.swift; sourceTree = "<group>"; };
+		F101A2B3C4D5E6F708090A1B /* RoleplayScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayScript.swift; sourceTree = "<group>"; };
+		F102A2B3C4D5E6F708090A1B /* DocumentTextExtractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentTextExtractor.swift; sourceTree = "<group>"; };
+		F103A2B3C4D5E6F708090A1B /* RoleplayRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayRepository.swift; sourceTree = "<group>"; };
+		F104A2B3C4D5E6F708090A1B /* RoleplayParserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayParserService.swift; sourceTree = "<group>"; };
+		F105A2B3C4D5E6F708090A1B /* RoleplayLoopEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayLoopEngine.swift; sourceTree = "<group>"; };
+		F106A2B3C4D5E6F708090A1B /* ImportRoleplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportRoleplayView.swift; sourceTree = "<group>"; };
+		F107A2B3C4D5E6F708090A1B /* RoleplayHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayHubView.swift; sourceTree = "<group>"; };
+		F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayLoopView.swift; sourceTree = "<group>"; };
+		F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTutorView.swift; sourceTree = "<group>"; };
+		F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseSimilarity.swift; sourceTree = "<group>"; };
+		F111A2B3C4D5E6F708090A1B /* PhraseLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseLoopView.swift; sourceTree = "<group>"; };
+		F112A2B3C4D5E6F708090A1B /* ElevenLabsAudioCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsAudioCache.swift; sourceTree = "<group>"; };
+		F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecrets.swift; sourceTree = "<group>"; };
+		F114A2B3C4D5E6F708090A1B /* Secrets.local.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.local.swift; sourceTree = "<group>"; };
+		F115A2B3C4D5E6F708090A1B /* TutorPhrasalDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPhrasalDetailView.swift; sourceTree = "<group>"; };
+		F4DC786A4B84434398725196 /* SitePhraseBank.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SitePhraseBank.json; sourceTree = "<group>"; };
+		L6SENTJSONFILE00006 /* learning_sentences_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = learning_sentences_v1.json; sourceTree = "<group>"; };
+		L5PHRASJSONFILE0005 /* learning_phrasals_site_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = learning_phrasals_site_v1.json; sourceTree = "<group>"; };
+		L4WORDSJSONFILE0004 /* learning_words_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = learning_words_v1.json; sourceTree = "<group>"; };
+		L3BANKVIEWFILE00003 /* LearningBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningBankView.swift; sourceTree = "<group>"; };
+		L2BANKSWIFTFILE0002 /* LearningBankStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningBankStore.swift; sourceTree = "<group>"; };
+		L1AUDIOSWIFTFILE0001 /* LibraryAudioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAudioStore.swift; sourceTree = "<group>"; };
+		FAF0838E2C614A3CB0C7D4D6 /* LibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItem.swift; sourceTree = "<group>"; };
+		FEAC115E41E945E098E09B0B /* PhoneLessonRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLessonRelay.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2235C01A309C4467AA116441 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EC479B499EB4EE891999F3A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		24320B8FC4A1400298E07F95 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1CA025E3EB09412BACAC9536 /* WatchPhraseBank.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		46142885771546E49A4BCF09 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5B637836A90E456FBC8BFAE7 /* Lessons */,
+				F4DC786A4B84434398725196 /* SitePhraseBank.json */,
+				L6SENTJSONFILE00006 /* learning_sentences_v1.json */,
+				L5PHRASJSONFILE0005 /* learning_phrasals_site_v1.json */,
+				L4WORDSJSONFILE0004 /* learning_words_v1.json */,
+				F301A2B3C4D5E6F708090B01 /* lessons_pack.json */,
+				B3OPPJSONFILE000003 /* opposites_bank_v1.json */,
+				B2PHRASJSONFILE0002 /* phrasals_bank_v1.json */,
+				B1VERBJSONFILE00001 /* verbs_bank_v1.json */,
+				G1PHRASGENFILE0001 /* phrasals_general_v1.json */,
+				G2OPPGENFILE000002 /* opposites_general_v1.json */,
+				G3VERBGENFILE00003 /* verbs_general_v1.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4EE15E2EA7F44CDAB75500F0 = {
+			isa = PBXGroup;
+			children = (
+				5A83ECBA138E4843AF5D8542 /* Shared */,
+				A23D065B614F4172B3D28336 /* EnglishOnSite */,
+				D57C972D2ABC4784AC8F29D1 /* EnglishOnSiteWatch */,
+				78F842183FD54F0788D075C6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5A83ECBA138E4843AF5D8542 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1CEBC592A91C4AC684C36019 /* WatchPhoneMessages.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5B637836A90E456FBC8BFAE7 /* Lessons */ = {
+			isa = PBXGroup;
+			children = (
+				F201A2B3C4D5E6F708090A11 /* lesson-0-1-safe-pass.json */,
+				F201A2B3C4D5E6F708090A21 /* lesson-0-2-induction.json */,
+				F201A2B3C4D5E6F708090A31 /* lesson-0-3-ppe.json */,
+			);
+			path = Lessons;
+			sourceTree = "<group>";
+		};
+		65EA85B9DCC24D3786579472 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6EB271BA7C7B4576A8B865C1 /* NavChrome.swift */,
+				D70505D2DCC243ED88F2DF1D /* CreateLessonView.swift */,
+				C7869819CC03411B90C4AC3C /* CoachSourceBadge.swift */,
+				49A2E51669E745EA81AA403D /* ContentView.swift */,
+				30BF5B1CD4A547C289A5DC8F /* HomeView.swift */,
+				F106A2B3C4D5E6F708090A1B /* ImportRoleplayView.swift */,
+				32DFBDCFC9604D4DB3AA7ED9 /* LibraryView.swift */,
+				46DC29239AB646BC87EEA74C /* PlayerView.swift */,
+				F107A2B3C4D5E6F708090A1B /* RoleplayHubView.swift */,
+				L3BANKVIEWFILE00003 /* LearningBankView.swift */,
+				F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */,
+				76070AC21D8E4FD4AF6B35C1 /* ReviewSessionView.swift */,
+				35DBFC032E43472C937520D1 /* SettingsView.swift */,
+				F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */,
+				C8PRINTFILE0000008 /* TutorPrintSheetView.swift */,
+				C7VBANKFILE0000007 /* TutorVerbBankView.swift */,
+				C6VFORMFILE0000006 /* TutorVerbFormsView.swift */,
+				C5WRITEFILE0000005 /* TutorWriteDrillView.swift */,
+				C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */,
+								B14PHRASALHUBFILE001 /* PhrasalHubView.swift */,
+				B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */,
+G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
+				C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */,
+				A2TUTOR04PAIRSFILE004 /* TutorPairsView.swift */,
+				A2TUTOR03WHYFILE00003 /* TutorWhyView.swift */,
+				A2TUTOR02TALKFILE0002 /* TutorTalkView.swift */,
+				A2TUTOR01LEGACYFILE01 /* SiteTutorLegacyView.swift */,
+				F111A2B3C4D5E6F708090A1B /* PhraseLoopView.swift */,
+				F115A2B3C4D5E6F708090A1B /* TutorPhrasalDetailView.swift */,
+				28810E1B112840A3829F24AD /* TranslateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6ED1FBB8ADE941629C147F53 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D4CC8DB3C2EA44B39AE55524 /* WatchAppModel.swift */,
+				E3B3D576283C46BDBDE0CC50 /* WatchConnectivityClient.swift */,
+				68501B7476A04CD194EF19B6 /* WatchOfflineBank.swift */,
+				AD9318BFED0A45C5980D2669 /* WatchSpeaker.swift */,
+				5AAB612105F84C29956070F4 /* WatchSpeechCapture.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		6FAFAE18C33B4A70BF75F259 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7AAD728D7C804353A29AA17B /* AppSettings.swift */,
+				806B2BCEBA4B4D578DDBE38A /* Lesson.swift */,
+				FAF0838E2C614A3CB0C7D4D6 /* LibraryItem.swift */,
+				F101A2B3C4D5E6F708090A1B /* RoleplayScript.swift */,
+				982D665158B64C0493FC4C40 /* SitePhrase.swift */,
+				2EE0D6926DA44C44962EB7D4 /* VoiceCommands.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		78F842183FD54F0788D075C6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54CA0806DD3D4EAF92480256 /* EnglishOnSite.app */,
+				AFD0629CA4044956BCB122DE /* EnglishOnSiteWatch.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		87724547260348F897C17706 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				499C677F6F5147108329B14F /* WatchHomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C8575F8A75A43258E1B21F0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B6B155691E544A309C30313F /* ElevenLabsTTS.swift */,
+				A1E05C01B2C34D5E8F901234 /* EosSyncService.swift */,
+				C2GRAMMARFILE00002 /* GrammarPatterns.swift */,
+								B17LANGDETECTFILE01 /* LanguageDetect.swift */,
+				B17CANONFILE000001 /* MyPhraseCanonService.swift */,
+C1BANKSTOREFILE001 /* TutorBankStore.swift */,
+				D1LESSONSCONFIGFILE1 /* LessonsConfig.swift */,
+				F112A2B3C4D5E6F708090A1B /* ElevenLabsAudioCache.swift */,
+				7DB93D8A441E4EC39D87DE61 /* ElevenLabsConfig.swift */,
+				F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */,
+				F301A2B3C4D5E6F708090B11 /* LessonPack.swift */,
+				F301A2B3C4D5E6F708090B21 /* LessonStore.swift */,
+				B87CA81A0304492D8FAF1BF4 /* PhoneSpeechTranscriber.swift */,
+				0DE02CC959974126809F9B36 /* LessonRepository.swift */,
+				A95ADC5C6EEB4AB4B1010D62 /* AudioSessionManager.swift */,
+				F102A2B3C4D5E6F708090A1B /* DocumentTextExtractor.swift */,
+				F22BBF05FAD14B29A6C5EDA0 /* GeminiSiteCoachService.swift */,
+				F01CBFEE45954175B1E14CDB /* HapticFeedback.swift */,
+				2C13E06267EB48959D5C7865 /* KeychainStore.swift */,
+				5D21590B68D2410C976EEBA1 /* LessonPlayer.swift */,
+				B66042CDB5E44E3B9EA8029A /* LibraryStore.swift */,
+				L2BANKSWIFTFILE0002 /* LearningBankStore.swift */,
+				L1AUDIOSWIFTFILE0001 /* LibraryAudioStore.swift */,
+				FEAC115E41E945E098E09B0B /* PhoneLessonRelay.swift */,
+				537ED273B494412BAD23CBFC /* PhoneWatchBridge.swift */,
+				C7D4705B68B84CD8B7618078 /* RememberCaptureService.swift */,
+				F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */,
+				F105A2B3C4D5E6F708090A1B /* RoleplayLoopEngine.swift */,
+				F104A2B3C4D5E6F708090A1B /* RoleplayParserService.swift */,
+				F103A2B3C4D5E6F708090A1B /* RoleplayRepository.swift */,
+				5BEA417D3AAD4A2099080EA0 /* SpeechCommandListener.swift */,
+				1D4726A37135493386B965D0 /* SpeechSpeaker.swift */,
+				65E91C5CB9024E17B4B3ADFA /* TimedSpeechCapture.swift */,
+				D502758921FE42249194420F /* TranslationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A23D065B614F4172B3D28336 /* EnglishOnSite */ = {
+			isa = PBXGroup;
+			children = (
+				15BEFD914F6D421386FB53E3 /* Assets.xcassets */,
+				6FAFAE18C33B4A70BF75F259 /* Models */,
+				46142885771546E49A4BCF09 /* Resources */,
+				9C8575F8A75A43258E1B21F0 /* Services */,
+				65EA85B9DCC24D3786579472 /* Views */,
+				D9F9A62ECCFE4E2E889D1B0C /* EnglishOnSiteApp.swift */,
+				F114A2B3C4D5E6F708090A1B /* Secrets.local.swift */,
+				853572B2333D4E99A4297F5E /* Info.plist */,
+			);
+			path = EnglishOnSite;
+			sourceTree = "<group>";
+		};
+		D57C972D2ABC4784AC8F29D1 /* EnglishOnSiteWatch */ = {
+			isa = PBXGroup;
+			children = (
+				39844DD447CD43988E6F6B3A /* Assets.xcassets */,
+				24320B8FC4A1400298E07F95 /* Resources */,
+				6ED1FBB8ADE941629C147F53 /* Services */,
+				87724547260348F897C17706 /* Views */,
+				7295015A73984EDFA03A7F63 /* EnglishOnSiteWatchApp.swift */,
+				481D8EBC9E294DE2A4712FFF /* Info.plist */,
+			);
+			path = EnglishOnSiteWatch;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0FDA85910D646B7827B6A37 /* EnglishOnSite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34A39E32E82142D0BBE42219 /* Build configuration list for PBXNativeTarget "EnglishOnSite" */;
+			buildPhases = (
+				F116ENSURESECRETS00001 /* Ensure Secrets.local.swift */,
+				5CB4314614334455A6442273 /* Sources */,
+				2235C01A309C4467AA116441 /* Frameworks */,
+				27F87E3FA8154F38A8F3764E /* Resources */,
+				757C7B034CB14B1E8FB40CC4 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8DBBE0C544F147509528AF94 /* PBXTargetDependency */,
+			);
+			name = EnglishOnSite;
+			productName = LanguagesOnSite;
+			productReference = 54CA0806DD3D4EAF92480256 /* EnglishOnSite.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E3A420C3846D49658617C0B3 /* EnglishOnSiteWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86BF378E83CE4B68A012A538 /* Build configuration list for PBXNativeTarget "EnglishOnSiteWatch" */;
+			buildPhases = (
+				7F2F12D87C7441B08C484A94 /* Sources */,
+				7EC479B499EB4EE891999F3A /* Frameworks */,
+				C6BDC669A2D7430EB69ABDFF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EnglishOnSiteWatch;
+			productName = LanguagesOnSiteWatch;
+			productReference = AFD0629CA4044956BCB122DE /* EnglishOnSiteWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36FECA7A90554FA5A151AA47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					E0FDA85910D646B7827B6A37 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					E3A420C3846D49658617C0B3 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 792A8E3EA7B0492DBE26900B /* Build configuration list for PBXProject "EnglishOnSite" */;
+			compatibilityVersion = "Xcode 15.0";
+			developmentRegion = ru;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ru,
+				Base,
+			);
+			mainGroup = 4EE15E2EA7F44CDAB75500F0;
+			productRefGroup = 78F842183FD54F0788D075C6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0FDA85910D646B7827B6A37 /* EnglishOnSite */,
+				E3A420C3846D49658617C0B3 /* EnglishOnSiteWatch */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F116ENSURESECRETS00001 /* Ensure Secrets.local.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/EnglishOnSite/Secrets.local.swift.example",
+			);
+			name = "Ensure Secrets.local.swift";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/EnglishOnSite/Secrets.local.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "EXAMPLE=\"${SRCROOT}/EnglishOnSite/Secrets.local.swift.example\"\nTARGET=\"${SRCROOT}/EnglishOnSite/Secrets.local.swift\"\nif [ ! -f \"$TARGET\" ]; then\n  cp \"$EXAMPLE\" \"$TARGET\"\n  echo \"Created Secrets.local.swift from example — fill keys locally\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXResourcesBuildPhase section */
+		27F87E3FA8154F38A8F3764E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BFF56CC9CF5400DA9490982 /* Assets.xcassets in Resources */,
+				F301A2B3C4D5E6F708090B02 /* lessons_pack.json in Resources */,
+				B3OPPJSONBUILD00003 /* opposites_bank_v1.json in Resources */,
+				B2PHRASJSONBUILD0002 /* phrasals_bank_v1.json in Resources */,
+				B1VERBJSONBUILD0001 /* verbs_bank_v1.json in Resources */,
+				G1PHRASGENBUILD0001 /* phrasals_general_v1.json in Resources */,
+				G2OPPGENBUILD000002 /* opposites_general_v1.json in Resources */,
+				G3VERBGENBUILD00003 /* verbs_general_v1.json in Resources */,
+				F201A2B3C4D5E6F708090A12 /* lesson-0-1-safe-pass.json in Resources */,
+				F201A2B3C4D5E6F708090A22 /* lesson-0-2-induction.json in Resources */,
+				F201A2B3C4D5E6F708090A32 /* lesson-0-3-ppe.json in Resources */,
+				8F9F8F64D7634D5FBECCAE39 /* SitePhraseBank.json in Resources */,
+				L6SENTJSONBUILD0006 /* learning_sentences_v1.json in Resources */,
+				L5PHRASJSONBUILD0005 /* learning_phrasals_site_v1.json in Resources */,
+				L4WORDSJSONBUILD0004 /* learning_words_v1.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6BDC669A2D7430EB69ABDFF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				53B12827FD7044C096AA6059 /* Assets.xcassets in Resources */,
+				DC700F4F20734303ABDD2D2B /* WatchPhraseBank.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5CB4314614334455A6442273 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2DFDFC2FA0B94A3EBA9565FC /* ElevenLabsTTS.swift in Sources */,
+				A1E05C02B2C34D5E8F901234 /* EosSyncService.swift in Sources */,
+				C2GRAMMARBUILD00002 /* GrammarPatterns.swift in Sources */,
+				C1BANKSTOREBUILD001 /* TutorBankStore.swift in Sources */,
+				D1LESSONSCONFIGBUILD1 /* LessonsConfig.swift in Sources */,
+				F112A2B3C4D5E6F708090A1C /* ElevenLabsAudioCache.swift in Sources */,
+				49D56FF2D596450A8831F8EB /* ElevenLabsConfig.swift in Sources */,
+				68387E2F72A14531AEAF169B /* NavChrome.swift in Sources */,
+				7DCE1A3F5E4E4794B4E5427E /* PhoneSpeechTranscriber.swift in Sources */,
+				7AF4B07F4C164FC5A688932C /* CreateLessonView.swift in Sources */,
+				3B3C27A639324F909BB086D7 /* LessonRepository.swift in Sources */,
+				F301A2B3C4D5E6F708090B12 /* LessonPack.swift in Sources */,
+				F301A2B3C4D5E6F708090B22 /* LessonStore.swift in Sources */,
+				1C91E2078F404BFB9814E3E1 /* WatchPhoneMessages.swift in Sources */,
+				CE2D77618F5F4D46916AD732 /* EnglishOnSiteApp.swift in Sources */,
+				AF1FFC1BAF8B4999B551AF8D /* AppSettings.swift in Sources */,
+				EFD010FDDEAE4815810CFC39 /* Lesson.swift in Sources */,
+				4B64CD7E9B454BDEB8E0AD69 /* LibraryItem.swift in Sources */,
+				L3BANKVIEWBUILD0003 /* LearningBankView.swift in Sources */,
+				L2BANKSWIFTBUILD0002 /* LearningBankStore.swift in Sources */,
+				L1AUDIOSWIFTBUILD001 /* LibraryAudioStore.swift in Sources */,
+				416CE18C4756467EB03C25AC /* SitePhrase.swift in Sources */,
+				47B4A0164A0D47B996BFF78F /* VoiceCommands.swift in Sources */,
+				186F99D6885C4B6294266E15 /* AudioSessionManager.swift in Sources */,
+				E49F221D71AC491BBF607418 /* GeminiSiteCoachService.swift in Sources */,
+				52192CDFAE4F4163823CD736 /* HapticFeedback.swift in Sources */,
+				46523771E8A34CD4816AADC7 /* KeychainStore.swift in Sources */,
+				58CA5A4B9435451C8145DB96 /* LessonPlayer.swift in Sources */,
+				5B875DA30971401393706B82 /* LibraryStore.swift in Sources */,
+				D8034170B6A9410DBEB9A47C /* PhoneLessonRelay.swift in Sources */,
+				C1A324EAA215484B8DF781F8 /* PhoneWatchBridge.swift in Sources */,
+				79480C35FA914117804D712E /* RememberCaptureService.swift in Sources */,
+				F101A2B3C4D5E6F708090A1C /* RoleplayScript.swift in Sources */,
+				F102A2B3C4D5E6F708090A1C /* DocumentTextExtractor.swift in Sources */,
+				F103A2B3C4D5E6F708090A1C /* RoleplayRepository.swift in Sources */,
+				F104A2B3C4D5E6F708090A1C /* RoleplayParserService.swift in Sources */,
+				F105A2B3C4D5E6F708090A1C /* RoleplayLoopEngine.swift in Sources */,
+				F106A2B3C4D5E6F708090A1C /* ImportRoleplayView.swift in Sources */,
+				F107A2B3C4D5E6F708090A1C /* RoleplayHubView.swift in Sources */,
+				F108A2B3C4D5E6F708090A1C /* RoleplayLoopView.swift in Sources */,
+				F109A2B3C4D5E6F708090A1C /* SiteTutorView.swift in Sources */,
+				C8PRINTBUILD0000008 /* TutorPrintSheetView.swift in Sources */,
+				C7VBANKBUILD0000007 /* TutorVerbBankView.swift in Sources */,
+				C6VFORMBUILD0000006 /* TutorVerbFormsView.swift in Sources */,
+				C5WRITEBUILD0000005 /* TutorWriteDrillView.swift in Sources */,
+				C4SPEAKBUILD0000004 /* TutorSpeakDrillView.swift in Sources */,
+				G4SEARCHBUILD000004 /* TutorPhrasalSearchView.swift in Sources */,
+				B14PHRASALHUBBUILD001 /* PhrasalHubView.swift in Sources */,
+				B17ADDPHRASEBUILD001 /* AddMyPhraseView.swift in Sources */,
+				B17LANGDETECTBUILD01 /* LanguageDetect.swift in Sources */,
+				B17CANONBUILD000001 /* MyPhraseCanonService.swift in Sources */,
+				C3EXHUBBUILD0000003 /* TutorExercisesHubView.swift in Sources */,
+				A2TUTOR04PAIRSBUILD004 /* TutorPairsView.swift in Sources */,
+				A2TUTOR03WHYBUILD00003 /* TutorWhyView.swift in Sources */,
+				A2TUTOR02TALKBUILD0002 /* TutorTalkView.swift in Sources */,
+				A2TUTOR01LEGACYBUILD01 /* SiteTutorLegacyView.swift in Sources */,
+				F110A2B3C4D5E6F708090A1C /* PhraseSimilarity.swift in Sources */,
+				F111A2B3C4D5E6F708090A1C /* PhraseLoopView.swift in Sources */,
+				F113A2B3C4D5E6F708090A1C /* AppSecrets.swift in Sources */,
+				F114A2B3C4D5E6F708090A1C /* Secrets.local.swift in Sources */,
+				F115A2B3C4D5E6F708090A1C /* TutorPhrasalDetailView.swift in Sources */,
+				4631DC110CC64F99AA660706 /* SpeechCommandListener.swift in Sources */,
+				B8D93ACE030E4E57BE2FC994 /* SpeechSpeaker.swift in Sources */,
+				6C3878F82DBB4A1D9BE0A9C0 /* TimedSpeechCapture.swift in Sources */,
+				7550969D9BF945D6ABB5E9FB /* TranslationService.swift in Sources */,
+				D42222C881D1490AAB3D7F7C /* CoachSourceBadge.swift in Sources */,
+				E2690924126F4C8F93CA8088 /* ContentView.swift in Sources */,
+				870B22D0153543F296A98D55 /* HomeView.swift in Sources */,
+				5828CEA1E8754C59A5FFF077 /* LibraryView.swift in Sources */,
+				291449976F084B63936875A2 /* PlayerView.swift in Sources */,
+				10C8AF3653444817A806B437 /* ReviewSessionView.swift in Sources */,
+				82EE3E4D3BDB4C3D9B45D318 /* SettingsView.swift in Sources */,
+				FC768F53D4014E7093A8E29F /* TranslateView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7F2F12D87C7441B08C484A94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D119A8AFD0594D3190A724F4 /* WatchPhoneMessages.swift in Sources */,
+				4B909EAB0D8345DB84F3C24B /* EnglishOnSiteWatchApp.swift in Sources */,
+				9D310F9A28CA4C68B6317741 /* WatchAppModel.swift in Sources */,
+				28851D683EBD4674AF9655C7 /* WatchConnectivityClient.swift in Sources */,
+				86000C264CB446B9A61CBAFB /* WatchOfflineBank.swift in Sources */,
+				4CDB26121D2E437FA9833223 /* WatchSpeaker.swift in Sources */,
+				A90F4E705D794CCD93E10AA2 /* WatchSpeechCapture.swift in Sources */,
+				A39D9953840C41A78B6BF8F5 /* WatchHomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8DBBE0C544F147509528AF94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3A420C3846D49658617C0B3 /* EnglishOnSiteWatch */;
+			targetProxy = D62A69AEA8384E7E83BC9ECD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4FA8B6A2952B4919AE898A5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = T62YGZ9Y59;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EnglishOnSiteWatch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Languages on site";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sputnik.englishonsite;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sputnik.englishonsite.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		63CF4090176E4FEC96454822 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		67B0DD300BA241EA885E42D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = T62YGZ9Y59;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EnglishOnSite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Languages on site";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sputnik.englishonsite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		6A050E40DCE24C389E7F0D48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = T62YGZ9Y59;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EnglishOnSite/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Languages on site";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sputnik.englishonsite;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		95BB5357A88748F38CB31264 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
+				DEVELOPMENT_TEAM = T62YGZ9Y59;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = EnglishOnSiteWatch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Languages on site";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.sputnik.englishonsite;
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 4.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sputnik.englishonsite.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		9D5A16219CF84B36AD4E4094 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		34A39E32E82142D0BBE42219 /* Build configuration list for PBXNativeTarget "EnglishOnSite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A050E40DCE24C389E7F0D48 /* Debug */,
+				67B0DD300BA241EA885E42D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		792A8E3EA7B0492DBE26900B /* Build configuration list for PBXProject "EnglishOnSite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63CF4090176E4FEC96454822 /* Debug */,
+				9D5A16219CF84B36AD4E4094 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86BF378E83CE4B68A012A538 /* Build configuration list for PBXNativeTarget "EnglishOnSiteWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FA8B6A2952B4919AE898A5C /* Debug */,
+				95BB5357A88748F38CB31264 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 36FECA7A90554FA5A151AA47 /* Project object */;
+}

@@ -1,0 +1,73 @@
+{
+  "id": "lesson_0_3_ppe",
+  "title_en": "PPE — ready for site",
+  "title_ru": "СИЗ — можно на объект",
+  "tags": [
+    "safety",
+    "induction"
+  ],
+  "scene_ru": "Site induction · полный СИЗ и допуск на сайт (Ireland).",
+  "your_role": "electrician",
+  "partner_role": "foreman",
+  "cards": [
+    {
+      "en": "PPE",
+      "ru": "средства индивидуальной защиты (СИЗ)"
+    },
+    {
+      "en": "hard hat",
+      "ru": "каска"
+    },
+    {
+      "en": "high-visibility vest (hi-vis)",
+      "ru": "светоотражающий жилет"
+    },
+    {
+      "en": "safety boots",
+      "ru": "защитные ботинки"
+    }
+  ],
+  "lines": [
+    {
+      "en": "Wear full PPE before you go on site.",
+      "ru": "Надень полный СИЗ, прежде чем выходить на объект.",
+      "role": "foreman",
+      "tip_ru": "PPE = personal protective equipment / СИЗ"
+    },
+    {
+      "en": "Hard hat, hi-vis, and safety boots?",
+      "ru": "Каска, жилет и защитные ботинки?",
+      "role": "electrician",
+      "practice": true,
+      "tip_ru": "hi-vis = high-visibility vest"
+    },
+    {
+      "en": "Yes. And safety glasses.",
+      "ru": "Да. И защитные очки.",
+      "role": "foreman"
+    },
+    {
+      "en": "Am I allowed on site now?",
+      "ru": "Мне уже можно на объект?",
+      "role": "electrician",
+      "practice": true
+    },
+    {
+      "en": "After induction — yes. Stay on the walkways.",
+      "ru": "После инструктажа — да. Ходи только по дорожкам.",
+      "role": "foreman",
+      "tip_ru": "walkways = пешеходные дорожки на объекте"
+    }
+  ],
+  "say_today": [
+    {
+      "en": "I need full PPE before I go on site.",
+      "ru": "Мне нужен полный СИЗ, прежде чем идти на объект."
+    },
+    {
+      "en": "Am I allowed on site now?",
+      "ru": "Мне уже можно на объект?"
+    }
+  ],
+  "order": 3
+}

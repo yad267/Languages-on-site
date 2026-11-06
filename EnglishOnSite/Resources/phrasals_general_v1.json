@@ -1,0 +1,653 @@
+{
+  "version": 1,
+  "phrasals": [
+    {
+      "en": "take off",
+      "ru": "снять / взлететь",
+      "example_en": "Take off your coat.",
+      "example_ru": "Сними куртку.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take on",
+      "ru": "взять на себя / нанять",
+      "example_en": "She took on a new job.",
+      "example_ru": "Она взяла новую работу.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take over",
+      "ru": "перенять / захватить",
+      "example_en": "Can you take over for a minute?",
+      "example_ru": "Можешь подменить на минуту?",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take after",
+      "ru": "быть похожим",
+      "example_en": "He takes after his dad.",
+      "example_ru": "Он похож на папу.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take up",
+      "ru": "начать (хобби) / занять место",
+      "example_en": "I took up running.",
+      "example_ru": "Я начал бегать.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take back",
+      "ru": "забрать / взять слова назад",
+      "example_en": "I take back what I said.",
+      "example_ru": "Я беру слова назад.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take out",
+      "ru": "вынести / пригласить",
+      "example_en": "Let's take out the rubbish.",
+      "example_ru": "Давай вынесем мусор.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take in",
+      "ru": "понять / принять",
+      "example_en": "It's hard to take in.",
+      "example_ru": "Трудно это воспринять.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take apart",
+      "ru": "разобрать",
+      "example_en": "Don't take apart the phone.",
+      "example_ru": "Не разбирай телефон.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take down",
+      "ru": "записать / снять",
+      "example_en": "Take down this number.",
+      "example_ru": "Запиши этот номер.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take away",
+      "ru": "убрать / забрать с собой",
+      "example_en": "Take away the plates.",
+      "example_ru": "Убери тарелки.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take care of",
+      "ru": "заботиться",
+      "example_en": "I'll take care of dinner.",
+      "example_ru": "Я займусь ужином.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take part",
+      "ru": "участвовать",
+      "example_en": "Do you want to take part?",
+      "example_ru": "Хочешь поучаствовать?",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "take place",
+      "ru": "происходить",
+      "example_en": "The meeting takes place at 5.",
+      "example_ru": "Встреча в 5.",
+      "root": "take",
+      "tier": 1
+    },
+    {
+      "en": "get up",
+      "ru": "вставать",
+      "example_en": "I get up at seven.",
+      "example_ru": "Я встаю в семь.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get on",
+      "ru": "ладить / садиться",
+      "example_en": "We get on well.",
+      "example_ru": "Мы хорошо ладим.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get off",
+      "ru": "сходить / начинать",
+      "example_en": "Get off at the next stop.",
+      "example_ru": "Выходи на следующей.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get in",
+      "ru": "войти / прибыть",
+      "example_en": "Get in the car.",
+      "example_ru": "Садись в машину.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get out",
+      "ru": "выйти",
+      "example_en": "Get out of here!",
+      "example_ru": "Уходи отсюда!",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get back",
+      "ru": "вернуться",
+      "example_en": "I'll get back soon.",
+      "example_ru": "Скоро вернусь.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get over",
+      "ru": "пережить / оправиться",
+      "example_en": "She got over the flu.",
+      "example_ru": "Она переболела гриппом.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get along",
+      "ru": "ладить",
+      "example_en": "Do you get along?",
+      "example_ru": "Вы ладите?",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get by",
+      "ru": "справляться",
+      "example_en": "We get by on little money.",
+      "example_ru": "Мы сводим концы с концами.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get through",
+      "ru": "дозвониться / пройти",
+      "example_en": "I can't get through.",
+      "example_ru": "Не могу дозвониться.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get rid of",
+      "ru": "избавиться",
+      "example_en": "Get rid of old clothes.",
+      "example_ru": "Избавься от старой одежды.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "get together",
+      "ru": "встретиться",
+      "example_en": "Let's get together Friday.",
+      "example_ru": "Давай встретимся в пятницу.",
+      "root": "get",
+      "tier": 1
+    },
+    {
+      "en": "put on",
+      "ru": "надеть",
+      "example_en": "Put on a jacket.",
+      "example_ru": "Надень куртку.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "put off",
+      "ru": "отложить",
+      "example_en": "Don't put it off.",
+      "example_ru": "Не откладывай.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "put away",
+      "ru": "убрать",
+      "example_en": "Put away your toys.",
+      "example_ru": "Убери игрушки.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "put back",
+      "ru": "положить обратно",
+      "example_en": "Put it back on the shelf.",
+      "example_ru": "Положи обратно на полку.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "put up with",
+      "ru": "терпеть",
+      "example_en": "I can't put up with noise.",
+      "example_ru": "Не могу терпеть шум.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "put down",
+      "ru": "положить / унизить",
+      "example_en": "Put down the bag.",
+      "example_ru": "Положи сумку.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "put out",
+      "ru": "потушить / выставить",
+      "example_en": "Put out the candles.",
+      "example_ru": "Потуши свечи.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "put together",
+      "ru": "собрать",
+      "example_en": "Put together a salad.",
+      "example_ru": "Собери салат.",
+      "root": "put",
+      "tier": 1
+    },
+    {
+      "en": "look after",
+      "ru": "присматривать",
+      "example_en": "Can you look after the kids?",
+      "example_ru": "Можешь присмотреть за детьми?",
+      "root": "look",
+      "tier": 1
+    },
+    {
+      "en": "look for",
+      "ru": "искать",
+      "example_en": "I'm looking for my keys.",
+      "example_ru": "Ищу ключи.",
+      "root": "look",
+      "tier": 1
+    },
+    {
+      "en": "look forward to",
+      "ru": "ждать с нетерпением",
+      "example_en": "I look forward to the weekend.",
+      "example_ru": "Жду выходных.",
+      "root": "look",
+      "tier": 1
+    },
+    {
+      "en": "look up",
+      "ru": "искать (в словаре)",
+      "example_en": "Look up this word.",
+      "example_ru": "Посмотри это слово.",
+      "root": "look",
+      "tier": 1
+    },
+    {
+      "en": "look out",
+      "ru": "осторожно",
+      "example_en": "Look out!",
+      "example_ru": "Осторожно!",
+      "root": "look",
+      "tier": 1
+    },
+    {
+      "en": "look into",
+      "ru": "разобраться",
+      "example_en": "I'll look into it.",
+      "example_ru": "Я разберусь.",
+      "root": "look",
+      "tier": 1
+    },
+    {
+      "en": "come in",
+      "ru": "войти",
+      "example_en": "Come in!",
+      "example_ru": "Входи!",
+      "root": "come",
+      "tier": 1
+    },
+    {
+      "en": "come back",
+      "ru": "вернуться",
+      "example_en": "Come back later.",
+      "example_ru": "Вернись позже.",
+      "root": "come",
+      "tier": 1
+    },
+    {
+      "en": "come over",
+      "ru": "зайти в гости",
+      "example_en": "Come over tonight.",
+      "example_ru": "Заходи сегодня вечером.",
+      "root": "come",
+      "tier": 1
+    },
+    {
+      "en": "come up with",
+      "ru": "придумать",
+      "example_en": "She came up with an idea.",
+      "example_ru": "Она придумала идею.",
+      "root": "come",
+      "tier": 1
+    },
+    {
+      "en": "go on",
+      "ru": "продолжать",
+      "example_en": "Go on, please.",
+      "example_ru": "Продолжай, пожалуйста.",
+      "root": "go",
+      "tier": 1
+    },
+    {
+      "en": "go out",
+      "ru": "выйти / потухнуть",
+      "example_en": "Shall we go out?",
+      "example_ru": "Сходим куда-нибудь?",
+      "root": "go",
+      "tier": 1
+    },
+    {
+      "en": "go back",
+      "ru": "вернуться",
+      "example_en": "Go back home.",
+      "example_ru": "Вернись домой.",
+      "root": "go",
+      "tier": 1
+    },
+    {
+      "en": "go away",
+      "ru": "уйти",
+      "example_en": "Please go away.",
+      "example_ru": "Пожалуйста, уйди.",
+      "root": "go",
+      "tier": 1
+    },
+    {
+      "en": "give up",
+      "ru": "сдаться",
+      "example_en": "Don't give up.",
+      "example_ru": "Не сдавайся.",
+      "root": "give",
+      "tier": 1
+    },
+    {
+      "en": "give back",
+      "ru": "вернуть",
+      "example_en": "Give back my book.",
+      "example_ru": "Верни мою книгу.",
+      "root": "give",
+      "tier": 1
+    },
+    {
+      "en": "give away",
+      "ru": "раздавать / выдать секрет",
+      "example_en": "They give away free samples.",
+      "example_ru": "Раздают бесплатные образцы.",
+      "root": "give",
+      "tier": 1
+    },
+    {
+      "en": "make up",
+      "ru": "помириться / выдумать",
+      "example_en": "They made up.",
+      "example_ru": "Они помирились.",
+      "root": "make",
+      "tier": 1
+    },
+    {
+      "en": "make out",
+      "ru": "разобрать / целоваться",
+      "example_en": "I can't make out the text.",
+      "example_ru": "Не могу разобрать текст.",
+      "root": "make",
+      "tier": 2
+    },
+    {
+      "en": "break up",
+      "ru": "расстаться",
+      "example_en": "They broke up.",
+      "example_ru": "Они расстались.",
+      "root": "break",
+      "tier": 1
+    },
+    {
+      "en": "break down",
+      "ru": "сломаться / разреветься",
+      "example_en": "The car broke down.",
+      "example_ru": "Машина сломалась.",
+      "root": "break",
+      "tier": 1
+    },
+    {
+      "en": "turn on",
+      "ru": "включить",
+      "example_en": "Turn on the light.",
+      "example_ru": "Включи свет.",
+      "root": "turn",
+      "tier": 1
+    },
+    {
+      "en": "turn off",
+      "ru": "выключить",
+      "example_en": "Turn off the TV.",
+      "example_ru": "Выключи телевизор.",
+      "root": "turn",
+      "tier": 1
+    },
+    {
+      "en": "turn up",
+      "ru": "появиться / громче",
+      "example_en": "He turned up late.",
+      "example_ru": "Он появился поздно.",
+      "root": "turn",
+      "tier": 1
+    },
+    {
+      "en": "turn down",
+      "ru": "отклонить / тише",
+      "example_en": "Turn down the music.",
+      "example_ru": "Сделай музыку тише.",
+      "root": "turn",
+      "tier": 1
+    },
+    {
+      "en": "set up",
+      "ru": "настроить / основать",
+      "example_en": "Set up your phone.",
+      "example_ru": "Настрой телефон.",
+      "root": "set",
+      "tier": 1
+    },
+    {
+      "en": "set off",
+      "ru": "отправиться",
+      "example_en": "We set off at dawn.",
+      "example_ru": "Мы выехали на рассвете.",
+      "root": "set",
+      "tier": 1
+    },
+    {
+      "en": "hold on",
+      "ru": "подождать",
+      "example_en": "Hold on a second.",
+      "example_ru": "Подожди секунду.",
+      "root": "hold",
+      "tier": 1
+    },
+    {
+      "en": "hold up",
+      "ru": "задержать",
+      "example_en": "Sorry I'm late — traffic held me up.",
+      "example_ru": "Извини за опоздание — пробки.",
+      "root": "hold",
+      "tier": 2
+    },
+    {
+      "en": "run out",
+      "ru": "закончиться",
+      "example_en": "We've run out of milk.",
+      "example_ru": "Молоко закончилось.",
+      "root": "run",
+      "tier": 1
+    },
+    {
+      "en": "run into",
+      "ru": "случайно встретить",
+      "example_en": "I ran into an old friend.",
+      "example_ru": "Случайно встретил старого друга.",
+      "root": "run",
+      "tier": 1
+    },
+    {
+      "en": "call back",
+      "ru": "перезвонить",
+      "example_en": "I'll call you back.",
+      "example_ru": "Я тебе перезвоню.",
+      "root": "call",
+      "tier": 1
+    },
+    {
+      "en": "call off",
+      "ru": "отменить",
+      "example_en": "They called off the party.",
+      "example_ru": "Они отменили вечеринку.",
+      "root": "call",
+      "tier": 1
+    },
+    {
+      "en": "pick up",
+      "ru": "поднять / забрать",
+      "example_en": "Can you pick me up?",
+      "example_ru": "Можешь меня забрать?",
+      "root": "pick",
+      "tier": 1
+    },
+    {
+      "en": "pick out",
+      "ru": "выбрать",
+      "example_en": "Pick out a dress.",
+      "example_ru": "Выбери платье.",
+      "root": "pick",
+      "tier": 1
+    },
+    {
+      "en": "find out",
+      "ru": "узнать",
+      "example_en": "I need to find out.",
+      "example_ru": "Мне нужно узнать.",
+      "root": "find",
+      "tier": 1
+    },
+    {
+      "en": "work out",
+      "ru": "тренироваться / получиться",
+      "example_en": "I work out twice a week.",
+      "example_ru": "Я тренируюсь дважды в неделю.",
+      "root": "work",
+      "tier": 1
+    },
+    {
+      "en": "hang out",
+      "ru": "тусоваться",
+      "example_en": "Want to hang out?",
+      "example_ru": "Хочешь потусить?",
+      "root": "hang",
+      "tier": 1
+    },
+    {
+      "en": "show up",
+      "ru": "появиться",
+      "example_en": "He didn't show up.",
+      "example_ru": "Он не появился.",
+      "root": "show",
+      "tier": 1
+    },
+    {
+      "en": "check in",
+      "ru": "зарегистрироваться",
+      "example_en": "Check in online.",
+      "example_ru": "Зарегистрируйся онлайн.",
+      "root": "check",
+      "tier": 1
+    },
+    {
+      "en": "check out",
+      "ru": "выселиться / глянуть",
+      "example_en": "Check out this cafe.",
+      "example_ru": "Глянь это кафе.",
+      "root": "check",
+      "tier": 1
+    },
+    {
+      "en": "wake up",
+      "ru": "просыпаться",
+      "example_en": "Wake up!",
+      "example_ru": "Просыпайся!",
+      "root": "wake",
+      "tier": 1
+    },
+    {
+      "en": "sit down",
+      "ru": "сесть",
+      "example_en": "Please sit down.",
+      "example_ru": "Садитесь, пожалуйста.",
+      "root": "sit",
+      "tier": 1
+    },
+    {
+      "en": "stand up",
+      "ru": "встать",
+      "example_en": "Stand up, please.",
+      "example_ru": "Встаньте, пожалуйста.",
+      "root": "stand",
+      "tier": 1
+    },
+    {
+      "en": "fill in",
+      "ru": "заполнить",
+      "example_en": "Fill in the form.",
+      "example_ru": "Заполни форму.",
+      "root": "fill",
+      "tier": 1
+    },
+    {
+      "en": "pay back",
+      "ru": "вернуть долг",
+      "example_en": "I'll pay you back.",
+      "example_ru": "Я тебе верну.",
+      "root": "pay",
+      "tier": 1
+    },
+    {
+      "en": "sort out",
+      "ru": "разобраться / уладить",
+      "example_en": "We'll sort it out.",
+      "example_ru": "Мы это уладим.",
+      "root": "sort",
+      "tier": 1
+    }
+  ]
+}
