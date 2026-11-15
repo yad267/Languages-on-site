@@ -26,10 +26,15 @@ final class TimedSpeechCapture {
     private var maxSeconds = 60
     private var autoFinishWhen: ((String) -> Bool)?
     private var didAutoFinish = false
+    /// Debounce: first moment the live PASS predicate held for the current hypothesis.
+    private var autoFinishHoldSince: Date?
+    private var autoFinishHoldText = ""
+    /// Require PASS to stay true this long (unless SFSpeech marks isFinal).
+    private let autoFinishHoldSeconds: TimeInterval = 0.65
 
     /// Start mic + speech recognition; returns when user calls `finish()` / `cancel()` or max reached.
     /// - Parameter contextualStrings: SFSpeech hints (target phrase + site lexemes). Max ~100 used.
-    /// - Parameter autoFinishWhen: live PASS → stop mic immediately (Говорить drills).
+    /// - Parameter autoFinishWhen: live PASS → stop mic after hold / isFinal (full phrase only).
     func captureUntilStopped(
         localeId: String,
         maxSeconds: Int,
@@ -41,6 +46,8 @@ final class TimedSpeechCapture {
         partialText = ""
         hitMaxCap = false
         didAutoFinish = false
+        autoFinishHoldSince = nil
+        autoFinishHoldText = ""
         elapsedSeconds = 0
         self.autoFinishWhen = autoFinishWhen
         self.maxSeconds = max(5, min(maxSeconds, 60))
@@ -69,7 +76,7 @@ final class TimedSpeechCapture {
             errorMessage = "Распознавание \(localeId) недоступно"
             return ""
         }
-        _ = usedLocale
+        let isEnglish = usedLocale.lowercased().hasPrefix("en")
 
         do {
             try AudioSessionManager.configureForRecording()
@@ -80,10 +87,17 @@ final class TimedSpeechCapture {
 
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
-        if recognizer.supportsOnDeviceRecognition {
+        request.taskHint = .dictation
+        // Do NOT force on-device for EN: on-device often mangles site PPE
+        // (hard hat → hot hat / heart). Server path uses contextualStrings better.
+        if !isEnglish, recognizer.supportsOnDeviceRecognition {
             request.requiresOnDeviceRecognition = true
         }
-        let hints = Self.dedupeHints(contextualStrings)
+        var rawHints = contextualStrings
+        if isEnglish {
+            rawHints.append(contentsOf: PhraseSimilarity.siteContextualHints)
+        }
+        let hints = Self.dedupeHints(rawHints)
         if !hints.isEmpty {
             request.contextualStrings = hints
         }
@@ -100,18 +114,11 @@ final class TimedSpeechCapture {
             Task { @MainActor in
                 guard let self, let result else { return }
                 let raw = result.bestTranscription.formattedString
-                self.partialText = raw
-                // Live PASS → stop without waiting for «Стоп».
-                if !self.didAutoFinish,
-                   self.isCapturing,
-                   let pred = self.autoFinishWhen,
-                   pred(raw) {
-                    let elapsed = self.startedAt.map { Date().timeIntervalSince($0) } ?? 0
-                    // Tiny floor so a single clear token can finish (~0.25s).
-                    guard elapsed >= 0.25 else { return }
-                    self.didAutoFinish = true
-                    self.resumeWait()
-                }
+                let heard = isEnglish ? PhraseSimilarity.correctSiteASR(raw) : raw
+                self.partialText = heard
+                // Live PASS → stop only after full-phrase PASS holds (or isFinal).
+                // Prefix matches must not cut mid-utterance.
+                self.considerAutoFinish(heard: heard, isFinal: result.isFinal)
             }
         }
 
@@ -155,9 +162,12 @@ final class TimedSpeechCapture {
             }
         }
 
-        let finalText = partialText
+        let finalText = partialText.trimmingCharacters(in: .whitespacesAndNewlines)
         tearDown()
-        return finalText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !finalText.isEmpty else { return "" }
+        return isEnglish
+            ? PhraseSimilarity.correctSiteASR(finalText)
+            : finalText
     }
 
     /// User tapped «Готово» / «Стоп» — end recording.
@@ -189,9 +199,41 @@ final class TimedSpeechCapture {
         }
     }
 
+    /// Auto-finish only when the full-phrase predicate is true long enough, or SFSpeech ends the utterance.
+    private func considerAutoFinish(heard: String, isFinal: Bool) {
+        guard !didAutoFinish, isCapturing, let pred = autoFinishWhen else { return }
+        let elapsed = startedAt.map { Date().timeIntervalSince($0) } ?? 0
+        // Floor so a single clear short phrase can still finish.
+        guard elapsed >= 0.35 else { return }
+
+        let trimmed = heard.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty, pred(trimmed) else {
+            autoFinishHoldSince = nil
+            autoFinishHoldText = ""
+            return
+        }
+
+        let key = trimmed.lowercased()
+        if autoFinishHoldText != key {
+            autoFinishHoldText = key
+            autoFinishHoldSince = Date()
+        }
+
+        let held = autoFinishHoldSince.map { Date().timeIntervalSince($0) } ?? 0
+        // isFinal = end-of-utterance from Speech; otherwise require stable full PASS.
+        guard isFinal || held >= autoFinishHoldSeconds else { return }
+
+        didAutoFinish = true
+        autoFinishHoldSince = nil
+        autoFinishHoldText = ""
+        resumeWait()
+    }
+
     private func tearDown() {
         isCapturing = false
         autoFinishWhen = nil
+        autoFinishHoldSince = nil
+        autoFinishHoldText = ""
         timerTask?.cancel()
         timerTask = nil
         if audioEngine.isRunning { audioEngine.stop() }
