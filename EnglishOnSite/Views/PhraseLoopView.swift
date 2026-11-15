@@ -397,7 +397,7 @@ struct PhraseLoopView: View {
             successHaptic()
             listenTask?.cancel()
             listenTask = Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 350_000_000)
+                try? await Task.sleep(nanoseconds: 80_000_000)
                 guard !Task.isCancelled else { return }
                 advance()
             }
@@ -414,7 +414,7 @@ struct PhraseLoopView: View {
     private func scheduleAutoRetry() {
         listenTask?.cancel()
         listenTask = Task {
-            try? await Task.sleep(nanoseconds: 700_000_000)
+            try? await Task.sleep(nanoseconds: 250_000_000)
             guard !Task.isCancelled else { return }
             speakPromptThenListen()
         }

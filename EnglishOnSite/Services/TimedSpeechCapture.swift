@@ -44,8 +44,8 @@ final class TimedSpeechCapture {
     /// Debounce: first moment the live PASS predicate held for the current hypothesis.
     private var autoFinishHoldSince: Date?
     private var autoFinishHoldText = ""
-    /// Require PASS to stay true this long before auto-stop (full phrase only).
-    private let autoFinishHoldSeconds: TimeInterval = 0.75
+    /// Brief confirm that full-phrase PASS is stable (stablePassKey ignores raw jitter).
+    private let autoFinishHoldSeconds: TimeInterval = 0.18
     private var restartGeneration = 0
     private var interruptionObserver: NSObjectProtocol?
 
@@ -289,8 +289,8 @@ final class TimedSpeechCapture {
         restartTask?.cancel()
         let gen = restartGeneration
         restartTask = Task { @MainActor in
-            // Brief gap so the previous task can release; mic engine stays running.
-            try? await Task.sleep(nanoseconds: 120_000_000)
+            // Brief gap so the previous task can release; keep short so trailing words aren't lost.
+            try? await Task.sleep(nanoseconds: 40_000_000)
             guard !Task.isCancelled, gen == self.restartGeneration else { return }
             guard self.isCapturing, !self.didAutoFinish else { return }
             // Re-assert recording session after TTS / route blips.
@@ -326,7 +326,7 @@ final class TimedSpeechCapture {
     private func considerAutoFinish(heard: String) {
         guard !didAutoFinish, isCapturing, let pred = autoFinishWhen else { return }
         let elapsed = startedAt.map { Date().timeIntervalSince($0) } ?? 0
-        guard elapsed >= 0.45 else { return }
+        guard elapsed >= 0.3 else { return }
 
         let trimmed = heard.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty, pred(trimmed) else {
@@ -336,24 +336,13 @@ final class TimedSpeechCapture {
         }
 
         // Stable key: ignore minor raw jitter while PASS remains true.
+        // Do not treat a longer key as "same hold" started on a shorter prefix — that
+        // caused early finish on «where is my» before «hard hat» arrived.
         let key = PhraseSimilarity.stablePassKey(trimmed)
         if autoFinishHoldText != key {
-            // Only reset the clock when the *normalized* content changes.
-            if autoFinishHoldText.isEmpty {
-                autoFinishHoldSince = Date()
-                log("pass hold start \"\(trimmed)\" key=\"\(key)\"")
-            } else {
-                // Soft tolerance: if previous key is a prefix of the new one (or vice versa),
-                // keep the original hold start so completion can finish.
-                let prev = autoFinishHoldText
-                if key.hasPrefix(prev) || prev.hasPrefix(key) {
-                    log("pass hold extend \"\(trimmed)\"")
-                } else {
-                    autoFinishHoldSince = Date()
-                    log("pass hold restart \"\(trimmed)\"")
-                }
-            }
             autoFinishHoldText = key
+            autoFinishHoldSince = Date()
+            log("pass hold start \"\(trimmed)\" key=\"\(key)\"")
         }
 
         let held = autoFinishHoldSince.map { Date().timeIntervalSince($0) } ?? 0
@@ -432,14 +421,16 @@ final class TimedSpeechCapture {
 
         let aKey = a.lowercased()
         let bKey = b.lowercased()
-        // New segment already contains / repeats the committed text.
+        // Exact / full-prefix repeats from a new SFSpeech utterance.
         if bKey == aKey { return b }
-        if bKey.hasPrefix(aKey) { return b }
-        if aKey.hasSuffix(bKey) { return a }
-        if aKey.contains(bKey) { return a }
-        if bKey.contains(aKey) { return b }
+        if bKey.hasPrefix(aKey + " ") || bKey.hasPrefix(aKey) && bKey.count > aKey.count {
+            return b
+        }
+        if aKey.hasSuffix(" " + bKey) || aKey.hasSuffix(bKey) && aKey.count > bKey.count {
+            return a
+        }
 
-        // Overlap: committed ends with the start of the new segment (token-wise).
+        // Token overlap only (never substring contains — that dropped trailing words).
         let aToks = aKey.split(separator: " ").map(String.init)
         let bToks = bKey.split(separator: " ").map(String.init)
         if !aToks.isEmpty, !bToks.isEmpty {
@@ -452,11 +443,9 @@ final class TimedSpeechCapture {
                 }
             }
             if overlap > 0 {
-                let rest = bToks.dropFirst(overlap)
-                if rest.isEmpty { return a }
-                // Preserve original casing from committed + remainder of segment tokens.
-                let bOrig = b.split(separator: " ").map(String.init)
-                let restOrig = bOrig.dropFirst(overlap)
+                let bOrig = b.split { $0.isWhitespace || $0.isNewline }.map(String.init).filter { !$0.isEmpty }
+                let restOrig = Array(bOrig.dropFirst(overlap))
+                if restOrig.isEmpty { return a }
                 return ([a] + restOrig).joined(separator: " ")
             }
         }

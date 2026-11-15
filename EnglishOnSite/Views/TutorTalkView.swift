@@ -585,7 +585,7 @@ struct TutorTalkView: View {
         awaitingReview = false
         sttHint = ""
         liveSimilarity = 0
-        try? await Task.sleep(nanoseconds: 350_000_000)
+        try? await Task.sleep(nanoseconds: 150_000_000)
         guard !isBusy, waitingForPass, !pinnedSayNowEN.isEmpty else { return }
         await startListening()
     }

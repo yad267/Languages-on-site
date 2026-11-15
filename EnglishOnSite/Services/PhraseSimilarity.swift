@@ -56,15 +56,19 @@ enum PhraseSimilarity {
         return windowContainsTarget(recognized: collapsed, expected: expected)
     }
 
-    /// Accept when progressive display already shows a complete target (junk STT skipped).
+    /// Accept when progressive display already shows a *complete* target (junk STT skipped).
+    /// Requires every expected token matched — a prefix like «where is my» must not PASS
+    /// «where is my hard hat».
     private static func passesViaDisplay(recognized: String, expected: String, useTalk: Bool) -> Bool {
-        let shown = progressiveMatchedDisplay(
+        let match = progressiveMatch(
             recognized: recognized,
             expected: expected,
             useTalkNormalize: useTalk
         )
+        guard match.expectedCount > 0, match.matched == match.expectedCount else { return false }
+        let shown = match.shown
         guard !shown.isEmpty else { return false }
-        // Keep the 85% recall gate — apply it to the display-normalized text.
+        // Keep the 85% recall gate on the display-normalized text.
         guard coversFullExpected(
             recognized: shown,
             expected: expected,
@@ -442,46 +446,56 @@ enum PhraseSimilarity {
             return exp
         }
 
-        let progressive = progressiveMatchedDisplay(
+        let match = progressiveMatch(
             recognized: collapsed,
             expected: exp,
             useTalkNormalize: useTalkThreshold
         )
-        // If progressive already covers the full target, show the canonical expected.
-        if coversFullExpected(
-            recognized: progressive,
-            expected: exp,
-            useTalkNormalize: useTalkThreshold
-        ), !progressive.isEmpty {
+        if match.matched == match.expectedCount, match.expectedCount > 0 {
             return exp
         }
-        return progressive
+        return match.shown
+    }
+
+    private struct ProgressiveMatch {
+        let shown: String
+        let matched: Int
+        let expectedCount: Int
     }
 
     /// Progressive target words matched so far (junk STT skipped). Shared by UI + PASS.
-    private static func progressiveMatchedDisplay(
+    private static func progressiveMatch(
         recognized: String,
         expected: String,
         useTalkNormalize: Bool
-    ) -> String {
+    ) -> ProgressiveMatch {
         let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
         let cleaned = correctSiteASR(recognized)
             .trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !exp.isEmpty, !cleaned.isEmpty else { return "" }
+        guard !exp.isEmpty, !cleaned.isEmpty else {
+            return ProgressiveMatch(shown: "", matched: 0, expectedCount: 0)
+        }
 
         let collapsed = collapseRepeatedTarget(cleaned, expected: exp)
+        let normFn: (String) -> String = useTalkNormalize ? normalizeTalk : normalize
+        let eNorm = normFn(exp).split(separator: " ").map(String.init)
+        let expectedCount = eNorm.count
+        guard expectedCount > 0 else {
+            return ProgressiveMatch(shown: "", matched: 0, expectedCount: 0)
+        }
+
         if !compactKey(collapsed).isEmpty, compactKey(collapsed) == compactKey(exp) {
-            return exp
+            return ProgressiveMatch(shown: exp, matched: expectedCount, expectedCount: expectedCount)
         }
 
         let displayToks = exp
             .split { $0.isWhitespace || $0.isNewline }
             .map(String.init)
             .filter { !$0.isEmpty }
-        let normFn: (String) -> String = useTalkNormalize ? normalizeTalk : normalize
-        let eNorm = normFn(exp).split(separator: " ").map(String.init)
         let rNorm = normFn(collapsed).split(separator: " ").map(String.init)
-        guard !eNorm.isEmpty, !rNorm.isEmpty else { return "" }
+        guard !rNorm.isEmpty else {
+            return ProgressiveMatch(shown: "", matched: 0, expectedCount: expectedCount)
+        }
 
         let showToks: [String] = {
             if displayToks.count == eNorm.count { return displayToks }
@@ -509,7 +523,9 @@ enum PhraseSimilarity {
 
         if matched == 0 {
             let rc = compactKey(collapsed)
-            guard !rc.isEmpty else { return "" }
+            guard !rc.isEmpty else {
+                return ProgressiveMatch(shown: "", matched: 0, expectedCount: expectedCount)
+            }
             var built = ""
             var covered = 0
             for (i, tok) in eNorm.enumerated() {
@@ -522,13 +538,12 @@ enum PhraseSimilarity {
                     break
                 }
             }
-            if covered > 0 {
-                return showToks.prefix(covered).joined(separator: " ")
-            }
-            return ""
+            let shown = covered > 0 ? showToks.prefix(covered).joined(separator: " ") : ""
+            return ProgressiveMatch(shown: shown, matched: covered, expectedCount: expectedCount)
         }
 
-        return showToks.prefix(matched).joined(separator: " ")
+        let shown = showToks.prefix(matched).joined(separator: " ")
+        return ProgressiveMatch(shown: shown, matched: matched, expectedCount: expectedCount)
     }
 
     /// Single-token match for progressive correct-only UI.
@@ -744,6 +759,17 @@ enum PhraseSimilarity {
         // Prefix still blocked even via display path.
         if passes(recognized: "um where is my", expected: hiVis) {
             fails.append("display-prefix-still-blocked")
+        }
+        let hardHat = "where is my hard hat"
+        if passes(recognized: "where is my", expected: hardHat)
+            || passesTalk(recognized: "where is my", expected: hardHat) {
+            fails.append("prefix-must-not-pass-hard-hat")
+        }
+        if !passes(recognized: "where is my hard hat", expected: hardHat) {
+            fails.append("full-hard-hat-should-pass-drill")
+        }
+        if !passesTalk(recognized: "where is my hard hat", expected: hardHat) {
+            fails.append("full-hard-hat-should-pass-talk")
         }
 
         check(

@@ -337,7 +337,7 @@ struct TutorSpeakDrillView: View {
             note = ""
             listenTask?.cancel()
             listenTask = Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 350_000_000)
+                try? await Task.sleep(nanoseconds: 80_000_000)
                 guard !Task.isCancelled else { return }
                 advance()
             }
@@ -349,7 +349,7 @@ struct TutorSpeakDrillView: View {
         phase = .failed
         note = ""
         listenTask = Task {
-            try? await Task.sleep(nanoseconds: 500_000_000)
+            try? await Task.sleep(nanoseconds: 250_000_000)
             guard !Task.isCancelled, !smokeNoMic else { return }
             // Retry same phrase: TTS again, then mic (no overlap).
             speakPromptThenListen()
