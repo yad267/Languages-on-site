@@ -759,7 +759,8 @@ struct TutorPairsView: View {
             if let seedPhrasals, !seedPhrasals.isEmpty {
                 raw = seedPhrasals
             } else {
-                raw = TutorBankStore.corePhrasals
+                // Site bank first, then general — both .phrasal and sidesReversed.
+                raw = TutorBankStore.pairsPhrasals
             }
             let pool = Array(PairsKnownStore.filterPhrasals(raw).shuffled().prefix(5))
             for p in pool {

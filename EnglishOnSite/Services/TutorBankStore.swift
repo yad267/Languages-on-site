@@ -122,6 +122,7 @@ enum TutorBankStore {
     }
 
     static func reload() {
+        cachedPairsPhrasals = nil
         switch contentMode {
         case .site:
             verbs = loadJSON("verbs_bank_v1", key: "verbs") + loadExtraVerbs(key: extraVerbsKey)
@@ -151,6 +152,37 @@ enum TutorBankStore {
         ensureLoaded()
         let core = phrasals.filter { $0.tier <= 1 }
         return core.isEmpty ? phrasals : core
+    }
+
+    /// Cached site→general merge for Репетитор → Пары (`.phrasal` / sidesReversed).
+    private static var cachedPairsPhrasals: [PhrasalEntry]?
+
+    /// Site bank first, then general; skip duplicate EN (site sense wins).
+    /// Used by TutorPairsView so one round can mix site + everyday phrasals.
+    static var pairsPhrasals: [PhrasalEntry] {
+        ensureLoaded()
+        if let cachedPairsPhrasals { return cachedPairsPhrasals }
+        let site: [PhrasalEntry] = loadJSON("phrasals_bank_v1", key: "phrasals")
+        let general: [PhrasalEntry] = loadJSON("phrasals_general_v1", key: "phrasals")
+        let merged = Self.enrichPhrasalExamples(Self.mergePhrasalsSiteFirst(site: site, general: general))
+        let core = merged.filter { $0.tier <= 1 }
+        let result = core.isEmpty ? merged : core
+        cachedPairsPhrasals = result
+        return result
+    }
+
+    /// Prefer site entry when the same EN appears in both banks.
+    private static func mergePhrasalsSiteFirst(site: [PhrasalEntry], general: [PhrasalEntry]) -> [PhrasalEntry] {
+        var seen = Set<String>()
+        var out: [PhrasalEntry] = []
+        out.reserveCapacity(site.count + general.count)
+        for p in site + general {
+            let key = p.en.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            guard !key.isEmpty, !seen.contains(key) else { continue }
+            seen.insert(key)
+            out.append(p)
+        }
+        return out
     }
 
     static var coreOpposites: [OppositeEntry] {
