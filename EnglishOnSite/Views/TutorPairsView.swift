@@ -97,22 +97,27 @@ struct TutorPairsView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            header
-            if roundSize == 0 {
-                emptyBank
-            } else if allCleared {
-                roundDone
-            } else {
-                HStack(alignment: .top, spacing: 12) {
-                    tileColumn(tiles: visibleLeft, side: .left)
-                    tileColumn(tiles: visibleRight, side: .right)
+        ScrollView {
+            VStack(spacing: 0) {
+                header
+                if roundSize == 0 {
+                    emptyBank
+                } else if allCleared {
+                    roundDone
+                } else {
+                    HStack(alignment: .top, spacing: 12) {
+                        tileColumn(tiles: visibleLeft, side: .left)
+                        tileColumn(tiles: visibleRight, side: .right)
+                    }
+                    .padding(16)
+                    .offset(x: missShake ? -8 : 0)
                 }
-                .padding(16)
-                .offset(x: missShake ? -8 : 0)
-                Spacer(minLength: 0)
             }
+            .frame(maxWidth: .infinity)
+            .padding(.bottom, 28)
         }
+        .scrollIndicators(.visible)
+        .safeAreaPadding(.bottom, 12)
         .navigationTitle("Пары")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $loopSeed) { seed in

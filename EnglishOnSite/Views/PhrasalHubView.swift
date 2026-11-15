@@ -196,7 +196,8 @@ struct PhrasalHubView: View {
                 .id(seedPhrasals.map(\.en).joined(separator: "|"))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .safeAreaPadding(.bottom, 4)
+        // Tab bar (уроки / фразовые / …) must not cover the last pair tiles.
+        .safeAreaPadding(.bottom, 12)
         .onAppear {
             TutorBankStore.setMode(track.bankMode)
             if pool.isEmpty { reloadPool(resetPage: true) }

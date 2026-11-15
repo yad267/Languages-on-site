@@ -41,6 +41,8 @@ struct HomeView: View {
             }
         }
         .listStyle(.insetGrouped)
+        .contentMargins(.bottom, 12, for: .scrollContent)
+        .safeAreaPadding(.bottom, 8)
         .navigationTitle(mode == .onSite ? "Onsite Language" : "Regular Language")
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
@@ -180,6 +182,9 @@ struct SectionLessonsListView: View {
                 }
             }
         }
+        .listStyle(.insetGrouped)
+        .contentMargins(.bottom, 12, for: .scrollContent)
+        .safeAreaPadding(.bottom, 8)
         .navigationTitle(section.titleRu)
         .navigationBarTitleDisplayMode(.inline)
     }
