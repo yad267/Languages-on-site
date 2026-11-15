@@ -538,6 +538,7 @@ struct TranslateView: View {
                 result = r
                 badge = .gemini
                 note = text.isEmpty ? "" : "Текст + фото"
+                clearInputForNextEntry()
             } catch let e as GeminiRequestError {
                 note = e.shortRU
                 badge = .offline
@@ -552,6 +553,7 @@ struct TranslateView: View {
         if offline.matched {
             result = offline
             badge = .offline
+            clearInputForNextEntry()
             return
         }
         note = settings.geminiEnabledAndReady
@@ -568,6 +570,17 @@ struct TranslateView: View {
         result = cloud
         badge = cloud.viaGemini ? .gemini : .offline
         note = cloud.viaGemini ? "" : (cloud.geminiErrorRU ?? note)
+        clearInputForNextEntry()
+    }
+
+    /// After a successful Перевести: empty the box (text / STT / photo) so the next input is ready. Keep `result`.
+    private func clearInputForNextEntry() {
+        inputText = ""
+        sttDraft = ""
+        sttHint = ""
+        awaitingReview = false
+        clearPhoto()
+        NavChrome.dismissKeyboard()
     }
 
     private func save(_ r: TranslationResult) {
