@@ -20,7 +20,7 @@ struct TutorExercisesHubView: View {
                 NavigationLink {
                     TutorPairsChooserView()
                 } label: {
-                    label("Пары", "Phrasal · Наоборот · Оппозит", "rectangle.on.rectangle.angled")
+                    label("Пары", "Phrasal или Наоборот", "rectangle.on.rectangle.angled")
                 }
                 NavigationLink {
                     TutorPhrasalSentenceView(contentMode: contentMode)
@@ -80,23 +80,39 @@ struct TutorExercisesHubView: View {
     }
 }
 
+/// Упражнения → Пары: phrasal matching + opposites (label «Наоборот»).
 struct TutorPairsChooserView: View {
+    var body: some View {
+        List {
+            NavigationLink {
+                TutorPairsView(mode: .phrasal)
+            } label: {
+                Label("Phrasal verbs", systemImage: "arrow.left.arrow.right")
+            }
+            NavigationLink {
+                TutorPairsView(mode: .opposites)
+            } label: {
+                Label("Наоборот", systemImage: "arrow.triangle.2.circlepath")
+            }
+        }
+        .navigationTitle("Пары")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+/// Репетитор → Пары: only phrasal + flipped sides (no opposites).
+struct RepeaterPairsChooserView: View {
     var body: some View {
         List {
             NavigationLink {
                 TutorPairsView(mode: .phrasal, sidesReversed: false)
             } label: {
-                Label("Phrasal verbs", systemImage: "arrow.left.arrow.right")
+                Label("Фразовые глаголы", systemImage: "arrow.left.arrow.right")
             }
             NavigationLink {
                 TutorPairsView(mode: .phrasal, sidesReversed: true)
             } label: {
                 Label("Наоборот", systemImage: "arrow.left.arrow.right.circle")
-            }
-            NavigationLink {
-                TutorPairsView(mode: .opposites)
-            } label: {
-                Label("Оппозит", systemImage: "arrow.triangle.2.circlepath")
             }
         }
         .navigationTitle("Пары")

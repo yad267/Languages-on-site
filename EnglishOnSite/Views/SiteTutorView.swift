@@ -76,7 +76,7 @@ struct SiteTutorView: View {
 
                     modeButton(
                         title: "Пары",
-                        subtitle: "Phrasal · Наоборот · Оппозит",
+                        subtitle: "Фразовые глаголы · Наоборот",
                         systemImage: "rectangle.on.rectangle.angled",
                         accent: .pink
                     ) { path.append(Route.pairsHub) }
@@ -139,8 +139,7 @@ struct SiteTutorView: View {
                 case .pairsPhrasal:
                     TutorPairsView(mode: .phrasal)
                 case .pairsHub:
-                    // Same three-way chooser as Упражнения → Пары
-                    TutorPairsChooserView()
+                    RepeaterPairsChooserView()
                 case .printSheet:
                     TutorPrintSheetView(contentMode: contentMode)
                 case .roleplay:
