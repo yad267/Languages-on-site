@@ -9,6 +9,7 @@ struct SiteTutorView: View {
         case speakDrill
         case pairsOpposites
         case pairsPhrasal
+        case pairsHub
         case printSheet
         case roleplay
     }
@@ -74,6 +75,13 @@ struct SiteTutorView: View {
                     ) { path.append(Route.exercises) }
 
                     modeButton(
+                        title: "Пары",
+                        subtitle: "Фразовые глаголы · Наоборот",
+                        systemImage: "rectangle.on.rectangle.angled",
+                        accent: .pink
+                    ) { path.append(Route.pairsHub) }
+
+                    modeButton(
                         title: "Лист на печать",
                         subtitle: contentMode == .site
                             ? "Рукопись A4 · фото → проверка"
@@ -130,6 +138,8 @@ struct SiteTutorView: View {
                     TutorPairsView(mode: .opposites)
                 case .pairsPhrasal:
                     TutorPairsView(mode: .phrasal)
+                case .pairsHub:
+                    RepeaterPairsChooserView()
                 case .printSheet:
                     TutorPrintSheetView(contentMode: contentMode)
                 case .roleplay:
