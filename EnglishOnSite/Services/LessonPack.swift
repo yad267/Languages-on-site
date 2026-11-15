@@ -24,6 +24,12 @@ enum LessonProgressStore {
         }
         set {
             UserDefaults.standard.set(Array(newValue).sorted(), forKey: key)
+            Task { @MainActor in
+                CloudUserDataStore.replaceMarks(
+                    namespace: CloudUserDataStore.lessonCompletedNS,
+                    values: newValue
+                )
+            }
         }
     }
 
@@ -35,5 +41,14 @@ enum LessonProgressStore {
         var s = completedIds
         s.insert(id)
         completedIds = s
+    }
+
+    /// Pull CloudKit / SwiftData completed lessons into UserDefaults cache.
+    @MainActor
+    static func refreshFromCloud() {
+        let cloud = CloudUserDataStore.markValues(namespace: CloudUserDataStore.lessonCompletedNS)
+        if !cloud.isEmpty {
+            UserDefaults.standard.set(Array(cloud).sorted(), forKey: key)
+        }
     }
 }

@@ -13,6 +13,8 @@ final class SpeechSpeaker {
 
     /// Short status for UI («системный голос» / «EL ошибка: HTTP …»).
     private(set) var statusNote: String = ""
+    /// True while a speakSequence is draining (TTS playing). UI must not open mic.
+    var isSpeaking: Bool { active }
 
     init(settings: AppSettings) {
         self.settings = settings
