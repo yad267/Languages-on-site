@@ -19,17 +19,7 @@ struct HomeView: View {
     var body: some View {
         List {
             Section {
-                Picker("Режим", selection: Bindable(settings).learningMode) {
-                    Text("Onsite Language").tag(AppLearningMode.onSite)
-                    Text("Regular Language").tag(AppLearningMode.regular)
-                }
-                .pickerStyle(.segmented)
-
-                Text(mode == .onSite
-                     ? "Только объект / стройка / CCTV — разделы не смешиваются с бытом."
-                     : "Быт: магазин, поездки, дом, dating… + своя тема голосом/текстом.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                LearningModePicker(mode: Bindable(settings).learningMode)
             } header: {
                 Text("Уроки")
             }

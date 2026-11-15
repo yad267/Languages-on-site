@@ -7,7 +7,7 @@ struct PhrasalHubView: View {
     var embedded: Bool = false
     var navigationTitleText: String = "Фразовые"
 
-    @State private var track: PhrasalTrack = .onsite
+    @Environment(AppSettings.self) private var settings
     @State private var roundKind: PhrasalRoundKind = .mixed
     @State private var pageIndex: Int = 0
     @State private var pool: [PhrasalEntry] = []
@@ -18,27 +18,12 @@ struct PhrasalHubView: View {
     init(embedded: Bool = false, navigationTitleText: String = "Фразовые", initialSite: Bool? = nil) {
         self.embedded = embedded
         self.navigationTitleText = navigationTitleText
-        if let initialSite {
-            _track = State(initialValue: initialSite ? .onsite : .regular)
-        }
+        // initialSite kept for call-site compatibility; live mode follows settings.learningMode.
+        _ = initialSite
     }
 
-    private enum PhrasalTrack: String, CaseIterable, Identifiable {
-        case onsite, regular
-        var id: String { rawValue }
-        var title: String {
-            switch self {
-            case .onsite: return "Onsite"
-            case .regular: return "Regular"
-            }
-        }
-        var bankMode: TutorContentMode {
-            switch self {
-            case .onsite: return .site
-            case .regular: return .general
-            }
-        }
-    }
+    private var trackMode: AppLearningMode { settings.learningMode }
+    private var bankMode: TutorContentMode { trackMode.tutorMode }
 
     private enum PhrasalRoundKind: String, CaseIterable, Identifiable {
         case mixed, get, take, put, turn, look, come, over
@@ -85,20 +70,15 @@ struct PhrasalHubView: View {
 
     private var hubContent: some View {
         VStack(spacing: 0) {
-            Picker("Режим", selection: $track) {
-                ForEach(PhrasalTrack.allCases) { t in
-                    Text(t.title).tag(t)
+            LearningModePicker(mode: Bindable(settings).learningMode)
+                .padding(.horizontal, 16)
+                .padding(.top, 12)
+                .onChange(of: settings.learningMode) { _, mode in
+                    TutorBankStore.setMode(mode.tutorMode)
+                    reloadPool(resetPage: true)
                 }
-            }
-            .pickerStyle(.segmented)
-            .padding(.horizontal, 16)
-            .padding(.top, 12)
-            .onChange(of: track) { _, t in
-                TutorBankStore.setMode(t.bankMode)
-                reloadPool(resetPage: true)
-            }
 
-            Text(track == .onsite
+            Text(trackMode == .onSite
                  ? "Onsite phrasal · Duolingo: слева EN, справа RU"
                  : "Regular phrasal · та же игра, бытовой банк")
                 .font(.caption)
@@ -199,7 +179,7 @@ struct PhrasalHubView: View {
         // Tab bar (уроки / фразовые / …) must not cover the last pair tiles.
         .safeAreaPadding(.bottom, 12)
         .onAppear {
-            TutorBankStore.setMode(track.bankMode)
+            TutorBankStore.setMode(bankMode)
             if pool.isEmpty { reloadPool(resetPage: true) }
         }
     }

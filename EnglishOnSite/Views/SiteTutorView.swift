@@ -14,8 +14,10 @@ struct SiteTutorView: View {
         case roleplay
     }
 
+    @Environment(AppSettings.self) private var settings
     @State private var path = NavigationPath()
-    @State private var contentMode: TutorContentMode = .site
+
+    private var contentMode: TutorContentMode { settings.learningMode.tutorMode }
 
     private var topicChips: [String] {
         switch contentMode {
@@ -37,16 +39,11 @@ struct SiteTutorView: View {
         NavigationStack(path: $path) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
-                    Picker("Режим", selection: $contentMode) {
-                        ForEach(TutorContentMode.allCases) { mode in
-                            Text(mode.titleRU).tag(mode)
+                    LearningModePicker(mode: Bindable(settings).learningMode)
+                        .onChange(of: settings.learningMode) { _, mode in
+                            TutorBankStore.setMode(mode.tutorMode)
+                            path = NavigationPath()
                         }
-                    }
-                    .pickerStyle(.segmented)
-                    .onChange(of: contentMode) { _, mode in
-                        TutorBankStore.setMode(mode)
-                        path = NavigationPath()
-                    }
 
                     Text(contentMode == .site ? "Чем займёмся на объекте?" : "Обычный английский — быт, еда, поездки")
                         .font(.title2.weight(.bold))
@@ -153,7 +150,7 @@ struct SiteTutorView: View {
             .onAppear {
                 let args = ProcessInfo.processInfo.arguments
                 if args.contains("-EOSOpenTutorGeneral") {
-                    contentMode = .general
+                    settings.learningMode = .regular
                     TutorBankStore.setMode(.general)
                 }
                 if args.contains("-EOSOpenTutorTalk") {
