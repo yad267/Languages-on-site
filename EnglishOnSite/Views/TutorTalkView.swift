@@ -42,14 +42,20 @@ struct TutorTalkView: View {
         let isMutedNote: Bool
     }
 
-    private var displayedSimilarity: Double {
+    /// Live / review box: only target words matched so far (never wrong STT).
+    private var correctLiveText: String {
         if isListening {
-            let partial = capture.partialText
-            guard !partial.isEmpty, !pinnedSayNowEN.isEmpty else { return liveSimilarity }
-            return PhraseSimilarity.talkScore(recognized: partial, expected: pinnedSayNowEN)
+            return PhraseSimilarity.correctOnlyDisplay(
+                recognized: capture.partialText,
+                expected: pinnedSayNowEN,
+                useTalkThreshold: true
+            )
         }
-        guard !draft.isEmpty, !pinnedSayNowEN.isEmpty else { return liveSimilarity }
-        return PhraseSimilarity.talkScore(recognized: draft, expected: pinnedSayNowEN)
+        return PhraseSimilarity.correctOnlyDisplay(
+            recognized: draft,
+            expected: pinnedSayNowEN,
+            useTalkThreshold: true
+        )
     }
 
     private var passesCurrent: Bool {
@@ -132,7 +138,7 @@ struct TutorTalkView: View {
                         if !pinnedSayNowEN.isEmpty { break }
                         try? await Task.sleep(nanoseconds: 200_000_000)
                     }
-                    applyStopResult(fake)
+                    await applyStopResult(fake)
                 }
             }
             #endif
@@ -142,7 +148,13 @@ struct TutorTalkView: View {
             speaker?.stop()
         }
         .onChange(of: capture.partialText) { _, partial in
-            guard isListening, !pinnedSayNowEN.isEmpty, !partial.isEmpty else { return }
+            guard isListening, !pinnedSayNowEN.isEmpty else { return }
+            // Mirror progressive correct words into the input field; hide junk STT.
+            draft = PhraseSimilarity.correctOnlyDisplay(
+                recognized: partial,
+                expected: pinnedSayNowEN,
+                useTalkThreshold: true
+            )
             liveSimilarity = PhraseSimilarity.talkScore(recognized: partial, expected: pinnedSayNowEN)
         }
     }
@@ -155,7 +167,8 @@ struct TutorTalkView: View {
                 pinnedTargetCard
             }
 
-            if isListening || awaitingReview {
+            // Show live correct-only box while mic is open, or while waiting for a pass.
+            if isListening || (waitingForPass && !pinnedSayNowEN.isEmpty) {
                 attemptCard
             }
 
@@ -233,28 +246,31 @@ struct TutorTalkView: View {
 
     private var attemptCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(isListening ? "Вы говорите…" : "Распознано")
+            Text(isListening ? "Вы говорите…" : (passesCurrent ? "Верно" : "Повтори фразу"))
                 .font(.caption.weight(.bold))
                 .foregroundStyle(.secondary)
                 .textCase(.uppercase)
 
-            similarityBar
+            // Live STT → only correct target words (wrong tokens stay hidden).
+            Text(correctLiveText.isEmpty ? "…" : correctLiveText)
+                .font(.title3.weight(.semibold))
+                .foregroundStyle(correctLiveText.isEmpty ? .tertiary : .primary)
+                .frame(maxWidth: .infinity, minHeight: 56, alignment: .topLeading)
+                .padding(10)
+                .background(
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .strokeBorder(
+                            passesCurrent ? Color.green : Color.accentColor.opacity(0.45),
+                            lineWidth: 1.5
+                        )
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(Color(.secondarySystemBackground))
+                        )
+                )
 
             if isListening {
-                Text(capture.partialText.isEmpty ? "…" : capture.partialText)
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(capture.partialText.isEmpty ? .tertiary : .primary)
-                    .frame(maxWidth: .infinity, minHeight: 56, alignment: .topLeading)
-                    .padding(10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .strokeBorder(Color.red.opacity(0.45), lineWidth: 1.5)
-                            .background(
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(Color(.secondarySystemBackground))
-                            )
-                    )
-                Text("\(capture.elapsedSeconds) с")
+                Text("\(capture.elapsedSeconds) с · повторяй, пока засчитаем")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
                 HStack(spacing: 8) {
@@ -267,45 +283,22 @@ struct TutorTalkView: View {
                     .buttonStyle(.bordered)
                     .frame(maxWidth: .infinity, minHeight: 44)
                 }
+            } else if passesCurrent {
+                Text("Засчитано — дальше")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.green)
             } else {
-                TextField("Текст попытки…", text: $draft, axis: .vertical)
-                    .lineLimit(2...6)
-                    .font(.title3.weight(.semibold))
-                    .padding(10)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12, style: .continuous)
-                            .strokeBorder(
-                                passesCurrent ? Color.green : Color.orange.opacity(0.7),
-                                lineWidth: 1.5
-                            )
-                            .background(
-                                RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                    .fill(Color(.secondarySystemBackground))
-                            )
-                    )
+                // Escape hatch: type the phrase yourself (no wrong-STT dump).
+                TextField("Или набери эталон…", text: $draft, axis: .vertical)
+                    .lineLimit(2...4)
+                    .font(.body)
                     .focused($draftFocused)
                     .disabled(isBusy)
                     .onChange(of: draft) { _, new in
                         guard !pinnedSayNowEN.isEmpty else { return }
                         liveSimilarity = PhraseSimilarity.talkScore(recognized: new, expected: pinnedSayNowEN)
                     }
-
-                let reviewHint: String = {
-                    if passesCurrent {
-                        let pct = Int((displayedSimilarity * 100).rounded())
-                        return "Засчитать? (\(pct)%)"
-                    }
-                    return sttHint
-                }()
-                if !reviewHint.isEmpty {
-                    Text(reviewHint)
-                        .font(.title3.weight(.bold))
-                        .foregroundStyle(passesCurrent ? .green : .orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-
-                // Primary practice CTA: keep saying until pass
-                if !passesCurrent {
+                HStack(spacing: 8) {
                     Button {
                         Task { await retrySamePhrase() }
                     } label: {
@@ -315,73 +308,21 @@ struct TutorTalkView: View {
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(isBusy)
-                } else {
-                    Button {
-                        Task { await creditAndAdvance() }
-                    } label: {
-                        Text("Засчитать")
-                            .font(.headline.weight(.bold))
-                            .frame(maxWidth: .infinity, minHeight: 52)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.green)
-                    .disabled(isBusy)
-                }
-
-                HStack(spacing: 8) {
-                    if passesCurrent {
-                        Button {
-                            Task { await creditAndAdvance() }
-                        } label: {
-                            Text("Отправить")
-                                .frame(maxWidth: .infinity, minHeight: 44)
-                        }
-                        .buttonStyle(.bordered)
-                        .disabled(isBusy)
-                    } else {
-                        // Manual send only after Править (owner fixed STT by hand)
-                        Button {
-                            Task { await submitEdited() }
-                        } label: {
-                            Text("Отправить")
-                                .frame(maxWidth: .infinity, minHeight: 44)
-                        }
-                        .buttonStyle(.bordered)
-                        .disabled(!canSend || isBusy || !didTapEdit)
-                    }
 
                     Button {
                         didTapEdit = true
-                        draftFocused = true
+                        Task { await submitEdited() }
                     } label: {
-                        Text("Править")
+                        Text("Отправить")
                             .frame(maxWidth: .infinity, minHeight: 44)
                     }
                     .buttonStyle(.bordered)
-                    .disabled(isBusy)
+                    .disabled(!canSend || isBusy)
                 }
             }
         }
         .padding(12)
         .background(.bar)
-    }
-
-    private var similarityBar: some View {
-        let pct = Int((displayedSimilarity * 100).rounded())
-        let ok = displayedSimilarity >= PhraseSimilarity.talkPassThreshold
-        return VStack(alignment: .leading, spacing: 4) {
-            HStack {
-                Text("Похожесть")
-                    .font(.caption2.weight(.bold))
-                    .foregroundStyle(.secondary)
-                Spacer()
-                Text("\(pct)%")
-                    .font(.caption.weight(.bold))
-                    .foregroundStyle(ok ? Color.green : Color.secondary)
-            }
-            ProgressView(value: min(max(displayedSimilarity, 0), 1))
-                .tint(ok ? .green : .orange)
-        }
     }
 
     private var quickBar: some View {
@@ -564,13 +505,18 @@ struct TutorTalkView: View {
         isListening = true
         let hints = contextualHints()
         let locale = settings.rememberLocale == .enGB ? "en-GB" : "en-IE"
+        let target = pinnedSayNowEN
         let text = await capture.captureUntilStopped(
             localeId: locale,
             maxSeconds: 45,
-            contextualStrings: hints
+            contextualStrings: hints,
+            autoFinishWhen: { heard in
+                guard !target.isEmpty else { return false }
+                return PhraseSimilarity.passesTalk(recognized: heard, expected: target)
+            }
         )
         isListening = false
-        applyStopResult(text)
+        await applyStopResult(text)
     }
 
     /// Cancel current take and immediately start a new one (same target).
@@ -586,48 +532,36 @@ struct TutorTalkView: View {
         await startListening()
     }
 
-    private func applyStopResult(_ text: String) {
+    private func applyStopResult(_ text: String) async {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        draft = trimmed
-        awaitingReview = true
         liveSimilarity = pinnedSayNowEN.isEmpty
             ? 0
             : PhraseSimilarity.talkScore(recognized: trimmed, expected: pinnedSayNowEN)
 
-        if trimmed.isEmpty {
-            sttHint = "Не расслышал. Ещё раз"
-            appendMutedNoteOnce()
+        // No target yet (bootstrap) — keep empty, don't dump raw STT.
+        guard !pinnedSayNowEN.isEmpty else {
+            draft = ""
+            awaitingReview = false
             return
         }
-        if !pinnedSayNowEN.isEmpty {
-            if PhraseSimilarity.passesTalk(recognized: trimmed, expected: pinnedSayNowEN) {
-                let pct = Int((liveSimilarity * 100).rounded())
-                sttHint = "Засчитать? (\(pct)%)"
-                return
-            }
-            if PhraseSimilarity.looksLikeSTTFail(recognized: trimmed, expected: pinnedSayNowEN)
-                || liveSimilarity < PhraseSimilarity.talkPassThreshold {
-                sttHint = liveSimilarity < 0.35
-                    ? "Микрофон сбился — скажи ещё раз"
-                    : "Не расслышал. Ещё раз"
-                appendMutedNoteOnce()
-                return
-            }
-        }
-        sttHint = "Не расслышал. Ещё раз"
-        appendMutedNoteOnce()
-    }
 
-    private func appendMutedNoteOnce() {
-        // At most one quiet line — no coach jokes, no English shame.
-        if turns.last?.isMutedNote == true { return }
-        turns.append(CoachTurn(
-            isUser: false,
-            text: "попытка, не зачтено",
-            sayNowEN: nil,
-            sayNowRU: nil,
-            isMutedNote: true
-        ))
+        if PhraseSimilarity.passesTalk(recognized: trimmed, expected: pinnedSayNowEN) {
+            // Only the correct phrase is shown; then dismiss / advance.
+            draft = pinnedSayNowEN
+            awaitingReview = false
+            sttHint = ""
+            await creditAndAdvance()
+            return
+        }
+
+        // Incorrect / unclear: hide wrong words and keep listening the same target.
+        draft = ""
+        awaitingReview = false
+        sttHint = ""
+        liveSimilarity = 0
+        try? await Task.sleep(nanoseconds: 350_000_000)
+        guard !isBusy, waitingForPass, !pinnedSayNowEN.isEmpty else { return }
+        await startListening()
     }
 
     private func retrySamePhrase() async {
@@ -642,10 +576,21 @@ struct TutorTalkView: View {
 
     /// Credited take → coach may advance phrase.
     private func creditAndAdvance() async {
-        let text = draft.trimmingCharacters(in: .whitespacesAndNewlines)
+        // Prefer canonical target so UI never flashes wrong STT as the credited line.
+        let typed = draft.trimmingCharacters(in: .whitespacesAndNewlines)
+        let text: String = {
+            if !pinnedSayNowEN.isEmpty,
+               PhraseSimilarity.passesTalk(recognized: typed, expected: pinnedSayNowEN)
+                || typed.isEmpty {
+                return pinnedSayNowEN
+            }
+            return typed
+        }()
         guard !text.isEmpty else { return }
-        guard pinnedSayNowEN.isEmpty || PhraseSimilarity.passesTalk(recognized: text, expected: pinnedSayNowEN) else {
-            sttHint = "Ещё не похоже — Ещё раз говорить или поправь"
+        guard pinnedSayNowEN.isEmpty || PhraseSimilarity.passesTalk(recognized: text, expected: pinnedSayNowEN)
+            || text == pinnedSayNowEN else {
+            sttHint = ""
+            await retrySamePhrase()
             return
         }
         awaitingReview = false

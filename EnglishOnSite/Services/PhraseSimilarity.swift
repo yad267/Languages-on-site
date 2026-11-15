@@ -322,6 +322,104 @@ enum PhraseSimilarity {
         return t.isEmpty ? raw.trimmingCharacters(in: .whitespacesAndNewlines) : t
     }
 
+    /// Live / review display for repeat-until-correct drills.
+    /// Shows only target words matched so far (canonical casing from `expected`).
+    /// Never surfaces incorrect STT tokens. Full PASS → full expected phrase.
+    /// - Parameter useTalkThreshold: TutorTalk soft pass (0.65 + talk normalize).
+    static func correctOnlyDisplay(
+        recognized: String,
+        expected: String,
+        useTalkThreshold: Bool = false
+    ) -> String {
+        let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !exp.isEmpty else { return "" }
+        let cleaned = correctSiteASR(recognized)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !cleaned.isEmpty else { return "" }
+
+        let collapsed = collapseRepeatedTarget(cleaned, expected: exp)
+        let fullPass = useTalkThreshold
+            ? passesTalk(recognized: collapsed, expected: exp)
+            : passes(recognized: collapsed, expected: exp)
+        if fullPass { return exp }
+
+        // Compact whole-phrase hit (handover ≈ hand over) before token walk.
+        if !compactKey(collapsed).isEmpty, compactKey(collapsed) == compactKey(exp) {
+            return exp
+        }
+
+        let displayToks = exp
+            .split { $0.isWhitespace || $0.isNewline }
+            .map(String.init)
+            .filter { !$0.isEmpty }
+        let normFn: (String) -> String = useTalkThreshold ? normalizeTalk : normalize
+        let eNorm = normFn(exp).split(separator: " ").map(String.init)
+        let rNorm = normFn(collapsed).split(separator: " ").map(String.init)
+        guard !eNorm.isEmpty, !rNorm.isEmpty else { return "" }
+
+        let showToks: [String] = {
+            if displayToks.count == eNorm.count { return displayToks }
+            return eNorm
+        }()
+
+        var ri = 0
+        var matched = 0
+        for ei in 0..<eNorm.count {
+            var found = false
+            while ri < rNorm.count {
+                let r = rNorm[ri]
+                ri += 1
+                if tokensRoughlyMatch(r, eNorm[ei]) {
+                    found = true
+                    break
+                }
+                // Skip junk STT tokens; never append them.
+            }
+            if found {
+                matched += 1
+            } else {
+                break
+            }
+        }
+
+        // Growing compact prefix: "hardhat" while expecting "hard hat on…"
+        if matched == 0 {
+            let rc = compactKey(collapsed)
+            guard !rc.isEmpty else { return "" }
+            var built = ""
+            var covered = 0
+            for (i, tok) in eNorm.enumerated() {
+                let next = built + tok
+                if rc == next || rc.hasPrefix(next) {
+                    covered = i + 1
+                    built = next
+                    if rc == next { break }
+                } else {
+                    // Incomplete token (e.g. "har" of "hard") — hide until whole word lands.
+                    break
+                }
+            }
+            if covered > 0 {
+                return showToks.prefix(covered).joined(separator: " ")
+            }
+            return ""
+        }
+
+        return showToks.prefix(matched).joined(separator: " ")
+    }
+
+    /// Single-token match for progressive correct-only UI.
+    private static func tokensRoughlyMatch(_ a: String, _ b: String) -> Bool {
+        if a == b { return true }
+        if a.isEmpty || b.isEmpty { return false }
+        if compactKey(a) == compactKey(b) { return true }
+        // Tight fuzzy — avoid accepting unrelated short words.
+        if a.count >= 3, b.count >= 3, score(recognized: a, expected: b) >= 0.84 {
+            return true
+        }
+        return false
+    }
+
     /// Lowercase, strip punctuation (hyphen → space so two-way → two way),
     /// expand digit runs / digit+suffix (20, 2way) to English words 0…100.
     /// Both sides use the same path → «twenty» ≈ «20».
@@ -444,6 +542,44 @@ enum PhraseSimilarity {
         let disp = displayAgainstTarget("Turn off turn off turn off", expected: "turn off")
         if normalize(disp) != normalize("turn off") {
             fails.append("display-dedupe: got=\"\(disp)\"")
+        }
+
+        // correctOnlyDisplay: never surface wrong STT; progressive target words only.
+        let wrongOnly = correctOnlyDisplay(
+            recognized: "banana refrigerator purple",
+            expected: "I've got my hard hat on, boss"
+        )
+        if !wrongOnly.isEmpty {
+            fails.append("correctOnly-wrong: got=\"\(wrongOnly)\"")
+        }
+        let prefixOK = correctOnlyDisplay(
+            recognized: "I've got my",
+            expected: "I've got my hard hat on, boss"
+        )
+        if normalize(prefixOK) != normalize("I've got my") {
+            fails.append("correctOnly-prefix: got=\"\(prefixOK)\"")
+        }
+        let junkThenOK = correctOnlyDisplay(
+            recognized: "um uh I've got my",
+            expected: "I've got my hard hat on, boss"
+        )
+        if normalize(junkThenOK) != normalize("I've got my") {
+            fails.append("correctOnly-skip-junk: got=\"\(junkThenOK)\"")
+        }
+        let fullOK = correctOnlyDisplay(
+            recognized: "I've got my hard hat on boss",
+            expected: "I've got my hard hat on, boss"
+        )
+        if normalize(fullOK) != normalize("I've got my hard hat on, boss") {
+            fails.append("correctOnly-full: got=\"\(fullOK)\"")
+        }
+        let talkPassShow = correctOnlyDisplay(
+            recognized: "wear a hot hat",
+            expected: "wear a hard hat",
+            useTalkThreshold: true
+        )
+        if normalize(talkPassShow) != normalize("wear a hard hat") {
+            fails.append("correctOnly-talk-alias: got=\"\(talkPassShow)\"")
         }
 
         check(
