@@ -29,53 +29,69 @@ struct TutorSpeakDrillView: View {
     }
 
     var body: some View {
-        VStack(spacing: 16) {
-            Text("\(min(index + 1, max(phrases.count, 1))) / \(max(phrases.count, 1))")
-                .font(.headline)
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-            if let p = current {
-                Text(p.en)
-                    .font(.system(size: 26, weight: .bold))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(p.ru)
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(.secondary)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("\(min(index + 1, max(phrases.count, 1))) / \(max(phrases.count, 1))")
+                    .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                if phase == .listening {
-                    let shown = PhraseSimilarity.displayAgainstTarget(capture.partialText, expected: p.en)
-                    Text(shown.isEmpty ? "…" : shown)
+                if let p = current {
+                    Text(p.en)
+                        .font(.system(size: 26, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(p.ru)
                         .font(.title3.weight(.semibold))
-                        .foregroundStyle(shown.isEmpty ? .tertiary : .primary)
-                        .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-                        .padding(10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .strokeBorder(Color.red.opacity(0.4), lineWidth: 1.5)
-                        )
-                    Text("Слушаю…")
-                        .foregroundStyle(.red)
-                        .font(.subheadline.weight(.semibold))
-                } else if phase == .passed {
-                    Text("\(score)% · Дальше…").font(.title3.weight(.bold)).foregroundStyle(.green)
-                } else if phase == .failed {
-                    Text("\(score)% · Ещё раз").font(.title3.weight(.bold)).foregroundStyle(.orange)
-                    Text("Слышал: \(heard)").font(.caption).foregroundStyle(.secondary)
-                }
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
 
-                if !note.isEmpty {
-                    Text(note).font(.caption).foregroundStyle(.orange)
-                }
+                    if phase == .listening {
+                        let shown = PhraseSimilarity.displayAgainstTarget(capture.partialText, expected: p.en)
+                        Text(shown.isEmpty ? "…" : shown)
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(shown.isEmpty ? .tertiary : .primary)
+                            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                            .padding(10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                    .strokeBorder(Color.red.opacity(0.4), lineWidth: 1.5)
+                            )
+                        Text("Слушаю…")
+                            .foregroundStyle(.red)
+                            .font(.subheadline.weight(.semibold))
+                    } else if phase == .passed {
+                        Text("\(score)% · Дальше…").font(.title3.weight(.bold)).foregroundStyle(.green)
+                    } else if phase == .failed {
+                        Text("\(score)% · Ещё раз").font(.title3.weight(.bold)).foregroundStyle(.orange)
+                        Text("Слышал: \(heard)").font(.caption).foregroundStyle(.secondary)
+                    }
 
-                controls(for: p)
-            } else {
-                Text("Нет фраз в банке — добавь phrasal / глаголы")
-                    .foregroundStyle(.secondary)
+                    if !note.isEmpty {
+                        Text(note).font(.caption).foregroundStyle(.orange)
+                    }
+                } else {
+                    Text("Нет фраз в банке — добавь phrasal / глаголы")
+                        .foregroundStyle(.secondary)
+                }
             }
-            Spacer()
+            .padding(16)
+            .padding(.bottom, 8)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(16)
+        .contentMargins(.top, 4, for: .scrollContent)
+        .contentMargins(.bottom, 8, for: .scrollContent)
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            Group {
+                if let p = current {
+                    controls(for: p)
+                        .padding(.horizontal, 16)
+                        .padding(.top, 10)
+                        .padding(.bottom, 10)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .background(.ultraThinMaterial)
+            .safeAreaPadding(.bottom, 12)
+        }
         .navigationTitle("Говорить")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $whySeed) { seed in
@@ -232,7 +248,7 @@ struct TutorSpeakDrillView: View {
             try? AudioSessionManager.configureForRecording()
             var hints = PhraseSimilarity.sttVariants(for: p.en)
             hints.append(contentsOf: p.en.split(separator: " ").map(String.init))
-            hints.append(contentsOf: ["hard hat", "Safe Pass", "hi-vis"])
+            hints.append(contentsOf: PhraseSimilarity.siteContextualHints)
             let target = p.en
             let text = await capture.captureUntilStopped(
                 localeId: settings.rememberLocale.rawValue,

@@ -64,58 +64,36 @@ struct TutorTalkView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            ScrollViewReader { proxy in
-                ScrollView {
-                    LazyVStack(alignment: .leading, spacing: 12) {
-                        ForEach(turns) { turn in
-                            turnBubble(turn).id(turn.id)
-                        }
-                        if isBusy {
-                            ProgressView("Коуч думает…")
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .id("busy")
-                        }
+        ScrollViewReader { proxy in
+            ScrollView {
+                LazyVStack(alignment: .leading, spacing: 12) {
+                    ForEach(turns) { turn in
+                        turnBubble(turn).id(turn.id)
                     }
-                    .padding(16)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .contentShape(Rectangle())
-                    .onTapGesture { NavChrome.dismissKeyboard() }
-                }
-                .scrollDismissesKeyboard(.interactively)
-                .onChange(of: turns.count) { _, _ in
-                    if let last = turns.last {
-                        withAnimation { proxy.scrollTo(last.id, anchor: .bottom) }
+                    if isBusy {
+                        ProgressView("Коуч думает…")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .id("busy")
                     }
                 }
+                .padding(16)
+                .padding(.bottom, 12)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
+                .onTapGesture { NavChrome.dismissKeyboard() }
             }
-
-            if !pinnedSayNowEN.isEmpty {
-                pinnedTargetCard
+            .scrollDismissesKeyboard(.interactively)
+            .contentMargins(.top, 4, for: .scrollContent)
+            .contentMargins(.bottom, 8, for: .scrollContent)
+            .onChange(of: turns.count) { _, _ in
+                if let last = turns.last {
+                    withAnimation { proxy.scrollTo(last.id, anchor: .bottom) }
+                }
             }
-
-            if isListening || awaitingReview {
-                attemptCard
-            }
-
-            if let errorMessage {
-                Text(errorMessage)
-                    .font(.caption.weight(.semibold))
-                    .foregroundStyle(.red)
-                    .padding(.horizontal)
-            }
-            if !voiceNote.isEmpty {
-                Text(voiceNote)
-                    .font(.caption)
-                    .foregroundStyle(.orange)
-                    .padding(.horizontal)
-            }
-
-            quickBar
-            composerBar
-                .padding(.horizontal, 16)
-                .padding(.vertical, 10)
-                .background(.ultraThinMaterial)
+        }
+        // Topics + mic stay above the tab bar; chat scrolls in the remaining space.
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            talkBottomChrome
         }
         .navigationTitle("Поговорить")
         .navigationBarTitleDisplayMode(.inline)
@@ -167,6 +145,44 @@ struct TutorTalkView: View {
             guard isListening, !pinnedSayNowEN.isEmpty, !partial.isEmpty else { return }
             liveSimilarity = PhraseSimilarity.talkScore(recognized: partial, expected: pinnedSayNowEN)
         }
+    }
+
+    // MARK: - Bottom chrome (topics + mic; above tab bar)
+
+    private var talkBottomChrome: some View {
+        VStack(spacing: 0) {
+            if !pinnedSayNowEN.isEmpty {
+                pinnedTargetCard
+            }
+
+            if isListening || awaitingReview {
+                attemptCard
+            }
+
+            if let errorMessage {
+                Text(errorMessage)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(.red)
+                    .padding(.horizontal)
+                    .padding(.top, 4)
+            }
+            if !voiceNote.isEmpty {
+                Text(voiceNote)
+                    .font(.caption)
+                    .foregroundStyle(.orange)
+                    .padding(.horizontal)
+                    .padding(.top, 2)
+            }
+
+            quickBar
+            composerBar
+                .padding(.horizontal, 16)
+                .padding(.top, 8)
+                .padding(.bottom, 10)
+        }
+        .background(.ultraThinMaterial)
+        // Extra inset so mic / topic chips clear the root TabView bar.
+        .safeAreaPadding(.bottom, 12)
     }
 
     // MARK: - Cards
@@ -797,8 +813,10 @@ struct TutorTalkView: View {
                 }
             }
         }
+        hints.append(contentsOf: PhraseSimilarity.sttVariants(for: pinnedSayNowEN))
+        hints.append(contentsOf: PhraseSimilarity.siteContextualHints)
         hints += [
-            "Safe Pass", "hard hat", "hi-vis", "hi vis", "card", "here", "have", "my",
+            "card", "here", "have", "my",
             "I have", "my Safe Pass", "Pass card", "card here",
         ]
         return hints
