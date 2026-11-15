@@ -1,0 +1,5174 @@
+{
+  "version": 1,
+  "track": "regular",
+  "sections": [
+    {
+      "id": "shopping",
+      "title_ru": "Магазин",
+      "title_en": "Shopping",
+      "track": "regular",
+      "lesson_ids": [
+        "regular-shopping-01",
+        "regular-shopping-02",
+        "regular-shopping-03",
+        "regular-shopping-04",
+        "regular-shopping-05",
+        "regular-shopping-06",
+        "regular-shopping-07",
+        "regular-shopping-08",
+        "regular-shopping-09",
+        "regular-shopping-10",
+        "regular-shopping-11",
+        "regular-shopping-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "travel",
+      "title_ru": "Поездки",
+      "title_en": "Travel",
+      "track": "regular",
+      "lesson_ids": [
+        "regular-travel-01",
+        "regular-travel-02",
+        "regular-travel-03",
+        "regular-travel-04",
+        "regular-travel-05",
+        "regular-travel-06",
+        "regular-travel-07",
+        "regular-travel-08",
+        "regular-travel-09",
+        "regular-travel-10",
+        "regular-travel-11",
+        "regular-travel-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "home",
+      "title_ru": "Дом",
+      "title_en": "Home life",
+      "track": "regular",
+      "lesson_ids": [
+        "regular-home-01",
+        "regular-home-02",
+        "regular-home-03",
+        "regular-home-04",
+        "regular-home-05",
+        "regular-home-06",
+        "regular-home-07",
+        "regular-home-08",
+        "regular-home-09",
+        "regular-home-10",
+        "regular-home-11",
+        "regular-home-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "dating",
+      "title_ru": "Знакомства",
+      "title_en": "Dating",
+      "track": "regular",
+      "lesson_ids": [
+        "regular-dating-01",
+        "regular-dating-02",
+        "regular-dating-03",
+        "regular-dating-04",
+        "regular-dating-05",
+        "regular-dating-06",
+        "regular-dating-07",
+        "regular-dating-08",
+        "regular-dating-09",
+        "regular-dating-10",
+        "regular-dating-11",
+        "regular-dating-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "food",
+      "title_ru": "Еда",
+      "title_en": "Food",
+      "track": "regular",
+      "lesson_ids": [
+        "regular-food-01",
+        "regular-food-02",
+        "regular-food-03",
+        "regular-food-04",
+        "regular-food-05",
+        "regular-food-06",
+        "regular-food-07",
+        "regular-food-08",
+        "regular-food-09",
+        "regular-food-10",
+        "regular-food-11",
+        "regular-food-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "work_office",
+      "title_ru": "Офис",
+      "title_en": "Work office",
+      "track": "regular",
+      "lesson_ids": [
+        "regular-work_office-01",
+        "regular-work_office-02",
+        "regular-work_office-03",
+        "regular-work_office-04",
+        "regular-work_office-05",
+        "regular-work_office-06",
+        "regular-work_office-07",
+        "regular-work_office-08",
+        "regular-work_office-09",
+        "regular-work_office-10",
+        "regular-work_office-11",
+        "regular-work_office-12"
+      ],
+      "lesson_count": 12
+    }
+  ],
+  "lessons": [
+    {
+      "id": "regular-shopping-01",
+      "title_ru": "Магазин · урок 1",
+      "title_en": "Shopping · lesson 1",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Найти отдел.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "Excuse me, where is the dairy aisle?",
+          "ru": "Извините, где молочный отдел?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Aisle four, on the left.",
+          "ru": "Четвёртый ряд, слева.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Do you have oat milk?",
+          "ru": "Есть овсяное молоко?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Bottom shelf, next to the yoghurt.",
+          "ru": "Нижняя полка, рядом с йогуртами.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks. I'll grab that.",
+          "ru": "Спасибо. Возьму.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "You're welcome.",
+          "ru": "Пожалуйста.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the dairy aisle?",
+          "ru": "Где молочный отдел?"
+        },
+        {
+          "en": "Do you have oat milk?",
+          "ru": "Есть овсяное молоко?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 1
+    },
+    {
+      "id": "regular-shopping-02",
+      "title_ru": "Магазин · урок 2",
+      "title_en": "Shopping · lesson 2",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Нет цены на товаре.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "There's no price on this.",
+          "ru": "На этом нет цены.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I can scan it for you.",
+          "ru": "Могу просканировать.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "How much is it?",
+          "ru": "Сколько стоит?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Three euro fifty.",
+          "ru": "Три пятьдесят.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "OK, I'll take it.",
+          "ru": "Ок, возьму.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Anything else?",
+          "ru": "Что-нибудь ещё?",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "There's no price on this.",
+          "ru": "На этом нет цены."
+        },
+        {
+          "en": "How much is it?",
+          "ru": "Сколько стоит?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 2
+    },
+    {
+      "id": "regular-shopping-03",
+      "title_ru": "Магазин · урок 3",
+      "title_en": "Shopping · lesson 3",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Вернуть товар.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "I'd like to return this jumper.",
+          "ru": "Хочу вернуть этот свитер.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Have you got the receipt?",
+          "ru": "Чек есть?",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, on my phone.",
+          "ru": "Да, в телефоне.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Was it washed or worn?",
+          "ru": "Стирали или носили?",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "No, tags are still on.",
+          "ru": "Нет, бирки на месте.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Refund to your card in three days.",
+          "ru": "Возврат на карту за три дня.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I'd like to return this.",
+          "ru": "Хочу вернуть это."
+        },
+        {
+          "en": "Tags are still on.",
+          "ru": "Бирки на месте."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 3
+    },
+    {
+      "id": "regular-shopping-04",
+      "title_ru": "Магазин · урок 4",
+      "title_en": "Shopping · lesson 4",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Скидка / акция.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "Is this on offer?",
+          "ru": "Это по акции?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Buy one get one half price.",
+          "ru": "Второй за полцены.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Does it work at self‑checkout?",
+          "ru": "На кассе самообслуживания сработает?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, scan both items.",
+          "ru": "Да, пробей оба.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Great, I'll take two.",
+          "ru": "Отлично, возьму два.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "The sticker explains it too.",
+          "ru": "На стикере тоже написано.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this on offer?",
+          "ru": "Это по акции?"
+        },
+        {
+          "en": "I'll take two.",
+          "ru": "Возьму два."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 4
+    },
+    {
+      "id": "regular-shopping-05",
+      "title_ru": "Магазин · урок 5",
+      "title_en": "Shopping · lesson 5",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Нужна помощь с размером.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "Do you have this in a medium?",
+          "ru": "Есть такой же medium?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll check the stockroom.",
+          "ru": "Проверю на складе.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Any other colours?",
+          "ru": "Есть другие цвета?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Blue and grey in medium.",
+          "ru": "Синий и серый в medium.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Blue, please.",
+          "ru": "Синий, пожалуйста.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Fitting rooms are behind you.",
+          "ru": "Примерочные за тобой.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do you have this in a medium?",
+          "ru": "Есть medium?"
+        },
+        {
+          "en": "Blue, please.",
+          "ru": "Синий, пожалуйста."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 5
+    },
+    {
+      "id": "regular-shopping-06",
+      "title_ru": "Магазин · урок 6",
+      "title_en": "Shopping · lesson 6",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Оплата картой не проходит.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "My card keeps declining.",
+          "ru": "Карта всё время отклоняется.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Try contactless again, or chip.",
+          "ru": "Попробуй ещё contactless или чип.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Chip worked. Sorry about that.",
+          "ru": "Чип сработал. Извините.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No problem. Receipt with you or in the bag?",
+          "ru": "Ничего. Чек с собой или в пакет?",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "In the bag, please.",
+          "ru": "В пакет, пожалуйста.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Have a nice day.",
+          "ru": "Хорошего дня.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "My card keeps declining.",
+          "ru": "Карта отклоняется."
+        },
+        {
+          "en": "In the bag, please.",
+          "ru": "В пакет, пожалуйста."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 6
+    },
+    {
+      "id": "regular-shopping-07",
+      "title_ru": "Магазин · урок 7",
+      "title_en": "Shopping · lesson 7",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Самообслуживание — помощь.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "The machine says unexpected item.",
+          "ru": "Аппарат пишет unexpected item.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll clear it. Put the bag on the scale.",
+          "ru": "Сброшу. Поставь пакет на весы.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Do I need to weigh the fruit?",
+          "ru": "Фрукты взвешивать?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, use the produce code on the screen.",
+          "ru": "Да, код овощей/фруктов на экране.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. It's asking for a bag fee.",
+          "ru": "Готово. Просит плату за пакет.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Hit yes if you took one.",
+          "ru": "Нажми yes, если взял.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Unexpected item.",
+          "ru": "Unexpected item."
+        },
+        {
+          "en": "Do I need to weigh the fruit?",
+          "ru": "Фрукты взвешивать?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 7
+    },
+    {
+      "id": "regular-shopping-08",
+      "title_ru": "Магазин · урок 8",
+      "title_en": "Shopping · lesson 8",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Спросить про аллергены.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "Does this bread contain sesame?",
+          "ru": "В этом хлебе есть кунжут?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, sesame seeds on top.",
+          "ru": "Да, кунжут сверху.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Any sesame‑free loaf?",
+          "ru": "Есть без кунжута?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "The plain tin loaf is fine.",
+          "ru": "Обычная формовая буханка без него.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll take that instead.",
+          "ru": "Тогда её.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Allergy info is on the label too.",
+          "ru": "На этикетке тоже есть.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Does this contain sesame?",
+          "ru": "Есть кунжут?"
+        },
+        {
+          "en": "I'll take that instead.",
+          "ru": "Тогда её."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 8
+    },
+    {
+      "id": "regular-shopping-09",
+      "title_ru": "Магазин · урок 9",
+      "title_en": "Shopping · lesson 9",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Заказать торт.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "Can I order a cake for Saturday?",
+          "ru": "Можно заказать торт на субботу?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What size and flavour?",
+          "ru": "Какой размер и вкус?",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Medium chocolate, name on top: Anna.",
+          "ru": "Средний шоколадный, сверху имя Anna.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Pickup after two on Saturday.",
+          "ru": "Самовывоз после двух в субботу.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can I pay a deposit now?",
+          "ru": "Можно депозит сейчас?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Twenty euro deposit, rest on pickup.",
+          "ru": "Двадцать евро сейчас, остальное при получении.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Order a cake for Saturday?",
+          "ru": "Заказать торт на субботу?"
+        },
+        {
+          "en": "Name on top: Anna.",
+          "ru": "Сверху имя Anna."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 9
+    },
+    {
+      "id": "regular-shopping-10",
+      "title_ru": "Магазин · урок 10",
+      "title_en": "Shopping · lesson 10",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Пакеты / экология.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "I forgot a reusable bag.",
+          "ru": "Забыл многоразовую сумку.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Paper bags are by the till.",
+          "ru": "Бумажные у кассы.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "How much are they?",
+          "ru": "Сколько стоят?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Thirty cents each.",
+          "ru": "По тридцать центов.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Two paper bags, please.",
+          "ru": "Две бумажные, пожалуйста.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Here you go.",
+          "ru": "Держи.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I forgot a reusable bag.",
+          "ru": "Забыл многоразовую сумку."
+        },
+        {
+          "en": "Two paper bags, please.",
+          "ru": "Две бумажные."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 10
+    },
+    {
+      "id": "regular-shopping-11",
+      "title_ru": "Магазин · урок 11",
+      "title_en": "Shopping · lesson 11",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Товар закончился.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "You're out of my usual coffee.",
+          "ru": "Моего обычного кофе нет.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Next delivery is Thursday.",
+          "ru": "Следующая поставка в четверг.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can you recommend a similar one?",
+          "ru": "Можете посоветовать похожий?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "This house brand is close.",
+          "ru": "Наша марка похожа.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "OK, I'll try it.",
+          "ru": "Ок, попробую.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "If you hate it, bring it back unopened.",
+          "ru": "Если не зайдёт — верни невскрытым.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "You're out of my usual coffee.",
+          "ru": "Моего кофе нет."
+        },
+        {
+          "en": "I'll try it.",
+          "ru": "Попробую."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 11
+    },
+    {
+      "id": "regular-shopping-12",
+      "title_ru": "Магазин · урок 12",
+      "title_en": "Shopping · lesson 12",
+      "tags": [
+        "regular",
+        "shopping",
+        "dialogue"
+      ],
+      "scene_ru": "Попросить отложить товар.",
+      "your_role": "learner",
+      "partner_role": "shop_assistant",
+      "lines": [
+        {
+          "en": "Can you hold this jacket until Friday?",
+          "ru": "Можете отложить эту куртку до пятницы?",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I can hold it for forty‑eight hours.",
+          "ru": "Могу на сорок восемь часов.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "That's fine. My name is Kolya.",
+          "ru": "Хорошо. Меня зовут Коля.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll put it behind the desk.",
+          "ru": "Положу за стойку.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks. I'll come back tomorrow.",
+          "ru": "Спасибо. Завтра вернусь.",
+          "role": "shopper",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Bring ID when you collect.",
+          "ru": "При получении возьми удостоверение.",
+          "role": "assistant",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can you hold this until Friday?",
+          "ru": "Отложить до пятницы?"
+        },
+        {
+          "en": "I'll come back tomorrow.",
+          "ru": "Завтра вернусь."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "shopping",
+      "order": 12
+    },
+    {
+      "id": "regular-travel-01",
+      "title_ru": "Поездки · урок 1",
+      "title_en": "Travel · lesson 1",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Билет на поезд.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "I'd like a return to Cork.",
+          "ru": "Билет туда‑обратно в Корк.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "When are you travelling?",
+          "ru": "Когда едете?",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Friday morning, back Sunday evening.",
+          "ru": "В пятницу утром, обратно в воскресенье вечером.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Off‑peak is cheaper.",
+          "ru": "Вне пика дешевле.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Off‑peak is fine.",
+          "ru": "Вне пика нормально.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Here's your ticket on the app.",
+          "ru": "Билет в приложении.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "A return to Cork.",
+          "ru": "Туда‑обратно в Корк."
+        },
+        {
+          "en": "Off‑peak is fine.",
+          "ru": "Вне пика нормально."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 1
+    },
+    {
+      "id": "regular-travel-02",
+      "title_ru": "Поездки · урок 2",
+      "title_en": "Travel · lesson 2",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Задержка рейса.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "Is the Dublin flight delayed?",
+          "ru": "Рейс в Дублин задерживается?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, about forty minutes.",
+          "ru": "Да, около сорока минут.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Will I miss my connection?",
+          "ru": "Успею на пересадку?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "You should still make it.",
+          "ru": "Должны успеть.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Where do I get updates?",
+          "ru": "Где смотреть обновления?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Boards and the airline app.",
+          "ru": "Табло и приложение авиакомпании.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is the flight delayed?",
+          "ru": "Рейс задерживается?"
+        },
+        {
+          "en": "Will I miss my connection?",
+          "ru": "Успею на пересадку?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 2
+    },
+    {
+      "id": "regular-travel-03",
+      "title_ru": "Поездки · урок 3",
+      "title_en": "Travel · lesson 3",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Такси / трансфер.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "How much to the city centre?",
+          "ru": "Сколько до центра?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "About twenty‑five euro with traffic.",
+          "ru": "Около двадцати пяти с пробками.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can you take card?",
+          "ru": "Карту принимаете?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Seatbelt on, please.",
+          "ru": "Да. Пристегнитесь.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Drop me at the hotel entrance.",
+          "ru": "Высадите у входа в отель.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sure.",
+          "ru": "Конечно.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "How much to the city centre?",
+          "ru": "Сколько до центра?"
+        },
+        {
+          "en": "Can you take card?",
+          "ru": "Карту принимаете?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 3
+    },
+    {
+      "id": "regular-travel-04",
+      "title_ru": "Поездки · урок 4",
+      "title_en": "Travel · lesson 4",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Отель — ранний заезд.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "Can I check in early?",
+          "ru": "Можно ранний заезд?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Room may be ready after one.",
+          "ru": "Номер может быть после часа.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can I leave my bag?",
+          "ru": "Можно оставить сумку?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, luggage room is free.",
+          "ru": "Да, камера хранения бесплатна.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Wi‑Fi password?",
+          "ru": "Пароль Wi‑Fi?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "On your key card sleeve.",
+          "ru": "На конверте от ключа.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can I check in early?",
+          "ru": "Можно ранний заезд?"
+        },
+        {
+          "en": "Can I leave my bag?",
+          "ru": "Можно оставить сумку?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 4
+    },
+    {
+      "id": "regular-travel-05",
+      "title_ru": "Поездки · урок 5",
+      "title_en": "Travel · lesson 5",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Потерянный багаж.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "My bag didn't arrive.",
+          "ru": "Мой багаж не приехал.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Boarding pass and bag tag, please.",
+          "ru": "Посадочный и бирку багажа.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Here's both.",
+          "ru": "Вот оба.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "We'll deliver it to your hotel.",
+          "ru": "Доставим в отель.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "How long usually?",
+          "ru": "Обычно сколько ждать?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Within twenty‑four hours.",
+          "ru": "В течение суток.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "My bag didn't arrive.",
+          "ru": "Багаж не приехал."
+        },
+        {
+          "en": "Deliver it to my hotel.",
+          "ru": "Доставьте в отель."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 5
+    },
+    {
+      "id": "regular-travel-06",
+      "title_ru": "Поездки · урок 6",
+      "title_en": "Travel · lesson 6",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Аренда авто.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "I have a reservation under Petrov.",
+          "ru": "Бронь на Петрова.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Licence and credit card, please.",
+          "ru": "Права и кредитку.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Full insurance included?",
+          "ru": "Полная страховка включена?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Basic is included; excess is five hundred.",
+          "ru": "Базовая да; франшиза пятьсот.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll take the extra cover.",
+          "ru": "Возьму доп. покрытие.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Car is in bay twelve.",
+          "ru": "Машина на месте двенадцать.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Reservation under Petrov.",
+          "ru": "Бронь на Петрова."
+        },
+        {
+          "en": "I'll take the extra cover.",
+          "ru": "Возьму доп. покрытие."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 6
+    },
+    {
+      "id": "regular-travel-07",
+      "title_ru": "Поездки · урок 7",
+      "title_en": "Travel · lesson 7",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Спросить дорогу.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "How do I get to the museum?",
+          "ru": "Как пройти к музею?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Straight, then left at the lights.",
+          "ru": "Прямо, потом налево на светофоре.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is it walkable?",
+          "ru": "Пешком нормально?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Ten minutes.",
+          "ru": "Минут десять.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks a lot.",
+          "ru": "Большое спасибо.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Enjoy your visit.",
+          "ru": "Приятного визита.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "How do I get to the museum?",
+          "ru": "Как пройти к музею?"
+        },
+        {
+          "en": "Is it walkable?",
+          "ru": "Пешком нормально?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 7
+    },
+    {
+      "id": "regular-travel-08",
+      "title_ru": "Поездки · урок 8",
+      "title_en": "Travel · lesson 8",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Обмен валюты.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "Can I change euros to pounds?",
+          "ru": "Можно евро на фунты?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Passport needed over five hundred.",
+          "ru": "Паспорт если больше пятисот.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Two hundred only.",
+          "ru": "Только двести.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Rate is on the board.",
+          "ru": "Курс на табло.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "OK, go ahead.",
+          "ru": "Ок, меняйте.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Count it before you leave.",
+          "ru": "Пересчитайте до ухода.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Change euros to pounds?",
+          "ru": "Евро на фунты?"
+        },
+        {
+          "en": "Two hundred only.",
+          "ru": "Только двести."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 8
+    },
+    {
+      "id": "regular-travel-09",
+      "title_ru": "Поездки · урок 9",
+      "title_en": "Travel · lesson 9",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Билет в музей.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "Two adults, please.",
+          "ru": "Два взрослых.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Any student discount?",
+          "ru": "Студенческая скидка?",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, here's my card.",
+          "ru": "Да, вот карта.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Audio guide included?",
+          "ru": "Аудиогид включён?",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Extra three euro.",
+          "ru": "Плюс три евро.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, two audio guides.",
+          "ru": "Да, два аудиогида.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Two adults, please.",
+          "ru": "Два взрослых."
+        },
+        {
+          "en": "Audio guide included?",
+          "ru": "Аудиогид включён?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 9
+    },
+    {
+      "id": "regular-travel-10",
+      "title_ru": "Поездки · урок 10",
+      "title_en": "Travel · lesson 10",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Пропущенная остановка.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "I missed my stop.",
+          "ru": "Я проехал свою остановку.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Next one is fine; walk back five minutes.",
+          "ru": "Следующая ок; назад пять минут пешком.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Do I need a new ticket?",
+          "ru": "Нужен новый билет?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No, stay on.",
+          "ru": "Нет, оставайтесь.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks for the help.",
+          "ru": "Спасибо за помощь.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Press stop when you see the park.",
+          "ru": "Нажмите stop у парка.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I missed my stop.",
+          "ru": "Проехал остановку."
+        },
+        {
+          "en": "Do I need a new ticket?",
+          "ru": "Нужен новый билет?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 10
+    },
+    {
+      "id": "regular-travel-11",
+      "title_ru": "Поездки · урок 11",
+      "title_en": "Travel · lesson 11",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Регистрация на рейс онлайн не работает.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "Online check‑in failed.",
+          "ru": "Онлайн‑регистрация не прошла.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use the desk; passport ready.",
+          "ru": "Идите на стойку; паспорт готовьте.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Any extra fee?",
+          "ru": "Доплата будет?",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No fee at the desk today.",
+          "ru": "Сегодня на стойке без доплаты.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Window seat if possible.",
+          "ru": "У окна, если можно.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Done. Gate B12.",
+          "ru": "Готово. Выход B12.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Online check‑in failed.",
+          "ru": "Онлайн‑регистрация не прошла."
+        },
+        {
+          "en": "Window seat if possible.",
+          "ru": "У окна, если можно."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 11
+    },
+    {
+      "id": "regular-travel-12",
+      "title_ru": "Поездки · урок 12",
+      "title_en": "Travel · lesson 12",
+      "tags": [
+        "regular",
+        "travel",
+        "dialogue"
+      ],
+      "scene_ru": "Отмена брони отеля.",
+      "your_role": "learner",
+      "partner_role": "stranger",
+      "lines": [
+        {
+          "en": "I need to cancel my booking.",
+          "ru": "Нужно отменить бронь.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What's the booking reference?",
+          "ru": "Номер брони?",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "H78421.",
+          "ru": "H78421.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Free cancellation until six tonight.",
+          "ru": "Бесплатная отмена до шести вечера.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Please cancel it.",
+          "ru": "Отмените, пожалуйста.",
+          "role": "traveller",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Cancelled. Email confirmation sent.",
+          "ru": "Отменено. Письмо отправили.",
+          "role": "agent",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need to cancel my booking.",
+          "ru": "Нужно отменить бронь."
+        },
+        {
+          "en": "Please cancel it.",
+          "ru": "Отмените."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "travel",
+      "order": 12
+    },
+    {
+      "id": "regular-home-01",
+      "title_ru": "Дом · урок 1",
+      "title_en": "Home life · lesson 1",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Протечка крана.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "The kitchen tap is leaking.",
+          "ru": "Кухонный кран течёт.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Drops or a steady stream?",
+          "ru": "Капает или струя?",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Steady under the handle.",
+          "ru": "Струя из‑под ручки.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll send a plumber tomorrow.",
+          "ru": "Пришлю сантехника завтра.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can I shut the valve myself?",
+          "ru": "Могу сам перекрыть вентиль?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, under the sink.",
+          "ru": "Да, под раковиной.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The kitchen tap is leaking.",
+          "ru": "Кран течёт."
+        },
+        {
+          "en": "I'll send a plumber tomorrow.",
+          "ru": "Пришлю сантехника завтра."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 1
+    },
+    {
+      "id": "regular-home-02",
+      "title_ru": "Дом · урок 2",
+      "title_en": "Home life · lesson 2",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Отопление не работает.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Heating won't turn on.",
+          "ru": "Отопление не включается.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Is the boiler showing an error?",
+          "ru": "На котле ошибка?",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, code E3.",
+          "ru": "Да, код E3.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Reset once; if it returns, call me.",
+          "ru": "Сбрось раз; если вернётся — звони.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Reset done. Still E3.",
+          "ru": "Сбросил. Всё ещё E3.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Engineer today after four.",
+          "ru": "Мастер сегодня после четырёх.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Heating won't turn on.",
+          "ru": "Отопление не включается."
+        },
+        {
+          "en": "Code E3.",
+          "ru": "Код E3."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 2
+    },
+    {
+      "id": "regular-home-03",
+      "title_ru": "Дом · урок 3",
+      "title_en": "Home life · lesson 3",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Соседи шумят.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Neighbours are loud after eleven.",
+          "ru": "Соседи шумят после одиннадцати.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Have you spoken to them?",
+          "ru": "Говорил с ними?",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Not yet. Wanted to ask you first.",
+          "ru": "Ещё нет. Сначала хотел спросить вас.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Try a polite note; then I'll step in.",
+          "ru": "Сначала вежливая записка; потом подключусь.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "OK, I'll note tonight.",
+          "ru": "Ок, сегодня оставлю записку.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Keep a simple log of times.",
+          "ru": "Веди простой лог по времени.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Neighbours are loud after eleven.",
+          "ru": "Соседи шумят после одиннадцати."
+        },
+        {
+          "en": "I'll note tonight.",
+          "ru": "Сегодня оставлю записку."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 3
+    },
+    {
+      "id": "regular-home-04",
+      "title_ru": "Дом · урок 4",
+      "title_en": "Home life · lesson 4",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Аренда — продление.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Can we renew for another year?",
+          "ru": "Можем продлить ещё на год?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Rent may rise by five percent.",
+          "ru": "Аренда может вырасти на пять процентов.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is that negotiable?",
+          "ru": "Можно обсудить?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I can do three percent if you sign early.",
+          "ru": "Могу три процента, если подпишете рано.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "We'll sign next week.",
+          "ru": "Подпишем на следующей неделе.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll email the new agreement.",
+          "ru": "Пришлю новый договор.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can we renew?",
+          "ru": "Можем продлить?"
+        },
+        {
+          "en": "We'll sign next week.",
+          "ru": "Подпишем на следующей неделе."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 4
+    },
+    {
+      "id": "regular-home-05",
+      "title_ru": "Дом · урок 5",
+      "title_en": "Home life · lesson 5",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Ключи / доступ.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "I lost my spare key.",
+          "ru": "Потерял запасной ключ.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I can cut a new one for twenty euro.",
+          "ru": "Могу сделать новый за двадцать евро.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Please do. When?",
+          "ru": "Сделайте. Когда?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Friday morning.",
+          "ru": "В пятницу утром.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Should I change the lock?",
+          "ru": "Менять замок?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Not unless you're worried.",
+          "ru": "Только если переживаете.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I lost my spare key.",
+          "ru": "Потерял запасной ключ."
+        },
+        {
+          "en": "Friday morning.",
+          "ru": "В пятницу утром."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 5
+    },
+    {
+      "id": "regular-home-06",
+      "title_ru": "Дом · урок 6",
+      "title_en": "Home life · lesson 6",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Интернет дома.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Wi‑Fi keeps dropping.",
+          "ru": "Wi‑Fi постоянно отваливается.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Is the router lights normal?",
+          "ru": "Индикаторы роутера в норме?",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "WAN light is red.",
+          "ru": "WAN красный.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Reboot the modem; wait two minutes.",
+          "ru": "Перезагрузи модем; подожди две минуты.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Still red after reboot.",
+          "ru": "После ребута всё ещё красный.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll raise a ticket with the ISP.",
+          "ru": "Открою заявку у провайдера.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Wi‑Fi keeps dropping.",
+          "ru": "Wi‑Fi отваливается."
+        },
+        {
+          "en": "WAN light is red.",
+          "ru": "WAN красный."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 6
+    },
+    {
+      "id": "regular-home-07",
+      "title_ru": "Дом · урок 7",
+      "title_en": "Home life · lesson 7",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Стиралка течёт.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Washing machine leaked on the floor.",
+          "ru": "Стиралка залила пол.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Turn off water and power.",
+          "ru": "Перекрой воду и питание.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. Towels down.",
+          "ru": "Сделано. Полотенца на полу.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Don't run it again.",
+          "ru": "Больше не включай.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can you arrange a repair?",
+          "ru": "Организуете ремонт?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, tomorrow afternoon.",
+          "ru": "Да, завтра после обеда.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Washing machine leaked.",
+          "ru": "Стиралка течёт."
+        },
+        {
+          "en": "Turn off water and power.",
+          "ru": "Перекрой воду и питание."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 7
+    },
+    {
+      "id": "regular-home-08",
+      "title_ru": "Дом · урок 8",
+      "title_en": "Home life · lesson 8",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Гости / правила дома.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Can two friends stay for the weekend?",
+          "ru": "Могут двое друзей остаться на выходные?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, under a week is fine.",
+          "ru": "Да, меньше недели ок.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Any quiet hours?",
+          "ru": "Есть тихие часы?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "After ten, keep it down.",
+          "ru": "После десяти — потише.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Understood. Thanks.",
+          "ru": "Понял. Спасибо.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Message me their names for the gate.",
+          "ru": "Напиши имена для шлагбаума.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Friends stay for the weekend?",
+          "ru": "Друзья на выходные?"
+        },
+        {
+          "en": "After ten, keep it down.",
+          "ru": "После десяти потише."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 8
+    },
+    {
+      "id": "regular-home-09",
+      "title_ru": "Дом · урок 9",
+      "title_en": "Home life · lesson 9",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Счёт за электричество.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "The electricity bill looks high.",
+          "ru": "Счёт за свет кажется большим.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Compare to last winter.",
+          "ru": "Сравни с прошлой зимой.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "It's thirty percent higher.",
+          "ru": "На тридцать процентов выше.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Check for heaters left on.",
+          "ru": "Проверь, не оставлены ли обогреватели.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll check tonight.",
+          "ru": "Проверю сегодня вечером.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Send me a photo of the meter.",
+          "ru": "Пришли фото счётчика.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Bill looks high.",
+          "ru": "Счёт большой."
+        },
+        {
+          "en": "Thirty percent higher.",
+          "ru": "На тридцать процентов выше."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 9
+    },
+    {
+      "id": "regular-home-10",
+      "title_ru": "Дом · урок 10",
+      "title_en": "Home life · lesson 10",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Парковка у дома.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Someone blocked my space.",
+          "ru": "Кто-то занял моё место.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Is it a visitor space?",
+          "ru": "Гостевое?",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "No, mine — number 14.",
+          "ru": "Нет, моё — 14.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll message the group chat.",
+          "ru": "Напишу в общий чат.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks. I need to leave for work.",
+          "ru": "Спасибо. Мне на работу.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use the visitor bay meantime.",
+          "ru": "Пока встань на гостевое.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Someone blocked my space.",
+          "ru": "Заняли моё место."
+        },
+        {
+          "en": "Number 14.",
+          "ru": "Номер 14."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 10
+    },
+    {
+      "id": "regular-home-11",
+      "title_ru": "Дом · урок 11",
+      "title_en": "Home life · lesson 11",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Заселение — опись.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "Can we do the inventory together?",
+          "ru": "Можем вместе пройти опись?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, this afternoon.",
+          "ru": "Да, сегодня после обеда.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "There's a scratch on the fridge.",
+          "ru": "На холодильнике царапина.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Photo and note it.",
+          "ru": "Фото и в заметки.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. Anything else to check?",
+          "ru": "Готово. Что ещё проверить?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Meters and keys next.",
+          "ru": "Дальше счётчики и ключи.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Inventory together?",
+          "ru": "Опись вместе?"
+        },
+        {
+          "en": "Scratch on the fridge.",
+          "ru": "Царапина на холодильнике."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 11
+    },
+    {
+      "id": "regular-home-12",
+      "title_ru": "Дом · урок 12",
+      "title_en": "Home life · lesson 12",
+      "tags": [
+        "regular",
+        "home",
+        "dialogue"
+      ],
+      "scene_ru": "Выселение — уборка.",
+      "your_role": "learner",
+      "partner_role": "partner",
+      "lines": [
+        {
+          "en": "What cleaning is required to leave?",
+          "ru": "Какая уборка нужна при выезде?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Oven, fridge, floors, bathrooms.",
+          "ru": "Духовка, холодильник, полы, ванные.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Professional clean mandatory?",
+          "ru": "Профчистка обязательна?",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Not if you leave it spotless.",
+          "ru": "Нет, если оставите идеально.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll book a cleaner anyway.",
+          "ru": "Всё равно вызову клинера.",
+          "role": "tenant",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Keep receipts for the deposit.",
+          "ru": "Чеки сохрани для депозита.",
+          "role": "landlord",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What cleaning is required?",
+          "ru": "Какая уборка нужна?"
+        },
+        {
+          "en": "I'll book a cleaner.",
+          "ru": "Вызову клинера."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "home",
+      "order": 12
+    },
+    {
+      "id": "regular-dating-01",
+      "title_ru": "Знакомства · урок 1",
+      "title_en": "Dating · lesson 1",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Предложить встречу.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "Would you like to grab coffee this week?",
+          "ru": "Не хочешь кофе на этой неделе?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sure. I'm free Thursday evening.",
+          "ru": "Да. В четверг вечером свободен/свободна.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Great. Five at the cafe on Main Street?",
+          "ru": "Отлично. В пять в кафе на Main Street?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Perfect. See you then.",
+          "ru": "Идеально. Тогда увидимся.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll text you when I'm nearby.",
+          "ru": "Напишу, когда буду рядом.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sounds good.",
+          "ru": "Договорились.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Grab coffee this week?",
+          "ru": "Кофе на этой неделе?"
+        },
+        {
+          "en": "Five at the cafe.",
+          "ru": "В пять в кафе."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 1
+    },
+    {
+      "id": "regular-dating-02",
+      "title_ru": "Знакомства · урок 2",
+      "title_en": "Dating · lesson 2",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Перенести встречу.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "Can we move Friday to Saturday?",
+          "ru": "Можно перенести пятницу на субботу?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What happened?",
+          "ru": "Что случилось?",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Work ran late. Sorry.",
+          "ru": "Работа затянулась. Извини.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Saturday afternoon works.",
+          "ru": "Суббота после обеда ок.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks for being flexible.",
+          "ru": "Спасибо, что гибко.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No stress.",
+          "ru": "Без стресса.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Move Friday to Saturday?",
+          "ru": "Перенести на субботу?"
+        },
+        {
+          "en": "Thanks for being flexible.",
+          "ru": "Спасибо, что гибко."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 2
+    },
+    {
+      "id": "regular-dating-03",
+      "title_ru": "Знакомства · урок 3",
+      "title_en": "Dating · lesson 3",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Выбрать место.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "Movie or a walk in the park?",
+          "ru": "Кино или прогулка в парке?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Park if the weather holds.",
+          "ru": "Парк, если погода держится.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "There's a nice path by the river.",
+          "ru": "Есть хороший путь у реки.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Let's do that.",
+          "ru": "Давай так.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I can bring coffee.",
+          "ru": "Могу взять кофе.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll bring snacks.",
+          "ru": "Я принесу перекус.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Movie or a walk?",
+          "ru": "Кино или прогулка?"
+        },
+        {
+          "en": "Path by the river.",
+          "ru": "Путь у реки."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 3
+    },
+    {
+      "id": "regular-dating-04",
+      "title_ru": "Знакомства · урок 4",
+      "title_en": "Dating · lesson 4",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Первый разговор — хобби.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "What do you usually do on weekends?",
+          "ru": "Чем обычно занимаешься на выходных?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I run and cook a bit.",
+          "ru": "Бегаю и немного готовлю.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I like photography.",
+          "ru": "Люблю фотографию.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Maybe we shoot by the harbour sometime.",
+          "ru": "Может, снимем у гавани как‑нибудь.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'd like that.",
+          "ru": "Мне бы понравилось.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Deal.",
+          "ru": "Договорились.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What do you do on weekends?",
+          "ru": "Чем на выходных?"
+        },
+        {
+          "en": "I like photography.",
+          "ru": "Люблю фотографию."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 4
+    },
+    {
+      "id": "regular-dating-05",
+      "title_ru": "Знакомства · урок 5",
+      "title_en": "Dating · lesson 5",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Оплатить счёт.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "Shall we split the bill?",
+          "ru": "Разделим счёт?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I can get this one.",
+          "ru": "Этот могу я.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Next one's on me then.",
+          "ru": "Тогда следующий за мной.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Fair.",
+          "ru": "Справедливо.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Card or cash?",
+          "ru": "Карта или наличные?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Card is fine.",
+          "ru": "Карта ок.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Shall we split the bill?",
+          "ru": "Разделим счёт?"
+        },
+        {
+          "en": "Next one's on me.",
+          "ru": "Следующий за мной."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 5
+    },
+    {
+      "id": "regular-dating-06",
+      "title_ru": "Знакомства · урок 6",
+      "title_en": "Dating · lesson 6",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Знакомство с друзьями.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "A few friends are at a gig tonight. Want to join?",
+          "ru": "Друзья идут на концерт. Хочешь с нами?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What kind of music?",
+          "ru": "Какая музыка?",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Indie, not too loud.",
+          "ru": "Инди, не слишком громко.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "OK, I'll come for an hour.",
+          "ru": "Ок, зайду на час.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll introduce you to Sam.",
+          "ru": "Познакомлю с Сэмом.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Looking forward to it.",
+          "ru": "Жду с интересом.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Want to join a gig?",
+          "ru": "Хочешь на концерт?"
+        },
+        {
+          "en": "I'll come for an hour.",
+          "ru": "Зайду на час."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 6
+    },
+    {
+      "id": "regular-dating-07",
+      "title_ru": "Знакомства · урок 7",
+      "title_en": "Dating · lesson 7",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Границы — медленнее.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "I like hanging out. Can we take it slow?",
+          "ru": "Мне нравится общаться. Можем помедленнее?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Of course. Thanks for saying it.",
+          "ru": "Конечно. Спасибо, что сказал(а).",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Texting is fine; no pressure for late nights.",
+          "ru": "Переписка ок; без давления на поздние встречи.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Agreed.",
+          "ru": "Согласен/согласна.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Coffee Sunday still good?",
+          "ru": "Кофе в воскресенье ещё в силе?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Looking forward.",
+          "ru": "Да. Жду.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can we take it slow?",
+          "ru": "Можем помедленнее?"
+        },
+        {
+          "en": "Coffee Sunday still good?",
+          "ru": "Кофе в воскресенье ок?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 7
+    },
+    {
+      "id": "regular-dating-08",
+      "title_ru": "Знакомства · урок 8",
+      "title_en": "Dating · lesson 8",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Онлайн‑чат — предложить звонок.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "Want to hop on a quick call?",
+          "ru": "Хочешь быстро созвониться?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Give me ten minutes.",
+          "ru": "Дай десять минут.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "WhatsApp or FaceTime?",
+          "ru": "WhatsApp или FaceTime?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "WhatsApp.",
+          "ru": "WhatsApp.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Calling now.",
+          "ru": "Звоню.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Hey!",
+          "ru": "Привет!",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Hop on a quick call?",
+          "ru": "Быстро созвониться?"
+        },
+        {
+          "en": "WhatsApp or FaceTime?",
+          "ru": "WhatsApp или FaceTime?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 8
+    },
+    {
+      "id": "regular-dating-09",
+      "title_ru": "Знакомства · урок 9",
+      "title_en": "Dating · lesson 9",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Комплимент без давления.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "That jacket looks great on you.",
+          "ru": "Куртка тебе очень идёт.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Thanks, I just got it.",
+          "ru": "Спасибо, только купил(а).",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Where from?",
+          "ru": "Где?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "The shop near the bridge.",
+          "ru": "Магазин у моста.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Good find.",
+          "ru": "Удачная находка.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Appreciate it.",
+          "ru": "Приятно.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "That jacket looks great.",
+          "ru": "Куртка очень идёт."
+        },
+        {
+          "en": "Good find.",
+          "ru": "Удачная находка."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 9
+    },
+    {
+      "id": "regular-dating-10",
+      "title_ru": "Знакомства · урок 10",
+      "title_en": "Dating · lesson 10",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "После встречи — follow‑up.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "I had a really nice time today.",
+          "ru": "Мне сегодня было очень приятно.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Same here.",
+          "ru": "Мне тоже.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Want to do it again next week?",
+          "ru": "Повторим на следующей неделе?",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Midweek?",
+          "ru": "Да. Середина недели?",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Wednesday works.",
+          "ru": "Среда подходит.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "It's a plan.",
+          "ru": "Договорились.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I had a nice time.",
+          "ru": "Было приятно."
+        },
+        {
+          "en": "Wednesday works.",
+          "ru": "Среда подходит."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 10
+    },
+    {
+      "id": "regular-dating-11",
+      "title_ru": "Знакомства · урок 11",
+      "title_en": "Dating · lesson 11",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Отказ вежливо.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "I don't think we're a match, but I enjoyed chatting.",
+          "ru": "Думаю, мы не пара, но общаться было приятно.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Thanks for being honest.",
+          "ru": "Спасибо за честность.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "No hard feelings.",
+          "ru": "Без обид.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "None. Take care.",
+          "ru": "Конечно. Береги себя.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "You too.",
+          "ru": "И ты.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Bye.",
+          "ru": "Пока.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I don't think we're a match.",
+          "ru": "Мы не пара."
+        },
+        {
+          "en": "No hard feelings.",
+          "ru": "Без обид."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 11
+    },
+    {
+      "id": "regular-dating-12",
+      "title_ru": "Знакомства · урок 12",
+      "title_en": "Dating · lesson 12",
+      "tags": [
+        "regular",
+        "dating",
+        "dialogue"
+      ],
+      "scene_ru": "Безопасность первой встречи.",
+      "your_role": "learner",
+      "partner_role": "date",
+      "lines": [
+        {
+          "en": "Let's meet in a public cafe first.",
+          "ru": "Давай сначала в публичном кафе.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Agreed. Daytime?",
+          "ru": "Согласен. Днём?",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Saturday at two.",
+          "ru": "В субботу в два.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll tell a friend where I am.",
+          "ru": "Скажу другу, где я.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Same. See you Saturday.",
+          "ru": "Я тоже. До субботы.",
+          "role": "you",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "See you.",
+          "ru": "До встречи.",
+          "role": "them",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Public cafe first.",
+          "ru": "Сначала публичное кафе."
+        },
+        {
+          "en": "Saturday at two.",
+          "ru": "В субботу в два."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "dating",
+      "order": 12
+    },
+    {
+      "id": "regular-food-01",
+      "title_ru": "Еда · урок 1",
+      "title_en": "Food · lesson 1",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Стол на двоих.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Table for two, please.",
+          "ru": "Столик на двоих.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Inside or outside?",
+          "ru": "Внутри или на улице?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Inside, near the window if possible.",
+          "ru": "Внутри, у окна если можно.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Right this way.",
+          "ru": "Сюда, пожалуйста.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Could we see the menu?",
+          "ru": "Можно меню?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Here you are.",
+          "ru": "Держите.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Table for two.",
+          "ru": "Столик на двоих."
+        },
+        {
+          "en": "Near the window.",
+          "ru": "У окна."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 1
+    },
+    {
+      "id": "regular-food-02",
+      "title_ru": "Еда · урок 2",
+      "title_en": "Food · lesson 2",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Аллергия.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "I have a nut allergy.",
+          "ru": "У меня аллергия на орехи.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll mark it on the order.",
+          "ru": "Отмечу в заказе.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is the sauce safe?",
+          "ru": "Соус безопасный?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll check with the kitchen.",
+          "ru": "Уточню на кухне.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks. I'll wait.",
+          "ru": "Спасибо. Подожду.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Chef confirms it's nut‑free.",
+          "ru": "Шеф подтвердил — без орехов.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I have a nut allergy.",
+          "ru": "Аллергия на орехи."
+        },
+        {
+          "en": "Is the sauce safe?",
+          "ru": "Соус безопасный?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 2
+    },
+    {
+      "id": "regular-food-03",
+      "title_ru": "Еда · урок 3",
+      "title_en": "Food · lesson 3",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Рекомендация блюда.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "What do you recommend?",
+          "ru": "Что посоветуете?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "The fish of the day is popular.",
+          "ru": "Рыба дня популярна.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is it spicy?",
+          "ru": "Острая?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Mild. We can add chilli.",
+          "ru": "Мягкая. Можно добавить чили.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Mild is fine. I'll take it.",
+          "ru": "Мягкая ок. Возьму.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Side salad or chips?",
+          "ru": "Салат или картошка?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What do you recommend?",
+          "ru": "Что посоветуете?"
+        },
+        {
+          "en": "Mild is fine.",
+          "ru": "Мягкая ок."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 3
+    },
+    {
+      "id": "regular-food-04",
+      "title_ru": "Еда · урок 4",
+      "title_en": "Food · lesson 4",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Изменить заказ.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Can I change the fries to salad?",
+          "ru": "Можно вместо картошки салат?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No problem.",
+          "ru": "Без проблем.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "And no onions, please.",
+          "ru": "И без лука, пожалуйста.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Noted.",
+          "ru": "Записал.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "How long for the mains?",
+          "ru": "Сколько ждать основное?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "About fifteen minutes.",
+          "ru": "Минут пятнадцать.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Fries to salad?",
+          "ru": "Вместо картошки салат?"
+        },
+        {
+          "en": "No onions, please.",
+          "ru": "Без лука."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 4
+    },
+    {
+      "id": "regular-food-05",
+      "title_ru": "Еда · урок 5",
+      "title_en": "Food · lesson 5",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Счёт и чаевые.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Could we get the bill?",
+          "ru": "Можно счёт?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Together or separate?",
+          "ru": "Вместе или раздельно?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Together, please.",
+          "ru": "Вместе.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Card machine is coming.",
+          "ru": "Терминал сейчас.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is service included?",
+          "ru": "Сервис включён?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No, tipping is optional.",
+          "ru": "Нет, чаевые по желанию.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Could we get the bill?",
+          "ru": "Можно счёт?"
+        },
+        {
+          "en": "Is service included?",
+          "ru": "Сервис включён?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 5
+    },
+    {
+      "id": "regular-food-06",
+      "title_ru": "Еда · урок 6",
+      "title_en": "Food · lesson 6",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Бронь не нашли.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "I booked under Ivanov at seven.",
+          "ru": "Бронь на Иванова на семь.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I don't see it. Any phone number?",
+          "ru": "Не вижу. Номер телефона?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "087…",
+          "ru": "087…",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Found it under a different spelling.",
+          "ru": "Нашли под другим написанием.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Table ready now?",
+          "ru": "Столик сейчас готов?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Five minutes at the bar.",
+          "ru": "Пять минут у бара.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Booked under Ivanov.",
+          "ru": "Бронь на Иванова."
+        },
+        {
+          "en": "Found it.",
+          "ru": "Нашли."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 6
+    },
+    {
+      "id": "regular-food-07",
+      "title_ru": "Еда · урок 7",
+      "title_en": "Food · lesson 7",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Брать с собой.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Can I get this to go?",
+          "ru": "Можно с собой?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sure. Cutlery?",
+          "ru": "Конечно. Приборы?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, please.",
+          "ru": "Да, пожалуйста.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "It'll be two minutes.",
+          "ru": "Минуты две.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Extra napkins if possible.",
+          "ru": "Ещё салфетки, если можно.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Here you go.",
+          "ru": "Держите.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can I get this to go?",
+          "ru": "Можно с собой?"
+        },
+        {
+          "en": "Extra napkins.",
+          "ru": "Ещё салфетки."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 7
+    },
+    {
+      "id": "regular-food-08",
+      "title_ru": "Еда · урок 8",
+      "title_en": "Food · lesson 8",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Кофейня — заказ.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Flat white and a croissant, please.",
+          "ru": "Флэт уайт и круассан.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "For here or takeaway?",
+          "ru": "Здесь или с собой?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "For here.",
+          "ru": "Здесь.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Any syrup?",
+          "ru": "Сироп?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "No, thanks.",
+          "ru": "Нет, спасибо.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Name for the cup?",
+          "ru": "Имя на стакан?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Flat white and a croissant.",
+          "ru": "Флэт уайт и круассан."
+        },
+        {
+          "en": "For here.",
+          "ru": "Здесь."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 8
+    },
+    {
+      "id": "regular-food-09",
+      "title_ru": "Еда · урок 9",
+      "title_en": "Food · lesson 9",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Блюдо не то.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Sorry, this isn't what I ordered.",
+          "ru": "Извините, это не мой заказ.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What did you order?",
+          "ru": "Что вы заказывали?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "The pasta without chicken.",
+          "ru": "Пасту без курицы.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll replace it right away.",
+          "ru": "Сейчас заменю.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sorry for the mix‑up.",
+          "ru": "Извините за путаницу.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "This isn't what I ordered.",
+          "ru": "Это не мой заказ."
+        },
+        {
+          "en": "Pasta without chicken.",
+          "ru": "Паста без курицы."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 9
+    },
+    {
+      "id": "regular-food-10",
+      "title_ru": "Еда · урок 10",
+      "title_en": "Food · lesson 10",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Веган‑опции.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Do you have vegan mains?",
+          "ru": "Есть веганские основные?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "The chickpea stew and the salad bowl.",
+          "ru": "Рагу из нута и салат‑боул.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is the bread vegan?",
+          "ru": "Хлеб веганский?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, the sourdough is.",
+          "ru": "Да, заквасочный.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Chickpea stew, please.",
+          "ru": "Рагу из нута, пожалуйста.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Great choice.",
+          "ru": "Хороший выбор.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Vegan mains?",
+          "ru": "Веганские основные?"
+        },
+        {
+          "en": "Chickpea stew, please.",
+          "ru": "Рагу из нута."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 10
+    },
+    {
+      "id": "regular-food-11",
+      "title_ru": "Еда · урок 11",
+      "title_en": "Food · lesson 11",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Слишком долго ждать.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "We've been waiting thirty minutes.",
+          "ru": "Ждём уже тридцать минут.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll check the kitchen now.",
+          "ru": "Сейчас уточню на кухне.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Any idea how much longer?",
+          "ru": "Сколько ещё примерно?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Five minutes, or I can comp a drink.",
+          "ru": "Минут пять, или комплимент‑напиток.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "A drink would help, thanks.",
+          "ru": "Напиток поможет, спасибо.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "On the way.",
+          "ru": "Уже несут.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Waiting thirty minutes.",
+          "ru": "Ждём тридцать минут."
+        },
+        {
+          "en": "A drink would help.",
+          "ru": "Напиток поможет."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 11
+    },
+    {
+      "id": "regular-food-12",
+      "title_ru": "Еда · урок 12",
+      "title_en": "Food · lesson 12",
+      "tags": [
+        "regular",
+        "food",
+        "dialogue"
+      ],
+      "scene_ru": "Десерт / кофе после.",
+      "your_role": "learner",
+      "partner_role": "friend",
+      "lines": [
+        {
+          "en": "Could we see the dessert menu?",
+          "ru": "Можно меню десертов?",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Chocolate cake or apple crumble.",
+          "ru": "Шоколадный торт или яблочный крамбл.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Crumble with ice cream.",
+          "ru": "Крамбл с мороженым.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Coffee as well?",
+          "ru": "Кофе тоже?",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Two americano.",
+          "ru": "Два американо.",
+          "role": "guest",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Coming up.",
+          "ru": "Сейчас будет.",
+          "role": "waiter",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Dessert menu?",
+          "ru": "Меню десертов?"
+        },
+        {
+          "en": "Crumble with ice cream.",
+          "ru": "Крамбл с мороженым."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "food",
+      "order": 12
+    },
+    {
+      "id": "regular-work_office-01",
+      "title_ru": "Офис · урок 1",
+      "title_en": "Work office · lesson 1",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Статус задачи.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Quick update on the report?",
+          "ru": "Коротко по статусу отчёта?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Draft is ready; need your numbers.",
+          "ru": "Черновик готов; нужны ваши цифры.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll send them by noon.",
+          "ru": "Пришлю до полудня.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Then I can finish today.",
+          "ru": "Тогда закончу сегодня.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Put it on the shared drive.",
+          "ru": "Положи на общий диск.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Will do.",
+          "ru": "Сделаю.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Draft is ready.",
+          "ru": "Черновик готов."
+        },
+        {
+          "en": "Finish today.",
+          "ru": "Закончу сегодня."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 1
+    },
+    {
+      "id": "regular-work_office-02",
+      "title_ru": "Офис · урок 2",
+      "title_en": "Work office · lesson 2",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Просить дедлайн.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Can we push the deadline to Friday?",
+          "ru": "Можно сдвинуть дедлайн на пятницу?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What's blocking you?",
+          "ru": "Что блокирует?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Waiting on legal review.",
+          "ru": "Ждём ревью юристов.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Friday is OK if you flag risks.",
+          "ru": "Пятница ок, если отметишь риски.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll add a risk note today.",
+          "ru": "Добавлю заметку о рисках сегодня.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Thanks.",
+          "ru": "Спасибо.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Push the deadline to Friday?",
+          "ru": "Сдвинуть на пятницу?"
+        },
+        {
+          "en": "Waiting on legal.",
+          "ru": "Ждём юристов."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 2
+    },
+    {
+      "id": "regular-work_office-03",
+      "title_ru": "Офис · урок 3",
+      "title_en": "Work office · lesson 3",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Созвон / календарь.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Can we move the call to three?",
+          "ru": "Можно перенести созвон на три?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I have a conflict at three.",
+          "ru": "В три конфликт.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Four thirty instead?",
+          "ru": "Тогда в четыре тридцать?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Works. Send an invite.",
+          "ru": "Подходит. Пришли инвайт.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Invite sent with the agenda.",
+          "ru": "Инвайт с повесткой ушёл.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Perfect.",
+          "ru": "Отлично.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Move the call to three?",
+          "ru": "Перенести на три?"
+        },
+        {
+          "en": "Four thirty instead?",
+          "ru": "В четыре тридцать?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 3
+    },
+    {
+      "id": "regular-work_office-04",
+      "title_ru": "Офис · урок 4",
+      "title_en": "Work office · lesson 4",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Больничный.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "I need to take a sick day.",
+          "ru": "Нужен больничный день.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Feel better. Update the team chat.",
+          "ru": "Выздоравливай. Напиши в чат команды.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can someone cover the standup?",
+          "ru": "Кто‑то может закрыть стендап?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll cover it.",
+          "ru": "Я закрою.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Thanks. Back tomorrow if I'm better.",
+          "ru": "Спасибо. Завтра выйду, если лучше.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No rush.",
+          "ru": "Не торопись.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need a sick day.",
+          "ru": "Нужен больничный."
+        },
+        {
+          "en": "Someone cover standup?",
+          "ru": "Кто закроет стендап?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 4
+    },
+    {
+      "id": "regular-work_office-05",
+      "title_ru": "Офис · урок 5",
+      "title_en": "Work office · lesson 5",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Обратная связь.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Can I get feedback on my draft?",
+          "ru": "Можно фидбек по черновику?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Overall clear. Shorten the intro.",
+          "ru": "В целом ясно. Сократи введение.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Any issues with the data?",
+          "ru": "Проблемы с данными?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Source the second chart.",
+          "ru": "Укажи источник второго графика.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll revise this afternoon.",
+          "ru": "Переделаю после обеда.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Ping me when it's up.",
+          "ru": "Напиши, когда будет.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Feedback on my draft?",
+          "ru": "Фидбек по черновику?"
+        },
+        {
+          "en": "Shorten the intro.",
+          "ru": "Сократи введение."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 5
+    },
+    {
+      "id": "regular-work_office-06",
+      "title_ru": "Офис · урок 6",
+      "title_en": "Work office · lesson 6",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Новый коллега.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "This is Ana, joining our team.",
+          "ru": "Это Ана, к нам в команду.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Welcome. I handle onboarding docs.",
+          "ru": "Добро пожаловать. Я по документам онбординга.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "She'll need access to the CRM.",
+          "ru": "Ей нужен доступ к CRM.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll request it today.",
+          "ru": "Запрошу сегодня.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Give her a tour after lunch.",
+          "ru": "Проведи экскурсию после обеда.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Happy to.",
+          "ru": "С удовольствием.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Welcome to the team.",
+          "ru": "Добро пожаловать."
+        },
+        {
+          "en": "I'll request CRM access.",
+          "ru": "Запрошу доступ к CRM."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 6
+    },
+    {
+      "id": "regular-work_office-07",
+      "title_ru": "Офис · урок 7",
+      "title_en": "Work office · lesson 7",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Принтер / офисная техника.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "The printer on floor two is jammed.",
+          "ru": "Принтер на втором зажевал бумагу.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Did you open the side panel?",
+          "ru": "Открывал боковую панель?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, still stuck.",
+          "ru": "Да, всё ещё застряло.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Call facilities on extension 200.",
+          "ru": "Позвони facilities на 200.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll call now.",
+          "ru": "Звоню сейчас.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use floor one meantime.",
+          "ru": "Пока печатай на первом.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Printer is jammed.",
+          "ru": "Принтер зажевал."
+        },
+        {
+          "en": "Call facilities.",
+          "ru": "Позвони facilities."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 7
+    },
+    {
+      "id": "regular-work_office-08",
+      "title_ru": "Офис · урок 8",
+      "title_en": "Work office · lesson 8",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Удалёнка.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Can I work from home Thursday?",
+          "ru": "Можно в четверг из дома?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Any meetings on site?",
+          "ru": "Есть встречи в офисе?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Only online standups.",
+          "ru": "Только онлайн‑стендапы.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "OK. Be online by nine.",
+          "ru": "Ок. Будь онлайн к девяти.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Will be. Thanks.",
+          "ru": "Буду. Спасибо.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Update the calendar status.",
+          "ru": "Обнови статус в календаре.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Work from home Thursday?",
+          "ru": "В четверг из дома?"
+        },
+        {
+          "en": "Be online by nine.",
+          "ru": "Онлайн к девяти."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 8
+    },
+    {
+      "id": "regular-work_office-09",
+      "title_ru": "Офис · урок 9",
+      "title_en": "Work office · lesson 9",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Конфликт приоритетов.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Two deadlines clash tomorrow.",
+          "ru": "Завтра два дедлайна пересекаются.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Which is client‑facing?",
+          "ru": "Что для клиента?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "The proposal is client‑facing.",
+          "ru": "Предложение — для клиента.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Do that first; slip the internal doc.",
+          "ru": "Сначала его; внутренний можно сдвинуть.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll tell the other owner.",
+          "ru": "Скажу другому владельцу.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Copy me on that message.",
+          "ru": "Скопируй меня в том сообщении.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Two deadlines clash.",
+          "ru": "Два дедлайна пересекаются."
+        },
+        {
+          "en": "Client‑facing first.",
+          "ru": "Сначала клиентское."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 9
+    },
+    {
+      "id": "regular-work_office-10",
+      "title_ru": "Офис · урок 10",
+      "title_en": "Work office · lesson 10",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Подготовка к презентации.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Slides ready for the demo?",
+          "ru": "Слайды к демо готовы?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Almost. Need the latest metrics.",
+          "ru": "Почти. Нужны свежие метрики.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll paste them in shared notes.",
+          "ru": "Вставлю в общие заметки.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll lock slides by five.",
+          "ru": "Закрою слайды к пяти.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Rehearse once with me.",
+          "ru": "Один раз прогоним вместе.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "After lunch works.",
+          "ru": "После обеда подходит.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Need the latest metrics.",
+          "ru": "Нужны свежие метрики."
+        },
+        {
+          "en": "Lock slides by five.",
+          "ru": "Закрою слайды к пяти."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 10
+    },
+    {
+      "id": "regular-work_office-11",
+      "title_ru": "Офис · урок 11",
+      "title_en": "Work office · lesson 11",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Зарплата / payroll вопрос.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "My payslip looks short this month.",
+          "ru": "Зарплатный лист в этом месяце меньше.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Overtime missing?",
+          "ru": "Овертайм не учли?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, last week's hours.",
+          "ru": "Да, часы прошлой недели.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Send timesheet to payroll today.",
+          "ru": "Отправь табель в payroll сегодня.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Sent. Can it correct this run?",
+          "ru": "Отправил. Успеют в этом расчёте?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "If not, next cycle with backpay.",
+          "ru": "Если нет — в следующем с доплатой.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Payslip looks short.",
+          "ru": "Зарплата меньше."
+        },
+        {
+          "en": "Overtime missing.",
+          "ru": "Овертайм не учли."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 11
+    },
+    {
+      "id": "regular-work_office-12",
+      "title_ru": "Офис · урок 12",
+      "title_en": "Work office · lesson 12",
+      "tags": [
+        "regular",
+        "work_office",
+        "dialogue"
+      ],
+      "scene_ru": "Конец дня — хэндовер.",
+      "your_role": "learner",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Before I leave: open items?",
+          "ru": "Перед уходом: открытые задачи?",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Follow up with the vendor tomorrow.",
+          "ru": "Завтра дожми вендора.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll set a reminder at nine.",
+          "ru": "Поставлю напоминание на девять.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Anything urgent tonight?",
+          "ru": "Что‑то срочное на вечер?",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "No. Have a good evening.",
+          "ru": "Нет. Хорошего вечера.",
+          "role": "employee",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "You too.",
+          "ru": "И тебе.",
+          "role": "manager",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Open items before I leave?",
+          "ru": "Открытые задачи перед уходом?"
+        },
+        {
+          "en": "Follow up with the vendor.",
+          "ru": "Дожми вендора."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "work_office",
+      "order": 12
+    }
+  ]
+}

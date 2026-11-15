@@ -232,7 +232,7 @@ struct TutorSpeakDrillView: View {
             try? AudioSessionManager.configureForRecording()
             var hints = PhraseSimilarity.sttVariants(for: p.en)
             hints.append(contentsOf: p.en.split(separator: " ").map(String.init))
-            hints.append(contentsOf: ["hard hat", "Safe Pass", "hi-vis"])
+            hints.append(contentsOf: PhraseSimilarity.siteContextualHints)
             let target = p.en
             let text = await capture.captureUntilStopped(
                 localeId: settings.rememberLocale.rawValue,
