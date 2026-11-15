@@ -122,6 +122,7 @@ enum TutorBankStore {
     }
 
     static func reload() {
+        cachedPairsPhrasals = nil
         switch contentMode {
         case .site:
             verbs = loadJSON("verbs_bank_v1", key: "verbs") + loadExtraVerbs(key: extraVerbsKey)
@@ -151,6 +152,67 @@ enum TutorBankStore {
         ensureLoaded()
         let core = phrasals.filter { $0.tier <= 1 }
         return core.isEmpty ? phrasals : core
+    }
+
+    /// Cached site→general merge for Репетитор → Пары (`.phrasal` / sidesReversed).
+    private static var cachedPairsPhrasals: [PhrasalEntry]?
+
+    /// Warm / rebuild the merged pairs pool (site first, then general).
+    static func primePairsPhrasals() {
+        cachedPairsPhrasals = nil
+        _ = pairsPhrasals
+    }
+
+    /// Site bank (`phrasals_bank_v1`) first, then general (`phrasals_general_v1`).
+    /// Same EN → keep site meaning when both are tier ≤ 1; never drop a tier-1 general
+    /// entry that site lost (e.g. site demoted by cable-tray enrich). Fallback: any EN
+    /// still missing from either bank so the pool stays complete.
+    /// Used by unseeded TutorPairsView (Репетитор → Пары · Фразовые / Наоборот).
+    static var pairsPhrasals: [PhrasalEntry] {
+        ensureLoaded()
+        if let cachedPairsPhrasals, !cachedPairsPhrasals.isEmpty { return cachedPairsPhrasals }
+        let siteRaw: [PhrasalEntry] = loadJSON("phrasals_bank_v1", key: "phrasals")
+        let generalRaw: [PhrasalEntry] = loadJSON("phrasals_general_v1", key: "phrasals")
+        let site = Self.enrichPhrasalExamples(siteRaw)
+        let general = Self.enrichPhrasalExamples(generalRaw)
+        let result = Self.mergePhrasalsSiteFirst(site: site, general: general)
+        if !result.isEmpty {
+            cachedPairsPhrasals = result
+        }
+        return result
+    }
+
+    /// 1) all site tier ≤ 1  2) general tier ≤ 1 for EN not yet taken
+    /// 3) any leftover EN from site then general (tier > 1 only if no core copy exists).
+    private static func mergePhrasalsSiteFirst(site: [PhrasalEntry], general: [PhrasalEntry]) -> [PhrasalEntry] {
+        var seen = Set<String>()
+        var out: [PhrasalEntry] = []
+        out.reserveCapacity(site.count + general.count)
+
+        func key(for p: PhrasalEntry) -> String {
+            p.en.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        }
+
+        for p in site where p.tier <= 1 {
+            let k = key(for: p)
+            guard !k.isEmpty, !seen.contains(k) else { continue }
+            seen.insert(k)
+            out.append(p)
+        }
+        for p in general where p.tier <= 1 {
+            let k = key(for: p)
+            guard !k.isEmpty, !seen.contains(k) else { continue }
+            seen.insert(k)
+            out.append(p)
+        }
+        // Only if both banks lack a tier-1 copy for that EN.
+        for p in site + general where p.tier > 1 {
+            let k = key(for: p)
+            guard !k.isEmpty, !seen.contains(k) else { continue }
+            seen.insert(k)
+            out.append(p)
+        }
+        return out
     }
 
     static var coreOpposites: [OppositeEntry] {
