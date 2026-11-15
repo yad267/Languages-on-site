@@ -11,6 +11,8 @@ enum TutorPairsMode: String, Hashable {
 struct TutorPairsView: View {
     var mode: TutorPairsMode = .phrasal
     var seedPhrasals: [PhrasalEntry]? = nil
+    /// Phrasal only: `false` = EN left / RU right; `true` = Наоборот (RU left / EN right).
+    var sidesReversed: Bool = false
 
     @Environment(AppSettings.self) private var settings
     @State private var speaker: SpeechSpeaker?
@@ -144,6 +146,9 @@ struct TutorPairsView: View {
             }
             #endif
         }
+        .onChange(of: sidesReversed) { _, _ in
+            dealRound()
+        }
         .onDisappear {
             cancelAllAudioAndGlossFetch()
             prefetchTask?.cancel()
@@ -164,8 +169,10 @@ struct TutorPairsView: View {
             Text("Нажмите на пары")
                 .font(.title3.weight(.bold))
             Text(mode == .phrasal
-                 ? "Phrasal · голос только EN"
-                 : "Наоборот · один play на тап")
+                 ? (sidesReversed
+                    ? "Phrasal · Наоборот · RU слева · EN справа"
+                    : "Phrasal · EN слева · RU справа · голос только EN")
+                 : "Оппозит · один play на тап")
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
             Text("\(progressDone) / \(roundSize)")
@@ -767,14 +774,35 @@ struct TutorPairsView: View {
                     leftRU: p.ru, rightRU: p.ru,
                     drillEN: drillEN, drillRU: drillRU
                 ))
-                left.append(SideTile(
-                    id: "\(pid)#L", pairId: pid, display: p.ru,
-                    speakEN: p.en, ru: p.ru, isENColumn: false
-                ))
-                right.append(SideTile(
-                    id: "\(pid)#R", pairId: pid, display: p.en,
+                let enTile = SideTile(
+                    id: "\(pid)#EN", pairId: pid, display: p.en,
                     speakEN: p.en, ru: p.ru, isENColumn: true
-                ))
+                )
+                let ruTile = SideTile(
+                    id: "\(pid)#RU", pairId: pid, display: p.ru,
+                    speakEN: p.en, ru: p.ru, isENColumn: false
+                )
+                if sidesReversed {
+                    // Наоборот: RU left / EN right
+                    left.append(SideTile(
+                        id: "\(pid)#L", pairId: pid, display: ruTile.display,
+                        speakEN: ruTile.speakEN, ru: ruTile.ru, isENColumn: false
+                    ))
+                    right.append(SideTile(
+                        id: "\(pid)#R", pairId: pid, display: enTile.display,
+                        speakEN: enTile.speakEN, ru: enTile.ru, isENColumn: true
+                    ))
+                } else {
+                    // Default: EN left / RU right
+                    left.append(SideTile(
+                        id: "\(pid)#L", pairId: pid, display: enTile.display,
+                        speakEN: enTile.speakEN, ru: enTile.ru, isENColumn: true
+                    ))
+                    right.append(SideTile(
+                        id: "\(pid)#R", pairId: pid, display: ruTile.display,
+                        speakEN: ruTile.speakEN, ru: ruTile.ru, isENColumn: false
+                    ))
+                }
             }
         case .opposites:
             let pool = Array(PairsKnownStore.filterOpposites(TutorBankStore.coreOpposites).shuffled().prefix(5))
