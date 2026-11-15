@@ -4,6 +4,9 @@ import PhotosUI
 import UIKit
 
 struct TranslateView: View {
+    /// When true (bottom tab «Переводчик»), hide back-to-lessons chrome.
+    var isRootTab: Bool = false
+
     @Environment(AppSettings.self) private var settings
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
@@ -55,11 +58,13 @@ struct TranslateView: View {
         }
         .scrollDismissesKeyboard(.interactively)
         .onTapGesture { NavChrome.dismissKeyboard() }
-        .navigationTitle("Перевод")
+        .navigationTitle(isRootTab ? "Переводчик" : "Перевод")
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(isRootTab ? false : true)
         .toolbar {
-            toolbarItems
+            if !isRootTab {
+                toolbarItems
+            }
             ToolbarItemGroup(placement: .keyboard) {
                 Spacer()
                 Button("Готово") { NavChrome.dismissKeyboard() }
