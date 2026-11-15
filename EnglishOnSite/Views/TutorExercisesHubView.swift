@@ -23,6 +23,15 @@ struct TutorExercisesHubView: View {
                     label("Пары", "Phrasal или Наоборот", "rectangle.on.rectangle.angled")
                 }
                 NavigationLink {
+                    TutorPhrasalSentenceView(contentMode: contentMode)
+                } label: {
+                    label(
+                        "Phrasal · предложение",
+                        "Глагол → вставь в предложение",
+                        "text.badge.plus"
+                    )
+                }
+                NavigationLink {
                     TutorVerbFormsView(contentMode: contentMode)
                 } label: {
                     label("Формы глагола", contentMode == .site

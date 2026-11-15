@@ -1,6 +1,22 @@
 {
-  "version": 2,
+  "version": 3,
   "phrasals": [
+    {
+      "en": "blow over",
+      "ru": "пройти / улечься",
+      "example_en": "The fuss will blow over.",
+      "example_ru": "Шум уляжется.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "boil over",
+      "ru": "выкипать / вспылить",
+      "example_en": "Do not let the mix boil over.",
+      "example_ru": "Не дай смеси выкипеть.",
+      "root": "over",
+      "tier": 1
+    },
     {
       "en": "break down",
       "ru": "сломаться / разреветься",
@@ -34,6 +50,14 @@
       "tier": 1
     },
     {
+      "en": "carry over",
+      "ru": "перенести на потом",
+      "example_en": "Carry over the leftover bolts.",
+      "example_ru": "Перенеси оставшиеся болты.",
+      "root": "over",
+      "tier": 1
+    },
+    {
       "en": "check in",
       "ru": "зарегистрироваться",
       "example_en": "Check in online.",
@@ -47,6 +71,14 @@
       "example_en": "Check out this cafe.",
       "example_ru": "Глянь это кафе.",
       "root": "check",
+      "tier": 1
+    },
+    {
+      "en": "cloud over",
+      "ru": "затянуться облаками",
+      "example_en": "The sky clouded over.",
+      "example_ru": "Небо затянуло.",
+      "root": "over",
       "tier": 1
     },
     {
@@ -146,6 +178,14 @@
       "example_ru": ""
     },
     {
+      "en": "come over",
+      "ru": "зайти в гости",
+      "example_en": "Come over tonight.",
+      "example_ru": "Заходи сегодня вечером.",
+      "root": "over",
+      "tier": 1
+    },
+    {
       "en": "come through",
       "ru": "пройти / сработать",
       "example_en": "The call came through.",
@@ -170,6 +210,22 @@
       "tier": 1
     },
     {
+      "en": "cross over",
+      "ru": "перейти / пересечь",
+      "example_en": "Cross over at the marked point.",
+      "example_ru": "Переходи в отмеченном месте.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "fall over",
+      "ru": "упасть",
+      "example_en": "Don't fall over the cable.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
       "en": "fill in",
       "ru": "заполнить",
       "example_en": "Fill in the form.",
@@ -183,6 +239,14 @@
       "example_en": "I need to find out.",
       "example_ru": "Мне нужно узнать.",
       "root": "find",
+      "tier": 1
+    },
+    {
+      "en": "freeze over",
+      "ru": "покрыться льдом",
+      "example_en": "The puddle froze over.",
+      "example_ru": "Лужа покрылась льдом.",
+      "root": "over",
       "tier": 1
     },
     {
@@ -282,6 +346,14 @@
       "tier": 1
     },
     {
+      "en": "get over",
+      "ru": "пережить / оправиться",
+      "example_en": "She got over the flu.",
+      "example_ru": "Она переболела гриппом.",
+      "root": "over",
+      "tier": 1
+    },
+    {
       "en": "get rid of",
       "ru": "избавиться",
       "example_en": "Get rid of old clothes.",
@@ -338,6 +410,14 @@
       "tier": 1
     },
     {
+      "en": "gloss over",
+      "ru": "замять / обойти тему",
+      "example_en": "Do not gloss over the near miss.",
+      "example_ru": "Не замалчивай почти-аварию.",
+      "root": "over",
+      "tier": 1
+    },
+    {
       "en": "go away",
       "ru": "уйти",
       "example_en": "Please go away.",
@@ -370,6 +450,22 @@
       "tier": 1
     },
     {
+      "en": "go over",
+      "ru": "просмотреть / повторить",
+      "example_en": "Go over the checklist.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
+      "en": "hand over",
+      "ru": "передать",
+      "example_en": "Hand over the drill.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
       "en": "hang out",
       "ru": "тусоваться",
       "example_en": "Want to hang out?",
@@ -392,6 +488,14 @@
       "example_ru": "Извини за опоздание — пробки.",
       "root": "hold",
       "tier": 2
+    },
+    {
+      "en": "knock over",
+      "ru": "сбить / опрокинуть",
+      "example_en": "Don't knock over the paint.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
     },
     {
       "en": "look after",
@@ -490,6 +594,14 @@
       "example_ru": ""
     },
     {
+      "en": "look over",
+      "ru": "просмотреть",
+      "example_en": "Look over the drawings.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
       "en": "look through",
       "ru": "просмотреть",
       "example_en": "Look through the list.",
@@ -530,124 +642,372 @@
       "tier": 1
     },
     {
-      "en": "come over",
-      "ru": "зайти в гости",
-      "example_en": "Come over tonight.",
-      "example_ru": "Заходи сегодня вечером.",
+      "en": "move over",
+      "ru": "подвинуться",
+      "example_en": "Move over, please.",
+      "example_ru": "Подвинься, пожалуйста.",
       "root": "over",
       "tier": 1
     },
     {
-      "en": "fall over",
-      "ru": "упасть",
-      "example_en": "Don't fall over the cable.",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "get over",
-      "ru": "пережить / оправиться",
-      "example_en": "She got over the flu.",
-      "example_ru": "Она переболела гриппом.",
+      "en": "over and out",
+      "ru": "приём, конец связи",
+      "example_en": "Radio check — over and out.",
+      "example_ru": "Проверка связи — приём, конец.",
       "root": "over",
       "tier": 1
     },
     {
-      "en": "go over",
-      "ru": "просмотреть / повторить",
-      "example_en": "Go over the checklist.",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "hand over",
-      "ru": "передать",
-      "example_en": "Hand over the drill.",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "knock over",
-      "ru": "сбить / опрокинуть",
-      "example_en": "Don't knock over the paint.",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "look over",
-      "ru": "просмотреть",
-      "example_en": "Look over the drawings.",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "pull over",
-      "ru": "остановиться у обочины",
-      "example_en": "Pull over to the left.",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "run over",
-      "ru": "переехать / быстро пройти",
-      "example_en": "Let's run over the steps.",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "sleep over",
-      "ru": "остаться ночевать",
-      "example_en": "Can I sleep over?",
-      "root": "over",
-      "tier": 1,
-      "example_ru": ""
-    },
-    {
-      "en": "take over",
-      "ru": "перенять / захватить",
-      "example_en": "Can you take over for a minute?",
-      "example_ru": "Можешь подменить на минуту?",
+      "en": "over to you",
+      "ru": "передаю тебе слово",
+      "example_en": "Brief done — over to you.",
+      "example_ru": "Брифинг готов — передаю тебе.",
       "root": "over",
       "tier": 1
     },
     {
-      "en": "talk over",
-      "ru": "обсудить",
-      "example_en": "We need to talk it over.",
+      "en": "overbook",
+      "ru": "перебронировать",
+      "example_en": "They overbooked the induction slots.",
+      "example_ru": "Они перебронировали слоты инструктажа.",
       "root": "over",
-      "tier": 1,
-      "example_ru": ""
+      "tier": 1
     },
     {
-      "en": "think over",
-      "ru": "обдумать",
-      "example_en": "Think it over tonight.",
+      "en": "overcharge",
+      "ru": "завысить цену / перезарядить",
+      "example_en": "Do not overcharge the customer.",
+      "example_ru": "Не завышай цену клиенту.",
       "root": "over",
-      "tier": 1,
-      "example_ru": ""
+      "tier": 1
     },
     {
-      "en": "tip over",
-      "ru": "опрокинуться",
-      "example_en": "The ladder might tip over.",
+      "en": "overcome",
+      "ru": "преодолеть",
+      "example_en": "We can overcome this delay.",
+      "example_ru": "Мы можем преодолеть эту задержку.",
       "root": "over",
-      "tier": 1,
-      "example_ru": ""
+      "tier": 1
     },
     {
-      "en": "win over",
-      "ru": "переубедить",
-      "example_en": "He won the client over.",
+      "en": "overcook",
+      "ru": "переварить / пережарить",
+      "example_en": "Do not overcook the weld.",
+      "example_ru": "Не пережги сварку.",
       "root": "over",
-      "tier": 1,
-      "example_ru": ""
+      "tier": 1
+    },
+    {
+      "en": "overcrowd",
+      "ru": "переполнить людьми",
+      "example_en": "Do not overcrowd the hoist.",
+      "example_ru": "Не переполняй подъёмник.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overdo",
+      "ru": "перестараться",
+      "example_en": "Do not overdo the torque.",
+      "example_ru": "Не перетягивай момент.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overdrive",
+      "ru": "режим форсажа / перегруз",
+      "example_en": "The pump is in overdrive today.",
+      "example_ru": "Насос сегодня на форсаже.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overeat",
+      "ru": "переесть",
+      "example_en": "Do not overeat at break.",
+      "example_ru": "Не переедай на перерыве.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overestimate",
+      "ru": "переоценить",
+      "example_en": "Do not overestimate the lift capacity.",
+      "example_ru": "Не переоценивай грузоподъёмность.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overexpose",
+      "ru": "переэкспонировать / слишком выставить",
+      "example_en": "Do not overexpose the cable ends.",
+      "example_ru": "Не оставляй концы кабеля слишком открытыми.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overextend",
+      "ru": "перерастянуть / слишком разогнаться",
+      "example_en": "Do not overextend the boom.",
+      "example_ru": "Не выдвигай стрелу слишком далеко.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overfill",
+      "ru": "переполнить",
+      "example_en": "Do not overfill the tank.",
+      "example_ru": "Не переполняй бак.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overflow",
+      "ru": "переполниться / перелив",
+      "example_en": "The tray will overflow if we keep pouring.",
+      "example_ru": "Лоток переполнится, если лить дальше.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overhang",
+      "ru": "свес / нависать",
+      "example_en": "Mind the overhang above the gate.",
+      "example_ru": "Смотри на свес над воротами.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overhanging",
+      "ru": "нависающий",
+      "example_en": "Watch for overhanging loads.",
+      "example_ru": "Смотри на нависающие грузы.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overhaul",
+      "ru": "капитальный ремонт",
+      "example_en": "We need a full overhaul of the panel.",
+      "example_ru": "Нужен полный капремонт щита.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overhear",
+      "ru": "подслушать",
+      "example_en": "I overheard the induction brief.",
+      "example_ru": "Я случайно услышал инструктаж.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overheat",
+      "ru": "перегреться",
+      "example_en": "Do not let the motor overheat.",
+      "example_ru": "Не дай мотору перегреться.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overload",
+      "ru": "перегрузить",
+      "example_en": "Do not overload the circuit.",
+      "example_ru": "Не перегружай цепь.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overlook",
+      "ru": "упустить / смотреть сверху",
+      "example_en": "Do not overlook the safety note.",
+      "example_ru": "Не упустите заметку по безопасности.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overnight",
+      "ru": "через ночь / ночной",
+      "example_en": "Leave it to cure overnight.",
+      "example_ru": "Оставь сохнуть на ночь.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overpass",
+      "ru": "эстакада / объезд сверху",
+      "example_en": "Meet under the overpass.",
+      "example_ru": "Встретимся под эстакадой.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overpay",
+      "ru": "переплатить",
+      "example_en": "We overpaid for that hire.",
+      "example_ru": "Мы переплатили за аренду.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overreact",
+      "ru": "слишком остро отреагировать",
+      "example_en": "Do not overreact to the alarm.",
+      "example_ru": "Не реагируй слишком остро на сигнал.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "override",
+      "ru": "перекрыть / отменить вручную",
+      "example_en": "Only leads may override the lock.",
+      "example_ru": "Только старшие могут снять блокировку вручную.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overrule",
+      "ru": "отменить решение / отклонить",
+      "example_en": "The supervisor overruled the shortcut.",
+      "example_ru": "Супервайзер отклонил короткий путь.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overrun",
+      "ru": "сорвать срок / выйти за бюджет",
+      "example_en": "We must not overrun the shift.",
+      "example_ru": "Нельзя выйти за смену.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "oversee",
+      "ru": "контролировать / надзирать",
+      "example_en": "She will oversee the isolation.",
+      "example_ru": "Она проконтролирует изоляцию.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overshoot",
+      "ru": "промахнуться / превысить",
+      "example_en": "Do not overshoot the mark-out.",
+      "example_ru": "Не промахнись с разметкой.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "oversight",
+      "ru": "недосмотр / надзор",
+      "example_en": "That was an oversight on the checklist.",
+      "example_ru": "Это был недосмотр в чек-листе.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "oversleep",
+      "ru": "проспать",
+      "example_en": "Do not oversleep before induction.",
+      "example_ru": "Не проспи перед инструктажем.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overstate",
+      "ru": "преувеличить",
+      "example_en": "Do not overstate the risk.",
+      "example_ru": "Не преувеличивай риск.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overtake",
+      "ru": "обогнать",
+      "example_en": "Do not overtake near the gate.",
+      "example_ru": "Не обгоняй у ворот.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overthrow",
+      "ru": "свергнуть / опрокинуть",
+      "example_en": "Wind can overthrow light screens.",
+      "example_ru": "Ветер может опрокинуть лёгкие экраны.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overtime",
+      "ru": "сверхурочные",
+      "example_en": "We may need overtime tonight.",
+      "example_ru": "Сегодня могут понадобиться сверхурочные.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overturn",
+      "ru": "опрокинуть / отменить",
+      "example_en": "Do not overturn the drum.",
+      "example_ru": "Не опрокидывай бочку.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overuse",
+      "ru": "переиспользовать / злоупотреблять",
+      "example_en": "Do not overuse the radio channel.",
+      "example_ru": "Не забивай радиоканал.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overview",
+      "ru": "обзор",
+      "example_en": "Give a short overview of the task.",
+      "example_ru": "Дай короткий обзор задачи.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overwhelm",
+      "ru": "ошеломить / захлестнуть",
+      "example_en": "Do not overwhelm the new starter.",
+      "example_ru": "Не перегружай новичка задачами.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overwork",
+      "ru": "переработать / загнать",
+      "example_en": "Do not overwork the crew.",
+      "example_ru": "Не загоняй бригаду.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "overwrite",
+      "ru": "перезаписать",
+      "example_en": "Do not overwrite the permit log.",
+      "example_ru": "Не перезаписывай журнал допусков.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "paper over",
+      "ru": "замазать / прикрыть",
+      "example_en": "Do not paper over the crack.",
+      "example_ru": "Не замазывай трещину.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "pass over",
+      "ru": "пропустить / обойти",
+      "example_en": "Do not pass over that step.",
+      "example_ru": "Не пропускай этот шаг.",
+      "root": "over",
+      "tier": 1
     },
     {
       "en": "pay back",
@@ -672,6 +1032,14 @@
       "example_ru": "Можешь меня забрать?",
       "root": "pick",
       "tier": 1
+    },
+    {
+      "en": "pull over",
+      "ru": "остановиться у обочины",
+      "example_en": "Pull over to the left.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
     },
     {
       "en": "put across",
@@ -802,6 +1170,14 @@
       "tier": 1
     },
     {
+      "en": "roll over",
+      "ru": "перевернуться / перенести долг",
+      "example_en": "The load may roll over.",
+      "example_ru": "Груз может перевернуться.",
+      "root": "over",
+      "tier": 1
+    },
+    {
       "en": "run into",
       "ru": "случайно встретить",
       "example_en": "I ran into an old friend.",
@@ -816,6 +1192,14 @@
       "example_ru": "Молоко закончилось.",
       "root": "run",
       "tier": 1
+    },
+    {
+      "en": "run over",
+      "ru": "переехать / быстро пройти",
+      "example_en": "Let's run over the steps.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
     },
     {
       "en": "set off",
@@ -850,6 +1234,22 @@
       "tier": 1
     },
     {
+      "en": "sleep over",
+      "ru": "остаться ночевать",
+      "example_en": "Can I sleep over?",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
+      "en": "smooth over",
+      "ru": "сгладить конфликт",
+      "example_en": "Let us smooth over the issue.",
+      "example_ru": "Давай сгладим вопрос.",
+      "root": "over",
+      "tier": 1
+    },
+    {
       "en": "sort out",
       "ru": "разобраться / уладить",
       "example_en": "We'll sort it out.",
@@ -863,6 +1263,30 @@
       "example_en": "Stand up, please.",
       "example_ru": "Встаньте, пожалуйста.",
       "root": "stand",
+      "tier": 1
+    },
+    {
+      "en": "start over",
+      "ru": "начать сначала",
+      "example_en": "Stop — start over from step one.",
+      "example_ru": "Стоп — начни сначала с шага один.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "stop over",
+      "ru": "сделать остановку в пути",
+      "example_en": "We stop over in Dublin.",
+      "example_ru": "Мы делаем остановку в Дублине.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "swim over",
+      "ru": "переплыть",
+      "example_en": "Do not swim over the sump.",
+      "example_ru": "Не переплывай отстойник.",
+      "root": "over",
       "tier": 1
     },
     {
@@ -970,6 +1394,14 @@
       "tier": 1
     },
     {
+      "en": "take over",
+      "ru": "перенять / захватить",
+      "example_en": "Can you take over for a minute?",
+      "example_ru": "Можешь подменить на минуту?",
+      "root": "over",
+      "tier": 1
+    },
+    {
       "en": "take part",
       "ru": "участвовать",
       "example_en": "Do you want to take part?",
@@ -1000,6 +1432,30 @@
       "example_ru": "Я начал бегать.",
       "root": "take",
       "tier": 1
+    },
+    {
+      "en": "talk over",
+      "ru": "обсудить",
+      "example_en": "We need to talk it over.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
+      "en": "think over",
+      "ru": "обдумать",
+      "example_en": "Think it over tonight.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
+      "en": "tip over",
+      "ru": "опрокинуться",
+      "example_en": "The ladder might tip over.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
     },
     {
       "en": "turn about",
@@ -1130,11 +1586,35 @@
       "tier": 1
     },
     {
+      "en": "walk over",
+      "ru": "легко победить / подойти",
+      "example_en": "Walk over to the gate.",
+      "example_ru": "Подойди к воротам.",
+      "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "win over",
+      "ru": "переубедить",
+      "example_en": "He won the client over.",
+      "root": "over",
+      "tier": 1,
+      "example_ru": ""
+    },
+    {
       "en": "work out",
       "ru": "тренироваться / получиться",
       "example_en": "I work out twice a week.",
       "example_ru": "Я тренируюсь дважды в неделю.",
       "root": "work",
+      "tier": 1
+    },
+    {
+      "en": "work over",
+      "ru": "переделать / обработать",
+      "example_en": "Work over that joint again.",
+      "example_ru": "Обработай стык ещё раз.",
+      "root": "over",
       "tier": 1
     }
   ]

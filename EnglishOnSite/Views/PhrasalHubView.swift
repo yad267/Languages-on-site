@@ -216,8 +216,9 @@ struct PhrasalHubView: View {
         let tokens = en.split(separator: " ").map(String.init)
         let entryRoot = entry.root.lowercased()
         if root == "over" {
-            // Particle family: root tagged "over" or last word is "over"
+            // over-* (overcome), root tag, or particle … over
             if entryRoot == "over" { return true }
+            if en.hasPrefix("over") { return true }
             if let last = tokens.last, last == "over" { return true }
             return false
         }
@@ -241,8 +242,9 @@ struct PhrasalHubView: View {
                 return true
             }
             filtered.sort { $0.en.lowercased() < $1.en.lowercased() }
-            // Cap at 15 for 3×5 pages (most common set already in bank)
-            next = Array(filtered.prefix(15))
+            // Usual verbs: 15 → 3×5 pages. over-* family: keep a larger deck.
+            let cap = root == "over" ? 60 : 15
+            next = Array(filtered.prefix(cap))
         } else {
             // Mixed: 15 shuffled → 3 pages × 5
             next = Array(all.shuffled().prefix(15))

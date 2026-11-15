@@ -23,6 +23,7 @@
 		C6VFORMBUILD0000006 /* TutorVerbFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6VFORMFILE0000006 /* TutorVerbFormsView.swift */; };
 		C5WRITEBUILD0000005 /* TutorWriteDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5WRITEFILE0000005 /* TutorWriteDrillView.swift */; };
 		C4SPEAKBUILD0000004 /* TutorSpeakDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */; };
+		C6PHRSENTBUILD00006 /* TutorPhrasalSentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */; };
 		C3EXHUBBUILD0000003 /* TutorExercisesHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */; };
 		C2GRAMMARBUILD00002 /* GrammarPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2GRAMMARFILE00002 /* GrammarPatterns.swift */; };
 		C1BANKSTOREBUILD001 /* TutorBankStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BANKSTOREFILE001 /* TutorBankStore.swift */; };
@@ -152,6 +153,7 @@
 		C6VFORMFILE0000006 /* TutorVerbFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorVerbFormsView.swift; sourceTree = "<group>"; };
 		C5WRITEFILE0000005 /* TutorWriteDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorWriteDrillView.swift; sourceTree = "<group>"; };
 		C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorSpeakDrillView.swift; sourceTree = "<group>"; };
+		C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPhrasalSentenceView.swift; sourceTree = "<group>"; };
 		C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorExercisesHubView.swift; sourceTree = "<group>"; };
 		C2GRAMMARFILE00002 /* GrammarPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarPatterns.swift; sourceTree = "<group>"; };
 		C1BANKSTOREFILE001 /* TutorBankStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorBankStore.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				C6VFORMFILE0000006 /* TutorVerbFormsView.swift */,
 				C5WRITEFILE0000005 /* TutorWriteDrillView.swift */,
 				C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */,
+				C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */,
 								B14PHRASALHUBFILE001 /* PhrasalHubView.swift */,
 				B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */,
 G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
@@ -673,6 +676,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				C6VFORMBUILD0000006 /* TutorVerbFormsView.swift in Sources */,
 				C5WRITEBUILD0000005 /* TutorWriteDrillView.swift in Sources */,
 				C4SPEAKBUILD0000004 /* TutorSpeakDrillView.swift in Sources */,
+				C6PHRSENTBUILD00006 /* TutorPhrasalSentenceView.swift in Sources */,
 				G4SEARCHBUILD000004 /* TutorPhrasalSearchView.swift in Sources */,
 				B14PHRASALHUBBUILD001 /* PhrasalHubView.swift in Sources */,
 				B17ADDPHRASEBUILD001 /* AddMyPhraseView.swift in Sources */,
