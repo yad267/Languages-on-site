@@ -151,6 +151,14 @@ struct TutorPairsView: View {
         }
     }
 
+    /// Pair under focus for «Знаю»: current selection, else first tile still on the board.
+    private var knowTargetPairId: String? {
+        if let id = selectedLeftPairId ?? selectedRightPairId, !matchedIds.contains(id) {
+            return id
+        }
+        return visibleLeft.first?.pairId ?? visibleRight.first?.pairId
+    }
+
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Нажмите на пары")
@@ -166,12 +174,28 @@ struct TutorPairsView: View {
             ProgressView(value: Double(progressDone), total: Double(max(roundSize, 1)))
                 .tint(.accentColor)
             glossStrip
+            if let knowId = knowTargetPairId, let meta = pairMeta[knowId], !allCleared, roundSize > 0 {
+                knowItButton(pairId: knowId, meta: meta)
+            }
             if mode == .phrasal, !practiceEN.isEmpty {
                 phrasalPracticeStrip
             }
         }
         .padding(.horizontal, 16)
         .padding(.top, 12)
+    }
+
+    private func knowItButton(pairId: String, meta: PairMeta) -> some View {
+        let label = mode == .phrasal ? meta.leftEN : "\(meta.leftEN) ↔ \(meta.rightEN)"
+        return Button {
+            markKnownAndRemove(pairId: pairId, meta: meta)
+        } label: {
+            Label("Знаю · \(label)", systemImage: "checkmark.circle")
+                .frame(maxWidth: .infinity, minHeight: 44)
+        }
+        .buttonStyle(.bordered)
+        .disabled(matchBusy || matchedIds.contains(pairId))
+        .accessibilityHint("Убрать из раундов — уже знаю")
     }
 
     /// B13: mic after EN phrasal tap — Gemini check + Save → Мои фразы.
@@ -280,6 +304,10 @@ struct TutorPairsView: View {
         VStack(spacing: 14) {
             Spacer(minLength: 24)
             Text("Банк пуст").font(.title2.weight(.bold))
+            Text("Все пары отмечены «Знаю», или банк ещё не загружен.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
             Button("Обновить") { dealRound() }
                 .buttonStyle(.borderedProminent)
             Spacer()
@@ -557,6 +585,29 @@ struct TutorPairsView: View {
         }
     }
 
+    /// Persist «Знаю» and drop the pair from this round (and future deals).
+    private func markKnownAndRemove(pairId: String, meta: PairMeta) {
+        guard !matchedIds.contains(pairId) else { return }
+        PairsKnownStore.markKnown(pairId: pairId, mode: mode)
+        cancelAllAudioAndGlossFetch()
+        gloss = .hint
+        glossNote = "Знаю — больше не покажем"
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        var next = matchedIds
+        next.insert(pairId)
+        matchedIds = next
+        progressDone = next.count
+        lastMatched = meta
+        // Not added to matchedRound — no need to «сказать вслух» a known item.
+        selectedLeftPairId = nil
+        selectedRightPairId = nil
+        warmingPairId = nil
+        withAnimation(.easeInOut(duration: 0.16)) {
+            visibleLeft = leftTiles.filter { !matchedIds.contains($0.pairId) }
+            visibleRight = rightTiles.filter { !matchedIds.contains($0.pairId) }
+        }
+    }
+
     // MARK: - Gloss (no EN↔EN / RU↔RU duplicates for Phrasal)
 
     private func setGlossWord(_ tile: SideTile) {
@@ -697,12 +748,13 @@ struct TutorPairsView: View {
 
         switch mode {
         case .phrasal:
-            let pool: [PhrasalEntry]
+            let raw: [PhrasalEntry]
             if let seedPhrasals, !seedPhrasals.isEmpty {
-                pool = Array(seedPhrasals.shuffled().prefix(5))
+                raw = seedPhrasals
             } else {
-                pool = Array(TutorBankStore.corePhrasals.shuffled().prefix(5))
+                raw = TutorBankStore.corePhrasals
             }
+            let pool = Array(PairsKnownStore.filterPhrasals(raw).shuffled().prefix(5))
             for p in pool {
                 let pid = p.en
                 let drillEN = p.exampleEn.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
@@ -725,7 +777,8 @@ struct TutorPairsView: View {
                 ))
             }
         case .opposites:
-            for o in TutorBankStore.coreOpposites.shuffled().prefix(5) {
+            let pool = Array(PairsKnownStore.filterOpposites(TutorBankStore.coreOpposites).shuffled().prefix(5))
+            for o in pool {
                 let parts = TutorBankStore.splitOppositeRU(o.ru)
                 let leftRU = parts.left ?? TutorBankStore.glossRU(forEN: o.a) ?? o.ru
                 let rightRU = parts.right ?? TutorBankStore.glossRU(forEN: o.b) ?? o.ru

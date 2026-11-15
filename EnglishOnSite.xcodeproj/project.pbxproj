@@ -107,6 +107,7 @@
 		F108A2B3C4D5E6F708090A1C /* RoleplayLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */; };
 		F109A2B3C4D5E6F708090A1C /* SiteTutorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */; };
 		F110A2B3C4D5E6F708090A1C /* PhraseSimilarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */; };
+		F110A2B3C4D5E6F708090A2C /* PairsKnownStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F110A2B3C4D5E6F708090A2B /* PairsKnownStore.swift */; };
 		F111A2B3C4D5E6F708090A1C /* PhraseLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111A2B3C4D5E6F708090A1B /* PhraseLoopView.swift */; };
 		F112A2B3C4D5E6F708090A1C /* ElevenLabsAudioCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112A2B3C4D5E6F708090A1B /* ElevenLabsAudioCache.swift */; };
 		F113A2B3C4D5E6F708090A1C /* AppSecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */; };
@@ -232,6 +233,7 @@
 		F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayLoopView.swift; sourceTree = "<group>"; };
 		F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTutorView.swift; sourceTree = "<group>"; };
 		F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseSimilarity.swift; sourceTree = "<group>"; };
+		F110A2B3C4D5E6F708090A2B /* PairsKnownStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsKnownStore.swift; sourceTree = "<group>"; };
 		F111A2B3C4D5E6F708090A1B /* PhraseLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseLoopView.swift; sourceTree = "<group>"; };
 		F112A2B3C4D5E6F708090A1B /* ElevenLabsAudioCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsAudioCache.swift; sourceTree = "<group>"; };
 		F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecrets.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				537ED273B494412BAD23CBFC /* PhoneWatchBridge.swift */,
 				C7D4705B68B84CD8B7618078 /* RememberCaptureService.swift */,
 				F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */,
+				F110A2B3C4D5E6F708090A2B /* PairsKnownStore.swift */,
 				F105A2B3C4D5E6F708090A1B /* RoleplayLoopEngine.swift */,
 				F104A2B3C4D5E6F708090A1B /* RoleplayParserService.swift */,
 				F103A2B3C4D5E6F708090A1B /* RoleplayRepository.swift */,
@@ -681,6 +684,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				A2TUTOR02TALKBUILD0002 /* TutorTalkView.swift in Sources */,
 				A2TUTOR01LEGACYBUILD01 /* SiteTutorLegacyView.swift in Sources */,
 				F110A2B3C4D5E6F708090A1C /* PhraseSimilarity.swift in Sources */,
+				F110A2B3C4D5E6F708090A2C /* PairsKnownStore.swift in Sources */,
 				F111A2B3C4D5E6F708090A1C /* PhraseLoopView.swift in Sources */,
 				F113A2B3C4D5E6F708090A1C /* AppSecrets.swift in Sources */,
 				F114A2B3C4D5E6F708090A1C /* Secrets.local.swift in Sources */,
