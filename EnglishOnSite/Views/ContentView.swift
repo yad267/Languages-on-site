@@ -6,6 +6,7 @@ private enum LessonsRoute: Hashable {
 }
 
 struct ContentView: View {
+    @Environment(AppSettings.self) private var settings
     @State private var lessonsPath = NavigationPath()
     @State private var repository = LessonRepository.shared
     @State private var showCreateLesson = false
@@ -97,6 +98,12 @@ struct ContentView: View {
         }
         .onChange(of: selectedTab) { _, _ in
             NavChrome.dismissKeyboard()
+        }
+        .onAppear {
+            TutorBankStore.setMode(settings.learningMode.tutorMode)
+        }
+        .onChange(of: settings.learningMode) { _, mode in
+            TutorBankStore.setMode(mode.tutorMode)
         }
         #if DEBUG
         .onAppear {
