@@ -23,6 +23,15 @@ struct TutorExercisesHubView: View {
                     label("Пары", "Phrasal или Наоборот", "rectangle.on.rectangle.angled")
                 }
                 NavigationLink {
+                    TutorPhrasalSentenceView(contentMode: contentMode)
+                } label: {
+                    label(
+                        "Phrasal · предложение",
+                        "Глагол → вставь в предложение",
+                        "text.badge.plus"
+                    )
+                }
+                NavigationLink {
                     TutorVerbFormsView(contentMode: contentMode)
                 } label: {
                     label("Формы глагола", contentMode == .site
@@ -71,6 +80,7 @@ struct TutorExercisesHubView: View {
     }
 }
 
+/// Упражнения → Пары: phrasal matching + opposites (label «Наоборот»).
 struct TutorPairsChooserView: View {
     var body: some View {
         List {
@@ -83,6 +93,26 @@ struct TutorPairsChooserView: View {
                 TutorPairsView(mode: .opposites)
             } label: {
                 Label("Наоборот", systemImage: "arrow.triangle.2.circlepath")
+            }
+        }
+        .navigationTitle("Пары")
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+/// Репетитор → Пары: only phrasal + flipped sides (no opposites).
+struct RepeaterPairsChooserView: View {
+    var body: some View {
+        List {
+            NavigationLink {
+                TutorPairsView(mode: .phrasal, sidesReversed: false)
+            } label: {
+                Label("Фразовые глаголы", systemImage: "arrow.left.arrow.right")
+            }
+            NavigationLink {
+                TutorPairsView(mode: .phrasal, sidesReversed: true)
+            } label: {
+                Label("Наоборот", systemImage: "arrow.left.arrow.right.circle")
             }
         }
         .navigationTitle("Пары")
