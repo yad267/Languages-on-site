@@ -1,6 +1,38 @@
 {
-  "version": 3,
+  "version": 4,
   "phrasals": [
+    {
+      "en": "back fill",
+      "ru": "обратная засыпка",
+      "example_en": "Back fill in layers.",
+      "example_ru": "Засыпайте слоями.",
+      "root": "back",
+      "tier": 1
+    },
+    {
+      "en": "back out",
+      "ru": "отказаться / выйти из договорённости",
+      "example_en": "Do not back out of the isolation plan.",
+      "example_ru": "",
+      "root": "back",
+      "tier": 1
+    },
+    {
+      "en": "backfill",
+      "ru": "обратная засыпка",
+      "example_en": "Backfill the trench today.",
+      "example_ru": "Засыпьте траншею сегодня.",
+      "root": "back",
+      "tier": 1
+    },
+    {
+      "en": "batten down",
+      "ru": "закрепить накрепко",
+      "example_en": "Batten down loose sheets.",
+      "example_ru": "Надёжно закрепите свободные листы.",
+      "root": "batten",
+      "tier": 1
+    },
     {
       "en": "blow over",
       "ru": "пройти / улечься",
@@ -15,6 +47,38 @@
       "example_en": "Do not let the mix boil over.",
       "example_ru": "Не дай смеси выкипеть.",
       "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "bolt down",
+      "ru": "прикрутить болтами",
+      "example_en": "Bolt down the cabinet.",
+      "example_ru": "Прикрутите шкаф болтами.",
+      "root": "bolt",
+      "tier": 1
+    },
+    {
+      "en": "book in",
+      "ru": "зарегистрироваться",
+      "example_en": "Book in at reception.",
+      "example_ru": "Зарегистрируйтесь на ресепшене.",
+      "root": "book",
+      "tier": 1
+    },
+    {
+      "en": "book out",
+      "ru": "выписаться",
+      "example_en": "Book out when demobbing.",
+      "example_ru": "Выпишитесь при демобе.",
+      "root": "book",
+      "tier": 1
+    },
+    {
+      "en": "box out",
+      "ru": "выставить короб / нишу",
+      "example_en": "Box out for the cabinet.",
+      "example_ru": "Сделайте нишу под шкаф.",
+      "root": "box",
       "tier": 1
     },
     {
@@ -34,6 +98,22 @@
       "tier": 1
     },
     {
+      "en": "bring back",
+      "ru": "вернуть / напомнить",
+      "example_en": "Bring back the ladder.",
+      "example_ru": "",
+      "root": "bring",
+      "tier": 1
+    },
+    {
+      "en": "bring up",
+      "ru": "поднять тему / воспитать",
+      "example_en": "Don't bring that up now.",
+      "example_ru": "",
+      "root": "bring",
+      "tier": 1
+    },
+    {
       "en": "call back",
       "ru": "перезвонить",
       "example_en": "I'll call you back.",
@@ -50,11 +130,59 @@
       "tier": 1
     },
     {
+      "en": "call out",
+      "ru": "вызвать аварию",
+      "example_en": "Can you call out the cable tray?",
+      "example_ru": "",
+      "root": "call",
+      "tier": 1
+    },
+    {
+      "en": "carry on",
+      "ru": "продолжать",
+      "example_en": "Carry on with the trunking.",
+      "example_ru": "Продолжайте монтировать короба.",
+      "root": "carry",
+      "tier": 1
+    },
+    {
+      "en": "carry out",
+      "ru": "выполнить",
+      "example_en": "Carry out the isolation.",
+      "example_ru": "",
+      "root": "carry",
+      "tier": 1
+    },
+    {
       "en": "carry over",
       "ru": "перенести на потом",
       "example_en": "Carry over the leftover bolts.",
       "example_ru": "Перенеси оставшиеся болты.",
       "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "carry through",
+      "ru": "довести до конца",
+      "example_en": "We need to carry through the containment install.",
+      "example_ru": "",
+      "root": "carry",
+      "tier": 1
+    },
+    {
+      "en": "catch up",
+      "ru": "наверстать / созвониться",
+      "example_en": "Catch up after lunch.",
+      "example_ru": "Созвонимся после обеда.",
+      "root": "catch",
+      "tier": 1
+    },
+    {
+      "en": "chase out",
+      "ru": "проштробить",
+      "example_en": "Chase out a path for the conduit.",
+      "example_ru": "Проштробите путь под трубу.",
+      "root": "chase",
       "tier": 1
     },
     {
@@ -71,6 +199,86 @@
       "example_en": "Check out this cafe.",
       "example_ru": "Глянь это кафе.",
       "root": "check",
+      "tier": 1
+    },
+    {
+      "en": "clamp down",
+      "ru": "зажать / ужесточить",
+      "example_en": "Clamp down the pipe.",
+      "example_ru": "Зажмите трубу.",
+      "root": "clamp",
+      "tier": 1
+    },
+    {
+      "en": "clean up",
+      "ru": "убрать / очистить",
+      "example_en": "Clean up oil spills at once.",
+      "example_ru": "Сразу убирайте масляные пятна.",
+      "root": "clean",
+      "tier": 1
+    },
+    {
+      "en": "clear away",
+      "ru": "убрать",
+      "example_en": "Clear away the waste.",
+      "example_ru": "Уберите мусор.",
+      "root": "clear",
+      "tier": 1
+    },
+    {
+      "en": "clear out",
+      "ru": "очистить",
+      "example_en": "Clear out the area.",
+      "example_ru": "",
+      "root": "clear",
+      "tier": 1
+    },
+    {
+      "en": "climb down",
+      "ru": "слезть",
+      "example_en": "Climb down slowly.",
+      "example_ru": "",
+      "root": "climb",
+      "tier": 1
+    },
+    {
+      "en": "climb up",
+      "ru": "залезть",
+      "example_en": "Climb up the ladder.",
+      "example_ru": "",
+      "root": "climb",
+      "tier": 1
+    },
+    {
+      "en": "clock in",
+      "ru": "отметить начало смены",
+      "example_en": "Clock in at the cabin.",
+      "example_ru": "Отметьте начало смены в вагончике.",
+      "root": "clock",
+      "tier": 1
+    },
+    {
+      "en": "clock off",
+      "ru": "закончить смену (regular)",
+      "example_en": "We clock off at four on Friday.",
+      "example_ru": "В пятницу заканчиваем в четыре.",
+      "root": "clock",
+      "tier": 1
+    },
+    {
+      "en": "clock on",
+      "ru": "начать смену (regular)",
+      "example_en": "I clock on at eight.",
+      "example_ru": "Я начинаю смену в восемь.",
+      "root": "clock",
+      "tier": 1
+    },
+    {
+      "en": "clock out",
+      "ru": "отметить конец смены",
+      "example_en": "Clock out before you leave.",
+      "example_ru": "Отметьте конец смены перед уходом.",
+      "root": "clock",
       "tier": 1
     },
     {
@@ -210,11 +418,115 @@
       "tier": 1
     },
     {
+      "en": "come with",
+      "ru": "идти с",
+      "example_en": "Come with me.",
+      "example_ru": "",
+      "root": "come",
+      "tier": 1
+    },
+    {
+      "en": "cool down",
+      "ru": "остыть",
+      "example_en": "Let it cool down.",
+      "example_ru": "",
+      "root": "cool",
+      "tier": 1
+    },
+    {
+      "en": "cordon off",
+      "ru": "огородить лентой",
+      "example_en": "Cordon off the exclusion zone.",
+      "example_ru": "Огородите зону отчуждения.",
+      "root": "cordon",
+      "tier": 1
+    },
+    {
       "en": "cross over",
       "ru": "перейти / пересечь",
       "example_en": "Cross over at the marked point.",
       "example_ru": "Переходи в отмеченном месте.",
       "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "cut off",
+      "ru": "отрезать; отключить",
+      "example_en": "Cut off the power.",
+      "example_ru": "",
+      "root": "cut",
+      "tier": 1
+    },
+    {
+      "en": "cut out",
+      "ru": "вырезать / заглохнуть",
+      "example_en": "The engine cut out.",
+      "example_ru": "",
+      "root": "cut",
+      "tier": 1
+    },
+    {
+      "en": "deal with",
+      "ru": "иметь дело с",
+      "example_en": "Deal with the supervisor.",
+      "example_ru": "",
+      "root": "deal",
+      "tier": 1
+    },
+    {
+      "en": "dig out",
+      "ru": "выкопать / извлечь",
+      "example_en": "Dig out around the duct.",
+      "example_ru": "Выкопайте вокруг канала.",
+      "root": "dig",
+      "tier": 1
+    },
+    {
+      "en": "drop off",
+      "ru": "высадить / оставить",
+      "example_en": "Drop off the keys at the cabin.",
+      "example_ru": "Оставьте ключи в вагончике.",
+      "root": "drop",
+      "tier": 1
+    },
+    {
+      "en": "earth out",
+      "ru": "заземлить (IE)",
+      "example_en": "Earth out the tray.",
+      "example_ru": "Заземлите лоток.",
+      "root": "earth",
+      "tier": 1
+    },
+    {
+      "en": "end up",
+      "ru": "оказаться",
+      "example_en": "We ended up waiting an hour.",
+      "example_ru": "",
+      "root": "end",
+      "tier": 1
+    },
+    {
+      "en": "fall behind",
+      "ru": "отстать",
+      "example_en": "Don't fall behind on labels.",
+      "example_ru": "",
+      "root": "fall",
+      "tier": 1
+    },
+    {
+      "en": "fall down",
+      "ru": "упасть",
+      "example_en": "Watch you don't fall down.",
+      "example_ru": "",
+      "root": "fall",
+      "tier": 1
+    },
+    {
+      "en": "fall off",
+      "ru": "упасть (с чего-то)",
+      "example_en": "Don't let it fall off.",
+      "example_ru": "",
+      "root": "fall",
       "tier": 1
     },
     {
@@ -226,10 +538,34 @@
       "example_ru": ""
     },
     {
+      "en": "fence off",
+      "ru": "отгородить",
+      "example_en": "Fence off the open edge.",
+      "example_ru": "Отгородите открытый край.",
+      "root": "fence",
+      "tier": 1
+    },
+    {
+      "en": "figure out",
+      "ru": "понять / разобраться",
+      "example_en": "Figure out why the breaker trips.",
+      "example_ru": "Разберитесь, почему выбивает автомат.",
+      "root": "figure",
+      "tier": 1
+    },
+    {
       "en": "fill in",
       "ru": "заполнить",
       "example_en": "Fill in the form.",
       "example_ru": "Заполни форму.",
+      "root": "fill",
+      "tier": 1
+    },
+    {
+      "en": "fill out",
+      "ru": "заполнить (форму)",
+      "example_en": "Fill out the near-miss report.",
+      "example_ru": "Заполните отчёт о почти-аварии.",
       "root": "fill",
       "tier": 1
     },
@@ -239,6 +575,14 @@
       "example_en": "I need to find out.",
       "example_ru": "Мне нужно узнать.",
       "root": "find",
+      "tier": 1
+    },
+    {
+      "en": "follow up",
+      "ru": "проконтролировать / связаться снова",
+      "example_en": "Follow up on the delivery.",
+      "example_ru": "Проконтролируйте поставку.",
+      "root": "follow",
       "tier": 1
     },
     {
@@ -386,6 +730,14 @@
       "tier": 1
     },
     {
+      "en": "give a hand",
+      "ru": "помочь",
+      "example_en": "Do you want me to give you a hand?",
+      "example_ru": "",
+      "root": "give",
+      "tier": 1
+    },
+    {
       "en": "give away",
       "ru": "раздавать / выдать секрет",
       "example_en": "They give away free samples.",
@@ -398,6 +750,14 @@
       "ru": "вернуть",
       "example_en": "Give back my book.",
       "example_ru": "Верни мою книгу.",
+      "root": "give",
+      "tier": 1
+    },
+    {
+      "en": "give in",
+      "ru": "уступить",
+      "example_en": "He finally gave in.",
+      "example_ru": "",
       "root": "give",
       "tier": 1
     },
@@ -415,6 +775,14 @@
       "example_en": "Do not gloss over the near miss.",
       "example_ru": "Не замалчивай почти-аварию.",
       "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "go ahead",
+      "ru": "продолжай / вперёд",
+      "example_en": "Go ahead with the isolation.",
+      "example_ru": "Продолжайте изоляцию.",
+      "root": "go",
       "tier": 1
     },
     {
@@ -458,6 +826,30 @@
       "example_ru": ""
     },
     {
+      "en": "go through",
+      "ru": "пройти / разобрать",
+      "example_en": "Go through the method statement.",
+      "example_ru": "Пройдите method statement.",
+      "root": "go",
+      "tier": 1
+    },
+    {
+      "en": "ground out",
+      "ru": "заземлить",
+      "example_en": "Ground out the frame.",
+      "example_ru": "Заземлите раму.",
+      "root": "ground",
+      "tier": 1
+    },
+    {
+      "en": "hand in",
+      "ru": "сдать",
+      "example_en": "Hand in your Safe Pass copy.",
+      "example_ru": "Сдайте копию Safe Pass.",
+      "root": "hand",
+      "tier": 1
+    },
+    {
       "en": "hand over",
       "ru": "передать",
       "example_en": "Hand over the drill.",
@@ -466,10 +858,26 @@
       "example_ru": ""
     },
     {
+      "en": "hang on",
+      "ru": "подожди",
+      "example_en": "Hang on a second.",
+      "example_ru": "Секунду подожди.",
+      "root": "hang",
+      "tier": 1
+    },
+    {
       "en": "hang out",
       "ru": "тусоваться",
       "example_en": "Want to hang out?",
       "example_ru": "Хочешь потусить?",
+      "root": "hang",
+      "tier": 1
+    },
+    {
+      "en": "hang up",
+      "ru": "повесить трубку / повесить",
+      "example_en": "Don't hang up yet.",
+      "example_ru": "",
       "root": "hang",
       "tier": 1
     },
@@ -490,12 +898,140 @@
       "tier": 2
     },
     {
+      "en": "hose down",
+      "ru": "смыть шлангом",
+      "example_en": "Hose down the slab.",
+      "example_ru": "Смойте плиту шлангом.",
+      "root": "hose",
+      "tier": 1
+    },
+    {
+      "en": "hurry up",
+      "ru": "поторопись",
+      "example_en": "Hurry up — the pour is ready.",
+      "example_ru": "Поторопись — заливка готова.",
+      "root": "hurry",
+      "tier": 1
+    },
+    {
+      "en": "iron out",
+      "ru": "устранить шероховатости",
+      "example_en": "Let us iron out the cable routes first.",
+      "example_ru": "",
+      "root": "iron",
+      "tier": 1
+    },
+    {
+      "en": "keep off",
+      "ru": "не наступать",
+      "example_en": "Keep off the wet floor.",
+      "example_ru": "",
+      "root": "keep",
+      "tier": 1
+    },
+    {
+      "en": "keep on",
+      "ru": "продолжать",
+      "example_en": "Keep on holding it.",
+      "example_ru": "",
+      "root": "keep",
+      "tier": 1
+    },
+    {
+      "en": "keep up",
+      "ru": "успевать / поддерживать",
+      "example_en": "Keep up with the programme.",
+      "example_ru": "Успевайте за графиком.",
+      "root": "keep",
+      "tier": 1
+    },
+    {
+      "en": "kit out",
+      "ru": "укомплектовать / экипировать",
+      "example_en": "Kit out the crew for the pour.",
+      "example_ru": "Укомплектуйте бригаду под заливку.",
+      "root": "kit",
+      "tier": 1
+    },
+    {
+      "en": "knock off",
+      "ru": "закончить смену",
+      "example_en": "We knock off at five.",
+      "example_ru": "Мы заканчиваем в пять.",
+      "root": "knock",
+      "tier": 1
+    },
+    {
       "en": "knock over",
       "ru": "сбить / опрокинуть",
       "example_en": "Don't knock over the paint.",
       "root": "over",
       "tier": 1,
       "example_ru": ""
+    },
+    {
+      "en": "lash down",
+      "ru": "привязать / закрепить",
+      "example_en": "Lash down the load on the flatbed.",
+      "example_ru": "Закрепите груз на платформе.",
+      "root": "lash",
+      "tier": 1
+    },
+    {
+      "en": "lay down",
+      "ru": "разложить",
+      "example_en": "Lay down the workplace.",
+      "example_ru": "",
+      "root": "lay",
+      "tier": 1
+    },
+    {
+      "en": "lay out",
+      "ru": "разложить",
+      "example_en": "Can you lay out the cable tray?",
+      "example_ru": "",
+      "root": "lay",
+      "tier": 1
+    },
+    {
+      "en": "level up",
+      "ru": "выровнять / поднять уровень",
+      "example_en": "Level up the base plate.",
+      "example_ru": "Выровняйте опорную плиту.",
+      "root": "level",
+      "tier": 1
+    },
+    {
+      "en": "line up",
+      "ru": "выровнять / выстроить",
+      "example_en": "Line up the Unistrut holes.",
+      "example_ru": "Совместите отверстия Unistrut.",
+      "root": "line",
+      "tier": 1
+    },
+    {
+      "en": "lock out",
+      "ru": "блокировка энергии (LOTO)",
+      "example_en": "Lock out the panel before work.",
+      "example_ru": "Заблокируйте щит перед работой.",
+      "root": "lock",
+      "tier": 1
+    },
+    {
+      "en": "log in",
+      "ru": "войти в систему",
+      "example_en": "Log in to the site tablet.",
+      "example_ru": "Войдите в планшет на объекте.",
+      "root": "log",
+      "tier": 1
+    },
+    {
+      "en": "log out",
+      "ru": "выйти из системы",
+      "example_en": "Log out when you finish.",
+      "example_ru": "Выйдите из системы, когда закончите.",
+      "root": "log",
+      "tier": 1
     },
     {
       "en": "look after",
@@ -512,6 +1048,14 @@
       "root": "look",
       "tier": 1,
       "example_ru": ""
+    },
+    {
+      "en": "look at",
+      "ru": "смотреть на",
+      "example_en": "Look at the mark.",
+      "example_ru": "",
+      "root": "look",
+      "tier": 1
     },
     {
       "en": "look away",
@@ -634,6 +1178,22 @@
       "tier": 2
     },
     {
+      "en": "make safe",
+      "ru": "обезопасить",
+      "example_en": "Make safe before you leave.",
+      "example_ru": "Обезопасьте перед уходом.",
+      "root": "make",
+      "tier": 1
+    },
+    {
+      "en": "make sure",
+      "ru": "убедиться",
+      "example_en": "Make sure it's tight.",
+      "example_ru": "",
+      "root": "make",
+      "tier": 1
+    },
+    {
       "en": "make up",
       "ru": "помириться / выдумать",
       "example_en": "They made up.",
@@ -642,11 +1202,43 @@
       "tier": 1
     },
     {
+      "en": "mark out",
+      "ru": "разметить",
+      "example_en": "Mark out the cable route.",
+      "example_ru": "Разметьте трассу кабеля.",
+      "root": "mark",
+      "tier": 1
+    },
+    {
+      "en": "measure up",
+      "ru": "промерить / соответствовать",
+      "example_en": "Measure up the opening twice.",
+      "example_ru": "Промерьте проём дважды.",
+      "root": "measure",
+      "tier": 1
+    },
+    {
       "en": "move over",
       "ru": "подвинуться",
       "example_en": "Move over, please.",
       "example_ru": "Подвинься, пожалуйста.",
       "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "on-site induction",
+      "ru": "инструктаж на объекте",
+      "example_en": "Complete on-site induction today.",
+      "example_ru": "Пройдите инструктаж на объекте сегодня.",
+      "root": "onsite",
+      "tier": 1
+    },
+    {
+      "en": "onsite check-in",
+      "ru": "отметка на объекте",
+      "example_en": "Do your onsite check-in first.",
+      "example_ru": "Сначала сделайте отметку на объекте.",
+      "root": "onsite",
       "tier": 1
     },
     {
@@ -994,6 +1586,22 @@
       "tier": 1
     },
     {
+      "en": "pack away",
+      "ru": "сложить / убрать",
+      "example_en": "Pack away the tools at knock-off.",
+      "example_ru": "Сложите инструмент в конце смены.",
+      "root": "pack",
+      "tier": 1
+    },
+    {
+      "en": "pack up",
+      "ru": "собрать вещи",
+      "example_en": "Pack up for today.",
+      "example_ru": "",
+      "root": "pack",
+      "tier": 1
+    },
+    {
       "en": "paper over",
       "ru": "замазать / прикрыть",
       "example_en": "Do not paper over the crack.",
@@ -1018,6 +1626,22 @@
       "tier": 1
     },
     {
+      "en": "peg out",
+      "ru": "отметить колышками",
+      "example_en": "Peg out the trench line.",
+      "example_ru": "Отметьте линию траншеи колышками.",
+      "root": "peg",
+      "tier": 1
+    },
+    {
+      "en": "phase out",
+      "ru": "постепенно убрать",
+      "example_en": "We will phase out the old trunking.",
+      "example_ru": "",
+      "root": "phase",
+      "tier": 1
+    },
+    {
       "en": "pick out",
       "ru": "выбрать",
       "example_en": "Pick out a dress.",
@@ -1034,12 +1658,84 @@
       "tier": 1
     },
     {
+      "en": "plug in",
+      "ru": "включить в розетку",
+      "example_en": "Plug in the charger.",
+      "example_ru": "",
+      "root": "plug",
+      "tier": 1
+    },
+    {
+      "en": "plug out",
+      "ru": "вынуть из розетки",
+      "example_en": "Can you plug out the cable tray?",
+      "example_ru": "",
+      "root": "plug",
+      "tier": 1
+    },
+    {
+      "en": "point out",
+      "ru": "указать",
+      "example_en": "Point out the hazard.",
+      "example_ru": "Укажите на опасность.",
+      "root": "point",
+      "tier": 1
+    },
+    {
+      "en": "pour out",
+      "ru": "вылить / начать заливку",
+      "example_en": "Pour out the leftover mix.",
+      "example_ru": "Вылейте остаток смеси.",
+      "root": "pour",
+      "tier": 1
+    },
+    {
+      "en": "power down",
+      "ru": "обесточить",
+      "example_en": "Power down the board.",
+      "example_ru": "Обесточьте щит.",
+      "root": "power",
+      "tier": 1
+    },
+    {
+      "en": "power up",
+      "ru": "подать питание",
+      "example_en": "Power up only after checks.",
+      "example_ru": "Подавайте питание только после проверок.",
+      "root": "power",
+      "tier": 1
+    },
+    {
+      "en": "prove dead",
+      "ru": "доказать отсутствие напряжения",
+      "example_en": "Can you prove dead the cable tray?",
+      "example_ru": "",
+      "root": "prove",
+      "tier": 1
+    },
+    {
+      "en": "pull out",
+      "ru": "вытянуть",
+      "example_en": "Pull out the old screw.",
+      "example_ru": "",
+      "root": "pull",
+      "tier": 1
+    },
+    {
       "en": "pull over",
       "ru": "остановиться у обочины",
       "example_en": "Pull over to the left.",
       "root": "over",
       "tier": 1,
       "example_ru": ""
+    },
+    {
+      "en": "push in",
+      "ru": "вдавить",
+      "example_en": "Push it in.",
+      "example_ru": "",
+      "root": "push",
+      "tier": 1
     },
     {
       "en": "put across",
@@ -1170,6 +1866,38 @@
       "tier": 1
     },
     {
+      "en": "regular briefing",
+      "ru": "обычный / плановый брифинг",
+      "example_en": "Join the regular briefing at eight.",
+      "example_ru": "Приходи на плановый брифинг в восемь.",
+      "root": "regular",
+      "tier": 1
+    },
+    {
+      "en": "regular shift",
+      "ru": "обычная смена",
+      "example_en": "I am on a regular shift this week.",
+      "example_ru": "На этой неделе у меня обычная смена.",
+      "root": "regular",
+      "tier": 1
+    },
+    {
+      "en": "rig down",
+      "ru": "демонтировать оснастку",
+      "example_en": "Rig down after the lift.",
+      "example_ru": "Демонтируйте оснастку после подъёма.",
+      "root": "rig",
+      "tier": 1
+    },
+    {
+      "en": "rig up",
+      "ru": "смонтировать / собрать оснастку",
+      "example_en": "Rig up the hoist carefully.",
+      "example_ru": "Аккуратно соберите оснастку подъёмника.",
+      "root": "rig",
+      "tier": 1
+    },
+    {
       "en": "roll over",
       "ru": "перевернуться / перенести долг",
       "example_en": "The load may roll over.",
@@ -1194,6 +1922,14 @@
       "tier": 1
     },
     {
+      "en": "run out of",
+      "ru": "закончиться",
+      "example_en": "We ran out of M10 bolts.",
+      "example_ru": "",
+      "root": "run",
+      "tier": 1
+    },
+    {
       "en": "run over",
       "ru": "переехать / быстро пройти",
       "example_en": "Let's run over the steps.",
@@ -1202,10 +1938,50 @@
       "example_ru": ""
     },
     {
+      "en": "run through",
+      "ru": "быстро пройти / прогнать",
+      "example_en": "Run through the checklist.",
+      "example_ru": "Пройдите чек-лист.",
+      "root": "run",
+      "tier": 1
+    },
+    {
+      "en": "screw in",
+      "ru": "вкрутить",
+      "example_en": "Screw in the bolt.",
+      "example_ru": "",
+      "root": "screw",
+      "tier": 1
+    },
+    {
+      "en": "seal off",
+      "ru": "изолировать / перекрыть",
+      "example_en": "Seal off the wet area.",
+      "example_ru": "Перекройте мокрую зону.",
+      "root": "seal",
+      "tier": 1
+    },
+    {
+      "en": "send off",
+      "ru": "отправить",
+      "example_en": "Send off the photos tonight.",
+      "example_ru": "Отправьте фото сегодня вечером.",
+      "root": "send",
+      "tier": 1
+    },
+    {
       "en": "set off",
       "ru": "отправиться",
       "example_en": "We set off at dawn.",
       "example_ru": "Мы выехали на рассвете.",
+      "root": "set",
+      "tier": 1
+    },
+    {
+      "en": "set out",
+      "ru": "разбить оси / начать",
+      "example_en": "Set out the grid from the datum.",
+      "example_ru": "Разбейте сетку от репера.",
       "root": "set",
       "tier": 1
     },
@@ -1218,11 +1994,67 @@
       "tier": 1
     },
     {
+      "en": "shore up",
+      "ru": "подпереть / укрепить",
+      "example_en": "Shore up the trench wall.",
+      "example_ru": "Подкрепите стенку траншеи.",
+      "root": "shore",
+      "tier": 1
+    },
+    {
       "en": "show up",
       "ru": "появиться",
       "example_en": "He didn't show up.",
       "example_ru": "Он не появился.",
       "root": "show",
+      "tier": 1
+    },
+    {
+      "en": "shut down",
+      "ru": "выключить / остановить",
+      "example_en": "Shut down the generator.",
+      "example_ru": "Заглушите генератор.",
+      "root": "shut",
+      "tier": 1
+    },
+    {
+      "en": "shut off",
+      "ru": "перекрыть / выключить",
+      "example_en": "Shut off the water.",
+      "example_ru": "",
+      "root": "shut",
+      "tier": 1
+    },
+    {
+      "en": "sign in",
+      "ru": "отметиться на входе",
+      "example_en": "Sign in at the cabin.",
+      "example_ru": "Отметьтесь в вагончике.",
+      "root": "sign",
+      "tier": 1
+    },
+    {
+      "en": "sign off",
+      "ru": "подписать / закрыть задачу",
+      "example_en": "Sign off the permit before you leave.",
+      "example_ru": "",
+      "root": "sign",
+      "tier": 1
+    },
+    {
+      "en": "sign off on",
+      "ru": "утвердить",
+      "example_en": "The engineer will sign off on the as-built.",
+      "example_ru": "",
+      "root": "sign",
+      "tier": 1
+    },
+    {
+      "en": "sign out",
+      "ru": "отметиться на выходе",
+      "example_en": "Sign out before you leave site.",
+      "example_ru": "Отметьтесь перед уходом с объекта.",
+      "root": "sign",
       "tier": 1
     },
     {
@@ -1242,6 +2074,14 @@
       "example_ru": ""
     },
     {
+      "en": "slow down",
+      "ru": "сбавить темп",
+      "example_en": "Slow down near the gate.",
+      "example_ru": "Сбавьте темп у ворот.",
+      "root": "slow",
+      "tier": 1
+    },
+    {
       "en": "smooth over",
       "ru": "сгладить конфликт",
       "example_en": "Let us smooth over the issue.",
@@ -1255,6 +2095,30 @@
       "example_en": "We'll sort it out.",
       "example_ru": "Мы это уладим.",
       "root": "sort",
+      "tier": 1
+    },
+    {
+      "en": "square up",
+      "ru": "выставить под прямым углом",
+      "example_en": "Square up the frame.",
+      "example_ru": "Выставьте раму под угол.",
+      "root": "square",
+      "tier": 1
+    },
+    {
+      "en": "stand by",
+      "ru": "быть наготове",
+      "example_en": "Stand by.",
+      "example_ru": "",
+      "root": "stand",
+      "tier": 1
+    },
+    {
+      "en": "stand clear",
+      "ru": "отойти",
+      "example_en": "Stand clear.",
+      "example_ru": "",
+      "root": "stand",
       "tier": 1
     },
     {
@@ -1274,6 +2138,22 @@
       "tier": 1
     },
     {
+      "en": "start up",
+      "ru": "запустить",
+      "example_en": "Start up the pump slowly.",
+      "example_ru": "Запускайте насос медленно.",
+      "root": "start",
+      "tier": 1
+    },
+    {
+      "en": "stay away",
+      "ru": "держаться подальше",
+      "example_en": "Stay away from the edge.",
+      "example_ru": "",
+      "root": "stay",
+      "tier": 1
+    },
+    {
       "en": "stop over",
       "ru": "сделать остановку в пути",
       "example_en": "We stop over in Dublin.",
@@ -1282,11 +2162,67 @@
       "tier": 1
     },
     {
+      "en": "store away",
+      "ru": "убрать на хранение",
+      "example_en": "Store away the chemicals.",
+      "example_ru": "Уберите химию на хранение.",
+      "root": "store",
+      "tier": 1
+    },
+    {
+      "en": "suit up",
+      "ru": "надеть СИЗ / экипироваться",
+      "example_en": "Suit up in full PPE.",
+      "example_ru": "Наденьте полный СИЗ.",
+      "root": "suit",
+      "tier": 1
+    },
+    {
+      "en": "sweep up",
+      "ru": "подмести",
+      "example_en": "Sweep up before the inspection.",
+      "example_ru": "Подметите перед проверкой.",
+      "root": "sweep",
+      "tier": 1
+    },
+    {
       "en": "swim over",
       "ru": "переплыть",
       "example_en": "Do not swim over the sump.",
       "example_ru": "Не переплывай отстойник.",
       "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "switch off",
+      "ru": "выключить",
+      "example_en": "Switch off the machine.",
+      "example_ru": "",
+      "root": "switch",
+      "tier": 1
+    },
+    {
+      "en": "switch on",
+      "ru": "включить",
+      "example_en": "Switch on the drill.",
+      "example_ru": "",
+      "root": "switch",
+      "tier": 1
+    },
+    {
+      "en": "tag in",
+      "ru": "отметиться (tag)",
+      "example_en": "Tag in before you go on site.",
+      "example_ru": "Отметьтесь перед выходом на площадку.",
+      "root": "tag",
+      "tier": 1
+    },
+    {
+      "en": "tag out",
+      "ru": "снять отметку / выйти",
+      "example_en": "Tag out when your shift ends.",
+      "example_ru": "Снимите отметку в конце смены.",
+      "root": "tag",
       "tier": 1
     },
     {
@@ -1442,6 +2378,14 @@
       "example_ru": ""
     },
     {
+      "en": "tape off",
+      "ru": "огородить лентой",
+      "example_en": "Tape off the spill.",
+      "example_ru": "Огородите разлив лентой.",
+      "root": "tape",
+      "tier": 1
+    },
+    {
       "en": "think over",
       "ru": "обдумать",
       "example_en": "Think it over tonight.",
@@ -1450,12 +2394,36 @@
       "example_ru": ""
     },
     {
+      "en": "tidy up",
+      "ru": "навести порядок",
+      "example_en": "Tidy up the work area.",
+      "example_ru": "Наведите порядок на месте работ.",
+      "root": "tidy",
+      "tier": 1
+    },
+    {
+      "en": "tighten up",
+      "ru": "затянуть",
+      "example_en": "Tighten up that clamp.",
+      "example_ru": "",
+      "root": "tighten",
+      "tier": 1
+    },
+    {
       "en": "tip over",
       "ru": "опрокинуться",
       "example_en": "The ladder might tip over.",
       "root": "over",
       "tier": 1,
       "example_ru": ""
+    },
+    {
+      "en": "tool up",
+      "ru": "подготовить инструмент",
+      "example_en": "Tool up for containment work.",
+      "example_ru": "Подготовьте инструмент под containment.",
+      "root": "tool",
+      "tier": 1
     },
     {
       "en": "turn about",
@@ -1578,6 +2546,14 @@
       "tier": 1
     },
     {
+      "en": "unplug",
+      "ru": "вынуть из розетки",
+      "example_en": "Unplug it first.",
+      "example_ru": "",
+      "root": "unplug",
+      "tier": 1
+    },
+    {
       "en": "wake up",
       "ru": "просыпаться",
       "example_en": "Wake up!",
@@ -1594,12 +2570,28 @@
       "tier": 1
     },
     {
+      "en": "watch out",
+      "ru": "осторожно",
+      "example_en": "Watch out for the cable.",
+      "example_ru": "",
+      "root": "watch",
+      "tier": 1
+    },
+    {
       "en": "win over",
       "ru": "переубедить",
       "example_en": "He won the client over.",
       "root": "over",
       "tier": 1,
       "example_ru": ""
+    },
+    {
+      "en": "wire up",
+      "ru": "развести проводку",
+      "example_en": "Wire up the tray.",
+      "example_ru": "",
+      "root": "wire",
+      "tier": 1
     },
     {
       "en": "work out",
@@ -1615,6 +2607,22 @@
       "example_en": "Work over that joint again.",
       "example_ru": "Обработай стык ещё раз.",
       "root": "over",
+      "tier": 1
+    },
+    {
+      "en": "wrap up",
+      "ru": "завершить",
+      "example_en": "Wrap up the task before knock-off.",
+      "example_ru": "Завершите задачу до конца смены.",
+      "root": "wrap",
+      "tier": 1
+    },
+    {
+      "en": "write down",
+      "ru": "записать",
+      "example_en": "Write down the measurement.",
+      "example_ru": "",
+      "root": "write",
       "tier": 1
     }
   ]
