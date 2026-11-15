@@ -157,29 +157,59 @@ enum TutorBankStore {
     /// Cached site→general merge for Репетитор → Пары (`.phrasal` / sidesReversed).
     private static var cachedPairsPhrasals: [PhrasalEntry]?
 
-    /// Site bank first, then general; skip duplicate EN (site sense wins).
-    /// Used by TutorPairsView so one round can mix site + everyday phrasals.
+    /// Warm / rebuild the merged pairs pool (site first, then general).
+    static func primePairsPhrasals() {
+        cachedPairsPhrasals = nil
+        _ = pairsPhrasals
+    }
+
+    /// Site bank first, then general. Same EN → site wins when both are core (tier ≤ 1).
+    /// If site was demoted (e.g. cable-tray example → tier 2) and general stays core, keep general.
+    /// Used by TutorPairsView (Репетитор → Пары and Упражнения → Phrasal verbs) without seeds.
     static var pairsPhrasals: [PhrasalEntry] {
         ensureLoaded()
-        if let cachedPairsPhrasals { return cachedPairsPhrasals }
-        let site: [PhrasalEntry] = loadJSON("phrasals_bank_v1", key: "phrasals")
-        let general: [PhrasalEntry] = loadJSON("phrasals_general_v1", key: "phrasals")
-        let merged = Self.enrichPhrasalExamples(Self.mergePhrasalsSiteFirst(site: site, general: general))
+        if let cachedPairsPhrasals, !cachedPairsPhrasals.isEmpty { return cachedPairsPhrasals }
+        let siteRaw: [PhrasalEntry] = loadJSON("phrasals_bank_v1", key: "phrasals")
+        let generalRaw: [PhrasalEntry] = loadJSON("phrasals_general_v1", key: "phrasals")
+        let site = Self.enrichPhrasalExamples(siteRaw)
+        let general = Self.enrichPhrasalExamples(generalRaw)
+        let merged = Self.mergePhrasalsSiteFirst(site: site, general: general)
+        // Prefer core; if enrich demoted everything, still return the merge.
         let core = merged.filter { $0.tier <= 1 }
         let result = core.isEmpty ? merged : core
-        cachedPairsPhrasals = result
+        if !result.isEmpty {
+            cachedPairsPhrasals = result
+        }
         return result
     }
 
-    /// Prefer site entry when the same EN appears in both banks.
+    /// Site first for tier ≤ 1; then general tier ≤ 1 for EN not yet taken;
+    /// finally any remaining EN from site then general (so the pool stays complete).
     private static func mergePhrasalsSiteFirst(site: [PhrasalEntry], general: [PhrasalEntry]) -> [PhrasalEntry] {
         var seen = Set<String>()
         var out: [PhrasalEntry] = []
         out.reserveCapacity(site.count + general.count)
+
+        func key(for p: PhrasalEntry) -> String {
+            p.en.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        }
+
+        for p in site where p.tier <= 1 {
+            let k = key(for: p)
+            guard !k.isEmpty, !seen.contains(k) else { continue }
+            seen.insert(k)
+            out.append(p)
+        }
+        for p in general where p.tier <= 1 {
+            let k = key(for: p)
+            guard !k.isEmpty, !seen.contains(k) else { continue }
+            seen.insert(k)
+            out.append(p)
+        }
         for p in site + general {
-            let key = p.en.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-            guard !key.isEmpty, !seen.contains(key) else { continue }
-            seen.insert(key)
+            let k = key(for: p)
+            guard !k.isEmpty, !seen.contains(k) else { continue }
+            seen.insert(k)
             out.append(p)
         }
         return out

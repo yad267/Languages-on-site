@@ -133,6 +133,10 @@ struct TutorPairsView: View {
         .onAppear {
             if speaker == nil { speaker = SpeechSpeaker(settings: settings) }
             TutorBankStore.ensureLoaded()
+            // Unseeded phrasal rounds (Репетитор → Пары / Упражнения → Phrasal) mix both banks.
+            if mode == .phrasal, seedPhrasals == nil || seedPhrasals?.isEmpty == true {
+                TutorBankStore.primePairsPhrasals()
+            }
             if leftTiles.isEmpty { dealRound() }
             #if DEBUG
             if ProcessInfo.processInfo.arguments.contains("-EOSPairsAutoMatch") {
@@ -170,8 +174,8 @@ struct TutorPairsView: View {
                 .font(.title3.weight(.bold))
             Text(mode == .phrasal
                  ? (sidesReversed
-                    ? "Phrasal · Наоборот · RU слева · EN справа"
-                    : "Phrasal · EN слева · RU справа · голос только EN")
+                    ? "Phrasal · Наоборот · RU слева · EN справа · Onsite+Regular"
+                    : "Phrasal · EN слева · RU справа · Onsite+Regular")
                  : "Оппозит · один play на тап")
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
@@ -339,8 +343,10 @@ struct TutorPairsView: View {
             Button {
                 let phrases = matchedRound.map { meta -> (en: String, ru: String) in
                     if mode == .phrasal {
-                        // Prefer example sentence when bank has one.
-                        if let p = TutorBankStore.phrasals.first(where: { $0.en == meta.leftEN }),
+                        // Prefer example from merged pairs pool (site+general), else active mode bank.
+                        let fromMerged = TutorBankStore.pairsPhrasals.first(where: { $0.en == meta.leftEN })
+                        let fromMode = TutorBankStore.phrasals.first(where: { $0.en == meta.leftEN })
+                        if let p = fromMerged ?? fromMode,
                            !p.exampleEn.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                             let ru = p.exampleRu.isEmpty ? p.ru : p.exampleRu
                             return (p.exampleEn, ru)
@@ -757,9 +763,10 @@ struct TutorPairsView: View {
         case .phrasal:
             let raw: [PhrasalEntry]
             if let seedPhrasals, !seedPhrasals.isEmpty {
+                // Phrasal tab / search seeds: keep caller's page pool as-is.
                 raw = seedPhrasals
             } else {
-                // Site bank first, then general — both .phrasal and sidesReversed.
+                // Репетитор → Пары and Упражнения → Phrasal: always merged site→general.
                 raw = TutorBankStore.pairsPhrasals
             }
             let pool = Array(PairsKnownStore.filterPhrasals(raw).shuffled().prefix(5))

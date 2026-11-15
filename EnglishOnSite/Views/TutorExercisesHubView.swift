@@ -101,6 +101,7 @@ struct TutorPairsChooserView: View {
 }
 
 /// Репетитор → Пары: only phrasal + flipped sides (no opposites).
+/// Both destinations use TutorBankStore.pairsPhrasals (site → general merge).
 struct RepeaterPairsChooserView: View {
     var body: some View {
         List {
@@ -117,5 +118,9 @@ struct RepeaterPairsChooserView: View {
         }
         .navigationTitle("Пары")
         .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            // Ensure Репетитор → Пары never sticks to a single contentMode bank.
+            TutorBankStore.primePairsPhrasals()
+        }
     }
 }
