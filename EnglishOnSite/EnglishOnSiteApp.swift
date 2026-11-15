@@ -7,18 +7,44 @@ struct EnglishOnSiteApp: App {
     private let container: ModelContainer
 
     init() {
+        container = Self.makeLibraryContainer()
+    }
+
+    /// SwiftData + CloudKit for LibraryItem (My Phrases and the rest of the library).
+    /// Falls back to local-only if CloudKit is unavailable (no iCloud account / capability).
+    private static func makeLibraryContainer() -> ModelContainer {
+        let schema = Schema([LibraryItem.self])
+        // Prefer CloudKit private DB; SwiftData still writes locally and syncs when iCloud is available.
         do {
-            container = try ModelContainer(for: LibraryItem.self)
+            let cloud = ModelConfiguration(schema: schema, cloudKitDatabase: .automatic)
+            let c = try ModelContainer(for: schema, configurations: [cloud])
+            print("[library] SwiftData CloudKit container OK (cloudKitDatabase: automatic)")
+            return c
         } catch {
-            // Schema evolve (B17b/B20 fields) — reset local library store once, keep app bootable.
-            if let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
-                let names = (try? FileManager.default.contentsOfDirectory(atPath: dir.path)) ?? []
-                for name in names where name.contains(".store") {
-                    try? FileManager.default.removeItem(at: dir.appendingPathComponent(name))
-                }
+            print("[library] CloudKit container failed (\(error)) — trying local-only")
+        }
+        do {
+            let local = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
+            let c = try ModelContainer(for: schema, configurations: [local])
+            print("[library] SwiftData local-only container OK")
+            return c
+        } catch {
+            print("[library] Local container failed (\(error)) — resetting store files")
+        }
+        // Schema evolve — reset local library store once, keep app bootable.
+        if let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
+            let names = (try? FileManager.default.contentsOfDirectory(atPath: dir.path)) ?? []
+            for name in names where name.contains(".store") || name.contains("default.store") {
+                try? FileManager.default.removeItem(at: dir.appendingPathComponent(name))
             }
+        }
+        do {
+            let cloud = ModelConfiguration(schema: schema, cloudKitDatabase: .automatic)
+            return try ModelContainer(for: schema, configurations: [cloud])
+        } catch {
             do {
-                container = try ModelContainer(for: LibraryItem.self)
+                let local = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
+                return try ModelContainer(for: schema, configurations: [local])
             } catch {
                 fatalError("SwiftData container failed: \(error)")
             }
