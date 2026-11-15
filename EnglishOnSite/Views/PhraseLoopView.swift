@@ -375,6 +375,7 @@ struct PhraseLoopView: View {
                 localeId: locale,
                 maxSeconds: 60,
                 contextualStrings: hints,
+                expectedPhrase: targetEN,
                 autoFinishWhen: { PhraseSimilarity.passes(recognized: $0, expected: targetEN) }
             )
             guard !Task.isCancelled else { return }
@@ -416,7 +417,8 @@ struct PhraseLoopView: View {
         listenTask = Task {
             try? await Task.sleep(nanoseconds: 250_000_000)
             guard !Task.isCancelled else { return }
-            speakPromptThenListen()
+            // Mic only — avoid TTS covering trailing words of the same attempt.
+            startListening()
         }
     }
 

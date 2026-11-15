@@ -36,6 +36,7 @@ final class TimedSpeechCapture {
     private var startedAt: Date?
     private var maxSeconds = 60
     private var autoFinishWhen: ((String) -> Bool)?
+    private var expectedPhrase = ""
     private var didAutoFinish = false
     /// Text from completed Speech utterances (isFinal) in this take.
     private var committedText = ""
@@ -51,11 +52,13 @@ final class TimedSpeechCapture {
 
     /// Start mic + speech recognition; returns when user calls `finish()` / `cancel()` or max reached.
     /// - Parameter contextualStrings: SFSpeech hints (target phrase + site lexemes). Max ~100 used.
+    /// - Parameter expectedPhrase: target EN — blocks auto-finish until progressive match covers every token (incl. trailing «hard hat»).
     /// - Parameter autoFinishWhen: live PASS on the *combined* transcript → stop after hold.
     func captureUntilStopped(
         localeId: String,
         maxSeconds: Int,
         contextualStrings: [String] = [],
+        expectedPhrase: String = "",
         autoFinishWhen: ((String) -> Bool)? = nil
     ) async -> String {
         cancel()
@@ -69,6 +72,7 @@ final class TimedSpeechCapture {
         autoFinishHoldText = ""
         elapsedSeconds = 0
         restartGeneration &+= 1
+        self.expectedPhrase = expectedPhrase.trimmingCharacters(in: .whitespacesAndNewlines)
         self.autoFinishWhen = autoFinishWhen
         self.maxSeconds = max(5, min(maxSeconds, 60))
         secondsLeft = self.maxSeconds
@@ -205,11 +209,11 @@ final class TimedSpeechCapture {
     private func startRecognitionTask(reason: String) {
         guard isCapturing, let recognizer else { return }
 
-        // End previous utterance request without stopping the mic engine.
-        recognitionTask?.cancel()
+        // Swap request first so the audio tap never appends into a dead request
+        // (trailing words spoken during restart must land on the new task).
+        let oldRequest = recognitionRequest
+        let oldTask = recognitionTask
         recognitionTask = nil
-        recognitionRequest?.endAudio()
-        recognitionRequest = nil
         segmentPartial = ""
 
         let request = SFSpeechAudioBufferRecognitionRequest()
@@ -222,7 +226,10 @@ final class TimedSpeechCapture {
         if !contextualHints.isEmpty {
             request.contextualStrings = contextualHints
         }
+        // Publish new request to the tap *before* ending the old one.
         recognitionRequest = request
+        oldTask?.cancel()
+        oldRequest?.endAudio()
 
         let gen = restartGeneration
         log("startRecognition reason=\(reason) committed=\"\(committedText)\"")
@@ -242,9 +249,9 @@ final class TimedSpeechCapture {
                     if result.isFinal {
                         let combined = self.partialText.trimmingCharacters(in: .whitespacesAndNewlines)
                         self.log("isFinal segment=\"\(heard)\" combined=\"\(combined)\"")
-                        // Utterance ended (pause / clause). Keep mic open unless full PASS.
-                        if let pred = self.autoFinishWhen, !combined.isEmpty, pred(combined) {
-                            // Complete phrase and Speech closed the utterance — finish the take.
+                        // Utterance ended (pause / clause). Keep mic open unless *full* PASS
+                        // (every expected token, including trailing hard hat).
+                        if self.shouldAutoFinish(combined) {
                             self.log("autoFinish on isFinal+fullPass")
                             self.didAutoFinish = true
                             self.resumeWait()
@@ -321,23 +328,20 @@ final class TimedSpeechCapture {
         }
     }
 
-    /// Auto-finish only when the full-phrase predicate stays true long enough.
-    /// Hold key uses normalized display-stable text so raw STT jitter does not reset the timer.
+    /// Auto-finish only when full-phrase PASS (incl. trailing tokens) stays true briefly.
     private func considerAutoFinish(heard: String) {
-        guard !didAutoFinish, isCapturing, let pred = autoFinishWhen else { return }
+        guard !didAutoFinish, isCapturing else { return }
         let elapsed = startedAt.map { Date().timeIntervalSince($0) } ?? 0
         guard elapsed >= 0.3 else { return }
 
         let trimmed = heard.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty, pred(trimmed) else {
+        guard shouldAutoFinish(trimmed) else {
             autoFinishHoldSince = nil
             autoFinishHoldText = ""
             return
         }
 
         // Stable key: ignore minor raw jitter while PASS remains true.
-        // Do not treat a longer key as "same hold" started on a shorter prefix — that
-        // caused early finish on «where is my» before «hard hat» arrived.
         let key = PhraseSimilarity.stablePassKey(trimmed)
         if autoFinishHoldText != key {
             autoFinishHoldText = key
@@ -355,9 +359,27 @@ final class TimedSpeechCapture {
         resumeWait()
     }
 
+    /// Predicate PASS plus progressive coverage of every expected token (blocks prefix finish).
+    private func shouldAutoFinish(_ heard: String) -> Bool {
+        let trimmed = heard.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty, let pred = autoFinishWhen, pred(trimmed) else { return false }
+        guard !expectedPhrase.isEmpty else { return true }
+        // Belt-and-suspenders: never finish on «where is my» while target still has «hard hat».
+        let complete = PhraseSimilarity.isCompleteProgressiveMatch(
+            recognized: trimmed,
+            expected: expectedPhrase,
+            useTalkNormalize: true
+        )
+        if !complete {
+            log("block early finish; progressive incomplete for \"\(expectedPhrase)\" got=\"\(trimmed)\"")
+        }
+        return complete
+    }
+
     private func tearDown() {
         isCapturing = false
         autoFinishWhen = nil
+        expectedPhrase = ""
         autoFinishHoldSince = nil
         autoFinishHoldText = ""
         restartTask?.cancel()

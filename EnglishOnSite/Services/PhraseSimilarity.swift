@@ -189,8 +189,13 @@ enum PhraseSimilarity {
             ("hot hats", "hard hats"),
             ("heart hat", "hard hat"),
             ("heart hats", "hard hats"),
+            ("heard hat", "hard hat"),
+            ("heard hats", "hard hats"),
             ("hard heart", "hard hat"),
             ("hart hat", "hard hat"),
+            ("hard at", "hard hat"),
+            ("hard hit", "hard hat"),
+            ("hard cat", "hard hat"),
             ("hard hat hat", "hard hat"),
             ("hi viz", "hi-vis"),
             ("high viz", "hi-vis"),
@@ -349,8 +354,12 @@ enum PhraseSimilarity {
             (" hard-hat ", " hard hat "),
             (" hot hat ", " hard hat "),
             (" heart hat ", " hard hat "),
+            (" heard hat ", " hard hat "),
             (" hard heart ", " hard hat "),
             (" hart hat ", " hard hat "),
+            (" hard at ", " hard hat "),
+            (" hard hit ", " hard hat "),
+            (" hard cat ", " hard hat "),
             (" safepass ", " safe pass "),
             (" safe past ", " safe pass "),
             (" safe path ", " safe pass "),
@@ -546,16 +555,45 @@ enum PhraseSimilarity {
         return ProgressiveMatch(shown: shown, matched: matched, expectedCount: expectedCount)
     }
 
+    /// PPE / site STT confusions that should count as the same token in progressive match.
+    private static let confusableTokenGroups: [[String]] = [
+        ["hard", "heart", "heard", "hart", "hot"],
+        ["hat", "hats", "had"],
+        ["vis", "viz", "visibility"],
+        ["pass", "past", "path"],
+    ]
+
     /// Single-token match for progressive correct-only UI.
     private static func tokensRoughlyMatch(_ a: String, _ b: String) -> Bool {
         if a == b { return true }
         if a.isEmpty || b.isEmpty { return false }
         if compactKey(a) == compactKey(b) { return true }
+        for group in confusableTokenGroups {
+            if group.contains(a), group.contains(b) { return true }
+        }
         // Tight fuzzy — avoid accepting unrelated short words.
         if a.count >= 3, b.count >= 3, score(recognized: a, expected: b) >= 0.84 {
             return true
         }
+        // One-edit for length≥4 (heart↔hard is 2 edits; covered by confusable groups).
+        if a.count >= 4, b.count >= 4, score(recognized: a, expected: b) >= 0.75 {
+            return true
+        }
         return false
+    }
+
+    /// True when progressive match has every expected token (trailing words included).
+    static func isCompleteProgressiveMatch(
+        recognized: String,
+        expected: String,
+        useTalkNormalize: Bool = true
+    ) -> Bool {
+        let m = progressiveMatch(
+            recognized: recognized,
+            expected: expected,
+            useTalkNormalize: useTalkNormalize
+        )
+        return m.expectedCount > 0 && m.matched == m.expectedCount
     }
 
     /// Lowercase, strip punctuation (hyphen → space so two-way → two way),
@@ -770,6 +808,17 @@ enum PhraseSimilarity {
         }
         if !passesTalk(recognized: "where is my hard hat", expected: hardHat) {
             fails.append("full-hard-hat-should-pass-talk")
+        }
+        // STT often hears heart/hot for hard — must still complete progressive + PASS.
+        if !passesTalk(recognized: "where is my heart hat", expected: hardHat) {
+            fails.append("heart-hat-should-pass-talk")
+        }
+        if !isCompleteProgressiveMatch(
+            recognized: "where is my heart hat",
+            expected: hardHat,
+            useTalkNormalize: true
+        ) {
+            fails.append("heart-hat-progressive-complete")
         }
 
         check(

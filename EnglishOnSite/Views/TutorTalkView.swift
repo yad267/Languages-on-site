@@ -536,6 +536,7 @@ struct TutorTalkView: View {
             localeId: locale,
             maxSeconds: 45,
             contextualStrings: hints,
+            expectedPhrase: target,
             autoFinishWhen: { heard in
                 guard !target.isEmpty else { return false }
                 return PhraseSimilarity.passesTalk(recognized: heard, expected: target)

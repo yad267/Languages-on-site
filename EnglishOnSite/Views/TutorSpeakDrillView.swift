@@ -320,6 +320,7 @@ struct TutorSpeakDrillView: View {
                 localeId: settings.rememberLocale.rawValue,
                 maxSeconds: 45,
                 contextualStrings: hints,
+                expectedPhrase: target,
                 autoFinishWhen: { PhraseSimilarity.passes(recognized: $0, expected: target) }
             )
             guard !Task.isCancelled else { return }
@@ -351,8 +352,8 @@ struct TutorSpeakDrillView: View {
         listenTask = Task {
             try? await Task.sleep(nanoseconds: 250_000_000)
             guard !Task.isCancelled, !smokeNoMic else { return }
-            // Retry same phrase: TTS again, then mic (no overlap).
-            speakPromptThenListen()
+            // Mic only — do not TTS over the user finishing trailing words (e.g. hard hat).
+            startListen()
         }
     }
 
