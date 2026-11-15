@@ -6,6 +6,9 @@ enum PhraseSimilarity {
     static let passThreshold = 0.75
     /// Softer pass for TutorTalk (STT noise on site terms).
     static let talkPassThreshold = 0.65
+    /// Expected-token recall floor — blocks prefix auto-PASS
+    /// («where is my» must not pass «where is my high-vis vest»).
+    static let fullPhraseRecall = 0.85
 
     /// Similarity in 0…1 after normalization. Uses Levenshtein ratio.
     static func score(recognized: String, expected: String) -> Double {
@@ -23,16 +26,62 @@ enum PhraseSimilarity {
     }
 
     static func passes(recognized: String, expected: String) -> Bool {
+        if passesRaw(recognized: recognized, expected: expected, useTalk: false) { return true }
+        // Same progressive/filtered text the UI shows — if it covers the full target, accept.
+        return passesViaDisplay(recognized: recognized, expected: expected, useTalk: false)
+    }
+
+    /// Raw-STT path only (no display filter). Used internally to avoid recursion with correctOnlyDisplay.
+    private static func passesRaw(recognized: String, expected: String, useTalk: Bool) -> Bool {
         let collapsed = collapseRepeatedTarget(recognized, expected: expected)
-        if score(recognized: collapsed, expected: expected) >= passThreshold { return true }
-        // B4: «Handover» ≈ «hand over»; «turnoff» ≈ «turn off».
         let a = compactKey(collapsed)
         let b = compactKey(expected)
+        if !a.isEmpty, !b.isEmpty, a == b { return true }
+
+        guard coversFullExpected(
+            recognized: collapsed,
+            expected: expected,
+            useTalkNormalize: useTalk
+        ) else {
+            return false
+        }
+
+        if useTalk {
+            return talkScore(recognized: collapsed, expected: expected) >= talkPassThreshold
+        }
+
+        if score(recognized: collapsed, expected: expected) >= passThreshold { return true }
         if a.isEmpty || b.isEmpty { return false }
-        if a == b { return true }
         if score(recognized: a, expected: b) >= passThreshold { return true }
-        // One clean hit inside longer STT (practice repeats already collapsed above).
         return windowContainsTarget(recognized: collapsed, expected: expected)
+    }
+
+    /// Accept when progressive display already shows a *complete* target (junk STT skipped).
+    /// Requires every expected token matched — a prefix like «where is my» must not PASS
+    /// «where is my hard hat».
+    private static func passesViaDisplay(recognized: String, expected: String, useTalk: Bool) -> Bool {
+        let match = progressiveMatch(
+            recognized: recognized,
+            expected: expected,
+            useTalkNormalize: useTalk
+        )
+        guard match.expectedCount > 0, match.matched == match.expectedCount else { return false }
+        let shown = match.shown
+        guard !shown.isEmpty else { return false }
+        // Keep the 85% recall gate on the display-normalized text.
+        guard coversFullExpected(
+            recognized: shown,
+            expected: expected,
+            useTalkNormalize: useTalk
+        ) else {
+            return false
+        }
+        if useTalk {
+            return talkScore(recognized: shown, expected: expected) >= talkPassThreshold
+                || compactKey(shown) == compactKey(expected)
+        }
+        return score(recognized: shown, expected: expected) >= passThreshold
+            || compactKey(shown) == compactKey(expected)
     }
 
     /// Spaces/hyphens removed — hand over / hand-over / handover.
@@ -115,7 +164,62 @@ enum PhraseSimilarity {
         return false
     }
 
-    /// STT contextualStrings: canon + compacted variant.
+    /// SFSpeech `contextualStrings` boost for Ireland site / PPE (hard hat, Safe Pass…).
+    /// Kept under Apple’s ~100-phrase budget when merged with per-target hints.
+    static let siteContextualHints: [String] = [
+        "hard hat", "hard hats", "wear a hard hat", "put on your hard hat",
+        "hi-vis", "hi vis", "high visibility", "high-vis vest",
+        "Safe Pass", "safe pass", "Safe Pass card", "my Safe Pass",
+        "PPE", "personal protective equipment",
+        "safety boots", "steel toe", "steel-toe boots", "gloves", "goggles", "ear defenders",
+        "helmet", "site induction", "induction", "sign in", "sign out",
+        "cable tray", "cable basket", "Unistrut", "containment", "trunking",
+        "clamp", "bolt", "lay down", "hand over", "toolbox talk",
+        "CCTV", "zebs", "gate", "permit to work", "isolation",
+        "scaffolding", "harness", "lanyard", "exclusion zone",
+    ]
+
+    /// Fix common EN site STT confusions before scoring / display.
+    static func correctSiteASR(_ text: String) -> String {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return trimmed }
+        var s = " " + trimmed + " "
+        let pairs: [(String, String)] = [
+            ("hot hat", "hard hat"),
+            ("hot hats", "hard hats"),
+            ("heart hat", "hard hat"),
+            ("heart hats", "hard hats"),
+            ("heard hat", "hard hat"),
+            ("heard hats", "hard hats"),
+            ("hard heart", "hard hat"),
+            ("hart hat", "hard hat"),
+            ("hard at", "hard hat"),
+            ("hard hit", "hard hat"),
+            ("hard cat", "hard hat"),
+            ("hard hat hat", "hard hat"),
+            ("hi viz", "hi-vis"),
+            ("high viz", "hi-vis"),
+            ("safe past", "Safe Pass"),
+            ("safe path", "Safe Pass"),
+            ("safepass", "Safe Pass"),
+            ("you nistrut", "Unistrut"),
+            ("uni strut", "Unistrut"),
+        ]
+        for (wrong, right) in pairs {
+            if let regex = try? NSRegularExpression(
+                pattern: NSRegularExpression.escapedPattern(for: wrong),
+                options: [.caseInsensitive]
+            ) {
+                let range = NSRange(s.startIndex..<s.endIndex, in: s)
+                s = regex.stringByReplacingMatches(in: s, options: [], range: range, withTemplate: right)
+            }
+        }
+        return s
+            .replacingOccurrences(of: #"\s+"#, with: " ", options: .regularExpression)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// STT contextualStrings: canon + compacted variant + site lexicon when relevant.
     static func sttVariants(for expected: String) -> [String] {
         let raw = expected.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !raw.isEmpty else { return [] }
@@ -127,6 +231,27 @@ enum PhraseSimilarity {
         let noSpace = compacted.replacingOccurrences(of: " ", with: "")
         if compacted != raw { out.append(compacted) }
         if noSpace.lowercased() != compacted.lowercased() { out.append(noSpace) }
+        let words = compacted
+            .components(separatedBy: CharacterSet.alphanumerics.inverted)
+            .filter { !$0.isEmpty }
+        if words.count >= 2 {
+            for i in 0..<(words.count - 1) {
+                out.append("\(words[i]) \(words[i + 1])")
+            }
+        }
+        let lower = compacted.lowercased()
+        // Boost overlapping site terms + always keep hard hat / Safe Pass / hi-vis.
+        for hint in siteContextualHints {
+            let h = hint.lowercased()
+            if lower.contains(h)
+                || h.contains("hard hat")
+                || h.contains("safe pass")
+                || h.contains("hi-vis")
+                || h.contains("hi vis")
+                || h == "ppe" {
+                out.append(hint)
+            }
+        }
         return out
     }
 
@@ -143,7 +268,58 @@ enum PhraseSimilarity {
     }
 
     static func passesTalk(recognized: String, expected: String) -> Bool {
-        talkScore(recognized: recognized, expected: expected) >= talkPassThreshold
+        if passesRaw(recognized: recognized, expected: expected, useTalk: true) { return true }
+        return passesViaDisplay(recognized: recognized, expected: expected, useTalk: true)
+    }
+
+    /// Stable key for auto-finish hold — ignores minor raw STT jitter.
+    static func stablePassKey(_ text: String) -> String {
+        normalizeTalk(text)
+    }
+
+    /// True when recognized covers the full expected phrase (not a proper prefix).
+    static func coversFullExpected(
+        recognized: String,
+        expected: String,
+        useTalkNormalize: Bool
+    ) -> Bool {
+        let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
+        let raw = recognized.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !exp.isEmpty else { return true }
+        guard !raw.isEmpty else { return false }
+
+        let aCompact = compactKey(raw)
+        let bCompact = compactKey(exp)
+        if !aCompact.isEmpty, aCompact == bCompact { return true }
+
+        let normFn: (String) -> String = useTalkNormalize ? normalizeTalk : normalize
+        let recall = tokenRecall(normFn(raw), normFn(exp))
+        if recall >= fullPhraseRecall { return true }
+
+        // Short targets (1–2 tokens): require compact containment both ways or exact bag.
+        let eToks = normFn(exp).split(separator: " ").map(String.init)
+        if eToks.count <= 2 {
+            return !aCompact.isEmpty && aCompact == bCompact
+        }
+        return false
+    }
+
+    /// Multiset token recall: how much of expected was heard.
+    private static func tokenRecall(_ recognized: String, _ expected: String) -> Double {
+        let wa = recognized.split(separator: " ").map(String.init)
+        let wb = expected.split(separator: " ").map(String.init)
+        if wb.isEmpty { return 1 }
+        if wa.isEmpty { return 0 }
+        var bag = [String: Int]()
+        for w in wa { bag[w, default: 0] += 1 }
+        var inter = 0
+        for w in wb {
+            if let c = bag[w], c > 0 {
+                inter += 1
+                bag[w] = c - 1
+            }
+        }
+        return Double(inter) / Double(wb.count)
     }
 
     /// Multiset token F1 after normalizeTalk.
@@ -176,7 +352,17 @@ enum PhraseSimilarity {
             (" high-vis ", " high visibility "),
             (" hardhat ", " hard hat "),
             (" hard-hat ", " hard hat "),
+            (" hot hat ", " hard hat "),
+            (" heart hat ", " hard hat "),
+            (" heard hat ", " hard hat "),
+            (" hard heart ", " hard hat "),
+            (" hart hat ", " hard hat "),
+            (" hard at ", " hard hat "),
+            (" hard hit ", " hard hat "),
+            (" hard cat ", " hard hat "),
             (" safepass ", " safe pass "),
+            (" safe past ", " safe pass "),
+            (" safe path ", " safe pass "),
             (" cabletray ", " cable tray "),
             (" signin ", " sign in "),
             (" signout ", " sign out "),
@@ -209,7 +395,10 @@ enum PhraseSimilarity {
         guard !e.isEmpty else { return r.isEmpty }
         if r.isEmpty { return true }
         if talkScore(recognized: r, expected: e) >= talkPassThreshold { return false }
-        let bad = ["heart", "eyes", "reading my", "i am reading", "hard heart", "hi viz eyes"]
+        let bad = [
+            "heart", "eyes", "reading my", "i am reading", "hard heart",
+            "hi viz eyes", "hot hat", "hart hat", "heart hat",
+        ]
         let hitBad = bad.contains { r.contains($0) }
         let expectHat = e.contains("hard hat") || e.contains("hi vis") || e.contains("high visibility")
         if hitBad && expectHat { return true }
@@ -240,6 +429,171 @@ enum PhraseSimilarity {
         let collapsed = collapseRepeatedTarget(raw, expected: expected)
         let t = collapsed.trimmingCharacters(in: .whitespacesAndNewlines)
         return t.isEmpty ? raw.trimmingCharacters(in: .whitespacesAndNewlines) : t
+    }
+
+    /// Live / review display for repeat-until-correct drills.
+    /// Shows only target words matched so far (canonical casing from `expected`).
+    /// Never surfaces incorrect STT tokens. Full PASS → full expected phrase.
+    /// - Parameter useTalkThreshold: TutorTalk soft pass (0.65 + talk normalize).
+    static func correctOnlyDisplay(
+        recognized: String,
+        expected: String,
+        useTalkThreshold: Bool = false
+    ) -> String {
+        let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !exp.isEmpty else { return "" }
+        let cleaned = correctSiteASR(recognized)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !cleaned.isEmpty else { return "" }
+
+        let collapsed = collapseRepeatedTarget(cleaned, expected: exp)
+        // Use raw path only — avoids recursion with passesViaDisplay.
+        if passesRaw(recognized: collapsed, expected: exp, useTalk: useTalkThreshold) {
+            return exp
+        }
+        if !compactKey(collapsed).isEmpty, compactKey(collapsed) == compactKey(exp) {
+            return exp
+        }
+
+        let match = progressiveMatch(
+            recognized: collapsed,
+            expected: exp,
+            useTalkNormalize: useTalkThreshold
+        )
+        if match.matched == match.expectedCount, match.expectedCount > 0 {
+            return exp
+        }
+        return match.shown
+    }
+
+    private struct ProgressiveMatch {
+        let shown: String
+        let matched: Int
+        let expectedCount: Int
+    }
+
+    /// Progressive target words matched so far (junk STT skipped). Shared by UI + PASS.
+    private static func progressiveMatch(
+        recognized: String,
+        expected: String,
+        useTalkNormalize: Bool
+    ) -> ProgressiveMatch {
+        let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleaned = correctSiteASR(recognized)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !exp.isEmpty, !cleaned.isEmpty else {
+            return ProgressiveMatch(shown: "", matched: 0, expectedCount: 0)
+        }
+
+        let collapsed = collapseRepeatedTarget(cleaned, expected: exp)
+        let normFn: (String) -> String = useTalkNormalize ? normalizeTalk : normalize
+        let eNorm = normFn(exp).split(separator: " ").map(String.init)
+        let expectedCount = eNorm.count
+        guard expectedCount > 0 else {
+            return ProgressiveMatch(shown: "", matched: 0, expectedCount: 0)
+        }
+
+        if !compactKey(collapsed).isEmpty, compactKey(collapsed) == compactKey(exp) {
+            return ProgressiveMatch(shown: exp, matched: expectedCount, expectedCount: expectedCount)
+        }
+
+        let displayToks = exp
+            .split { $0.isWhitespace || $0.isNewline }
+            .map(String.init)
+            .filter { !$0.isEmpty }
+        let rNorm = normFn(collapsed).split(separator: " ").map(String.init)
+        guard !rNorm.isEmpty else {
+            return ProgressiveMatch(shown: "", matched: 0, expectedCount: expectedCount)
+        }
+
+        let showToks: [String] = {
+            if displayToks.count == eNorm.count { return displayToks }
+            return eNorm
+        }()
+
+        var ri = 0
+        var matched = 0
+        for ei in 0..<eNorm.count {
+            var found = false
+            while ri < rNorm.count {
+                let r = rNorm[ri]
+                ri += 1
+                if tokensRoughlyMatch(r, eNorm[ei]) {
+                    found = true
+                    break
+                }
+            }
+            if found {
+                matched += 1
+            } else {
+                break
+            }
+        }
+
+        if matched == 0 {
+            let rc = compactKey(collapsed)
+            guard !rc.isEmpty else {
+                return ProgressiveMatch(shown: "", matched: 0, expectedCount: expectedCount)
+            }
+            var built = ""
+            var covered = 0
+            for (i, tok) in eNorm.enumerated() {
+                let next = built + tok
+                if rc == next || rc.hasPrefix(next) {
+                    covered = i + 1
+                    built = next
+                    if rc == next { break }
+                } else {
+                    break
+                }
+            }
+            let shown = covered > 0 ? showToks.prefix(covered).joined(separator: " ") : ""
+            return ProgressiveMatch(shown: shown, matched: covered, expectedCount: expectedCount)
+        }
+
+        let shown = showToks.prefix(matched).joined(separator: " ")
+        return ProgressiveMatch(shown: shown, matched: matched, expectedCount: expectedCount)
+    }
+
+    /// PPE / site STT confusions that should count as the same token in progressive match.
+    private static let confusableTokenGroups: [[String]] = [
+        ["hard", "heart", "heard", "hart", "hot"],
+        ["hat", "hats", "had"],
+        ["vis", "viz", "visibility"],
+        ["pass", "past", "path"],
+    ]
+
+    /// Single-token match for progressive correct-only UI.
+    private static func tokensRoughlyMatch(_ a: String, _ b: String) -> Bool {
+        if a == b { return true }
+        if a.isEmpty || b.isEmpty { return false }
+        if compactKey(a) == compactKey(b) { return true }
+        for group in confusableTokenGroups {
+            if group.contains(a), group.contains(b) { return true }
+        }
+        // Tight fuzzy — avoid accepting unrelated short words.
+        if a.count >= 3, b.count >= 3, score(recognized: a, expected: b) >= 0.84 {
+            return true
+        }
+        // One-edit for length≥4 (heart↔hard is 2 edits; covered by confusable groups).
+        if a.count >= 4, b.count >= 4, score(recognized: a, expected: b) >= 0.75 {
+            return true
+        }
+        return false
+    }
+
+    /// True when progressive match has every expected token (trailing words included).
+    static func isCompleteProgressiveMatch(
+        recognized: String,
+        expected: String,
+        useTalkNormalize: Bool = true
+    ) -> Bool {
+        let m = progressiveMatch(
+            recognized: recognized,
+            expected: expected,
+            useTalkNormalize: useTalkNormalize
+        )
+        return m.expectedCount > 0 && m.matched == m.expectedCount
     }
 
     /// Lowercase, strip punctuation (hyphen → space so two-way → two way),
@@ -366,6 +720,107 @@ enum PhraseSimilarity {
             fails.append("display-dedupe: got=\"\(disp)\"")
         }
 
+        // correctOnlyDisplay: never surface wrong STT; progressive target words only.
+        let wrongOnly = correctOnlyDisplay(
+            recognized: "banana refrigerator purple",
+            expected: "I've got my hard hat on, boss"
+        )
+        if !wrongOnly.isEmpty {
+            fails.append("correctOnly-wrong: got=\"\(wrongOnly)\"")
+        }
+        let prefixOK = correctOnlyDisplay(
+            recognized: "I've got my",
+            expected: "I've got my hard hat on, boss"
+        )
+        if normalize(prefixOK) != normalize("I've got my") {
+            fails.append("correctOnly-prefix: got=\"\(prefixOK)\"")
+        }
+        let junkThenOK = correctOnlyDisplay(
+            recognized: "um uh I've got my",
+            expected: "I've got my hard hat on, boss"
+        )
+        if normalize(junkThenOK) != normalize("I've got my") {
+            fails.append("correctOnly-skip-junk: got=\"\(junkThenOK)\"")
+        }
+        let fullOK = correctOnlyDisplay(
+            recognized: "I've got my hard hat on boss",
+            expected: "I've got my hard hat on, boss"
+        )
+        if normalize(fullOK) != normalize("I've got my hard hat on, boss") {
+            fails.append("correctOnly-full: got=\"\(fullOK)\"")
+        }
+        let talkPassShow = correctOnlyDisplay(
+            recognized: "wear a hot hat",
+            expected: "wear a hard hat",
+            useTalkThreshold: true
+        )
+        if normalize(talkPassShow) != normalize("wear a hard hat") {
+            fails.append("correctOnly-talk-alias: got=\"\(talkPassShow)\"")
+        }
+
+        // Prefix must NOT pass the full target (STT early-cutoff bug).
+        let hiVis = "where is my high-vis vest"
+        if passes(recognized: "where is my", expected: hiVis) {
+            fails.append("prefix-pass-drill: where is my")
+        }
+        if passesTalk(recognized: "where is my", expected: hiVis) {
+            fails.append("prefix-pass-talk: where is my")
+        }
+        if passes(recognized: "where is my high", expected: hiVis) {
+            fails.append("prefix-pass-drill: where is my high")
+        }
+        if passesTalk(recognized: "where is my high", expected: hiVis) {
+            fails.append("prefix-pass-talk: where is my high")
+        }
+        if !passes(recognized: "where is my high-vis vest", expected: hiVis) {
+            fails.append("full-phrase-should-pass-drill: high-vis vest")
+        }
+        if !passesTalk(recognized: "where is my high vis vest", expected: hiVis) {
+            fails.append("full-phrase-should-pass-talk: high-vis vest")
+        }
+        if !coversFullExpected(
+            recognized: "where is my high-vis vest",
+            expected: hiVis,
+            useTalkNormalize: true
+        ) {
+            fails.append("full-coverage-high-vis")
+        }
+
+        // Display-complete with junk fillers must PASS (UI already shows full target).
+        let junkFull = "um yeah where is my high-vis vest please"
+        if !passes(recognized: junkFull, expected: hiVis) {
+            fails.append("display-complete-pass-drill: junk fillers")
+        }
+        if !passesTalk(recognized: junkFull, expected: hiVis) {
+            fails.append("display-complete-pass-talk: junk fillers")
+        }
+        // Prefix still blocked even via display path.
+        if passes(recognized: "um where is my", expected: hiVis) {
+            fails.append("display-prefix-still-blocked")
+        }
+        let hardHat = "where is my hard hat"
+        if passes(recognized: "where is my", expected: hardHat)
+            || passesTalk(recognized: "where is my", expected: hardHat) {
+            fails.append("prefix-must-not-pass-hard-hat")
+        }
+        if !passes(recognized: "where is my hard hat", expected: hardHat) {
+            fails.append("full-hard-hat-should-pass-drill")
+        }
+        if !passesTalk(recognized: "where is my hard hat", expected: hardHat) {
+            fails.append("full-hard-hat-should-pass-talk")
+        }
+        // STT often hears heart/hot for hard — must still complete progressive + PASS.
+        if !passesTalk(recognized: "where is my heart hat", expected: hardHat) {
+            fails.append("heart-hat-should-pass-talk")
+        }
+        if !isCompleteProgressiveMatch(
+            recognized: "where is my heart hat",
+            expected: hardHat,
+            useTalkNormalize: true
+        ) {
+            fails.append("heart-hat-progressive-complete")
+        }
+
         check(
             "near-perfect",
             got: "Pass me the drill please",
@@ -438,6 +893,14 @@ enum PhraseSimilarity {
             expected: "turn off",
             shouldPass: true
         )
+
+        let fixedHat = correctSiteASR("Please wear your hot hat")
+        if !fixedHat.lowercased().contains("hard hat") {
+            fails.append("correctSiteASR hot→hard: got=\"\(fixedHat)\"")
+        }
+        if !passesTalk(recognized: "wear a hot hat", expected: "wear a hard hat") {
+            fails.append("talk-pass after hot hat alias")
+        }
 
         return fails
     }
