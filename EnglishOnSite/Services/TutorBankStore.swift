@@ -255,6 +255,14 @@ enum TutorBankStore {
         extras.append(entry)
         if let data = try? JSONEncoder().encode(extras) {
             UserDefaults.standard.set(data, forKey: key)
+            if let json = String(data: data, encoding: .utf8) {
+                let kind = contentMode == .site
+                    ? CloudUserDataStore.blobExtraVerbsSite
+                    : CloudUserDataStore.blobExtraVerbsGeneral
+                Task { @MainActor in
+                    CloudUserDataStore.saveBlobJSON(kind: kind, json: json)
+                }
+            }
         }
         reload()
         return true
@@ -320,7 +328,26 @@ enum TutorBankStore {
         map[e] = r
         if let data = try? JSONEncoder().encode(map) {
             UserDefaults.standard.set(data, forKey: glossCacheKey)
+            if let json = String(data: data, encoding: .utf8) {
+                Task { @MainActor in
+                    CloudUserDataStore.saveBlobJSON(kind: CloudUserDataStore.blobGlossCache, json: json)
+                }
+            }
         }
+    }
+
+    /// Pull CloudKit / SwiftData blobs into UserDefaults cache.
+    @MainActor
+    static func refreshFromCloud() {
+        func pull(_ kind: String, defaultsKey: String) {
+            guard let json = CloudUserDataStore.loadBlobJSON(kind: kind),
+                  let data = json.data(using: .utf8) else { return }
+            UserDefaults.standard.set(data, forKey: defaultsKey)
+        }
+        pull(CloudUserDataStore.blobExtraVerbsSite, defaultsKey: extraVerbsKey)
+        pull(CloudUserDataStore.blobExtraVerbsGeneral, defaultsKey: extraVerbsGeneralKey)
+        pull(CloudUserDataStore.blobGlossCache, defaultsKey: glossCacheKey)
+        reload()
     }
 
     static func splitOppositeRU(_ ru: String) -> (left: String?, right: String?) {
