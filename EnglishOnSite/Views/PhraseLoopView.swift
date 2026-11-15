@@ -318,6 +318,7 @@ struct PhraseLoopView: View {
             try? AudioSessionManager.configureForRecording()
             let locale = settings.rememberLocale.rawValue
             let hints = PhraseSimilarity.sttVariants(for: targetEN)
+                + PhraseSimilarity.siteContextualHints
             let text = await capture.captureUntilStopped(
                 localeId: locale,
                 maxSeconds: 60,
