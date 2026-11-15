@@ -621,7 +621,7 @@ struct TutorTalkView: View {
             return
         }
         awaitingReview = false
-        draft = ""
+        draft = text
         sttHint = ""
         waitingForPass = false
         turns.append(CoachTurn(
@@ -631,6 +631,7 @@ struct TutorTalkView: View {
             sayNowRU: nil,
             isMutedNote: false
         ))
+        // Credit immediately; coach fetch must not leave the UI stuck with no next item.
         await send(
             userText: "PASS: \(text)",
             hideUserBubble: false,
@@ -730,12 +731,15 @@ struct TutorTalkView: View {
                 pinnedSayNowRU = reply.sayNowRU
                 pinnedSayNowEN = newEN
                 autoListenTarget = newEN
+                draft = ""
+                // Clear busy before TTS→mic handoff so completion guard !isBusy can proceed.
+                isBusy = false
                 // TTS must finish fully before mic — never overlap (hears itself / cuts off).
                 if speakReplies {
                     speakPromptThenListen(newEN)
                 } else {
                     Task {
-                        try? await Task.sleep(nanoseconds: 350_000_000)
+                        try? await Task.sleep(nanoseconds: 200_000_000)
                         guard !isListening, !isBusy, !isSpeakingPrompt,
                               pinnedSayNowEN == newEN, waitingForPass else { return }
                         await startListening()
@@ -758,6 +762,11 @@ struct TutorTalkView: View {
                 sayNowRU: nil,
                 isMutedNote: false
             ))
+            // After a credited PASS, never leave the session stuck with no next target.
+            if meta == .localPass, !pinnedSayNowEN.isEmpty {
+                waitingForPass = true
+                draft = ""
+            }
         } catch {
             errorMessage = "Нет сети / таймаут"
             turns.append(CoachTurn(
@@ -767,6 +776,10 @@ struct TutorTalkView: View {
                 sayNowRU: nil,
                 isMutedNote: false
             ))
+            if meta == .localPass, !pinnedSayNowEN.isEmpty {
+                waitingForPass = true
+                draft = ""
+            }
         }
         isBusy = false
     }

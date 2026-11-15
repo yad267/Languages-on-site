@@ -45,8 +45,12 @@ final class TimedSpeechCapture {
     /// Debounce: first moment the live PASS predicate held for the current hypothesis.
     private var autoFinishHoldSince: Date?
     private var autoFinishHoldText = ""
+    /// Once full PASS is seen, do not clear on brief SFSpeech regressions (trailing-word flicker).
+    private var passLatched = false
+    /// Best transcript that satisfied full PASS (used if later partials regress).
+    private var lastPassText = ""
     /// Brief confirm that full-phrase PASS is stable (stablePassKey ignores raw jitter).
-    private let autoFinishHoldSeconds: TimeInterval = 0.18
+    private let autoFinishHoldSeconds: TimeInterval = 0.12
     private var restartGeneration = 0
     private var interruptionObserver: NSObjectProtocol?
 
@@ -70,6 +74,8 @@ final class TimedSpeechCapture {
         didAutoFinish = false
         autoFinishHoldSince = nil
         autoFinishHoldText = ""
+        passLatched = false
+        lastPassText = ""
         elapsedSeconds = 0
         restartGeneration &+= 1
         self.expectedPhrase = expectedPhrase.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -170,13 +176,15 @@ final class TimedSpeechCapture {
             }
         }
 
-        let finalText = partialText.trimmingCharacters(in: .whitespacesAndNewlines)
-        log("end take final=\"\(finalText)\" auto=\(didAutoFinish) max=\(hitMaxCap)")
+        let rawFinal = (lastPassText.isEmpty ? partialText : lastPassText)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        log("end take final=\"\(rawFinal)\" auto=\(didAutoFinish) max=\(hitMaxCap) latched=\(passLatched)")
+        let expected = expectedPhrase
         tearDown()
-        guard !finalText.isEmpty else { return "" }
+        guard !rawFinal.isEmpty else { return "" }
         return isEnglish
-            ? PhraseSimilarity.correctSiteASR(finalText)
-            : finalText
+            ? PhraseSimilarity.correctSiteASR(rawFinal, expected: expected)
+            : rawFinal
     }
 
     /// User tapped «Готово» / «Стоп» — end recording.
@@ -218,11 +226,13 @@ final class TimedSpeechCapture {
 
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
-        // Dictation segments on pauses — we restart on isFinal so that is OK.
+        // Dictation for full phrases (search is too keyword-biased for site sentences).
         request.taskHint = .dictation
+        request.shouldReportPartialResults = true
         if !isEnglish, recognizer.supportsOnDeviceRecognition {
             request.requiresOnDeviceRecognition = true
         }
+        // Prefer short 1–2 word hints first (Apple guidance); already ordered by caller.
         if !contextualHints.isEmpty {
             request.contextualStrings = contextualHints
         }
@@ -241,19 +251,26 @@ final class TimedSpeechCapture {
 
                 if let result {
                     let raw = result.bestTranscription.formattedString
-                    let heard = self.isEnglish ? PhraseSimilarity.correctSiteASR(raw) : raw
+                    let heard = self.isEnglish
+                        ? PhraseSimilarity.correctSiteASR(raw, expected: self.expectedPhrase)
+                        : raw
                     self.segmentPartial = heard
                     self.publishCombined()
                     self.considerAutoFinish(heard: self.partialText)
 
                     if result.isFinal {
                         let combined = self.partialText.trimmingCharacters(in: .whitespacesAndNewlines)
-                        self.log("isFinal segment=\"\(heard)\" combined=\"\(combined)\"")
-                        // Utterance ended (pause / clause). Keep mic open unless *full* PASS
-                        // (every expected token, including trailing hard hat).
-                        if self.shouldAutoFinish(combined) {
+                        self.log("isFinal segment=\"\(heard)\" combined=\"\(combined)\" latched=\(self.passLatched)")
+                        // Full PASS (or latched PASS) → end take immediately.
+                        // Translation-app pattern: finalize on complete hypothesis; don't
+                        // restart the session and drop trailing words.
+                        if self.passLatched || self.shouldAutoFinish(combined) {
+                            if self.shouldAutoFinish(combined) {
+                                self.lastPassText = combined
+                            }
                             self.log("autoFinish on isFinal+fullPass")
                             self.didAutoFinish = true
+                            self.passLatched = true
                             self.resumeWait()
                         } else {
                             // Mid-phrase silence / clause break — commit and keep listening.
@@ -265,8 +282,12 @@ final class TimedSpeechCapture {
                 if let error {
                     let ns = error as NSError
                     self.log("recognition error domain=\(ns.domain) code=\(ns.code) \(ns.localizedDescription)")
-                    // Don't end the take — Speech often errors after isFinal; restart.
-                    if self.isCapturing, !self.didAutoFinish {
+                    // Latched PASS: end rather than restart (avoids trailing-word loss).
+                    if self.isCapturing, !self.didAutoFinish, self.passLatched {
+                        self.didAutoFinish = true
+                        self.resumeWait()
+                    } else if self.isCapturing, !self.didAutoFinish {
+                        // Don't end the take — Speech often errors after isFinal; restart.
                         self.commitSegmentAndContinue(reason: "error")
                     }
                 }
@@ -276,17 +297,28 @@ final class TimedSpeechCapture {
 
     private func publishCombined() {
         let combined = Self.joinTranscript(committed: committedText, segment: segmentPartial)
-        partialText = isEnglish ? PhraseSimilarity.correctSiteASR(combined) : combined
+        partialText = isEnglish
+            ? PhraseSimilarity.correctSiteASR(combined, expected: expectedPhrase)
+            : combined
     }
 
     private func commitSegmentAndContinue(reason: String) {
         guard isCapturing, !didAutoFinish else { return }
+        // If we already saw a full PASS, finalize instead of restarting (trailing words).
+        if passLatched {
+            log("skip restart; pass latched reason=\(reason)")
+            didAutoFinish = true
+            resumeWait()
+            return
+        }
         let piece = segmentPartial.trimmingCharacters(in: .whitespacesAndNewlines)
         if !piece.isEmpty {
             committedText = Self.joinTranscript(committed: committedText, segment: piece)
             segmentPartial = ""
             publishCombined()
             log("commit reason=\(reason) committed=\"\(committedText)\"")
+            considerAutoFinish(heard: partialText)
+            if didAutoFinish { return }
         }
         scheduleRecognitionRestart(reason: reason)
     }
@@ -329,30 +361,39 @@ final class TimedSpeechCapture {
     }
 
     /// Auto-finish only when full-phrase PASS (incl. trailing tokens) stays true briefly.
+    /// Latch on first full PASS so SFSpeech partial regressions cannot clear the hold
+    /// (common hang: UI shows complete phrase, capture never ends).
     private func considerAutoFinish(heard: String) {
         guard !didAutoFinish, isCapturing else { return }
         let elapsed = startedAt.map { Date().timeIntervalSince($0) } ?? 0
-        guard elapsed >= 0.3 else { return }
+        guard elapsed >= 0.25 else { return }
 
         let trimmed = heard.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard shouldAutoFinish(trimmed) else {
+        let passing = shouldAutoFinish(trimmed)
+
+        if passing {
+            lastPassText = trimmed
+            passLatched = true
+            let key = PhraseSimilarity.stablePassKey(trimmed)
+            if autoFinishHoldText != key {
+                // Keep earliest hold start so jitter between equivalent PASS keys still finishes.
+                if autoFinishHoldSince == nil {
+                    autoFinishHoldSince = Date()
+                    log("pass hold start \"\(trimmed)\" key=\"\(key)\"")
+                }
+                autoFinishHoldText = key
+            }
+        } else if !passLatched {
             autoFinishHoldSince = nil
             autoFinishHoldText = ""
             return
         }
-
-        // Stable key: ignore minor raw jitter while PASS remains true.
-        let key = PhraseSimilarity.stablePassKey(trimmed)
-        if autoFinishHoldText != key {
-            autoFinishHoldText = key
-            autoFinishHoldSince = Date()
-            log("pass hold start \"\(trimmed)\" key=\"\(key)\"")
-        }
+        // Latched but current partial regressed — keep hold clock; finish on lastPassText.
 
         let held = autoFinishHoldSince.map { Date().timeIntervalSince($0) } ?? 0
         guard held >= autoFinishHoldSeconds else { return }
 
-        log("autoFinish after \(String(format: "%.2f", held))s \"\(trimmed)\"")
+        log("autoFinish after \(String(format: "%.2f", held))s \"\(lastPassText)\" latched=\(passLatched)")
         didAutoFinish = true
         autoFinishHoldSince = nil
         autoFinishHoldText = ""
@@ -382,6 +423,8 @@ final class TimedSpeechCapture {
         expectedPhrase = ""
         autoFinishHoldSince = nil
         autoFinishHoldText = ""
+        passLatched = false
+        // Keep lastPassText until captureUntilStopped reads it; cleared on next start.
         restartTask?.cancel()
         restartTask = nil
         timerTask?.cancel()

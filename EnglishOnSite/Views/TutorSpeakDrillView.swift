@@ -336,12 +336,13 @@ struct TutorSpeakDrillView: View {
             score = 100
             phase = .passed
             note = ""
-            listenTask?.cancel()
-            listenTask = Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 80_000_000)
-                guard !Task.isCancelled else { return }
-                advance()
-            }
+            // Stop capture / listen task, then advance immediately (no deferred Task
+            // that can be cancelled by the same listenTask?.cancel() race).
+            let prior = listenTask
+            listenTask = nil
+            prior?.cancel()
+            capture.cancel()
+            advance()
             return
         }
         // Incorrect: clear display, keep same target, listen again.
@@ -361,6 +362,7 @@ struct TutorSpeakDrillView: View {
         speakHandoffEpoch &+= 1
         isSpeakingPrompt = false
         listenTask?.cancel()
+        listenTask = nil
         speaker?.stop()
         if index + 1 >= phrases.count {
             index = 0
@@ -376,7 +378,8 @@ struct TutorSpeakDrillView: View {
         score = 0
         heard = ""
         note = ""
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        // Next item is already visible (.ready + new index); start TTS→mic promptly.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             if smokeNoMic { return }
             speakPromptThenListen()
         }

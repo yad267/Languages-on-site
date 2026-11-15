@@ -180,7 +180,9 @@ enum PhraseSimilarity {
     ]
 
     /// Fix common EN site STT confusions before scoring / display.
-    static func correctSiteASR(_ text: String) -> String {
+    /// - Parameter expected: when the target contains «hard hat», also map a lone
+    ///   ASR collapse («heart» / «hot» / «heard» / «hart») → «hard hat».
+    static func correctSiteASR(_ text: String, expected: String = "") -> String {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return trimmed }
         var s = " " + trimmed + " "
@@ -214,40 +216,71 @@ enum PhraseSimilarity {
                 s = regex.stringByReplacingMatches(in: s, options: [], range: range, withTemplate: right)
             }
         }
+        // SFSpeech often emits a single «heart» for the two-word PPE «hard hat».
+        let exp = expected.lowercased()
+        if exp.contains("hard hat") || exp.contains("hardhat") {
+            if let lone = try? NSRegularExpression(
+                pattern: #"\b(heart|hot|heard|hart)\b(?!\s+hats?\b)"#,
+                options: [.caseInsensitive]
+            ) {
+                let range = NSRange(s.startIndex..<s.endIndex, in: s)
+                s = lone.stringByReplacingMatches(
+                    in: s,
+                    options: [],
+                    range: range,
+                    withTemplate: "hard hat"
+                )
+            }
+        }
         return s
             .replacingOccurrences(of: #"\s+"#, with: " ", options: .regularExpression)
             .trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-    /// STT contextualStrings: canon + compacted variant + site lexicon when relevant.
+    /// STT contextualStrings: Apple recommends short (1–2 word) phrases first.
+    /// Full sentence last — lengthy hints are less effective.
     static func sttVariants(for expected: String) -> [String] {
         let raw = expected.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !raw.isEmpty else { return [] }
-        var out = [raw]
+        var out: [String] = []
         let compacted = raw
             .replacingOccurrences(of: "-", with: " ")
             .replacingOccurrences(of: #"\s+"#, with: " ", options: .regularExpression)
             .trimmingCharacters(in: .whitespacesAndNewlines)
-        let noSpace = compacted.replacingOccurrences(of: " ", with: "")
-        if compacted != raw { out.append(compacted) }
-        if noSpace.lowercased() != compacted.lowercased() { out.append(noSpace) }
         let words = compacted
             .components(separatedBy: CharacterSet.alphanumerics.inverted)
             .filter { !$0.isEmpty }
+        // Single words first (boost trailing «hat» etc.).
+        out.append(contentsOf: words)
+        // Bigrams next (e.g. «hard hat»).
         if words.count >= 2 {
             for i in 0..<(words.count - 1) {
                 out.append("\(words[i]) \(words[i + 1])")
             }
         }
+        // PPE / ASR-confusion boosts for hard-hat targets.
         let lower = compacted.lowercased()
-        // Boost overlapping site terms + always keep hard hat / Safe Pass / hi-vis.
+        if lower.contains("hard") || lower.contains("hat") {
+            out.append(contentsOf: [
+                "hat", "hard", "hard hat",
+                "heart", "heart hat", "hot hat", "heard hat", "hart hat",
+            ])
+        }
+        let noSpace = compacted.replacingOccurrences(of: " ", with: "")
+        if compacted != raw { out.append(compacted) }
+        if noSpace.lowercased() != compacted.lowercased() { out.append(noSpace) }
+        // Full target phrase last.
+        out.append(raw)
+        if compacted != raw { out.append(compacted) }
+        // Overlapping site lexicon (short hints preferred).
         for hint in siteContextualHints {
             let h = hint.lowercased()
             if lower.contains(h)
-                || h.contains("hard hat")
-                || h.contains("safe pass")
-                || h.contains("hi-vis")
-                || h.contains("hi vis")
+                || h == "hard hat"
+                || h == "hard hats"
+                || h == "safe pass"
+                || h == "hi-vis"
+                || h == "hi vis"
                 || h == "ppe" {
                 out.append(hint)
             }
@@ -360,6 +393,10 @@ enum PhraseSimilarity {
             (" hard at ", " hard hat "),
             (" hard hit ", " hard hat "),
             (" hard cat ", " hard hat "),
+            // Lone ASR collapses of «hard» (after multi-word PPE aliases above).
+            (" heart ", " hard "),
+            (" heard ", " hard "),
+            (" hart ", " hard "),
             (" safepass ", " safe pass "),
             (" safe past ", " safe pass "),
             (" safe path ", " safe pass "),
@@ -442,7 +479,7 @@ enum PhraseSimilarity {
     ) -> String {
         let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !exp.isEmpty else { return "" }
-        let cleaned = correctSiteASR(recognized)
+        let cleaned = correctSiteASR(recognized, expected: exp)
             .trimmingCharacters(in: .whitespacesAndNewlines)
         guard !cleaned.isEmpty else { return "" }
 
@@ -479,7 +516,7 @@ enum PhraseSimilarity {
         useTalkNormalize: Bool
     ) -> ProgressiveMatch {
         let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
-        let cleaned = correctSiteASR(recognized)
+        let cleaned = correctSiteASR(recognized, expected: exp)
             .trimmingCharacters(in: .whitespacesAndNewlines)
         guard !exp.isEmpty, !cleaned.isEmpty else {
             return ProgressiveMatch(shown: "", matched: 0, expectedCount: 0)
@@ -819,6 +856,24 @@ enum PhraseSimilarity {
             useTalkNormalize: true
         ) {
             fails.append("heart-hat-progressive-complete")
+        }
+        // Lone «heart» collapse of «hard hat» (common SFSpeech PPE mishear).
+        if !passes(recognized: "where is my heart", expected: hardHat) {
+            fails.append("lone-heart-should-pass-drill")
+        }
+        if !passesTalk(recognized: "where is my heart", expected: hardHat) {
+            fails.append("lone-heart-should-pass-talk")
+        }
+        if !isCompleteProgressiveMatch(
+            recognized: "where is my heart",
+            expected: hardHat,
+            useTalkNormalize: true
+        ) {
+            fails.append("lone-heart-progressive-complete")
+        }
+        // Prefix still must not pass after heart aliases.
+        if passes(recognized: "where is my", expected: hardHat) {
+            fails.append("prefix-blocked-after-heart-alias")
         }
 
         check(

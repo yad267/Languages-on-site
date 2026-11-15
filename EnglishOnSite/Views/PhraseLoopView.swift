@@ -390,18 +390,17 @@ struct PhraseLoopView: View {
         guard let phrase = current else { return }
         let ok = PhraseSimilarity.passes(recognized: raw, expected: phrase.en)
         if ok {
-            // Only the correct phrase is shown; then advance.
+            // Only the correct phrase is shown; then advance immediately.
             transcript = phrase.en
             scorePercent = 100
             phase = .passed
             statusNote = ""
             successHaptic()
-            listenTask?.cancel()
-            listenTask = Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 80_000_000)
-                guard !Task.isCancelled else { return }
-                advance()
-            }
+            let prior = listenTask
+            listenTask = nil
+            prior?.cancel()
+            capture.cancel()
+            advance()
             return
         }
         // Incorrect / unclear: hide wrong words, keep same target, listen again.
@@ -427,6 +426,7 @@ struct PhraseLoopView: View {
         isSpeakingPrompt = false
         speaker?.stop()
         listenTask?.cancel()
+        listenTask = nil
         if index + 1 >= phrases.count {
             phase = .finished
             statusNote = ""
@@ -437,7 +437,7 @@ struct PhraseLoopView: View {
         scorePercent = 0
         statusNote = ""
         phase = .ready
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
             speakPromptThenListen()
         }
     }
