@@ -163,9 +163,11 @@ enum TutorBankStore {
         _ = pairsPhrasals
     }
 
-    /// Site bank first, then general. Same EN → site wins when both are core (tier ≤ 1).
-    /// If site was demoted (e.g. cable-tray example → tier 2) and general stays core, keep general.
-    /// Used by TutorPairsView (Репетитор → Пары and Упражнения → Phrasal verbs) without seeds.
+    /// Site bank (`phrasals_bank_v1`) first, then general (`phrasals_general_v1`).
+    /// Same EN → keep site meaning when both are tier ≤ 1; never drop a tier-1 general
+    /// entry that site lost (e.g. site demoted by cable-tray enrich). Fallback: any EN
+    /// still missing from either bank so the pool stays complete.
+    /// Used by unseeded TutorPairsView (Репетитор → Пары · Фразовые / Наоборот).
     static var pairsPhrasals: [PhrasalEntry] {
         ensureLoaded()
         if let cachedPairsPhrasals, !cachedPairsPhrasals.isEmpty { return cachedPairsPhrasals }
@@ -173,18 +175,15 @@ enum TutorBankStore {
         let generalRaw: [PhrasalEntry] = loadJSON("phrasals_general_v1", key: "phrasals")
         let site = Self.enrichPhrasalExamples(siteRaw)
         let general = Self.enrichPhrasalExamples(generalRaw)
-        let merged = Self.mergePhrasalsSiteFirst(site: site, general: general)
-        // Prefer core; if enrich demoted everything, still return the merge.
-        let core = merged.filter { $0.tier <= 1 }
-        let result = core.isEmpty ? merged : core
+        let result = Self.mergePhrasalsSiteFirst(site: site, general: general)
         if !result.isEmpty {
             cachedPairsPhrasals = result
         }
         return result
     }
 
-    /// Site first for tier ≤ 1; then general tier ≤ 1 for EN not yet taken;
-    /// finally any remaining EN from site then general (so the pool stays complete).
+    /// 1) all site tier ≤ 1  2) general tier ≤ 1 for EN not yet taken
+    /// 3) any leftover EN from site then general (tier > 1 only if no core copy exists).
     private static func mergePhrasalsSiteFirst(site: [PhrasalEntry], general: [PhrasalEntry]) -> [PhrasalEntry] {
         var seen = Set<String>()
         var out: [PhrasalEntry] = []
@@ -206,7 +205,8 @@ enum TutorBankStore {
             seen.insert(k)
             out.append(p)
         }
-        for p in site + general {
+        // Only if both banks lack a tier-1 copy for that EN.
+        for p in site + general where p.tier > 1 {
             let k = key(for: p)
             guard !k.isEmpty, !seen.contains(k) else { continue }
             seen.insert(k)
