@@ -412,6 +412,7 @@ struct TutorPairsView: View {
         practiceOK = false
         practiceListening = true
         let hints = PhraseSimilarity.sttVariants(for: practiceEN) + [practiceEN]
+            + PhraseSimilarity.siteContextualHints
         let text = await practiceCapture.captureUntilStopped(
             localeId: settings.rememberLocale.rawValue,
             maxSeconds: 45,
