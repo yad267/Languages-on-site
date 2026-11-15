@@ -69,10 +69,23 @@ struct TutorPhrasalLadderView: View {
         return ex.isEmpty ? "Please \(p.en) carefully on site." : ex
     }
 
+    /// Russian prompt for translate: prefer example sentence, else gloss, else synthetic.
     private var targetRu: String {
         guard let p = current else { return "" }
-        let ru = p.exampleRu.trimmingCharacters(in: .whitespacesAndNewlines)
-        return ru.isEmpty ? p.ru : ru
+        return russianPrompt(for: p)
+    }
+
+    private var meaningRu: String {
+        guard let p = current else { return "" }
+        return p.ru.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private func russianPrompt(for p: PhrasalEntry) -> String {
+        let ex = p.exampleRu.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !ex.isEmpty { return ex }
+        let gloss = p.ru.trimmingCharacters(in: .whitespacesAndNewlines)
+        if !gloss.isEmpty { return gloss }
+        return "Составь предложение с «\(p.en)»"
     }
 
     private var gapSentence: String {
@@ -306,7 +319,40 @@ struct TutorPhrasalLadderView: View {
                 .foregroundStyle(.tertiary)
 
         case .translate:
-            tappablePhrase(targetRu, speakText: targetRu)
+            Text("По-русски · переведи на EN")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+
+            // Always show the short meaning so the learner knows what the phrasal means.
+            if !meaningRu.isEmpty {
+                Button {
+                    speak(meaningRu)
+                } label: {
+                    HStack(alignment: .firstTextBaseline, spacing: 8) {
+                        Text("Значение")
+                            .font(.caption.weight(.bold))
+                            .foregroundStyle(.secondary)
+                        Text(meaningRu)
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.primary)
+                            .multilineTextAlignment(.leading)
+                        Spacer(minLength: 0)
+                        Image(systemName: "speaker.wave.2.fill")
+                            .foregroundStyle(Color.accentColor)
+                    }
+                    .padding(12)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12, style: .continuous)
+                            .fill(Color(.tertiarySystemBackground))
+                    )
+                }
+                .buttonStyle(.plain)
+            }
+
+            tappablePhrase(russianPrompt(for: p), speakText: russianPrompt(for: p))
+
             Text("Нужен phrasal: \(p.en)")
                 .font(.subheadline.weight(.semibold))
             Button {
@@ -315,6 +361,14 @@ struct TutorPhrasalLadderView: View {
                 Label(p.en, systemImage: "speaker.wave.2.fill")
             }
             .buttonStyle(.bordered)
+
+            // Do not reveal the EN example until after a pass (it is the answer).
+            if passed {
+                Text("Образец EN: \(targetSentence)")
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+            }
+
             TextField("EN предложение", text: $typed, axis: .vertical)
                 .lineLimit(2...4)
                 .textFieldStyle(.roundedBorder)
@@ -396,17 +450,33 @@ struct TutorPhrasalLadderView: View {
     }
 
     private func hearTexts(for p: PhrasalEntry) -> [String] {
-        var out: [String] = [p.en]
-        let ex = targetSentence.trimmingCharacters(in: .whitespacesAndNewlines)
-        if !ex.isEmpty, ex.lowercased() != p.en.lowercased() { out.append(ex) }
-        if stage == .translate || stage == .produce {
-            let ru = targetRu.trimmingCharacters(in: .whitespacesAndNewlines)
-            if !ru.isEmpty { out.append(ru) }
+        var out: [String] = []
+        switch stage {
+        case .gap:
+            out.append(p.en)
+            let ex = targetSentence.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !ex.isEmpty, ex.lowercased() != p.en.lowercased() { out.append(ex) }
+            let gloss = p.ru.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !gloss.isEmpty { out.append(gloss) }
+        case .translate:
+            // RU first — never spoil with the EN example before pass.
+            let prompt = russianPrompt(for: p)
+            if !prompt.isEmpty { out.append(prompt) }
+            let gloss = p.ru.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !gloss.isEmpty, gloss.lowercased() != prompt.lowercased() { out.append(gloss) }
+            out.append(p.en)
+            if passed {
+                let ex = targetSentence.trimmingCharacters(in: .whitespacesAndNewlines)
+                if !ex.isEmpty, ex.lowercased() != p.en.lowercased() { out.append(ex) }
+            }
+        case .produce:
+            out.append(p.en)
+            let gloss = p.ru.trimmingCharacters(in: .whitespacesAndNewlines)
+            if !gloss.isEmpty { out.append(gloss) }
         }
         if !typed.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
             out.append(typed.trimmingCharacters(in: .whitespacesAndNewlines))
         }
-        // unique preserving order
         var seen = Set<String>()
         return out.filter { seen.insert($0.lowercased()).inserted }
     }
