@@ -29,53 +29,81 @@ struct TutorSpeakDrillView: View {
     }
 
     var body: some View {
-        VStack(spacing: 16) {
-            Text("\(min(index + 1, max(phrases.count, 1))) / \(max(phrases.count, 1))")
-                .font(.headline)
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-            if let p = current {
-                Text(p.en)
-                    .font(.system(size: 26, weight: .bold))
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text(p.ru)
-                    .font(.title3.weight(.semibold))
-                    .foregroundStyle(.secondary)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 16) {
+                Text("\(min(index + 1, max(phrases.count, 1))) / \(max(phrases.count, 1))")
+                    .font(.headline)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
-                if phase == .listening {
-                    let shown = PhraseSimilarity.displayAgainstTarget(capture.partialText, expected: p.en)
-                    Text(shown.isEmpty ? "…" : shown)
+                if let p = current {
+                    Text(p.en)
+                        .font(.system(size: 26, weight: .bold))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(p.ru)
                         .font(.title3.weight(.semibold))
-                        .foregroundStyle(shown.isEmpty ? .tertiary : .primary)
-                        .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-                        .padding(10)
-                        .background(
-                            RoundedRectangle(cornerRadius: 12, style: .continuous)
-                                .strokeBorder(Color.red.opacity(0.4), lineWidth: 1.5)
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+
+                    if phase == .listening {
+                        let shown = PhraseSimilarity.correctOnlyDisplay(
+                            recognized: capture.partialText,
+                            expected: p.en
                         )
-                    Text("Слушаю…")
-                        .foregroundStyle(.red)
-                        .font(.subheadline.weight(.semibold))
-                } else if phase == .passed {
-                    Text("\(score)% · Дальше…").font(.title3.weight(.bold)).foregroundStyle(.green)
-                } else if phase == .failed {
-                    Text("\(score)% · Ещё раз").font(.title3.weight(.bold)).foregroundStyle(.orange)
-                    Text("Слышал: \(heard)").font(.caption).foregroundStyle(.secondary)
-                }
+                        Text(shown.isEmpty ? "…" : shown)
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(shown.isEmpty ? .tertiary : .primary)
+                            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                            .padding(10)
+                            .background(
+                                RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                    .strokeBorder(Color.accentColor.opacity(0.45), lineWidth: 1.5)
+                            )
+                        Text("Слушаю… повторяй, пока засчитаем")
+                            .foregroundStyle(.secondary)
+                            .font(.subheadline.weight(.semibold))
+                    } else if phase == .passed {
+                        // Only the correct phrase is shown — never a wrong STT dump.
+                        Text(heard.isEmpty ? p.en : heard)
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.green)
+                        Text("Верно · Дальше…").font(.title3.weight(.bold)).foregroundStyle(.green)
+                    } else if phase == .failed {
+                        // Hide incorrect words; keep listening cycle.
+                        Text("…")
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.tertiary)
+                        Text("Ещё раз ту же фразу")
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                    }
 
-                if !note.isEmpty {
-                    Text(note).font(.caption).foregroundStyle(.orange)
+                    if !note.isEmpty {
+                        Text(note).font(.caption).foregroundStyle(.orange)
+                    }
+                } else {
+                    Text("Нет фраз в банке — добавь phrasal / глаголы")
+                        .foregroundStyle(.secondary)
                 }
-
-                controls(for: p)
-            } else {
-                Text("Нет фраз в банке — добавь phrasal / глаголы")
-                    .foregroundStyle(.secondary)
             }
-            Spacer()
+            .padding(16)
+            .padding(.bottom, 8)
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
-        .padding(16)
+        .contentMargins(.top, 4, for: .scrollContent)
+        .contentMargins(.bottom, 8, for: .scrollContent)
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            Group {
+                if let p = current {
+                    controls(for: p)
+                        .padding(.horizontal, 16)
+                        .padding(.top, 10)
+                        .padding(.bottom, 10)
+                }
+            }
+            .frame(maxWidth: .infinity)
+            .background(.ultraThinMaterial)
+            .safeAreaPadding(.bottom, 12)
+        }
         .navigationTitle("Говорить")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $whySeed) { seed in
@@ -99,7 +127,7 @@ struct TutorSpeakDrillView: View {
                 heard = ""
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                     let raw = "Turn off turn off turn off"
-                    let shown = PhraseSimilarity.displayAgainstTarget(raw, expected: "turn off")
+                    let shown = PhraseSimilarity.correctOnlyDisplay(recognized: raw, expected: "turn off")
                     let ok = PhraseSimilarity.passes(recognized: raw, expected: "turn off")
                     evaluate(raw, expected: "turn off")
                     Self.writeSmokeResult(caseName: "turnOffRepeat", heard: shown, passed: ok)
@@ -114,7 +142,7 @@ struct TutorSpeakDrillView: View {
                 heard = ""
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                     let raw = "handover"
-                    let shown = PhraseSimilarity.displayAgainstTarget(raw, expected: "hand over")
+                    let shown = PhraseSimilarity.correctOnlyDisplay(recognized: raw, expected: "hand over")
                     let ok = PhraseSimilarity.passes(recognized: raw, expected: "hand over")
                     evaluate(raw, expected: "hand over")
                     Self.writeSmokeResult(caseName: "handover", heard: shown, passed: ok)
@@ -129,7 +157,7 @@ struct TutorSpeakDrillView: View {
                 heard = ""
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                     let raw = "turnoff"
-                    let shown = PhraseSimilarity.displayAgainstTarget(raw, expected: "turn off")
+                    let shown = PhraseSimilarity.correctOnlyDisplay(recognized: raw, expected: "turn off")
                     let ok = PhraseSimilarity.passes(recognized: raw, expected: "turn off")
                     evaluate(raw, expected: "turn off")
                     Self.writeSmokeResult(caseName: "turnoffCompact", heard: shown, passed: ok)
@@ -232,7 +260,7 @@ struct TutorSpeakDrillView: View {
             try? AudioSessionManager.configureForRecording()
             var hints = PhraseSimilarity.sttVariants(for: p.en)
             hints.append(contentsOf: p.en.split(separator: " ").map(String.init))
-            hints.append(contentsOf: ["hard hat", "Safe Pass", "hi-vis"])
+            hints.append(contentsOf: PhraseSimilarity.siteContextualHints)
             let target = p.en
             let text = await capture.captureUntilStopped(
                 localeId: settings.rememberLocale.rawValue,
@@ -246,39 +274,30 @@ struct TutorSpeakDrillView: View {
     }
 
     private func evaluate(_ raw: String, expected: String) {
-        heard = PhraseSimilarity.displayAgainstTarget(raw, expected: expected)
         let passed = PhraseSimilarity.passes(recognized: raw, expected: expected)
-        if heard.isEmpty
-            || (!passed && PhraseSimilarity.looksLikeSTTFail(recognized: heard, expected: expected)) {
-            score = PhraseSimilarity.percent(recognized: heard, expected: expected)
-            phase = .failed
-            note = "Микрофон сбился — ещё раз (не «плохой английский»)"
-            listenTask = Task {
-                try? await Task.sleep(nanoseconds: 700_000_000)
-                guard !Task.isCancelled, !smokeNoMic else { return }
-                startListen()
-            }
-            return
-        }
-        score = PhraseSimilarity.percent(recognized: heard, expected: expected)
         if passed {
+            // Dismiss with the correct phrase only — never flash wrong STT.
+            heard = expected
+            score = 100
             phase = .passed
-            note = "≥75%"
-            // B6: PASS → сразу следующая (ту же не дублируем новым item).
+            note = ""
             listenTask?.cancel()
             listenTask = Task { @MainActor in
                 try? await Task.sleep(nanoseconds: 350_000_000)
                 guard !Task.isCancelled else { return }
                 advance()
             }
-        } else {
-            phase = .failed
-            note = "Ещё раз ту же фразу"
-            listenTask = Task {
-                try? await Task.sleep(nanoseconds: 700_000_000)
-                guard !Task.isCancelled, !smokeNoMic else { return }
-                startListen()
-            }
+            return
+        }
+        // Incorrect: clear display, keep same target, listen again.
+        heard = ""
+        score = 0
+        phase = .failed
+        note = ""
+        listenTask = Task {
+            try? await Task.sleep(nanoseconds: 500_000_000)
+            guard !Task.isCancelled, !smokeNoMic else { return }
+            startListen()
         }
     }
 
