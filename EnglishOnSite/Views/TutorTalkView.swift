@@ -818,7 +818,7 @@ struct TutorTalkView: View {
                 isSpeakingPrompt = false
                 voiceNote = speaker?.statusNote ?? ElevenLabsTTS.shared.lastStatusRU
                 // Settle: release speaker session before recording category.
-                try? await Task.sleep(nanoseconds: 300_000_000)
+                try? await Task.sleep(nanoseconds: 450_000_000)
                 guard epoch == speakHandoffEpoch else { return }
                 // If coach pinned a different target mid-play, only continue for the live pin.
                 guard !isBusy, waitingForPass else { return }

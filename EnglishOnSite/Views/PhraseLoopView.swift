@@ -342,7 +342,7 @@ struct PhraseLoopView: View {
                 guard epoch == speakHandoffEpoch else { return }
                 isSpeakingPrompt = false
                 statusNote = speaker?.statusNote ?? ""
-                try? await Task.sleep(nanoseconds: 300_000_000)
+                try? await Task.sleep(nanoseconds: 450_000_000)
                 guard epoch == speakHandoffEpoch else { return }
                 guard current?.en == targetEN else { return }
                 startListening()
