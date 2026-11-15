@@ -1,0 +1,4407 @@
+{
+  "version": 1,
+  "track": "onsite",
+  "sections": [
+    {
+      "id": "construction",
+      "title_ru": "Стройка",
+      "title_en": "Construction",
+      "track": "onsite",
+      "lesson_ids": [
+        "onsite-construction-cmds-01",
+        "onsite-construction-01",
+        "onsite-construction-02",
+        "onsite-construction-03",
+        "onsite-construction-04",
+        "onsite-construction-05",
+        "onsite-construction-06",
+        "onsite-construction-07",
+        "onsite-construction-08",
+        "onsite-construction-09",
+        "onsite-construction-10",
+        "onsite-construction-11",
+        "onsite-construction-12"
+      ],
+      "lesson_count": 13
+    },
+    {
+      "id": "websites_cctv",
+      "title_ru": "Сайты / CCTV",
+      "title_en": "Websites & CCTV",
+      "track": "onsite",
+      "lesson_ids": [
+        "onsite-websites_cctv-01",
+        "onsite-websites_cctv-02",
+        "onsite-websites_cctv-03",
+        "onsite-websites_cctv-04",
+        "onsite-websites_cctv-05",
+        "onsite-websites_cctv-06",
+        "onsite-websites_cctv-07",
+        "onsite-websites_cctv-08",
+        "onsite-websites_cctv-09",
+        "onsite-websites_cctv-10",
+        "onsite-websites_cctv-11",
+        "onsite-websites_cctv-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "induction",
+      "title_ru": "Induction",
+      "title_en": "Site induction",
+      "track": "onsite",
+      "lesson_ids": [
+        "onsite-induction-01",
+        "onsite-induction-02",
+        "onsite-induction-03",
+        "onsite-induction-04",
+        "onsite-induction-05",
+        "onsite-induction-06",
+        "onsite-induction-07",
+        "onsite-induction-08",
+        "onsite-induction-09",
+        "onsite-induction-10",
+        "onsite-induction-11",
+        "onsite-induction-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "electrical",
+      "title_ru": "Электрика",
+      "title_en": "Electrical",
+      "track": "onsite",
+      "lesson_ids": [
+        "onsite-electrical-01",
+        "onsite-electrical-02",
+        "onsite-electrical-03",
+        "onsite-electrical-04",
+        "onsite-electrical-05",
+        "onsite-electrical-06",
+        "onsite-electrical-07",
+        "onsite-electrical-08",
+        "onsite-electrical-09",
+        "onsite-electrical-10",
+        "onsite-electrical-11",
+        "onsite-electrical-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "tools",
+      "title_ru": "Инструменты",
+      "title_en": "Tools",
+      "track": "onsite",
+      "lesson_ids": [
+        "onsite-tools-01",
+        "onsite-tools-02",
+        "onsite-tools-03",
+        "onsite-tools-04",
+        "onsite-tools-05",
+        "onsite-tools-06",
+        "onsite-tools-07",
+        "onsite-tools-08",
+        "onsite-tools-09",
+        "onsite-tools-10",
+        "onsite-tools-11",
+        "onsite-tools-12"
+      ],
+      "lesson_count": 12
+    }
+  ],
+  "lessons": [
+    {
+      "id": "onsite-construction-01",
+      "title_ru": "Стройка · урок 1",
+      "title_en": "Construction · lesson 1",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Утренний брифинг: план на день.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Morning. What's the plan for today?",
+          "ru": "Доброе утро. Какой план на сегодня?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "We start on the ground floor slab.",
+          "ru": "Начинаем с плиты на первом этаже.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Do we need barriers up first?",
+          "ru": "Сначала поставить ограждения?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Put the barriers around the open edge.",
+          "ru": "Да. Поставь ограждения вокруг открытого края.",
+          "role": "foreman",
+          "tip_ru": "put the barriers",
+          "practice": false
+        },
+        {
+          "en": "OK, I'll set them now.",
+          "ru": "Ок, сейчас поставлю.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Good. Then wait for the pour team.",
+          "ru": "Хорошо. Потом жди бригаду заливки.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What's the plan for today?",
+          "ru": "Какой план на сегодня?"
+        },
+        {
+          "en": "I'll set them now.",
+          "ru": "Сейчас поставлю."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 1
+    },
+    {
+      "id": "onsite-construction-02",
+      "title_ru": "Стройка · урок 2",
+      "title_en": "Construction · lesson 2",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Подъём материалов — куда нести.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Where do these bags go?",
+          "ru": "Куда эти мешки?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Take them to bay three.",
+          "ru": "Отнеси их в отсек три.",
+          "role": "foreman",
+          "tip_ru": "bay three",
+          "practice": false
+        },
+        {
+          "en": "Is the hoist free?",
+          "ru": "Подъёмник свободен?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use the hoist. Don't carry them up the stairs.",
+          "ru": "Используй подъёмник. Не тащи по лестнице.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Got it. How many trips?",
+          "ru": "Понял. Сколько ходок?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Four trips should cover it.",
+          "ru": "Четырёх ходок хватит.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where do these bags go?",
+          "ru": "Куда эти мешки?"
+        },
+        {
+          "en": "Is the hoist free?",
+          "ru": "Подъёмник свободен?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 2
+    },
+    {
+      "id": "onsite-construction-03",
+      "title_ru": "Стройка · урок 3",
+      "title_en": "Construction · lesson 3",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Опасная зона — нельзя заходить.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Is this area closed?",
+          "ru": "Эта зона закрыта?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Live works behind that tape.",
+          "ru": "Да. За лентой — работы под напряжением.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Who can go in?",
+          "ru": "Кто может заходить?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Only the authorised crew with permits.",
+          "ru": "Только допущенная бригада с нарядами.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll stay outside then.",
+          "ru": "Тогда останусь снаружи.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Good. Keep clear until I call you.",
+          "ru": "Хорошо. Не заходи, пока не позову.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this area closed?",
+          "ru": "Эта зона закрыта?"
+        },
+        {
+          "en": "I'll stay outside then.",
+          "ru": "Тогда останусь снаружи."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 3
+    },
+    {
+      "id": "onsite-construction-04",
+      "title_ru": "Стройка · урок 4",
+      "title_en": "Construction · lesson 4",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Доступ к лотку — подмости.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I need access to that cable tray.",
+          "ru": "Мне нужен доступ к тому лотку.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use the podium steps, not the wooden ladder.",
+          "ru": "Бери подмости, не деревянную лестницу.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Are the wheels locked?",
+          "ru": "Колёса зафиксированы?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Check the brakes before you climb.",
+          "ru": "Проверь тормоза перед подъёмом.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Brakes are on. Climbing now.",
+          "ru": "Тормоза включены. Поднимаюсь.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Someone foot the base if it wobbles.",
+          "ru": "Если шатается — пусть кто-то придержит основание.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need access to that cable tray.",
+          "ru": "Мне нужен доступ к тому лотку."
+        },
+        {
+          "en": "Are the wheels locked?",
+          "ru": "Колёса зафиксированы?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 4
+    },
+    {
+      "id": "onsite-construction-05",
+      "title_ru": "Стройка · урок 5",
+      "title_en": "Construction · lesson 5",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Поставка короба опаздывает.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "The trunking delivery is late.",
+          "ru": "Поставка короба опаздывает.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "How late?",
+          "ru": "Насколько?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "They said after lunch, maybe three.",
+          "ru": "Сказали после обеда, может в три.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Call the supplier and get a firm time.",
+          "ru": "Позвони поставщику и возьми точное время.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "OK. Should I switch to another task?",
+          "ru": "Ок. Переключиться на другую задачу?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes — pull cable on level two meanwhile.",
+          "ru": "Да — пока тяни кабель на втором уровне.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The trunking delivery is late.",
+          "ru": "Поставка короба опаздывает."
+        },
+        {
+          "en": "Should I switch to another task?",
+          "ru": "Переключиться на другую задачу?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 5
+    },
+    {
+      "id": "onsite-construction-06",
+      "title_ru": "Стройка · урок 6",
+      "title_en": "Construction · lesson 6",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Ветер на крыше — стоп работы.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Wind is picking up on the roof.",
+          "ru": "На крыше усиливается ветер.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What's the reading?",
+          "ru": "Какие показания?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "About forty kilometres an hour.",
+          "ru": "Около сорока километров в час.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Stop roof work. Tie down loose sheets.",
+          "ru": "Стоп работы на крыше. Закрепите свободные листы.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "We'll move inside to the plant room.",
+          "ru": "Перейдём внутрь в венткамеру.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Good call. Report when you're clear.",
+          "ru": "Правильно. Сообщи, когда освободитесь.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Wind is picking up on the roof.",
+          "ru": "На крыше усиливается ветер."
+        },
+        {
+          "en": "We'll move inside.",
+          "ru": "Перейдём внутрь."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 6
+    },
+    {
+      "id": "onsite-construction-07",
+      "title_ru": "Стройка · урок 7",
+      "title_en": "Construction · lesson 7",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Разметка перед сверлением.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Can you check my marks before I drill?",
+          "ru": "Проверишь разметку перед сверлением?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Show me the centres.",
+          "ru": "Покажи центры.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Two hundred mil from the corner, level.",
+          "ru": "Двести миллиметров от угла, по уровню.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Looks right. Scan for cables first.",
+          "ru": "Похоже верно. Сначала просканируй на кабели.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Scanner is clear. Drilling now.",
+          "ru": "Сканер чистый. Сверлю.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use dust extraction.",
+          "ru": "Включи пылеудаление.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Check my marks before I drill.",
+          "ru": "Проверь разметку перед сверлением."
+        },
+        {
+          "en": "Scanner is clear.",
+          "ru": "Сканер чистый."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 7
+    },
+    {
+      "id": "onsite-construction-08",
+      "title_ru": "Стройка · урок 8",
+      "title_en": "Construction · lesson 8",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Сантехники в том же стояке.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Plumbers are in the same riser.",
+          "ru": "Сантехники в том же стояке.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Talk to their lead before you pull.",
+          "ru": "Поговори с их бригадиром до протяжки.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "They need one more hour for the pipe.",
+          "ru": "Им нужен ещё час на трубу.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Then wait. Don't fight for space.",
+          "ru": "Тогда подожди. Не спорьте за место.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll prep terminations outside.",
+          "ru": "Подготовлю оконцовки снаружи.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Perfect. Keep the doorway clear.",
+          "ru": "Отлично. Не загромождай проход.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Plumbers are in the same riser.",
+          "ru": "Сантехники в том же стояке."
+        },
+        {
+          "en": "I'll prep terminations outside.",
+          "ru": "Подготовлю оконцовки снаружи."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 8
+    },
+    {
+      "id": "onsite-construction-09",
+      "title_ru": "Стройка · урок 9",
+      "title_en": "Construction · lesson 9",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Конец смены — уборка и передача.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "What do you need before we leave?",
+          "ru": "Что нужно перед уходом?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sweep the area and lock the container.",
+          "ru": "Подмети зону и закрой контейнер.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Tools are back on the board.",
+          "ru": "Инструмент на месте на стенде.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sign the handover sheet for night shift.",
+          "ru": "Подпиши передачу ночной смене.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. Anything left open?",
+          "ru": "Готово. Что-то осталось открытым?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No. See you tomorrow at seven.",
+          "ru": "Нет. До завтра в семь.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Tools are back on the board.",
+          "ru": "Инструмент на месте."
+        },
+        {
+          "en": "Anything left open?",
+          "ru": "Что-то осталось открытым?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 9
+    },
+    {
+      "id": "onsite-construction-10",
+      "title_ru": "Стройка · урок 10",
+      "title_en": "Construction · lesson 10",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Порез — аптечка и акт.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I cut my hand on the metal edge.",
+          "ru": "Порезал руку об металлический край.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "How bad is it?",
+          "ru": "Насколько серьёзно?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "It's bleeding but not deep.",
+          "ru": "Кровит, но неглубоко.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Go to the first aid point now.",
+          "ru": "Сейчас иди в пункт первой помощи.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Should I fill an incident form?",
+          "ru": "Заполнять акт об инциденте?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, after they bandage you.",
+          "ru": "Да, после того как перевяжут.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I cut my hand.",
+          "ru": "Порезал руку."
+        },
+        {
+          "en": "Should I fill an incident form?",
+          "ru": "Заполнять акт?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 10
+    },
+    {
+      "id": "onsite-construction-11",
+      "title_ru": "Стройка · урок 11",
+      "title_en": "Construction · lesson 11",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Клиент на площадке — коротко.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "The client is asking about the delay.",
+          "ru": "Клиент спрашивает про задержку.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Be honest and short.",
+          "ru": "Говори честно и коротко.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "We waited on materials; we restart after lunch.",
+          "ru": "Ждали материалы; продолжим после обеда.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Good. Don't promise a finish time yet.",
+          "ru": "Хорошо. Пока не обещай время сдачи.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Understood. I'll walk them to the safe path.",
+          "ru": "Понял. Проведу их безопасным путём.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Thanks. Stay with them until they leave.",
+          "ru": "Спасибо. Будь с ними, пока не уйдут.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "We waited on materials.",
+          "ru": "Ждали материалы."
+        },
+        {
+          "en": "I'll walk them to the safe path.",
+          "ru": "Проведу безопасным путём."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 11
+    },
+    {
+      "id": "onsite-construction-12",
+      "title_ru": "Стройка · урок 12",
+      "title_en": "Construction · lesson 12",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue"
+      ],
+      "scene_ru": "Ночной тихий режим у жилья.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Neighbours complained about noise after ten.",
+          "ru": "Соседи жаловались на шум после десяти.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No angle grinders after ten then.",
+          "ru": "После десяти без болгарок.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can we still drill inside?",
+          "ru": "Можно сверлить внутри?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Only low noise tasks indoors.",
+          "ru": "Только тихие задачи внутри.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "We'll switch to labeling and testing.",
+          "ru": "Переключимся на маркировку и тесты.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Keep voices down near the street.",
+          "ru": "Да. Говорите тише у улицы.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "No angle grinders after ten.",
+          "ru": "После десяти без болгарок."
+        },
+        {
+          "en": "We'll switch to labeling.",
+          "ru": "Переключимся на маркировку."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 12
+    },
+    {
+      "id": "onsite-websites_cctv-01",
+      "title_ru": "Сайты / CCTV · урок 1",
+      "title_en": "Websites & CCTV · lesson 1",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Обход с заказчиком — точки камер.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Where do you want the entrance camera?",
+          "ru": "Куда поставить камеру на входе?",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Above the door, covering the path in.",
+          "ru": "Над дверью, чтобы видеть входной путь.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Do you need face detail or just movement?",
+          "ru": "Нужны лица или только движение?",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Faces at the door. Movement in the yard.",
+          "ru": "Лица у двери. Движение во дворе.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll mark both positions on the plan.",
+          "ru": "Отмечу обе точки на плане.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Send me the plan before you drill.",
+          "ru": "Пришли план до сверления.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where do you want the entrance camera?",
+          "ru": "Куда камеру на входе?"
+        },
+        {
+          "en": "Faces at the door.",
+          "ru": "Лица у двери."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 1
+    },
+    {
+      "id": "onsite-websites_cctv-02",
+      "title_ru": "Сайты / CCTV · урок 2",
+      "title_en": "Websites & CCTV · lesson 2",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Питание камеры — PoE.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Is this run on PoE?",
+          "ru": "Эта линия на PoE?",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, from the switch in the office.",
+          "ru": "Да, от свитча в офисе.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Cable length is about eighty metres.",
+          "ru": "Длина кабеля около восьмидесяти метров.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "That should be fine for PoE.",
+          "ru": "Для PoE должно хватить.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll test voltage at the camera end.",
+          "ru": "Проверю напряжение на конце у камеры.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Call me if it's low.",
+          "ru": "Позвони, если будет низкое.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this run on PoE?",
+          "ru": "Эта линия на PoE?"
+        },
+        {
+          "en": "I'll test voltage at the camera end.",
+          "ru": "Проверю напряжение у камеры."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 2
+    },
+    {
+      "id": "onsite-websites_cctv-03",
+      "title_ru": "Сайты / CCTV · урок 3",
+      "title_en": "Websites & CCTV · lesson 3",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Витая пара без заломов.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Can I share the same tray as power?",
+          "ru": "Можно в один лоток с силой?",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Keep data separate if you can.",
+          "ru": "Если можно — данные отдельно.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "There's a spare data tray above.",
+          "ru": "Сверху есть свободный лоток для данных.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use that. Leave a service loop.",
+          "ru": "Используй его. Оставь технологический запас.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Loop at both ends, labelled.",
+          "ru": "Петля с обоих концов, с маркировкой.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Perfect.",
+          "ru": "Отлично.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can I share the same tray as power?",
+          "ru": "Можно в один лоток с силой?"
+        },
+        {
+          "en": "Leave a service loop.",
+          "ru": "Оставь технологический запас."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 3
+    },
+    {
+      "id": "onsite-websites_cctv-04",
+      "title_ru": "Сайты / CCTV · урок 4",
+      "title_en": "Websites & CCTV · lesson 4",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "NVR — пароль и удалёнка.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "The NVR is online. Need the admin password.",
+          "ru": "NVR в сети. Нужен пароль админа.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "I'll text it. Change it after setup.",
+          "ru": "Пришлю в сообщении. Потом смени.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Do you want remote view on the phone?",
+          "ru": "Нужен просмотр с телефона?",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, for me and the night manager.",
+          "ru": "Да, мне и ночному менеджеру.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll create two user accounts.",
+          "ru": "Создам две учётки.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No shared logins, please.",
+          "ru": "Без общих логинов, пожалуйста.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Need the admin password.",
+          "ru": "Нужен пароль админа."
+        },
+        {
+          "en": "I'll create two user accounts.",
+          "ru": "Создам две учётки."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 4
+    },
+    {
+      "id": "onsite-websites_cctv-05",
+      "title_ru": "Сайты / CCTV · урок 5",
+      "title_en": "Websites & CCTV · lesson 5",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Камера смотрит в стену.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Camera three shows the wall, not the gate.",
+          "ru": "Камера три смотрит в стену, не на ворота.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Can you aim it from the ladder?",
+          "ru": "Наведёшь с лестницы?",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes. Watch the live view and guide me.",
+          "ru": "Да. Смотри лайв и направляй.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Left a bit… stop. Tilt down.",
+          "ru": "Чуть влево… стоп. Ниже.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Gate is centred now.",
+          "ru": "Ворота по центру.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Lock the bracket and tighten it.",
+          "ru": "Зафиксируй кронштейн и затяни.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Camera three shows the wall.",
+          "ru": "Камера три смотрит в стену."
+        },
+        {
+          "en": "Gate is centred now.",
+          "ru": "Ворота по центру."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 5
+    },
+    {
+      "id": "onsite-websites_cctv-06",
+      "title_ru": "Сайты / CCTV · урок 6",
+      "title_en": "Websites & CCTV · lesson 6",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Ночная засветка.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "At night the image is washed out.",
+          "ru": "Ночью картинка засвечена.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Street light is opposite the lens.",
+          "ru": "Фонарь напротив объектива.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I can enable WDR or move it slightly.",
+          "ru": "Могу включить WDR или чуть сдвинуть.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Try WDR first.",
+          "ru": "Сначала попробуй WDR.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Better. Faces are readable now.",
+          "ru": "Лучше. Лица читаются.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Save the profile as Night.",
+          "ru": "Сохрани профиль как Night.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The image is washed out.",
+          "ru": "Картинка засвечена."
+        },
+        {
+          "en": "Faces are readable now.",
+          "ru": "Лица читаются."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 6
+    },
+    {
+      "id": "onsite-websites_cctv-07",
+      "title_ru": "Сайты / CCTV · урок 7",
+      "title_en": "Websites & CCTV · lesson 7",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Запись остановилась.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Recording stopped on channel two.",
+          "ru": "Запись остановилась на канале два.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Is the disk full?",
+          "ru": "Диск полный?",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Disk is healthy. Schedule was off.",
+          "ru": "Диск в порядке. Расписание было выключено.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Turn continuous recording back on.",
+          "ru": "Включи непрерывную запись снова.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. I'll check twenty-four hours later.",
+          "ru": "Готово. Проверю через сутки.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Send me a screenshot of the timeline.",
+          "ru": "Пришли скрин таймлайна.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Recording stopped on channel two.",
+          "ru": "Запись остановилась на канале два."
+        },
+        {
+          "en": "Schedule was off.",
+          "ru": "Расписание было выключено."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 7
+    },
+    {
+      "id": "onsite-websites_cctv-08",
+      "title_ru": "Сайты / CCTV · урок 8",
+      "title_en": "Websites & CCTV · lesson 8",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Приложение не находит NVR.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "The app can't find the device.",
+          "ru": "Приложение не находит устройство.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Are you on the site Wi‑Fi?",
+          "ru": "Ты в Wi‑Fi объекта?",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes. Scanning the QR on the NVR.",
+          "ru": "Да. Сканирую QR на NVR.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Allow local network permission on the phone.",
+          "ru": "Разреши доступ к локальной сети на телефоне.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "It connected. Live view works.",
+          "ru": "Подключилось. Лайв работает.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Add a bookmark named Main gate.",
+          "ru": "Добавь закладку Main gate.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The app can't find the device.",
+          "ru": "Приложение не находит устройство."
+        },
+        {
+          "en": "Live view works.",
+          "ru": "Лайв работает."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 8
+    },
+    {
+      "id": "onsite-websites_cctv-09",
+      "title_ru": "Сайты / CCTV · урок 9",
+      "title_en": "Websites & CCTV · lesson 9",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Кабель перерезали.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Someone cut the cable to camera five.",
+          "ru": "Кто-то перерезал кабель к камере пять.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Can you splice it or pull a new run?",
+          "ru": "Сваришь или новую линию потянешь?",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Better to pull a new run — it's crushed.",
+          "ru": "Лучше новую — кабель раздавлен.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Do it today if you can.",
+          "ru": "Сделай сегодня, если успеешь.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll use the spare conduit path.",
+          "ru": "Пойду запасным путём в трубе.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Mark it so they don't cut it again.",
+          "ru": "Пометь, чтобы снова не перерезали.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Someone cut the cable.",
+          "ru": "Кто-то перерезал кабель."
+        },
+        {
+          "en": "I'll use the spare conduit path.",
+          "ru": "Пойду запасным путём."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 9
+    },
+    {
+      "id": "onsite-websites_cctv-10",
+      "title_ru": "Сайты / CCTV · урок 10",
+      "title_en": "Websites & CCTV · lesson 10",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Передача объекта.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Handover pack is ready.",
+          "ru": "Пакет передачи готов.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "What's inside?",
+          "ru": "Что внутри?",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "IP list, passwords, cable plan, and app guide.",
+          "ru": "IP, пароли, план кабелей и гайд по приложению.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Change default passwords with me now.",
+          "ru": "Давай сейчас сменим заводские пароли.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. Old defaults are disabled.",
+          "ru": "Готово. Старые пароли отключены.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sign here and we're closed out.",
+          "ru": "Подпиши здесь — и закрываем.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Handover pack is ready.",
+          "ru": "Пакет передачи готов."
+        },
+        {
+          "en": "Old defaults are disabled.",
+          "ru": "Старые пароли отключены."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 10
+    },
+    {
+      "id": "onsite-websites_cctv-11",
+      "title_ru": "Сайты / CCTV · урок 11",
+      "title_en": "Websites & CCTV · lesson 11",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Ложные тревоги по движению.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "We're getting false motion alerts.",
+          "ru": "Идут ложные тревоги по движению.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "When?",
+          "ru": "Когда?",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Every time trees move in the wind.",
+          "ru": "Каждый раз, когда деревья качает ветром.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Raise the sensitivity threshold.",
+          "ru": "Подними порог чувствительности.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll also mask the tree zone.",
+          "ru": "Ещё замаскирую зону с деревьями.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Test it tonight and message me.",
+          "ru": "Протестируй ночью и напиши.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "False motion alerts.",
+          "ru": "Ложные тревоги по движению."
+        },
+        {
+          "en": "I'll mask the tree zone.",
+          "ru": "Замаскирую зону с деревьями."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 11
+    },
+    {
+      "id": "onsite-websites_cctv-12",
+      "title_ru": "Сайты / CCTV · урок 12",
+      "title_en": "Websites & CCTV · lesson 12",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue"
+      ],
+      "scene_ru": "Ещё одна камера на склад.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Client wants one more camera in the stock room.",
+          "ru": "Клиент хочет ещё камеру на складе.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Have we got a free PoE port?",
+          "ru": "Есть свободный PoE-порт?",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, port eight is free.",
+          "ru": "Да, порт восемь свободен.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Add it to the NVR and name it Stock.",
+          "ru": "Добавь в NVR и назови Stock.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Licensed and recording.",
+          "ru": "Лицензия есть, запись идёт.",
+          "role": "technician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Update the site map too.",
+          "ru": "Обнови и карту объекта.",
+          "role": "client",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "One more camera in the stock room.",
+          "ru": "Ещё камера на складе."
+        },
+        {
+          "en": "Port eight is free.",
+          "ru": "Порт восемь свободен."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "websites_cctv",
+      "order": 12
+    },
+    {
+      "id": "onsite-induction-01",
+      "title_ru": "Induction · урок 1",
+      "title_en": "Site induction · lesson 1",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Регистрация на induction.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Hi, I'm here for the site induction.",
+          "ru": "Здравствуйте, я на induction.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Have you got your Safe Pass with you?",
+          "ru": "Safe Pass с собой?",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, here it is.",
+          "ru": "Да, вот он.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sign in and take a seat in the meeting room.",
+          "ru": "Отметьтесь и садитесь в переговорке.",
+          "role": "supervisor",
+          "tip_ru": "sign in",
+          "practice": false
+        },
+        {
+          "en": "What time does it start?",
+          "ru": "Во сколько начинается?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "In ten minutes. Phones on silent.",
+          "ru": "Через десять минут. Телефоны на беззвучный.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I'm here for the site induction.",
+          "ru": "Я на induction."
+        },
+        {
+          "en": "Sign in and take a seat.",
+          "ru": "Отметьтесь и садитесь."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 1
+    },
+    {
+      "id": "onsite-induction-02",
+      "title_ru": "Induction · урок 2",
+      "title_en": "Site induction · lesson 2",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "PPE — что надеть.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "What PPE do I need on this site?",
+          "ru": "Какие СИЗ нужны на этом объекте?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Hard hat, hi‑vis, safety boots, and glasses.",
+          "ru": "Каска, жилет, ботинки и очки.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Are gloves mandatory everywhere?",
+          "ru": "Перчатки обязательны везде?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "For cutting and handling materials, yes.",
+          "ru": "При резке и переноске — да.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I need a larger hi‑vis.",
+          "ru": "Мне нужен жилет побольше.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Store is next to the canteen.",
+          "ru": "Склад рядом со столовой.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What PPE do I need?",
+          "ru": "Какие СИЗ нужны?"
+        },
+        {
+          "en": "I need a larger hi‑vis.",
+          "ru": "Нужен жилет побольше."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 2
+    },
+    {
+      "id": "onsite-induction-03",
+      "title_ru": "Induction · урок 3",
+      "title_en": "Site induction · lesson 3",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Аварийные выходы.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Where is the nearest fire exit?",
+          "ru": "Где ближайший пожарный выход?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Follow the green signs to the yard.",
+          "ru": "По зелёным указателям во двор.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Where do we assemble?",
+          "ru": "Где точка сбора?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Assembly point B by the gate.",
+          "ru": "Точка B у ворот.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Who do I report to after a drill?",
+          "ru": "Кому докладывать после тренировки?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Your supervisor with your name checked off.",
+          "ru": "Своему супервайзеру — вас отметили в списке.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the nearest fire exit?",
+          "ru": "Где ближайший пожарный выход?"
+        },
+        {
+          "en": "Where do we assemble?",
+          "ru": "Где точка сбора?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 3
+    },
+    {
+      "id": "onsite-induction-04",
+      "title_ru": "Induction · урок 4",
+      "title_en": "Site induction · lesson 4",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Разрешения на работы.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Do I need a permit for hot works?",
+          "ru": "Нужен наряд на огневые работы?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. No grinding without a permit.",
+          "ru": "Да. Без наряда не резать.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Who signs it?",
+          "ru": "Кто подписывает?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "The area owner and the fire watcher.",
+          "ru": "Хозяин зоны и наблюдающий за огнём.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll raise it before I start.",
+          "ru": "Оформлю до начала.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Keep a extinguisher within reach.",
+          "ru": "Держи огнетушитель рядом.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do I need a permit for hot works?",
+          "ru": "Нужен наряд на огневые работы?"
+        },
+        {
+          "en": "I'll raise it before I start.",
+          "ru": "Оформлю до начала."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 4
+    },
+    {
+      "id": "onsite-induction-05",
+      "title_ru": "Induction · урок 5",
+      "title_en": "Site induction · lesson 5",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Изоляция / LOTO.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Is this circuit isolated?",
+          "ru": "Эта цепь изолирована?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Show me your lock and tag first.",
+          "ru": "Сначала покажи свой замок и бирку.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "My lock is on the isolator.",
+          "ru": "Мой замок на разъединителе.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Prove dead before you touch anything.",
+          "ru": "Проверь отсутствие напряжения до касания.",
+          "role": "supervisor",
+          "tip_ru": "prove dead",
+          "practice": false
+        },
+        {
+          "en": "Tester shows zero. Safe to proceed?",
+          "ru": "Тестер ноль. Можно продолжать?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Keep your lock on until you finish.",
+          "ru": "Да. Не снимай замок, пока не закончишь.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this circuit isolated?",
+          "ru": "Эта цепь изолирована?"
+        },
+        {
+          "en": "Prove dead before you touch anything.",
+          "ru": "Проверь отсутствие напряжения."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 5
+    },
+    {
+      "id": "onsite-induction-06",
+      "title_ru": "Induction · урок 6",
+      "title_en": "Site induction · lesson 6",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Сообщить об опасности.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I saw an uncovered hole near the stairs.",
+          "ru": "Увидел открытый проём у лестницы.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Did you barricade it?",
+          "ru": "Огородил?",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I put cones around it and came to tell you.",
+          "ru": "Поставил конусы и пришёл сказать.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Good. We'll get a proper cover on it.",
+          "ru": "Хорошо. Поставим нормальное перекрытие.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Should I write it in the hazard book?",
+          "ru": "Записать в журнал опасностей?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, and take a photo.",
+          "ru": "Да, и сделай фото.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I saw an uncovered hole.",
+          "ru": "Увидел открытый проём."
+        },
+        {
+          "en": "Should I write it in the hazard book?",
+          "ru": "Записать в журнал опасностей?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 6
+    },
+    {
+      "id": "onsite-induction-07",
+      "title_ru": "Induction · урок 7",
+      "title_en": "Site induction · lesson 7",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Работа на высоте.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Can I use a ladder for that light?",
+          "ru": "Можно лестницу для того светильника?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Only if it's tied and footed.",
+          "ru": "Только если закреплена и придержана.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "The podium is free — better?",
+          "ru": "Подмости свободны — лучше?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Use the podium.",
+          "ru": "Да. Бери подмости.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Harness needed above two metres?",
+          "ru": "Страховка нужна выше двух метров?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Follow the site method statement.",
+          "ru": "Смотри метод-стейтмент объекта.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can I use a ladder?",
+          "ru": "Можно лестницу?"
+        },
+        {
+          "en": "Use the podium.",
+          "ru": "Бери подмости."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 7
+    },
+    {
+      "id": "onsite-induction-08",
+      "title_ru": "Induction · урок 8",
+      "title_en": "Site induction · lesson 8",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Химия / SDS.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Where are the safety data sheets?",
+          "ru": "Где паспорта безопасности?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Folder on the wall in the store.",
+          "ru": "Папка на стене на складе.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "This solvent needs gloves and goggles.",
+          "ru": "Для этого растворителя нужны перчатки и очки.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Correct. Use it only with ventilation.",
+          "ru": "Верно. Только с вентиляцией.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Where do I dispose of the rags?",
+          "ru": "Куда девать ветошь?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Red bin for contaminated waste.",
+          "ru": "Красный бак для загрязнённых отходов.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where are the safety data sheets?",
+          "ru": "Где паспорта безопасности?"
+        },
+        {
+          "en": "Where do I dispose of the rags?",
+          "ru": "Куда девать ветошь?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 8
+    },
+    {
+      "id": "onsite-induction-09",
+      "title_ru": "Induction · урок 9",
+      "title_en": "Site induction · lesson 9",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Первая помощь.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Who is the first aider today?",
+          "ru": "Кто сегодня оказывающий первую помощь?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Maria on channel two.",
+          "ru": "Мария на канале два.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Where is the first aid kit?",
+          "ru": "Где аптечка?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "In the welfare cabin, left shelf.",
+          "ru": "В бытовке, левая полка.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "If someone collapses, what do I do first?",
+          "ru": "Если кто-то упал — что первым делом?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Make safe, call first aid, then site manager.",
+          "ru": "Обезопась, вызови первую помощь, потом менеджера.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Who is the first aider today?",
+          "ru": "Кто сегодня first aider?"
+        },
+        {
+          "en": "Where is the first aid kit?",
+          "ru": "Где аптечка?"
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 9
+    },
+    {
+      "id": "onsite-induction-10",
+      "title_ru": "Induction · урок 10",
+      "title_en": "Site induction · lesson 10",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Транспорт на площадке.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Where can delivery vans park?",
+          "ru": "Где могут парковаться доставки?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Only in the marked bay by the compound.",
+          "ru": "Только в размеченной зоне у компаунда.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is reversing without a banksman allowed?",
+          "ru": "Сдача назад без сигнальщика можно?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No. Always use a banksman.",
+          "ru": "Нет. Всегда со сигнальщиком.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll radio before the truck enters.",
+          "ru": "Перед въездом грузовика вызову по рации.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Good. Keep pedestrians clear.",
+          "ru": "Хорошо. Пешеходов не подпускай.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where can delivery vans park?",
+          "ru": "Где парковать доставки?"
+        },
+        {
+          "en": "Always use a banksman.",
+          "ru": "Всегда со сигнальщиком."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 10
+    },
+    {
+      "id": "onsite-induction-11",
+      "title_ru": "Induction · урок 11",
+      "title_en": "Site induction · lesson 11",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Электричество — чужие щиты.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Can I open this distribution board?",
+          "ru": "Можно открыть этот щит?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Only if you're competent and authorised.",
+          "ru": "Только если компетентен и допущен.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'm waiting for the site electrician.",
+          "ru": "Жду электрика объекта.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Don't touch live parts meanwhile.",
+          "ru": "Пока не трогай токоведущие части.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll stay clear and watch the area.",
+          "ru": "Отойду и прослежу зону.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Thanks. Report if anyone removes the cover.",
+          "ru": "Спасибо. Скажи, если кто снимет крышку.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can I open this distribution board?",
+          "ru": "Можно открыть этот щит?"
+        },
+        {
+          "en": "Don't touch live parts.",
+          "ru": "Не трогай токоведущие части."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 11
+    },
+    {
+      "id": "onsite-induction-12",
+      "title_ru": "Induction · урок 12",
+      "title_en": "Site induction · lesson 12",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue"
+      ],
+      "scene_ru": "Конец induction — вопросы.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Any questions before you start work?",
+          "ru": "Вопросы перед началом работы?",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Who do I call if I feel unsafe?",
+          "ru": "Кому звонить, если небезопасно?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Stop work and call me on channel one.",
+          "ru": "Стоп работа и звони мне на канал один.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Where do I get task briefings?",
+          "ru": "Где брать брифинги на задачу?",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Every morning with your gang.",
+          "ru": "Каждое утро со своей бригадой.",
+          "role": "supervisor",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Understood. I'm ready to start.",
+          "ru": "Понял. Готов начинать.",
+          "role": "new_starter",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Who do I call if I feel unsafe?",
+          "ru": "Кому звонить, если небезопасно?"
+        },
+        {
+          "en": "I'm ready to start.",
+          "ru": "Готов начинать."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "induction",
+      "order": 12
+    },
+    {
+      "id": "onsite-electrical-01",
+      "title_ru": "Электрика · урок 1",
+      "title_en": "Electrical · lesson 1",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Изоляция фидера перед работой.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Which feeder feeds this board?",
+          "ru": "Какой фидер питает этот щит?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "F3 from the main switchroom.",
+          "ru": "F3 из главной электрощитовой.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll lock it off and prove dead.",
+          "ru": "Отключу, повешу замок и проверю отсутствие.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Tag it with your name and time.",
+          "ru": "Бирка с именем и временем.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. Safe to open the cover.",
+          "ru": "Готово. Можно открывать крышку.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Keep one person as a standby.",
+          "ru": "Оставь одного наблюдающим.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Which feeder feeds this board?",
+          "ru": "Какой фидер питает щит?"
+        },
+        {
+          "en": "I'll lock it off and prove dead.",
+          "ru": "Отключу и проверю отсутствие."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 1
+    },
+    {
+      "id": "onsite-electrical-02",
+      "title_ru": "Электрика · урок 2",
+      "title_en": "Electrical · lesson 2",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Кабель не тот сечением.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "This run is 2.5 but the schedule says 4.",
+          "ru": "Тут 2.5, а по спецификации 4.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Stop and don't terminate yet.",
+          "ru": "Стоп, пока не оконцовывай.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Should I pull new cable?",
+          "ru": "Тянуть новый кабель?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, from the drum in bay two.",
+          "ru": "Да, с барабана во втором отсеке.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll label both ends before I pull.",
+          "ru": "Помечу оба конца до протяжки.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Good. Update the as‑built after.",
+          "ru": "Хорошо. Потом обнови as‑built.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Schedule says 4.",
+          "ru": "По спецификации 4."
+        },
+        {
+          "en": "I'll label both ends.",
+          "ru": "Помечу оба конца."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 2
+    },
+    {
+      "id": "onsite-electrical-03",
+      "title_ru": "Электрика · урок 3",
+      "title_en": "Electrical · lesson 3",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Розетка не работает — диагностика.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Socket in room 12 is dead.",
+          "ru": "Розетка в комнате 12 без напряжения.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Check the MCB and the RCD first.",
+          "ru": "Сначала автомат и УЗО.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "MCB is on. RCD tripped.",
+          "ru": "Автомат включён. УЗО выбило.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Find the fault before you reset.",
+          "ru": "Найди неисправность до включения.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "There's a nicked cable in the skirting.",
+          "ru": "В плинтусе повреждённый кабель.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Repair it, test insulation, then reset.",
+          "ru": "Почини, проверь изоляцию, потом включи.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Socket is dead.",
+          "ru": "Розетка без напряжения."
+        },
+        {
+          "en": "RCD tripped.",
+          "ru": "УЗО выбило."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 3
+    },
+    {
+      "id": "onsite-electrical-04",
+      "title_ru": "Электрика · урок 4",
+      "title_en": "Electrical · lesson 4",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Подключение светильников.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Are these fittings LED drivers included?",
+          "ru": "В этих светильниках драйверы в комплекте?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Keep polarity correct.",
+          "ru": "Да. Соблюдай полярность.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Neutral is blue, live brown — OK?",
+          "ru": "Ноль синий, фаза коричневый — ок?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes. Earth to the metal body.",
+          "ru": "Да. Землю на металлический корпус.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "First six are up. Testing next.",
+          "ru": "Первые шесть висят. Дальше тест.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Megger the circuit before energising.",
+          "ru": "Прозвони мегером до подачи.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Keep polarity correct.",
+          "ru": "Соблюдай полярность."
+        },
+        {
+          "en": "Megger before energising.",
+          "ru": "Мегер до подачи."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 4
+    },
+    {
+      "id": "onsite-electrical-05",
+      "title_ru": "Электрика · урок 5",
+      "title_en": "Electrical · lesson 5",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Щит — маркировка.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Half the breakers have no labels.",
+          "ru": "У половины автоматов нет подписей.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Trace and label before energising the floor.",
+          "ru": "Проследи и подпиши до включения этажа.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can I use temporary tags tonight?",
+          "ru": "Можно временные бирки на сегодня?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Temporary OK, permanent tomorrow.",
+          "ru": "Временные ок, постоянные завтра.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll photo the schedule for the pack.",
+          "ru": "Сфоткаю схему для пакета.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Add it to the handover folder.",
+          "ru": "Положи в папку передачи.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Breakers have no labels.",
+          "ru": "У автоматов нет подписей."
+        },
+        {
+          "en": "Temporary tags tonight.",
+          "ru": "Временные бирки на сегодня."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 5
+    },
+    {
+      "id": "onsite-electrical-06",
+      "title_ru": "Электрика · урок 6",
+      "title_en": "Electrical · lesson 6",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Генератор на время отключения.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Mains outage starts at two.",
+          "ru": "Отключение сети в два.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is the generator fuelled?",
+          "ru": "Генератор заправлен?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Check oil and fuel, then do a test run.",
+          "ru": "Проверь масло и топливо, потом тестовый пуск.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Test run OK. Changeover ready.",
+          "ru": "Тест ок. Готов к переключению.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Keep essential circuits only.",
+          "ru": "Только важные цепи.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Lighting and CCTV only, agreed.",
+          "ru": "Только свет и CCTV, договорились.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is the generator fuelled?",
+          "ru": "Генератор заправлен?"
+        },
+        {
+          "en": "Changeover ready.",
+          "ru": "Готов к переключению."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 6
+    },
+    {
+      "id": "onsite-electrical-07",
+      "title_ru": "Электрика · урок 7",
+      "title_en": "Electrical · lesson 7",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Трасса в штробе — глубина.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "How deep should this chase be?",
+          "ru": "Какой глубины должна быть штроба?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Deep enough for the conduit plus cover.",
+          "ru": "Чтобы труба и слой закрытия влезли.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Metal or plastic conduit here?",
+          "ru": "Металл или пластик здесь?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Plastic in walls, metal where exposed.",
+          "ru": "Пластик в стенах, металл где открыто.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll vacuum before plastering.",
+          "ru": "Пропылесосю до штукатурки.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Don't leave sharp edges on the chase.",
+          "ru": "Не оставляй острые края штробы.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "How deep should this chase be?",
+          "ru": "Какой глубины штроба?"
+        },
+        {
+          "en": "Plastic in walls.",
+          "ru": "Пластик в стенах."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 7
+    },
+    {
+      "id": "onsite-electrical-08",
+      "title_ru": "Электрика · урок 8",
+      "title_en": "Electrical · lesson 8",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Тест УЗО.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Time to test the RCDs on this board.",
+          "ru": "Пора тестить УЗО на этом щите.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll use the tester and log the times.",
+          "ru": "Тестером замерю и запишу времена.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Anything over the limit?",
+          "ru": "Что-то сверх нормы?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "One is slow. I'll replace it.",
+          "ru": "Одно медленное. Заменю.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Retest after replacement.",
+          "ru": "После замены перепроверь.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Retest passed. Logged.",
+          "ru": "Повторный тест ок. Записал.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I'll log the times.",
+          "ru": "Запишу времена."
+        },
+        {
+          "en": "Retest passed.",
+          "ru": "Повторный тест ок."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 8
+    },
+    {
+      "id": "onsite-electrical-09",
+      "title_ru": "Электрика · урок 9",
+      "title_en": "Electrical · lesson 9",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Клиент просит доп. розетки.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Client wants two more sockets in the office.",
+          "ru": "Клиент хочет ещё две розетки в офисе.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Is there spare capacity on that ring?",
+          "ru": "Есть запас по этой кольцевой?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, load is low. I can spur carefully.",
+          "ru": "Да, нагрузка низкая. Аккуратно сделаю отвод.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Get a variation number first.",
+          "ru": "Сначала возьми номер вариации.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Variation approved. Starting after lunch.",
+          "ru": "Вариация одобрена. Начну после обеда.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Update drawings when finished.",
+          "ru": "Обнови чертежи после.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Two more sockets in the office.",
+          "ru": "Ещё две розетки в офисе."
+        },
+        {
+          "en": "Get a variation number first.",
+          "ru": "Сначала номер вариации."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 9
+    },
+    {
+      "id": "onsite-electrical-10",
+      "title_ru": "Электрика · урок 10",
+      "title_en": "Electrical · lesson 10",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Короткое замыкание при включении.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Breaker trips instantly when I close it.",
+          "ru": "Автомат сразу выбивает при включении.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Leave it off. Check for a short.",
+          "ru": "Оставь выключенным. Ищи КЗ.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Found a screw through the cable.",
+          "ru": "Нашёл саморез сквозь кабель.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Repair the cable and inspect neighbours.",
+          "ru": "Почини кабель и проверь соседние.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Repair done. Insulation OK.",
+          "ru": "Починил. Изоляция ок.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Energise with me watching.",
+          "ru": "Включай, я смотрю.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Breaker trips instantly.",
+          "ru": "Автомат сразу выбивает."
+        },
+        {
+          "en": "Screw through the cable.",
+          "ru": "Саморез сквозь кабель."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 10
+    },
+    {
+      "id": "onsite-electrical-11",
+      "title_ru": "Электрика · урок 11",
+      "title_en": "Electrical · lesson 11",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Уличное освещение.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Photocell isn't switching the yard lights.",
+          "ru": "Фотореле не включает свет во дворе.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Bypass it temporarily for tonight?",
+          "ru": "На сегодня временно обойти?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I can put it on manual until we replace it.",
+          "ru": "Поставлю на ручной, пока не заменим.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Order a new photocell tomorrow.",
+          "ru": "Закажи новое фотореле завтра.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Manual is on. Lights stay on overnight.",
+          "ru": "Ручной режим. Свет всю ночь.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Tell security so they know.",
+          "ru": "Скажи охране, чтобы знали.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Photocell isn't switching.",
+          "ru": "Фотореле не включает."
+        },
+        {
+          "en": "Put it on manual.",
+          "ru": "Поставь на ручной."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 11
+    },
+    {
+      "id": "onsite-electrical-12",
+      "title_ru": "Электрика · урок 12",
+      "title_en": "Electrical · lesson 12",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue"
+      ],
+      "scene_ru": "Сдача электрики — документы.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Certificates ready for this floor?",
+          "ru": "Сертификаты на этот этаж готовы?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "IR tests and RCD times are in the folder.",
+          "ru": "IR и времена УЗО в папке.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Any open snags?",
+          "ru": "Открытые замечания?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Two labels left. I'll finish them now.",
+          "ru": "Две подписи остались. Сейчас доделаю.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Photo the board schedule too.",
+          "ru": "Сфоткай ещё схему щита.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Done. Ready to sign off.",
+          "ru": "Готово. Можно подписывать.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Certificates ready?",
+          "ru": "Сертификаты готовы?"
+        },
+        {
+          "en": "Ready to sign off.",
+          "ru": "Можно подписывать."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "electrical",
+      "order": 12
+    },
+    {
+      "id": "onsite-tools-01",
+      "title_ru": "Инструменты · урок 1",
+      "title_en": "Tools · lesson 1",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Нет нужного бита.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "I need a Torx T20 for these screws.",
+          "ru": "Нужен Torx T20 для этих винтов.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Check the red case in the van.",
+          "ru": "Посмотри красный кейс в фургоне.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Found it. Bits were mixed up.",
+          "ru": "Нашёл. Биты были перепутаны.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sort the case at break.",
+          "ru": "Разложи кейс в перерыв.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Will do. Starting these panels now.",
+          "ru": "Сделаю. Начинаю эти панели.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Don't strip the heads.",
+          "ru": "Не сорви шлицы.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need a Torx T20.",
+          "ru": "Нужен Torx T20."
+        },
+        {
+          "en": "Bits were mixed up.",
+          "ru": "Биты были перепутаны."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 1
+    },
+    {
+      "id": "onsite-tools-02",
+      "title_ru": "Инструменты · урок 2",
+      "title_en": "Tools · lesson 2",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Лазерный уровень сел.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Laser level battery is dead.",
+          "ru": "Батарея лазерного уровня села.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Spare is charging in the office.",
+          "ru": "Запасная заряжается в офисе.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Can I use a spirit level meanwhile?",
+          "ru": "Пока обычный уровень можно?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes for short runs only.",
+          "ru": "Да, только на короткие участки.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll swap batteries in twenty minutes.",
+          "ru": "Через двадцать минут поменяю батареи.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Bring the empty one back to charge.",
+          "ru": "Пустую верни на зарядку.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Laser level battery is dead.",
+          "ru": "Батарея лазера села."
+        },
+        {
+          "en": "Spare is charging.",
+          "ru": "Запасная заряжается."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 2
+    },
+    {
+      "id": "onsite-tools-03",
+      "title_ru": "Инструменты · урок 3",
+      "title_en": "Tools · lesson 3",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Дрель греется.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "The drill is overheating.",
+          "ru": "Дрель перегревается.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Are you using the right bit for concrete?",
+          "ru": "Правильное сверло по бетону?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Yes, SDS, but dust is packing the hole.",
+          "ru": "Да, SDS, но пыль забивает отверстие.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Clear the hole and let the tool cool.",
+          "ru": "Прочисти отверстие и дай инструменту остыть.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Cooling now. I'll finish after five minutes.",
+          "ru": "Стынет. Закончу через пять минут.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use extraction next time.",
+          "ru": "В следующий раз с отсосом.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The drill is overheating.",
+          "ru": "Дрель перегревается."
+        },
+        {
+          "en": "Let the tool cool.",
+          "ru": "Дай инструменту остыть."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 3
+    },
+    {
+      "id": "onsite-tools-04",
+      "title_ru": "Инструменты · урок 4",
+      "title_en": "Tools · lesson 4",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Мультиметр чужой — не брать.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Whose meter is this on the bench?",
+          "ru": "Чей мультиметр на верстаке?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "That's Tom's. Don't take it.",
+          "ru": "Тома. Не бери.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Mine is in for calibration.",
+          "ru": "Мой на калибровке.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Borrow the site spare from the store.",
+          "ru": "Возьми запасной объекта со склада.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Got the spare. Tagged against my name.",
+          "ru": "Взял запасной. Записал на себя.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Return it before you leave.",
+          "ru": "Верни до ухода.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Whose meter is this?",
+          "ru": "Чей мультиметр?"
+        },
+        {
+          "en": "Borrow the site spare.",
+          "ru": "Возьми запасной объекта."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 4
+    },
+    {
+      "id": "onsite-tools-05",
+      "title_ru": "Инструменты · урок 5",
+      "title_en": "Tools · lesson 5",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Стремянка повреждена.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "This step ladder has a bent foot.",
+          "ru": "У этой стремянки погнута ножка.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Red tag it. Do not use.",
+          "ru": "Красную бирку. Не использовать.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Where do condemned tools go?",
+          "ru": "Куда бракованный инструмент?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Quarantine cage by the stores.",
+          "ru": "Карантинная клетка у склада.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Tagged and moved. Grabbing another.",
+          "ru": "Пометил и убрал. Беру другую.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Check the next one before you climb.",
+          "ru": "Проверь следующую до подъёма.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Bent foot on the ladder.",
+          "ru": "Погнута ножка стремянки."
+        },
+        {
+          "en": "Red tag it.",
+          "ru": "Красную бирку."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 5
+    },
+    {
+      "id": "onsite-tools-06",
+      "title_ru": "Инструменты · урок 6",
+      "title_en": "Tools · lesson 6",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Нужен кабельный нож / стриппер.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "My cable stripper is missing.",
+          "ru": "Пропал мой стриппер.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Look in the shared toolbox.",
+          "ru": "Посмотри в общем ящике.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Found it without a handle grip.",
+          "ru": "Нашёл без накладки на ручке.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Still usable? Or replace?",
+          "ru": "Ещё можно? Или менять?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll replace it — grip is gone.",
+          "ru": "Заменю — хват пропал.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Put the order on the board.",
+          "ru": "Заявку на доску.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Cable stripper is missing.",
+          "ru": "Пропал стриппер."
+        },
+        {
+          "en": "I'll replace it.",
+          "ru": "Заменю."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 6
+    },
+    {
+      "id": "onsite-tools-07",
+      "title_ru": "Инструменты · урок 7",
+      "title_en": "Tools · lesson 7",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Генераторный удлинитель.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "We need a longer lead to the saw.",
+          "ru": "Нужен длиннее удлинитель к пиле.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Use a 110 volt lead only.",
+          "ru": "Только 110‑вольтовый.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is daisy‑chaining allowed?",
+          "ru": "Можно соединять несколько?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "No. One lead, correct length.",
+          "ru": "Нет. Один, нужной длины.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll get the 20 metre yellow lead.",
+          "ru": "Возьму жёлтый на 20 метров.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Keep it out of puddles.",
+          "ru": "Не клади в лужи.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Longer lead to the saw.",
+          "ru": "Длиннее удлинитель к пиле."
+        },
+        {
+          "en": "110 volt lead only.",
+          "ru": "Только 110 вольт."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 7
+    },
+    {
+      "id": "onsite-tools-08",
+      "title_ru": "Инструменты · урок 8",
+      "title_en": "Tools · lesson 8",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Аккумуляторы разряжены.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Both battery packs are flat.",
+          "ru": "Оба аккумулятора сели.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Swap with the charged set upstairs.",
+          "ru": "Поменяй на заряженные наверху.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Charged set is there. Leaving empties on charge.",
+          "ru": "Заряженные есть. Пустые ставлю на зарядку.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Don't leave packs in the cold van overnight.",
+          "ru": "Не оставляй их ночью в холодном фургоне.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Understood. I'll bring them inside.",
+          "ru": "Понял. Занесу внутрь.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Label which pack is weak.",
+          "ru": "Пометь, какой слабый.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Both battery packs are flat.",
+          "ru": "Оба аккумулятора сели."
+        },
+        {
+          "en": "Leaving empties on charge.",
+          "ru": "Пустые на зарядку."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 8
+    },
+    {
+      "id": "onsite-tools-09",
+      "title_ru": "Инструменты · урок 9",
+      "title_en": "Tools · lesson 9",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Аренда перфоратора.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Site SDS drill isn't free. Rent one?",
+          "ru": "Объектовый перфоратор занят. Взять в аренду?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Call the hire desk for half a day.",
+          "ru": "Позвони в прокат на полдня.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "They can deliver at noon.",
+          "ru": "Могут привезти в полдень.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Book it. Keep the paperwork.",
+          "ru": "Бронируй. Сохрани документы.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Booked. Job number is on the docket.",
+          "ru": "Забронировал. Номер заказа на накладной.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Return with a full battery if cordless.",
+          "ru": "Верни с полным зарядом, если аккумуляторный.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Rent one for half a day?",
+          "ru": "Взять в аренду на полдня?"
+        },
+        {
+          "en": "Booked.",
+          "ru": "Забронировал."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 9
+    },
+    {
+      "id": "onsite-tools-10",
+      "title_ru": "Инструменты · урок 10",
+      "title_en": "Tools · lesson 10",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Калибровка динамометрического ключа.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Torque wrench sticker is out of date.",
+          "ru": "Наклейка калибровки на ключе просрочена.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Don't use it for terminations then.",
+          "ru": "Тогда не используй для оконцовки.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Is there a calibrated spare?",
+          "ru": "Есть откадиброванный запасной?",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Yes, blue case in the test kit.",
+          "ru": "Да, синий кейс в тест-наборе.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Using the blue one. Sending the old for cal.",
+          "ru": "Беру синий. Старый отправлю на калибровку.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Log the serial in the folder.",
+          "ru": "Запиши серийник в папку.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Torque wrench out of date.",
+          "ru": "Ключ просрочен по калибровке."
+        },
+        {
+          "en": "Blue case in the test kit.",
+          "ru": "Синий кейс в тест-наборе."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 10
+    },
+    {
+      "id": "onsite-tools-11",
+      "title_ru": "Инструменты · урок 11",
+      "title_en": "Tools · lesson 11",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Порядок на тележке.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Tool trolley is a mess again.",
+          "ru": "Тележка с инструментом снова в хаосе.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll sort it before lunch.",
+          "ru": "Разложу до обеда.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Shadow board stickers are peeling.",
+          "ru": "Наклейки теней отклеиваются.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Replace them this week.",
+          "ru": "Замени на этой неделе.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Sorted. Missing one pliers set.",
+          "ru": "Разложил. Не хватает одних плоскогубцев.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Check the last room you worked in.",
+          "ru": "Проверь последнюю комнату, где работал.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I'll sort the trolley.",
+          "ru": "Разложу тележку."
+        },
+        {
+          "en": "Missing one pliers set.",
+          "ru": "Не хватает плоскогубцев."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 11
+    },
+    {
+      "id": "onsite-tools-12",
+      "title_ru": "Инструменты · урок 12",
+      "title_en": "Tools · lesson 12",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue"
+      ],
+      "scene_ru": "Сдача инструмента в конце дня.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Inventory check in ten minutes.",
+          "ru": "Инвентаризация через десять минут.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "I'll bring everything back to the container.",
+          "ru": "Снесу всё в контейнер.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Any tool left on site overnight?",
+          "ru": "Что-то остаётся на ночь на объекте?",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "No. All back, locked.",
+          "ru": "Нет. Всё на месте, закрыто.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Sign the sheet then.",
+          "ru": "Тогда распишись в листе.",
+          "role": "foreman",
+          "tip_ru": null,
+          "practice": false
+        },
+        {
+          "en": "Signed. See you tomorrow.",
+          "ru": "Подписал. До завтра.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I'll bring everything back.",
+          "ru": "Снесу всё в контейнер."
+        },
+        {
+          "en": "All back, locked.",
+          "ru": "Всё на месте, закрыто."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "tools",
+      "order": 12
+    },
+    {
+      "id": "onsite-construction-cmds-01",
+      "title_ru": "Команды: возьми / принеси / отрежь / дай",
+      "title_en": "Site commands: get / bring / cut / give me",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "site_commands"
+      ],
+      "scene_ru": "Бригадир даёт короткие команды на объекте.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Go get the drill.",
+          "ru": "Пойди возьми дрель.",
+          "role": "foreman",
+          "tip_ru": "пойди возьми",
+          "practice": false
+        },
+        {
+          "en": "OK, I will go get it.",
+          "ru": "Ок, пойду возьму.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Take it and bring it here.",
+          "ru": "Возьми и принеси сюда.",
+          "role": "foreman",
+          "tip_ru": "возьми и принеси",
+          "practice": false
+        },
+        {
+          "en": "I will bring it here.",
+          "ru": "Принесу сюда.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Go cut that trunking.",
+          "ru": "Пойди отрежь тот короб.",
+          "role": "foreman",
+          "tip_ru": "пойди отрежь",
+          "practice": false
+        },
+        {
+          "en": "Give me that over there.",
+          "ru": "Дай мне вон то.",
+          "role": "foreman",
+          "tip_ru": "дай мне вон то",
+          "practice": false
+        },
+        {
+          "en": "Here you are.",
+          "ru": "Держи.",
+          "role": "electrician",
+          "tip_ru": null,
+          "practice": true
+        },
+        {
+          "en": "Give me something to mark with.",
+          "ru": "Дай мне чем разметить.",
+          "role": "foreman",
+          "tip_ru": "дай мне что-то",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Go get it.",
+          "ru": "Пойди возьми."
+        },
+        {
+          "en": "Give me that over there.",
+          "ru": "Дай мне вон то."
+        },
+        {
+          "en": "Take it and bring it.",
+          "ru": "Возьми и принеси."
+        },
+        {
+          "en": "Go cut it.",
+          "ru": "Пойди отрежь."
+        }
+      ],
+      "created_by": "pack_section",
+      "topic_raw": "construction",
+      "order": 0
+    }
+  ]
+}

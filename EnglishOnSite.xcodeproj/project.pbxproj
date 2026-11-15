@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		L9ONJSONBUILD01 /* lessons_onsite_sections_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */; };
+		L9REGJSONBUILD01 /* lessons_regular_sections_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L9REGJSONFILE01 /* lessons_regular_sections_v1.json */; };
+		L9SECSTOREBUILD01 /* SectionLessonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L9SECSTOREFILE01 /* SectionLessonStore.swift */; };
+		L7REGLANGBUILD01 /* RegularLanguageRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L7REGLANGFILE01 /* RegularLanguageRequestView.swift */; };
+		L7APPLMODEBUILD01 /* AppLearningMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = L7APPLMODEFILE01 /* AppLearningMode.swift */; };
+		L0CEFRLEVELBUILD01 /* CEFRLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0CEFRLEVELFILE01 /* CEFRLevel.swift */; };
 		B14PHRASALHUBBUILD001 /* PhrasalHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14PHRASALHUBFILE001 /* PhrasalHubView.swift */; };
 		B17ADDPHRASEBUILD001 /* AddMyPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */; };
 		B17LANGDETECTBUILD01 /* LanguageDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17LANGDETECTFILE01 /* LanguageDetect.swift */; };
@@ -133,6 +139,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_onsite_sections_v1.json; sourceTree = "<group>"; };
+		L9REGJSONFILE01 /* lessons_regular_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_regular_sections_v1.json; sourceTree = "<group>"; };
+		L9SECSTOREFILE01 /* SectionLessonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLessonStore.swift; sourceTree = "<group>"; };
+		L7REGLANGFILE01 /* RegularLanguageRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularLanguageRequestView.swift; sourceTree = "<group>"; };
+		L7APPLMODEFILE01 /* AppLearningMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLearningMode.swift; sourceTree = "<group>"; };
+		L0CEFRLEVELFILE01 /* CEFRLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEFRLevel.swift; sourceTree = "<group>"; };
 		D1LESSONSCONFIGFILE1 /* LessonsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsConfig.swift; sourceTree = "<group>"; };
 		C8PRINTFILE0000008 /* TutorPrintSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPrintSheetView.swift; sourceTree = "<group>"; };
 		C7VBANKFILE0000007 /* TutorVerbBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorVerbBankView.swift; sourceTree = "<group>"; };
@@ -666,6 +678,10 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				D42222C881D1490AAB3D7F7C /* CoachSourceBadge.swift in Sources */,
 				E2690924126F4C8F93CA8088 /* ContentView.swift in Sources */,
 				870B22D0153543F296A98D55 /* HomeView.swift in Sources */,
+				L0CEFRLEVELBUILD01 /* CEFRLevel.swift in Sources */,
+				L7APPLMODEBUILD01 /* AppLearningMode.swift in Sources */,
+				L7REGLANGBUILD01 /* RegularLanguageRequestView.swift in Sources */,
+				L9SECSTOREBUILD01 /* SectionLessonStore.swift in Sources */,
 				5828CEA1E8754C59A5FFF077 /* LibraryView.swift in Sources */,
 				291449976F084B63936875A2 /* PlayerView.swift in Sources */,
 				10C8AF3653444817A806B437 /* ReviewSessionView.swift in Sources */,
