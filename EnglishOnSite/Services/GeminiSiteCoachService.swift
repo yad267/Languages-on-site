@@ -131,6 +131,36 @@ final class GeminiSiteCoachService {
     - tag один из: electrical, cctv, sockets, safety, tools, other
     """
 
+    private let regularDialoguePackSystemPrompt = """
+    You create everyday English dialogue lessons (NOT construction site).
+    Learner level A1–B1 unless the topic clearly needs higher.
+    Ireland/UK English preferred. Output ONLY JSON (no markdown):
+    {
+      "topic_raw":"...",
+      "lessons":[
+        {
+          "id":"temp-1",
+          "title_ru":"...",
+          "title_en":"...",
+          "tags":["general","dialogue"],
+          "scene_ru":"...",
+          "your_role":"learner",
+          "partner_role":"friend",
+          "lines":[{"en":"...","ru":"...","role":"friend","tip_ru":null,"practice":false}],
+          "say_today":[{"en":"...","ru":"..."},{"en":"...","ru":"..."}],
+          "created_by":"user_gemini_general",
+          "topic_raw":"..."
+        }
+      ]
+    }
+    Rules:
+    - Return 3–10 lessons (max 10). Each lesson = one short dialogue scene on the SAME topic from different angles.
+    - 6–10 dialogue lines per lesson, EN+RU mirrors.
+    - 2 say_today phrases per lesson.
+    - No Safe Pass / cable tray / Unistrut / PPE site jargon unless the user explicitly asked for site English.
+    - partner_role examples: friend, date, colleague, stranger, shop_assistant, partner.
+    """
+
     private let lessonSystemPrompt = """
     Ты создаёшь короткий roleplay-урок EN↔RU для электрика/CCTV/монтажника на объекте в Ireland (residential).
     Уровень A1–A2. Диалог на объекте, НЕ лекция.
@@ -357,6 +387,93 @@ final class GeminiSiteCoachService {
         let en = (obj["en"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? h
         let ru = (obj["ru"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         return (ok, en.isEmpty ? h : en, ru)
+    }
+
+    func generateRegularDialogueLessons(topic: String, cefr: String = "A2") async throws -> [Lesson] {
+        let trimmed = topic.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard trimmed.count >= 2 else { throw GeminiLessonError.invalidResponse }
+        let level = cefr.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        let apiKey = Self.sanitizedAPIKey()
+        guard !apiKey.isEmpty else { throw GeminiLessonError.noAPIKey }
+
+        let now = Date()
+        guard now.timeIntervalSince(lastLessonRequestAt) >= minLessonInterval else {
+            throw GeminiLessonError.rateLimited
+        }
+        lastLessonRequestAt = now
+
+        let user = """
+        User request (any topic — dating, travel, food, work office, feelings, etc.):
+        \(trimmed)
+
+        Target CEFR level: \(level) only — do not write harder than \(level).
+        Build up to 10 short dialogue lessons about this topic. Prefer ~8 if the topic is rich; never more than 10.
+        Tag each lesson with "general", "dialogue", and "\(level)".
+        """
+
+        let raw: String
+        do {
+            raw = try await generateJSON(
+                userText: user,
+                system: regularDialoguePackSystemPrompt,
+                timeout: max(GeminiConfig.lessonTimeout, 45),
+                maxTokens: 8192,
+                temperature: 0.4,
+                skipRateLimit: true
+            )
+        } catch let e as GeminiRequestError {
+            throw GeminiLessonError.request(e)
+        }
+
+        let lessons = parseRegularLessonPack(raw, topicRaw: trimmed, cefr: level)
+        guard !lessons.isEmpty else { throw GeminiLessonError.invalidResponse }
+        return Array(lessons.prefix(10))
+    }
+
+    private func parseRegularLessonPack(_ raw: String, topicRaw: String, cefr: String) -> [Lesson] {
+        let cleaned = stripMarkdownFence(raw)
+        guard let data = cleaned.data(using: .utf8),
+              let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            // Fallback: single lesson object
+            if let one = parseLesson(cleaned), let ok = one.validated() {
+                let id = LessonTopicParser.makeUserLessonId(topic: "general-\(topicRaw)-\(one.titleRu)")
+                return [rewrittenGeneral(ok, id: id, topicRaw: topicRaw, cefr: cefr)]
+            }
+            return []
+        }
+        let arr = (obj["lessons"] as? [[String: Any]]) ?? []
+        var out: [Lesson] = []
+        for (idx, item) in arr.prefix(10).enumerated() {
+            guard let itemData = try? JSONSerialization.data(withJSONObject: item),
+                  let decoded = try? JSONDecoder().decode(Lesson.self, from: itemData),
+                  let ok = decoded.validated() else { continue }
+            let id = LessonTopicParser.makeUserLessonId(topic: "general-\(topicRaw)-\(idx)-\(ok.titleRu)")
+            out.append(rewrittenGeneral(ok, id: id, topicRaw: topicRaw, cefr: cefr))
+        }
+        return out
+    }
+
+    private func rewrittenGeneral(_ lesson: Lesson, id: String, topicRaw: String, cefr: String) -> Lesson {
+        var tags = lesson.tags
+        if !tags.contains("general") { tags.insert("general", at: 0) }
+        if !tags.contains("dialogue") { tags.append("dialogue") }
+        if !cefr.isEmpty, !tags.contains(cefr) { tags.append(cefr) }
+        return Lesson(
+            id: id,
+            titleRu: lesson.titleRu,
+            titleEn: lesson.titleEn,
+            tags: tags,
+            sceneRu: lesson.sceneRu,
+            yourRole: lesson.yourRole.isEmpty ? "learner" : lesson.yourRole,
+            partnerRole: lesson.partnerRole.isEmpty ? "friend" : lesson.partnerRole,
+            cards: lesson.cards,
+            lines: lesson.lines,
+            sayToday: lesson.sayToday,
+            createdBy: "user_gemini_general",
+            topicRaw: topicRaw,
+            order: lesson.order
+        )
     }
 
     /// Create a full site lesson from a free-text topic. Timeout 20s, rate-limit 5s.
