@@ -69,7 +69,7 @@ final class TimedSpeechCapture {
             errorMessage = "Распознавание \(localeId) недоступно"
             return ""
         }
-        _ = usedLocale
+        let isEnglish = usedLocale.lowercased().hasPrefix("en")
 
         do {
             try AudioSessionManager.configureForRecording()
@@ -80,10 +80,17 @@ final class TimedSpeechCapture {
 
         let request = SFSpeechAudioBufferRecognitionRequest()
         request.shouldReportPartialResults = true
-        if recognizer.supportsOnDeviceRecognition {
+        request.taskHint = .dictation
+        // Do NOT force on-device for EN: on-device often mangles site PPE
+        // (hard hat → hot hat / heart). Server path uses contextualStrings better.
+        if !isEnglish, recognizer.supportsOnDeviceRecognition {
             request.requiresOnDeviceRecognition = true
         }
-        let hints = Self.dedupeHints(contextualStrings)
+        var rawHints = contextualStrings
+        if isEnglish {
+            rawHints.append(contentsOf: PhraseSimilarity.siteContextualHints)
+        }
+        let hints = Self.dedupeHints(rawHints)
         if !hints.isEmpty {
             request.contextualStrings = hints
         }
@@ -100,12 +107,13 @@ final class TimedSpeechCapture {
             Task { @MainActor in
                 guard let self, let result else { return }
                 let raw = result.bestTranscription.formattedString
-                self.partialText = raw
+                let heard = isEnglish ? PhraseSimilarity.correctSiteASR(raw) : raw
+                self.partialText = heard
                 // Live PASS → stop without waiting for «Стоп».
                 if !self.didAutoFinish,
                    self.isCapturing,
                    let pred = self.autoFinishWhen,
-                   pred(raw) {
+                   pred(heard) {
                     let elapsed = self.startedAt.map { Date().timeIntervalSince($0) } ?? 0
                     // Tiny floor so a single clear token can finish (~0.25s).
                     guard elapsed >= 0.25 else { return }
@@ -155,9 +163,12 @@ final class TimedSpeechCapture {
             }
         }
 
-        let finalText = partialText
+        let finalText = partialText.trimmingCharacters(in: .whitespacesAndNewlines)
         tearDown()
-        return finalText.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !finalText.isEmpty else { return "" }
+        return isEnglish
+            ? PhraseSimilarity.correctSiteASR(finalText)
+            : finalText
     }
 
     /// User tapped «Готово» / «Стоп» — end recording.

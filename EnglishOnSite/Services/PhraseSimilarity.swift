@@ -115,7 +115,57 @@ enum PhraseSimilarity {
         return false
     }
 
-    /// STT contextualStrings: canon + compacted variant.
+    /// SFSpeech `contextualStrings` boost for Ireland site / PPE (hard hat, Safe Pass…).
+    /// Kept under Apple’s ~100-phrase budget when merged with per-target hints.
+    static let siteContextualHints: [String] = [
+        "hard hat", "hard hats", "wear a hard hat", "put on your hard hat",
+        "hi-vis", "hi vis", "high visibility", "high-vis vest",
+        "Safe Pass", "safe pass", "Safe Pass card", "my Safe Pass",
+        "PPE", "personal protective equipment",
+        "safety boots", "steel toe", "steel-toe boots", "gloves", "goggles", "ear defenders",
+        "helmet", "site induction", "induction", "sign in", "sign out",
+        "cable tray", "cable basket", "Unistrut", "containment", "trunking",
+        "clamp", "bolt", "lay down", "hand over", "toolbox talk",
+        "CCTV", "zebs", "gate", "permit to work", "isolation",
+        "scaffolding", "harness", "lanyard", "exclusion zone",
+    ]
+
+    /// Fix common EN site STT confusions before scoring / display.
+    static func correctSiteASR(_ text: String) -> String {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return trimmed }
+        var s = " " + trimmed + " "
+        let pairs: [(String, String)] = [
+            ("hot hat", "hard hat"),
+            ("hot hats", "hard hats"),
+            ("heart hat", "hard hat"),
+            ("heart hats", "hard hats"),
+            ("hard heart", "hard hat"),
+            ("hart hat", "hard hat"),
+            ("hard hat hat", "hard hat"),
+            ("hi viz", "hi-vis"),
+            ("high viz", "hi-vis"),
+            ("safe past", "Safe Pass"),
+            ("safe path", "Safe Pass"),
+            ("safepass", "Safe Pass"),
+            ("you nistrut", "Unistrut"),
+            ("uni strut", "Unistrut"),
+        ]
+        for (wrong, right) in pairs {
+            if let regex = try? NSRegularExpression(
+                pattern: NSRegularExpression.escapedPattern(for: wrong),
+                options: [.caseInsensitive]
+            ) {
+                let range = NSRange(s.startIndex..<s.endIndex, in: s)
+                s = regex.stringByReplacingMatches(in: s, options: [], range: range, withTemplate: right)
+            }
+        }
+        return s
+            .replacingOccurrences(of: #"\s+"#, with: " ", options: .regularExpression)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// STT contextualStrings: canon + compacted variant + site lexicon when relevant.
     static func sttVariants(for expected: String) -> [String] {
         let raw = expected.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !raw.isEmpty else { return [] }
@@ -127,6 +177,27 @@ enum PhraseSimilarity {
         let noSpace = compacted.replacingOccurrences(of: " ", with: "")
         if compacted != raw { out.append(compacted) }
         if noSpace.lowercased() != compacted.lowercased() { out.append(noSpace) }
+        let words = compacted
+            .components(separatedBy: CharacterSet.alphanumerics.inverted)
+            .filter { !$0.isEmpty }
+        if words.count >= 2 {
+            for i in 0..<(words.count - 1) {
+                out.append("\(words[i]) \(words[i + 1])")
+            }
+        }
+        let lower = compacted.lowercased()
+        // Boost overlapping site terms + always keep hard hat / Safe Pass / hi-vis.
+        for hint in siteContextualHints {
+            let h = hint.lowercased()
+            if lower.contains(h)
+                || h.contains("hard hat")
+                || h.contains("safe pass")
+                || h.contains("hi-vis")
+                || h.contains("hi vis")
+                || h == "ppe" {
+                out.append(hint)
+            }
+        }
         return out
     }
 
@@ -176,7 +247,13 @@ enum PhraseSimilarity {
             (" high-vis ", " high visibility "),
             (" hardhat ", " hard hat "),
             (" hard-hat ", " hard hat "),
+            (" hot hat ", " hard hat "),
+            (" heart hat ", " hard hat "),
+            (" hard heart ", " hard hat "),
+            (" hart hat ", " hard hat "),
             (" safepass ", " safe pass "),
+            (" safe past ", " safe pass "),
+            (" safe path ", " safe pass "),
             (" cabletray ", " cable tray "),
             (" signin ", " sign in "),
             (" signout ", " sign out "),
@@ -209,7 +286,10 @@ enum PhraseSimilarity {
         guard !e.isEmpty else { return r.isEmpty }
         if r.isEmpty { return true }
         if talkScore(recognized: r, expected: e) >= talkPassThreshold { return false }
-        let bad = ["heart", "eyes", "reading my", "i am reading", "hard heart", "hi viz eyes"]
+        let bad = [
+            "heart", "eyes", "reading my", "i am reading", "hard heart",
+            "hi viz eyes", "hot hat", "hart hat", "heart hat",
+        ]
         let hitBad = bad.contains { r.contains($0) }
         let expectHat = e.contains("hard hat") || e.contains("hi vis") || e.contains("high visibility")
         if hitBad && expectHat { return true }
@@ -438,6 +518,14 @@ enum PhraseSimilarity {
             expected: "turn off",
             shouldPass: true
         )
+
+        let fixedHat = correctSiteASR("Please wear your hot hat")
+        if !fixedHat.lowercased().contains("hard hat") {
+            fails.append("correctSiteASR hot→hard: got=\"\(fixedHat)\"")
+        }
+        if !passesTalk(recognized: "wear a hot hat", expected: "wear a hard hat") {
+            fails.append("talk-pass after hot hat alias")
+        }
 
         return fails
     }
