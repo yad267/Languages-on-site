@@ -6,6 +6,8 @@ struct PhrasalHubView: View {
     /// When true (Репетитор → Пары), reuse parent NavigationStack — same board as tab «Фразовые».
     var embedded: Bool = false
     var navigationTitleText: String = "Фразовые"
+    /// Phrasal board: `true` = Наоборот (RU left / EN right). Same filters + paging.
+    var sidesReversed: Bool = false
 
     @Environment(AppSettings.self) private var settings
     @State private var roundKind: PhrasalRoundKind = .mixed
@@ -15,9 +17,15 @@ struct PhrasalHubView: View {
 
     private let pageSize = 5
 
-    init(embedded: Bool = false, navigationTitleText: String = "Фразовые", initialSite: Bool? = nil) {
+    init(
+        embedded: Bool = false,
+        navigationTitleText: String = "Фразовые",
+        sidesReversed: Bool = false,
+        initialSite: Bool? = nil
+    ) {
         self.embedded = embedded
         self.navigationTitleText = navigationTitleText
+        self.sidesReversed = sidesReversed
         // initialSite kept for call-site compatibility; live mode follows settings.learningMode.
         _ = initialSite
     }
@@ -172,8 +180,8 @@ struct PhrasalHubView: View {
                     .padding(.bottom, 4)
             }
 
-            TutorPairsView(mode: .phrasal, seedPhrasals: seedPhrasals)
-                .id(seedPhrasals.map(\.en).joined(separator: "|"))
+            TutorPairsView(mode: .phrasal, seedPhrasals: seedPhrasals, sidesReversed: sidesReversed)
+                .id("\(sidesReversed ? "rev" : "fwd")|" + seedPhrasals.map(\.en).joined(separator: "|"))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         // Tab bar (уроки / фразовые / …) must not cover the last pair tiles.

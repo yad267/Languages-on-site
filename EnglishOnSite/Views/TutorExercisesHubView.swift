@@ -81,11 +81,16 @@ struct TutorExercisesHubView: View {
 }
 
 /// Упражнения → Пары: phrasal matching + opposites (label «Наоборот»).
+/// Phrasal path uses same verb chips + paging as tab «Фразовые».
 struct TutorPairsChooserView: View {
     var body: some View {
         List {
             NavigationLink {
-                TutorPairsView(mode: .phrasal)
+                PhrasalHubView(
+                    embedded: true,
+                    navigationTitleText: "Phrasal verbs",
+                    sidesReversed: false
+                )
             } label: {
                 Label("Phrasal verbs", systemImage: "arrow.left.arrow.right")
             }
@@ -101,17 +106,25 @@ struct TutorPairsChooserView: View {
 }
 
 /// Репетитор → Пары: only phrasal + flipped sides (no opposites).
-/// Both destinations use TutorBankStore.pairsPhrasals (site → general merge).
+/// Same Смешанный / get·take·put… chips and put 1 / put 2 pages as tab «Фразовые».
 struct RepeaterPairsChooserView: View {
     var body: some View {
         List {
             NavigationLink {
-                TutorPairsView(mode: .phrasal, sidesReversed: false)
+                PhrasalHubView(
+                    embedded: true,
+                    navigationTitleText: "Пары",
+                    sidesReversed: false
+                )
             } label: {
                 Label("Фразовые глаголы", systemImage: "arrow.left.arrow.right")
             }
             NavigationLink {
-                TutorPairsView(mode: .phrasal, sidesReversed: true)
+                PhrasalHubView(
+                    embedded: true,
+                    navigationTitleText: "Наоборот",
+                    sidesReversed: true
+                )
             } label: {
                 Label("Наоборот", systemImage: "arrow.left.arrow.right.circle")
             }
