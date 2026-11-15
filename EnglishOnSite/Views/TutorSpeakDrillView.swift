@@ -18,6 +18,9 @@ struct TutorSpeakDrillView: View {
     @State private var listenTask: Task<Void, Never>?
     @State private var whySeed: String?
     @State private var didAutoStart = false
+    /// TTS of the target — mic must stay off until playback finishes.
+    @State private var isSpeakingPrompt = false
+    @State private var speakHandoffEpoch = 0
     /// DEBUG inject: skip mic after PASS so Simulator smoke does not trip Speech alert.
     @State private var smokeNoMic = false
 
@@ -44,7 +47,16 @@ struct TutorSpeakDrillView: View {
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    if phase == .listening {
+                    if isSpeakingPrompt {
+                        Text("…")
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.tertiary)
+                            .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                            .padding(10)
+                        Text("Озвучка эталона… микрофон выкл")
+                            .foregroundStyle(.secondary)
+                            .font(.subheadline.weight(.semibold))
+                    } else if phase == .listening {
                         let shown = PhraseSimilarity.correctOnlyDisplay(
                             recognized: capture.partialText,
                             expected: p.en
@@ -177,10 +189,12 @@ struct TutorSpeakDrillView: View {
             guard !didAutoStart, !phrases.isEmpty else { return }
             didAutoStart = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                startListen()
+                speakPromptThenListen()
             }
         }
         .onDisappear {
+            speakHandoffEpoch &+= 1
+            isSpeakingPrompt = false
             listenTask?.cancel()
             capture.cancel()
             speaker?.stop()
@@ -190,7 +204,12 @@ struct TutorSpeakDrillView: View {
     @ViewBuilder
     private func controls(for p: (en: String, ru: String)) -> some View {
         VStack(spacing: 10) {
-            if phase == .listening {
+            if isSpeakingPrompt {
+                Text("Слушай эталон…")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, minHeight: 44)
+            } else if phase == .listening {
                 HStack(spacing: 8) {
                     Button("Стоп") { capture.finish() }
                         .buttonStyle(.borderedProminent)
@@ -205,15 +224,14 @@ struct TutorSpeakDrillView: View {
                     .frame(maxWidth: .infinity, minHeight: 52)
                 }
                 Button {
-                    speaker?.updateSettings(settings)
-                    speaker?.speakEN(p.en) { note = speaker?.statusNote ?? "" }
+                    speakPromptThenListen()
                 } label: {
                     Text("Слушать эталон").frame(maxWidth: .infinity, minHeight: 44)
                 }
                 .buttonStyle(.bordered)
             } else if phase == .failed || phase == .ready {
                 Button {
-                    startListen()
+                    speakPromptThenListen()
                 } label: {
                     Text("Ещё раз")
                         .font(.headline.weight(.bold))
@@ -222,8 +240,7 @@ struct TutorSpeakDrillView: View {
                 .buttonStyle(.borderedProminent)
 
                 Button {
-                    speaker?.updateSettings(settings)
-                    speaker?.speakEN(p.en) { note = speaker?.statusNote ?? "" }
+                    speakPromptThenListen()
                 } label: {
                     Text("Слушать эталон").frame(maxWidth: .infinity, minHeight: 44)
                 }
@@ -245,9 +262,46 @@ struct TutorSpeakDrillView: View {
         }
     }
 
+    /// TTS first (mic off). Only after full phrase finishes → open STT.
+    private func speakPromptThenListen() {
+        guard let p = current else { return }
+        if smokeNoMic {
+            startListen()
+            return
+        }
+
+        listenTask?.cancel()
+        capture.cancel()
+        phase = .ready
+        heard = ""
+        note = ""
+        score = 0
+
+        speakHandoffEpoch &+= 1
+        let epoch = speakHandoffEpoch
+        let target = p.en
+        isSpeakingPrompt = true
+
+        speaker?.updateSettings(settings)
+        speaker?.speakEN(target) {
+            Task { @MainActor in
+                guard epoch == speakHandoffEpoch else { return }
+                isSpeakingPrompt = false
+                note = speaker?.statusNote ?? ""
+                try? await Task.sleep(nanoseconds: 300_000_000)
+                guard epoch == speakHandoffEpoch else { return }
+                guard current?.en == target else { return }
+                startListen()
+            }
+        }
+    }
+
     private func startListen() {
         guard let p = current else { return }
+        // Never open mic while TTS is still playing.
+        guard !isSpeakingPrompt else { return }
         speaker?.stop()
+        ElevenLabsTTS.shared.stop()
         phase = .listening
         // B12: fresh attempt — wipe old transcript before live STT.
         heard = ""
@@ -256,7 +310,7 @@ struct TutorSpeakDrillView: View {
         listenTask?.cancel()
         capture.cancel()
         listenTask = Task {
-            try? await Task.sleep(nanoseconds: 200_000_000)
+            try? await Task.sleep(nanoseconds: 150_000_000)
             try? AudioSessionManager.configureForRecording()
             var hints = PhraseSimilarity.sttVariants(for: p.en)
             hints.append(contentsOf: p.en.split(separator: " ").map(String.init))
@@ -297,12 +351,16 @@ struct TutorSpeakDrillView: View {
         listenTask = Task {
             try? await Task.sleep(nanoseconds: 500_000_000)
             guard !Task.isCancelled, !smokeNoMic else { return }
-            startListen()
+            // Retry same phrase: TTS again, then mic (no overlap).
+            speakPromptThenListen()
         }
     }
 
     private func advance() {
+        speakHandoffEpoch &+= 1
+        isSpeakingPrompt = false
         listenTask?.cancel()
+        speaker?.stop()
         if index + 1 >= phrases.count {
             index = 0
             if let seedPhrases, !seedPhrases.isEmpty {
@@ -319,7 +377,7 @@ struct TutorSpeakDrillView: View {
         note = ""
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             if smokeNoMic { return }
-            startListen()
+            speakPromptThenListen()
         }
     }
 

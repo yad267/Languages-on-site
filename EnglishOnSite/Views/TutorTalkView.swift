@@ -31,6 +31,10 @@ struct TutorTalkView: View {
     @State private var didTapEdit = false
     /// Auto-start mic once per pinned target (no «Говорю»).
     @State private var autoListenTarget: String = ""
+    /// TTS playing the target — mic stays off, no «Слушаю…».
+    @State private var isSpeakingPrompt = false
+    /// Bumps to cancel a pending TTS→mic handoff.
+    @State private var speakHandoffEpoch = 0
     @FocusState private var draftFocused: Bool
 
     private struct CoachTurn: Identifiable {
@@ -144,6 +148,8 @@ struct TutorTalkView: View {
             #endif
         }
         .onDisappear {
+            speakHandoffEpoch &+= 1
+            isSpeakingPrompt = false
             capture.cancel()
             speaker?.stop()
         }
@@ -167,8 +173,8 @@ struct TutorTalkView: View {
                 pinnedTargetCard
             }
 
-            // Show live correct-only box while mic is open, or while waiting for a pass.
-            if isListening || (waitingForPass && !pinnedSayNowEN.isEmpty) {
+            // Show live correct-only box while mic is open, TTS prompt, or waiting for a pass.
+            if isListening || isSpeakingPrompt || (waitingForPass && !pinnedSayNowEN.isEmpty) {
                 attemptCard
             }
 
@@ -220,19 +226,27 @@ struct TutorTalkView: View {
                     .foregroundStyle(.tertiary)
             }
             Button {
-                speakEN(pinnedSayNowEN)
+                speakPromptThenListen(pinnedSayNowEN)
             } label: {
                 Label("Слушать EN", systemImage: "play.fill")
                     .font(.subheadline.weight(.semibold))
             }
             .buttonStyle(.bordered)
-            .disabled(isListening || isBusy || pinnedSayNowEN.isEmpty)
+            .disabled(isBusy || isSpeakingPrompt || pinnedSayNowEN.isEmpty)
         }
         .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color.accentColor.opacity(0.12))
         .overlay(alignment: .topTrailing) {
-            if isListening {
+            if isSpeakingPrompt {
+                HStack(spacing: 6) {
+                    Image(systemName: "speaker.wave.2.fill")
+                    Text("Озвучка…")
+                        .font(.caption.weight(.bold))
+                }
+                .foregroundStyle(.secondary)
+                .padding(10)
+            } else if isListening {
                 HStack(spacing: 6) {
                     Circle().fill(Color.red).frame(width: 8, height: 8)
                     Text("Слушаю…")
@@ -246,7 +260,11 @@ struct TutorTalkView: View {
 
     private var attemptCard: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text(isListening ? "Вы говорите…" : (passesCurrent ? "Верно" : "Повтори фразу"))
+            Text(
+                isSpeakingPrompt
+                    ? "Слушай эталон…"
+                    : (isListening ? "Вы говорите…" : (passesCurrent ? "Верно" : "Повтори фразу"))
+            )
                 .font(.caption.weight(.bold))
                 .foregroundStyle(.secondary)
                 .textCase(.uppercase)
@@ -269,7 +287,11 @@ struct TutorTalkView: View {
                         )
                 )
 
-            if isListening {
+            if isSpeakingPrompt {
+                Text("Микрофон выкл — сначала эталон")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+            } else if isListening {
                 Text("\(capture.elapsedSeconds) с · повторяй, пока засчитаем")
                     .font(.caption2)
                     .foregroundStyle(.tertiary)
@@ -366,12 +388,12 @@ struct TutorTalkView: View {
                     .focused($draftFocused)
             }
 
-            // Mic = Стоп while listening; otherwise restart take (no separate «Говорю» gate).
+            // Mic = Стоп while listening; otherwise restart take (blocked during TTS).
             Button {
                 Task {
                     if isListening {
                         capture.finish()
-                    } else {
+                    } else if !isSpeakingPrompt {
                         await startListening()
                     }
                 }
@@ -381,7 +403,7 @@ struct TutorTalkView: View {
                     .frame(width: 44, height: 44)
                     .foregroundStyle(isListening ? Color.red : Color.accentColor)
             }
-            .disabled(isBusy)
+            .disabled(isBusy || isSpeakingPrompt)
             .accessibilityLabel(isListening ? "Стоп" : "Ещё раз")
 
             if !awaitingReview && !isListening {
@@ -440,12 +462,14 @@ struct TutorTalkView: View {
                                 .foregroundStyle(.secondary)
                         }
                         Button {
-                            speakEN(en)
+                            // Same handoff as pinned card: TTS fully, then mic.
+                            speakPromptThenListen(en)
                         } label: {
                             Label("Слушать EN", systemImage: "play.fill")
                                 .font(.subheadline.weight(.semibold))
                         }
                         .buttonStyle(.bordered)
+                        .disabled(isBusy || isSpeakingPrompt)
                     }
                     .padding(10)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -494,6 +518,8 @@ struct TutorTalkView: View {
             capture.finish()
             return
         }
+        // Never open mic while TTS is still playing the target.
+        guard !isSpeakingPrompt else { return }
         speaker?.stop()
         ElevenLabsTTS.shared.stop()
         errorMessage = nil
@@ -702,15 +728,17 @@ struct TutorTalkView: View {
                 let newEN = reply.sayNowEN
                 pinnedSayNowRU = reply.sayNowRU
                 pinnedSayNowEN = newEN
-                // Auto-listen after pin; delay longer if TTS will play (don't hear the speaker).
-                let delayNs: UInt64 = speakReplies ? 2_400_000_000 : 450_000_000
                 autoListenTarget = newEN
-                Task {
-                    if speakReplies { speakEN(newEN) }
-                    try? await Task.sleep(nanoseconds: delayNs)
-                    speaker?.stop()
-                    guard !isListening, !isBusy, pinnedSayNowEN == newEN, waitingForPass else { return }
-                    await startListening()
+                // TTS must finish fully before mic — never overlap (hears itself / cuts off).
+                if speakReplies {
+                    speakPromptThenListen(newEN)
+                } else {
+                    Task {
+                        try? await Task.sleep(nanoseconds: 350_000_000)
+                        guard !isListening, !isBusy, !isSpeakingPrompt,
+                              pinnedSayNowEN == newEN, waitingForPass else { return }
+                        await startListening()
+                    }
                 }
             }
             turns.append(CoachTurn(
@@ -767,11 +795,40 @@ struct TutorTalkView: View {
         return hints
     }
 
-    private func speakEN(_ en: String) {
-        speaker?.updateSettings(settings)
+    /// Play target via TTS only (mic off). After full playback finishes → open mic.
+    private func speakPromptThenListen(_ en: String) {
+        let target = en.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !target.isEmpty else { return }
+
+        // Kill any in-flight STT so TTS is never mixed into the recognizer.
+        capture.cancel()
+        isListening = false
+        awaitingReview = false
+        draft = ""
+
+        speakHandoffEpoch &+= 1
+        let epoch = speakHandoffEpoch
+        isSpeakingPrompt = true
         voiceNote = "…"
-        speaker?.speakEN(en) {
-            voiceNote = speaker?.statusNote ?? ElevenLabsTTS.shared.lastStatusRU
+
+        speaker?.updateSettings(settings)
+        speaker?.speakEN(target) {
+            Task { @MainActor in
+                guard epoch == speakHandoffEpoch else { return }
+                isSpeakingPrompt = false
+                voiceNote = speaker?.statusNote ?? ElevenLabsTTS.shared.lastStatusRU
+                // Settle: release speaker session before recording category.
+                try? await Task.sleep(nanoseconds: 300_000_000)
+                guard epoch == speakHandoffEpoch else { return }
+                // If coach pinned a different target mid-play, only continue for the live pin.
+                guard !isBusy, waitingForPass else { return }
+                guard pinnedSayNowEN == target || pinnedSayNowEN.isEmpty else { return }
+                if pinnedSayNowEN.isEmpty {
+                    pinnedSayNowEN = target
+                }
+                await startListening()
+            }
         }
     }
+
 }
