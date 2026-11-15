@@ -34,7 +34,7 @@ struct PhrasalHubView: View {
     private var bankMode: TutorContentMode { trackMode.tutorMode }
 
     private enum PhrasalRoundKind: String, CaseIterable, Identifiable {
-        case mixed, get, take, put, turn, look, come, over
+        case mixed, get, take, put, turn, look, come, over, go, make, give, set, bring, find
         var id: String { rawValue }
         var title: String {
             switch self {
@@ -46,6 +46,12 @@ struct PhrasalHubView: View {
             case .look: return "look"
             case .come: return "come"
             case .over: return "over"
+            case .go: return "go"
+            case .make: return "make"
+            case .give: return "give"
+            case .set: return "set"
+            case .bring: return "bring"
+            case .find: return "find"
             }
         }
         var rootFilter: String? {
