@@ -26,22 +26,58 @@ enum PhraseSimilarity {
     }
 
     static func passes(recognized: String, expected: String) -> Bool {
+        if passesRaw(recognized: recognized, expected: expected, useTalk: false) { return true }
+        // Same progressive/filtered text the UI shows — if it covers the full target, accept.
+        return passesViaDisplay(recognized: recognized, expected: expected, useTalk: false)
+    }
+
+    /// Raw-STT path only (no display filter). Used internally to avoid recursion with correctOnlyDisplay.
+    private static func passesRaw(recognized: String, expected: String, useTalk: Bool) -> Bool {
         let collapsed = collapseRepeatedTarget(recognized, expected: expected)
-        // Compact whole-phrase hit (handover ≈ hand over) covers the full target.
         let a = compactKey(collapsed)
         let b = compactKey(expected)
         if !a.isEmpty, !b.isEmpty, a == b { return true }
 
-        // Prefix / partial utterance must not PASS — need most expected tokens.
-        guard coversFullExpected(recognized: collapsed, expected: expected, useTalkNormalize: false) else {
+        guard coversFullExpected(
+            recognized: collapsed,
+            expected: expected,
+            useTalkNormalize: useTalk
+        ) else {
             return false
+        }
+
+        if useTalk {
+            return talkScore(recognized: collapsed, expected: expected) >= talkPassThreshold
         }
 
         if score(recognized: collapsed, expected: expected) >= passThreshold { return true }
         if a.isEmpty || b.isEmpty { return false }
         if score(recognized: a, expected: b) >= passThreshold { return true }
-        // One clean hit inside longer STT (practice repeats already collapsed above).
         return windowContainsTarget(recognized: collapsed, expected: expected)
+    }
+
+    /// Accept when progressive display already shows a complete target (junk STT skipped).
+    private static func passesViaDisplay(recognized: String, expected: String, useTalk: Bool) -> Bool {
+        let shown = progressiveMatchedDisplay(
+            recognized: recognized,
+            expected: expected,
+            useTalkNormalize: useTalk
+        )
+        guard !shown.isEmpty else { return false }
+        // Keep the 85% recall gate — apply it to the display-normalized text.
+        guard coversFullExpected(
+            recognized: shown,
+            expected: expected,
+            useTalkNormalize: useTalk
+        ) else {
+            return false
+        }
+        if useTalk {
+            return talkScore(recognized: shown, expected: expected) >= talkPassThreshold
+                || compactKey(shown) == compactKey(expected)
+        }
+        return score(recognized: shown, expected: expected) >= passThreshold
+            || compactKey(shown) == compactKey(expected)
     }
 
     /// Spaces/hyphens removed — hand over / hand-over / handover.
@@ -223,14 +259,13 @@ enum PhraseSimilarity {
     }
 
     static func passesTalk(recognized: String, expected: String) -> Bool {
-        let collapsed = collapseRepeatedTarget(recognized, expected: expected)
-        let a = compactKey(collapsed)
-        let b = compactKey(expected)
-        if !a.isEmpty, !b.isEmpty, a == b { return true }
-        guard coversFullExpected(recognized: collapsed, expected: expected, useTalkNormalize: true) else {
-            return false
-        }
-        return talkScore(recognized: collapsed, expected: expected) >= talkPassThreshold
+        if passesRaw(recognized: recognized, expected: expected, useTalk: true) { return true }
+        return passesViaDisplay(recognized: recognized, expected: expected, useTalk: true)
+    }
+
+    /// Stable key for auto-finish hold — ignores minor raw STT jitter.
+    static func stablePassKey(_ text: String) -> String {
+        normalizeTalk(text)
     }
 
     /// True when recognized covers the full expected phrase (not a proper prefix).
@@ -399,12 +434,42 @@ enum PhraseSimilarity {
         guard !cleaned.isEmpty else { return "" }
 
         let collapsed = collapseRepeatedTarget(cleaned, expected: exp)
-        let fullPass = useTalkThreshold
-            ? passesTalk(recognized: collapsed, expected: exp)
-            : passes(recognized: collapsed, expected: exp)
-        if fullPass { return exp }
+        // Use raw path only — avoids recursion with passesViaDisplay.
+        if passesRaw(recognized: collapsed, expected: exp, useTalk: useTalkThreshold) {
+            return exp
+        }
+        if !compactKey(collapsed).isEmpty, compactKey(collapsed) == compactKey(exp) {
+            return exp
+        }
 
-        // Compact whole-phrase hit (handover ≈ hand over) before token walk.
+        let progressive = progressiveMatchedDisplay(
+            recognized: collapsed,
+            expected: exp,
+            useTalkNormalize: useTalkThreshold
+        )
+        // If progressive already covers the full target, show the canonical expected.
+        if coversFullExpected(
+            recognized: progressive,
+            expected: exp,
+            useTalkNormalize: useTalkThreshold
+        ), !progressive.isEmpty {
+            return exp
+        }
+        return progressive
+    }
+
+    /// Progressive target words matched so far (junk STT skipped). Shared by UI + PASS.
+    private static func progressiveMatchedDisplay(
+        recognized: String,
+        expected: String,
+        useTalkNormalize: Bool
+    ) -> String {
+        let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleaned = correctSiteASR(recognized)
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !exp.isEmpty, !cleaned.isEmpty else { return "" }
+
+        let collapsed = collapseRepeatedTarget(cleaned, expected: exp)
         if !compactKey(collapsed).isEmpty, compactKey(collapsed) == compactKey(exp) {
             return exp
         }
@@ -413,7 +478,7 @@ enum PhraseSimilarity {
             .split { $0.isWhitespace || $0.isNewline }
             .map(String.init)
             .filter { !$0.isEmpty }
-        let normFn: (String) -> String = useTalkThreshold ? normalizeTalk : normalize
+        let normFn: (String) -> String = useTalkNormalize ? normalizeTalk : normalize
         let eNorm = normFn(exp).split(separator: " ").map(String.init)
         let rNorm = normFn(collapsed).split(separator: " ").map(String.init)
         guard !eNorm.isEmpty, !rNorm.isEmpty else { return "" }
@@ -434,7 +499,6 @@ enum PhraseSimilarity {
                     found = true
                     break
                 }
-                // Skip junk STT tokens; never append them.
             }
             if found {
                 matched += 1
@@ -443,7 +507,6 @@ enum PhraseSimilarity {
             }
         }
 
-        // Growing compact prefix: "hardhat" while expecting "hard hat on…"
         if matched == 0 {
             let rc = compactKey(collapsed)
             guard !rc.isEmpty else { return "" }
@@ -456,7 +519,6 @@ enum PhraseSimilarity {
                     built = next
                     if rc == next { break }
                 } else {
-                    // Incomplete token (e.g. "har" of "hard") — hide until whole word lands.
                     break
                 }
             }
@@ -669,6 +731,19 @@ enum PhraseSimilarity {
             useTalkNormalize: true
         ) {
             fails.append("full-coverage-high-vis")
+        }
+
+        // Display-complete with junk fillers must PASS (UI already shows full target).
+        let junkFull = "um yeah where is my high-vis vest please"
+        if !passes(recognized: junkFull, expected: hiVis) {
+            fails.append("display-complete-pass-drill: junk fillers")
+        }
+        if !passesTalk(recognized: junkFull, expected: hiVis) {
+            fails.append("display-complete-pass-talk: junk fillers")
+        }
+        // Prefix still blocked even via display path.
+        if passes(recognized: "um where is my", expected: hiVis) {
+            fails.append("display-prefix-still-blocked")
         }
 
         check(

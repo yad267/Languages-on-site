@@ -322,7 +322,7 @@ final class TimedSpeechCapture {
     }
 
     /// Auto-finish only when the full-phrase predicate stays true long enough.
-    /// Does **not** stop on SFSpeech isFinal alone (that only ends one utterance).
+    /// Hold key uses normalized display-stable text so raw STT jitter does not reset the timer.
     private func considerAutoFinish(heard: String) {
         guard !didAutoFinish, isCapturing, let pred = autoFinishWhen else { return }
         let elapsed = startedAt.map { Date().timeIntervalSince($0) } ?? 0
@@ -335,11 +335,25 @@ final class TimedSpeechCapture {
             return
         }
 
-        let key = trimmed.lowercased()
+        // Stable key: ignore minor raw jitter while PASS remains true.
+        let key = PhraseSimilarity.stablePassKey(trimmed)
         if autoFinishHoldText != key {
+            // Only reset the clock when the *normalized* content changes.
+            if autoFinishHoldText.isEmpty {
+                autoFinishHoldSince = Date()
+                log("pass hold start \"\(trimmed)\" key=\"\(key)\"")
+            } else {
+                // Soft tolerance: if previous key is a prefix of the new one (or vice versa),
+                // keep the original hold start so completion can finish.
+                let prev = autoFinishHoldText
+                if key.hasPrefix(prev) || prev.hasPrefix(key) {
+                    log("pass hold extend \"\(trimmed)\"")
+                } else {
+                    autoFinishHoldSince = Date()
+                    log("pass hold restart \"\(trimmed)\"")
+                }
+            }
             autoFinishHoldText = key
-            autoFinishHoldSince = Date()
-            log("pass hold start \"\(trimmed)\"")
         }
 
         let held = autoFinishHoldSince.map { Date().timeIntervalSince($0) } ?? 0
@@ -415,11 +429,38 @@ final class TimedSpeechCapture {
         let b = segment.trimmingCharacters(in: .whitespacesAndNewlines)
         if a.isEmpty { return b }
         if b.isEmpty { return a }
-        // Avoid duplicating when the new segment already starts with committed text.
+
         let aKey = a.lowercased()
         let bKey = b.lowercased()
+        // New segment already contains / repeats the committed text.
+        if bKey == aKey { return b }
         if bKey.hasPrefix(aKey) { return b }
         if aKey.hasSuffix(bKey) { return a }
+        if aKey.contains(bKey) { return a }
+        if bKey.contains(aKey) { return b }
+
+        // Overlap: committed ends with the start of the new segment (token-wise).
+        let aToks = aKey.split(separator: " ").map(String.init)
+        let bToks = bKey.split(separator: " ").map(String.init)
+        if !aToks.isEmpty, !bToks.isEmpty {
+            let maxOverlap = min(aToks.count, bToks.count)
+            var overlap = 0
+            for n in stride(from: maxOverlap, through: 1, by: -1) {
+                if Array(aToks.suffix(n)) == Array(bToks.prefix(n)) {
+                    overlap = n
+                    break
+                }
+            }
+            if overlap > 0 {
+                let rest = bToks.dropFirst(overlap)
+                if rest.isEmpty { return a }
+                // Preserve original casing from committed + remainder of segment tokens.
+                let bOrig = b.split(separator: " ").map(String.init)
+                let restOrig = bOrig.dropFirst(overlap)
+                return ([a] + restOrig).joined(separator: " ")
+            }
+        }
+
         return a + " " + b
     }
 
