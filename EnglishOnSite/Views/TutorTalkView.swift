@@ -797,8 +797,10 @@ struct TutorTalkView: View {
                 }
             }
         }
+        hints.append(contentsOf: PhraseSimilarity.sttVariants(for: pinnedSayNowEN))
+        hints.append(contentsOf: PhraseSimilarity.siteContextualHints)
         hints += [
-            "Safe Pass", "hard hat", "hi-vis", "hi vis", "card", "here", "have", "my",
+            "card", "here", "have", "my",
             "I have", "my Safe Pass", "Pass card", "card here",
         ]
         return hints

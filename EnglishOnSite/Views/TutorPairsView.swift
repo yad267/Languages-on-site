@@ -11,6 +11,8 @@ enum TutorPairsMode: String, Hashable {
 struct TutorPairsView: View {
     var mode: TutorPairsMode = .phrasal
     var seedPhrasals: [PhrasalEntry]? = nil
+    /// Phrasal only: `false` = EN left / RU right; `true` = Наоборот (RU left / EN right).
+    var sidesReversed: Bool = false
 
     @Environment(AppSettings.self) private var settings
     @State private var speaker: SpeechSpeaker?
@@ -97,22 +99,27 @@ struct TutorPairsView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            header
-            if roundSize == 0 {
-                emptyBank
-            } else if allCleared {
-                roundDone
-            } else {
-                HStack(alignment: .top, spacing: 12) {
-                    tileColumn(tiles: visibleLeft, side: .left)
-                    tileColumn(tiles: visibleRight, side: .right)
+        ScrollView {
+            VStack(spacing: 0) {
+                header
+                if roundSize == 0 {
+                    emptyBank
+                } else if allCleared {
+                    roundDone
+                } else {
+                    HStack(alignment: .top, spacing: 12) {
+                        tileColumn(tiles: visibleLeft, side: .left)
+                        tileColumn(tiles: visibleRight, side: .right)
+                    }
+                    .padding(16)
+                    .offset(x: missShake ? -8 : 0)
                 }
-                .padding(16)
-                .offset(x: missShake ? -8 : 0)
-                Spacer(minLength: 0)
             }
+            .frame(maxWidth: .infinity)
+            .padding(.bottom, 28)
         }
+        .scrollIndicators(.visible)
+        .safeAreaPadding(.bottom, 12)
         .navigationTitle("Пары")
         .navigationBarTitleDisplayMode(.inline)
         .navigationDestination(item: $loopSeed) { seed in
@@ -139,6 +146,9 @@ struct TutorPairsView: View {
             }
             #endif
         }
+        .onChange(of: sidesReversed) { _, _ in
+            dealRound()
+        }
         .onDisappear {
             cancelAllAudioAndGlossFetch()
             prefetchTask?.cancel()
@@ -146,13 +156,23 @@ struct TutorPairsView: View {
         }
     }
 
+    /// Pair under focus for «Знаю»: current selection, else first tile still on the board.
+    private var knowTargetPairId: String? {
+        if let id = selectedLeftPairId ?? selectedRightPairId, !matchedIds.contains(id) {
+            return id
+        }
+        return visibleLeft.first?.pairId ?? visibleRight.first?.pairId
+    }
+
     private var header: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("Нажмите на пары")
                 .font(.title3.weight(.bold))
             Text(mode == .phrasal
-                 ? "Phrasal · голос только EN"
-                 : "Наоборот · один play на тап")
+                 ? (sidesReversed
+                    ? "Phrasal · Наоборот · RU слева · EN справа"
+                    : "Phrasal · EN слева · RU справа · голос только EN")
+                 : "Оппозит · один play на тап")
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
             Text("\(progressDone) / \(roundSize)")
@@ -161,12 +181,28 @@ struct TutorPairsView: View {
             ProgressView(value: Double(progressDone), total: Double(max(roundSize, 1)))
                 .tint(.accentColor)
             glossStrip
+            if let knowId = knowTargetPairId, let meta = pairMeta[knowId], !allCleared, roundSize > 0 {
+                knowItButton(pairId: knowId, meta: meta)
+            }
             if mode == .phrasal, !practiceEN.isEmpty {
                 phrasalPracticeStrip
             }
         }
         .padding(.horizontal, 16)
         .padding(.top, 12)
+    }
+
+    private func knowItButton(pairId: String, meta: PairMeta) -> some View {
+        let label = mode == .phrasal ? meta.leftEN : "\(meta.leftEN) ↔ \(meta.rightEN)"
+        return Button {
+            markKnownAndRemove(pairId: pairId, meta: meta)
+        } label: {
+            Label("Знаю · \(label)", systemImage: "checkmark.circle")
+                .frame(maxWidth: .infinity, minHeight: 44)
+        }
+        .buttonStyle(.bordered)
+        .disabled(matchBusy || matchedIds.contains(pairId))
+        .accessibilityHint("Убрать из раундов — уже знаю")
     }
 
     /// B13: mic after EN phrasal tap — Gemini check + Save → Мои фразы.
@@ -275,6 +311,10 @@ struct TutorPairsView: View {
         VStack(spacing: 14) {
             Spacer(minLength: 24)
             Text("Банк пуст").font(.title2.weight(.bold))
+            Text("Все пары отмечены «Знаю», или банк ещё не загружен.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
             Button("Обновить") { dealRound() }
                 .buttonStyle(.borderedProminent)
             Spacer()
@@ -407,6 +447,7 @@ struct TutorPairsView: View {
         practiceOK = false
         practiceListening = true
         let hints = PhraseSimilarity.sttVariants(for: practiceEN) + [practiceEN]
+            + PhraseSimilarity.siteContextualHints
         let text = await practiceCapture.captureUntilStopped(
             localeId: settings.rememberLocale.rawValue,
             maxSeconds: 45,
@@ -542,6 +583,29 @@ struct TutorPairsView: View {
         if !matchedRound.contains(where: { $0.pairId == pairId }) {
             matchedRound.append(meta)
         }
+        selectedLeftPairId = nil
+        selectedRightPairId = nil
+        warmingPairId = nil
+        withAnimation(.easeInOut(duration: 0.16)) {
+            visibleLeft = leftTiles.filter { !matchedIds.contains($0.pairId) }
+            visibleRight = rightTiles.filter { !matchedIds.contains($0.pairId) }
+        }
+    }
+
+    /// Persist «Знаю» and drop the pair from this round (and future deals).
+    private func markKnownAndRemove(pairId: String, meta: PairMeta) {
+        guard !matchedIds.contains(pairId) else { return }
+        PairsKnownStore.markKnown(pairId: pairId, mode: mode)
+        cancelAllAudioAndGlossFetch()
+        gloss = .hint
+        glossNote = "Знаю — больше не покажем"
+        UINotificationFeedbackGenerator().notificationOccurred(.success)
+        var next = matchedIds
+        next.insert(pairId)
+        matchedIds = next
+        progressDone = next.count
+        lastMatched = meta
+        // Not added to matchedRound — no need to «сказать вслух» a known item.
         selectedLeftPairId = nil
         selectedRightPairId = nil
         warmingPairId = nil
@@ -691,12 +755,13 @@ struct TutorPairsView: View {
 
         switch mode {
         case .phrasal:
-            let pool: [PhrasalEntry]
+            let raw: [PhrasalEntry]
             if let seedPhrasals, !seedPhrasals.isEmpty {
-                pool = Array(seedPhrasals.shuffled().prefix(5))
+                raw = seedPhrasals
             } else {
-                pool = Array(TutorBankStore.corePhrasals.shuffled().prefix(5))
+                raw = TutorBankStore.corePhrasals
             }
+            let pool = Array(PairsKnownStore.filterPhrasals(raw).shuffled().prefix(5))
             for p in pool {
                 let pid = p.en
                 let drillEN = p.exampleEn.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
@@ -709,17 +774,39 @@ struct TutorPairsView: View {
                     leftRU: p.ru, rightRU: p.ru,
                     drillEN: drillEN, drillRU: drillRU
                 ))
-                left.append(SideTile(
-                    id: "\(pid)#L", pairId: pid, display: p.ru,
-                    speakEN: p.en, ru: p.ru, isENColumn: false
-                ))
-                right.append(SideTile(
-                    id: "\(pid)#R", pairId: pid, display: p.en,
+                let enTile = SideTile(
+                    id: "\(pid)#EN", pairId: pid, display: p.en,
                     speakEN: p.en, ru: p.ru, isENColumn: true
-                ))
+                )
+                let ruTile = SideTile(
+                    id: "\(pid)#RU", pairId: pid, display: p.ru,
+                    speakEN: p.en, ru: p.ru, isENColumn: false
+                )
+                if sidesReversed {
+                    // Наоборот: RU left / EN right
+                    left.append(SideTile(
+                        id: "\(pid)#L", pairId: pid, display: ruTile.display,
+                        speakEN: ruTile.speakEN, ru: ruTile.ru, isENColumn: false
+                    ))
+                    right.append(SideTile(
+                        id: "\(pid)#R", pairId: pid, display: enTile.display,
+                        speakEN: enTile.speakEN, ru: enTile.ru, isENColumn: true
+                    ))
+                } else {
+                    // Default: EN left / RU right
+                    left.append(SideTile(
+                        id: "\(pid)#L", pairId: pid, display: enTile.display,
+                        speakEN: enTile.speakEN, ru: enTile.ru, isENColumn: true
+                    ))
+                    right.append(SideTile(
+                        id: "\(pid)#R", pairId: pid, display: ruTile.display,
+                        speakEN: ruTile.speakEN, ru: ruTile.ru, isENColumn: false
+                    ))
+                }
             }
         case .opposites:
-            for o in TutorBankStore.coreOpposites.shuffled().prefix(5) {
+            let pool = Array(PairsKnownStore.filterOpposites(TutorBankStore.coreOpposites).shuffled().prefix(5))
+            for o in pool {
                 let parts = TutorBankStore.splitOppositeRU(o.ru)
                 let leftRU = parts.left ?? TutorBankStore.glossRU(forEN: o.a) ?? o.ru
                 let rightRU = parts.right ?? TutorBankStore.glossRU(forEN: o.b) ?? o.ru
