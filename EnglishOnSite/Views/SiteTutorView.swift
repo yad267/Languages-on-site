@@ -76,7 +76,7 @@ struct SiteTutorView: View {
 
                     modeButton(
                         title: "Пары",
-                        subtitle: "Phrasal · EN слева · RU справа · как во Фразовых",
+                        subtitle: "Phrasal · Наоборот · Оппозит",
                         systemImage: "rectangle.on.rectangle.angled",
                         accent: .pink
                     ) { path.append(Route.pairsHub) }
@@ -139,11 +139,8 @@ struct SiteTutorView: View {
                 case .pairsPhrasal:
                     TutorPairsView(mode: .phrasal)
                 case .pairsHub:
-                    PhrasalHubView(
-                        embedded: true,
-                        navigationTitleText: "Пары",
-                        initialSite: contentMode == .site
-                    )
+                    // Same three-way chooser as Упражнения → Пары
+                    TutorPairsChooserView()
                 case .printSheet:
                     TutorPrintSheetView(contentMode: contentMode)
                 case .roleplay:
