@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6PHRLADBUILD00007 /* TutorPhrasalLadderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */; };
 		A08A2CEA358140AD8A75D8D2 /* CloudUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0365C7EE4468A81DC0F1 /* CloudUserModels.swift */; };
 		FC73912EE5BE40ADB10500FD /* CloudUserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D68560B184FC1919F9C59 /* CloudUserDataStore.swift */; };
 		L9ONJSONBUILD01 /* lessons_onsite_sections_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */; };
@@ -156,6 +157,7 @@
 		C5WRITEFILE0000005 /* TutorWriteDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorWriteDrillView.swift; sourceTree = "<group>"; };
 		C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorSpeakDrillView.swift; sourceTree = "<group>"; };
 		C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPhrasalSentenceView.swift; sourceTree = "<group>"; };
+		C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPhrasalLadderView.swift; sourceTree = "<group>"; };
 		C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorExercisesHubView.swift; sourceTree = "<group>"; };
 		C2GRAMMARFILE00002 /* GrammarPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarPatterns.swift; sourceTree = "<group>"; };
 		C1BANKSTOREFILE001 /* TutorBankStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorBankStore.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				C5WRITEFILE0000005 /* TutorWriteDrillView.swift */,
 				C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */,
 				C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */,
+				C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */,
 								B14PHRASALHUBFILE001 /* PhrasalHubView.swift */,
 				B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */,
 G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
@@ -685,6 +688,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				C5WRITEBUILD0000005 /* TutorWriteDrillView.swift in Sources */,
 				C4SPEAKBUILD0000004 /* TutorSpeakDrillView.swift in Sources */,
 				C6PHRSENTBUILD00006 /* TutorPhrasalSentenceView.swift in Sources */,
+				C6PHRLADBUILD00007 /* TutorPhrasalLadderView.swift in Sources */,
 				G4SEARCHBUILD000004 /* TutorPhrasalSearchView.swift in Sources */,
 				B14PHRASALHUBBUILD001 /* PhrasalHubView.swift in Sources */,
 				B17ADDPHRASEBUILD001 /* AddMyPhraseView.swift in Sources */,
@@ -803,7 +807,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EnglishOnSite/EnglishOnSite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -832,7 +836,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EnglishOnSite/EnglishOnSite.Debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 17;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;

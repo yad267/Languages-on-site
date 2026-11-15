@@ -10,6 +10,7 @@ struct SiteTutorView: View {
         case pairsOpposites
         case pairsPhrasal
         case pairsHub
+        case phrasalLadder
         case printSheet
         case roleplay
     }
@@ -66,10 +67,17 @@ struct SiteTutorView: View {
 
                     modeButton(
                         title: "Упражнения",
-                        subtitle: "Говорить · Писать · Пары · Формы · поиск take…",
+                        subtitle: "Говорить · Писать · Пары · Лесенка · Формы · поиск",
                         systemImage: "square.grid.2x2.fill",
                         accent: .teal
                     ) { path.append(Route.exercises) }
+
+                    modeButton(
+                        title: "Phrasal · лесенка",
+                        subtitle: "Пропуск → перевод → своё · тап слушать",
+                        systemImage: "stairs",
+                        accent: .mint
+                    ) { path.append(Route.phrasalLadder) }
 
                     modeButton(
                         title: "Пары",
@@ -137,6 +145,8 @@ struct SiteTutorView: View {
                     TutorPairsView(mode: .phrasal)
                 case .pairsHub:
                     RepeaterPairsChooserView()
+                case .phrasalLadder:
+                    TutorPhrasalLadderView(contentMode: contentMode)
                 case .printSheet:
                     TutorPrintSheetView(contentMode: contentMode)
                 case .roleplay:

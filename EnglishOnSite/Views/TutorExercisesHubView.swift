@@ -32,6 +32,15 @@ struct TutorExercisesHubView: View {
                     )
                 }
                 NavigationLink {
+                    TutorPhrasalLadderView(contentMode: contentMode)
+                } label: {
+                    label(
+                        "Phrasal · лесенка",
+                        "Пропуск → перевод → своё · тап = слушать",
+                        "stairs"
+                    )
+                }
+                NavigationLink {
                     TutorVerbFormsView(contentMode: contentMode)
                 } label: {
                     label("Формы глагола", contentMode == .site
