@@ -6,6 +6,9 @@ enum PhraseSimilarity {
     static let passThreshold = 0.75
     /// Softer pass for TutorTalk (STT noise on site terms).
     static let talkPassThreshold = 0.65
+    /// Expected-token recall floor — blocks prefix auto-PASS
+    /// («where is my» must not pass «where is my high-vis vest»).
+    static let fullPhraseRecall = 0.85
 
     /// Similarity in 0…1 after normalization. Uses Levenshtein ratio.
     static func score(recognized: String, expected: String) -> Double {
@@ -24,12 +27,18 @@ enum PhraseSimilarity {
 
     static func passes(recognized: String, expected: String) -> Bool {
         let collapsed = collapseRepeatedTarget(recognized, expected: expected)
-        if score(recognized: collapsed, expected: expected) >= passThreshold { return true }
-        // B4: «Handover» ≈ «hand over»; «turnoff» ≈ «turn off».
+        // Compact whole-phrase hit (handover ≈ hand over) covers the full target.
         let a = compactKey(collapsed)
         let b = compactKey(expected)
+        if !a.isEmpty, !b.isEmpty, a == b { return true }
+
+        // Prefix / partial utterance must not PASS — need most expected tokens.
+        guard coversFullExpected(recognized: collapsed, expected: expected, useTalkNormalize: false) else {
+            return false
+        }
+
+        if score(recognized: collapsed, expected: expected) >= passThreshold { return true }
         if a.isEmpty || b.isEmpty { return false }
-        if a == b { return true }
         if score(recognized: a, expected: b) >= passThreshold { return true }
         // One clean hit inside longer STT (practice repeats already collapsed above).
         return windowContainsTarget(recognized: collapsed, expected: expected)
@@ -214,7 +223,59 @@ enum PhraseSimilarity {
     }
 
     static func passesTalk(recognized: String, expected: String) -> Bool {
-        talkScore(recognized: recognized, expected: expected) >= talkPassThreshold
+        let collapsed = collapseRepeatedTarget(recognized, expected: expected)
+        let a = compactKey(collapsed)
+        let b = compactKey(expected)
+        if !a.isEmpty, !b.isEmpty, a == b { return true }
+        guard coversFullExpected(recognized: collapsed, expected: expected, useTalkNormalize: true) else {
+            return false
+        }
+        return talkScore(recognized: collapsed, expected: expected) >= talkPassThreshold
+    }
+
+    /// True when recognized covers the full expected phrase (not a proper prefix).
+    static func coversFullExpected(
+        recognized: String,
+        expected: String,
+        useTalkNormalize: Bool
+    ) -> Bool {
+        let exp = expected.trimmingCharacters(in: .whitespacesAndNewlines)
+        let raw = recognized.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !exp.isEmpty else { return true }
+        guard !raw.isEmpty else { return false }
+
+        let aCompact = compactKey(raw)
+        let bCompact = compactKey(exp)
+        if !aCompact.isEmpty, aCompact == bCompact { return true }
+
+        let normFn: (String) -> String = useTalkNormalize ? normalizeTalk : normalize
+        let recall = tokenRecall(normFn(raw), normFn(exp))
+        if recall >= fullPhraseRecall { return true }
+
+        // Short targets (1–2 tokens): require compact containment both ways or exact bag.
+        let eToks = normFn(exp).split(separator: " ").map(String.init)
+        if eToks.count <= 2 {
+            return !aCompact.isEmpty && aCompact == bCompact
+        }
+        return false
+    }
+
+    /// Multiset token recall: how much of expected was heard.
+    private static func tokenRecall(_ recognized: String, _ expected: String) -> Double {
+        let wa = recognized.split(separator: " ").map(String.init)
+        let wb = expected.split(separator: " ").map(String.init)
+        if wb.isEmpty { return 1 }
+        if wa.isEmpty { return 0 }
+        var bag = [String: Int]()
+        for w in wa { bag[w, default: 0] += 1 }
+        var inter = 0
+        for w in wb {
+            if let c = bag[w], c > 0 {
+                inter += 1
+                bag[w] = c - 1
+            }
+        }
+        return Double(inter) / Double(wb.count)
     }
 
     /// Multiset token F1 after normalizeTalk.
@@ -580,6 +641,34 @@ enum PhraseSimilarity {
         )
         if normalize(talkPassShow) != normalize("wear a hard hat") {
             fails.append("correctOnly-talk-alias: got=\"\(talkPassShow)\"")
+        }
+
+        // Prefix must NOT pass the full target (STT early-cutoff bug).
+        let hiVis = "where is my high-vis vest"
+        if passes(recognized: "where is my", expected: hiVis) {
+            fails.append("prefix-pass-drill: where is my")
+        }
+        if passesTalk(recognized: "where is my", expected: hiVis) {
+            fails.append("prefix-pass-talk: where is my")
+        }
+        if passes(recognized: "where is my high", expected: hiVis) {
+            fails.append("prefix-pass-drill: where is my high")
+        }
+        if passesTalk(recognized: "where is my high", expected: hiVis) {
+            fails.append("prefix-pass-talk: where is my high")
+        }
+        if !passes(recognized: "where is my high-vis vest", expected: hiVis) {
+            fails.append("full-phrase-should-pass-drill: high-vis vest")
+        }
+        if !passesTalk(recognized: "where is my high vis vest", expected: hiVis) {
+            fails.append("full-phrase-should-pass-talk: high-vis vest")
+        }
+        if !coversFullExpected(
+            recognized: "where is my high-vis vest",
+            expected: hiVis,
+            useTalkNormalize: true
+        ) {
+            fails.append("full-coverage-high-vis")
         }
 
         check(
