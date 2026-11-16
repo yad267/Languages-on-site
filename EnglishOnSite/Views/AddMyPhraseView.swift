@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 /// B17: one phrase (RU or EN, voice or keyboard) → canon → Мои фразы.
-/// Mic must start capture immediately; keyboard TextField always available.
+/// Mic locale follows phrase language (draft / last STT); keyboard Save = canon + library.
 struct AddMyPhraseView: View {
     @Environment(AppSettings.self) private var settings
     @Environment(\.modelContext) private var modelContext
@@ -24,6 +24,9 @@ struct AddMyPhraseView: View {
     @State private var capture = TimedSpeechCapture()
     @State private var speaker: SpeechSpeaker?
     @State private var listenTask: Task<Void, Never>?
+    /// Last known phrase language for empty-draft mic (RU ↔ EN).
+    @State private var lastPhraseLang: SpeechLangKind = .russian
+    @State private var activeMicLocale = "ru-RU"
     @FocusState private var draftFocused: Bool
 
     var body: some View {
@@ -36,12 +39,15 @@ struct AddMyPhraseView: View {
                         .foregroundStyle(.secondary)
                         .textCase(.uppercase)
 
-                    TextField("Напиши фразу на русском (или EN)…", text: $draft, axis: .vertical)
+                    TextField("Напиши фразу на русском или EN…", text: $draft, axis: .vertical)
                         .lineLimit(2...6)
                         .textFieldStyle(.roundedBorder)
                         .focused($draftFocused)
                         .disabled(isWorking || isListening)
                         .accessibilityLabel("Ввод с клавиатуры")
+                        .onChange(of: draft) { _, newValue in
+                            rememberLang(from: newValue)
+                        }
 
                     HStack(spacing: 12) {
                         Button {
@@ -62,22 +68,37 @@ struct AddMyPhraseView: View {
 
                         Button {
                             draftFocused = false
-                            Task { await runCanon(autoSave: false) }
+                            Task { await saveFromKeyboard() }
                         } label: {
-                            Text("Канон")
+                            Text("Сохранить")
                                 .font(.headline.weight(.bold))
                                 .frame(maxWidth: .infinity, minHeight: 52)
                         }
-                        .buttonStyle(.bordered)
+                        .buttonStyle(.borderedProminent)
                         .disabled(
                             isWorking || isListening
                                 || draft.trimmingCharacters(in: .whitespacesAndNewlines).count < 2
                         )
+                        .accessibilityLabel("Сохранить с клавиатуры")
                     }
+
+                    Button {
+                        draftFocused = false
+                        Task { await runCanon(autoSave: false) }
+                    } label: {
+                        Text("Только канон (без сохранения)")
+                            .font(.subheadline.weight(.semibold))
+                            .frame(maxWidth: .infinity, minHeight: 40)
+                    }
+                    .buttonStyle(.bordered)
+                    .disabled(
+                        isWorking || isListening
+                            || draft.trimmingCharacters(in: .whitespacesAndNewlines).count < 2
+                    )
 
                     if isListening {
                         VStack(alignment: .leading, spacing: 8) {
-                            Text("Слушаю… говори по-русски")
+                            Text(listeningHint)
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.secondary)
                             Text(capture.partialText.isEmpty ? "…" : capture.partialText)
@@ -162,7 +183,7 @@ struct AddMyPhraseView: View {
                         )
                     }
 
-                    Text("Микрофон: скажи фразу на русском — появится RU + EN и сохранится в Мои фразы. Клавиатура: набери текст → Канон → Сохранить.")
+                    Text("Микрофон сам выбирает RU или EN по языку текста в поле (или по прошлой фразе). Клавиатура: набери → Сохранить.")
                         .font(.caption)
                         .foregroundStyle(.tertiary)
                         .fixedSize(horizontal: false, vertical: true)
@@ -176,16 +197,70 @@ struct AddMyPhraseView: View {
                 ToolbarItem(placement: .cancellationAction) {
                     NavChrome.close(dismiss: dismiss)
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Сохранить") {
+                        draftFocused = false
+                        Task { await saveFromKeyboard() }
+                    }
+                    .fontWeight(.semibold)
+                    .disabled(
+                        isWorking || isListening
+                            || draft.trimmingCharacters(in: .whitespacesAndNewlines).count < 2
+                    )
+                }
             }
             .onAppear {
                 speaker = SpeechSpeaker(settings: settings)
-                if draft.isEmpty, !initialText.isEmpty { draft = initialText }
+                if draft.isEmpty, !initialText.isEmpty {
+                    draft = initialText
+                    rememberLang(from: initialText)
+                }
             }
             .onDisappear {
                 listenTask?.cancel()
                 capture.cancel()
                 speaker?.stop()
             }
+        }
+    }
+
+    private var listeningHint: String {
+        if activeMicLocale.lowercased().hasPrefix("en") {
+            return "Слушаю… говори по-английски (\(activeMicLocale))"
+        }
+        return "Слушаю… говори по-русски (\(activeMicLocale))"
+    }
+
+    private var englishSpeechLocale: String {
+        settings.rememberLocale == .enGB ? "en-GB" : "en-IE"
+    }
+
+    /// ASR locale from draft script; empty draft → last known phrase language.
+    private func micLocaleId(forDraft text: String) -> String {
+        switch LanguageDetect.classify(text) {
+        case .russian:
+            return "ru-RU"
+        case .english:
+            return englishSpeechLocale
+        case .empty, .garbage:
+            switch lastPhraseLang {
+            case .english:
+                return englishSpeechLocale
+            case .russian, .empty, .garbage:
+                return "ru-RU"
+            }
+        }
+    }
+
+    private func rememberLang(from text: String) {
+        switch LanguageDetect.classify(text) {
+        case .russian:
+            lastPhraseLang = .russian
+        case .english:
+            lastPhraseLang = .english
+        case .empty, .garbage:
+            break
         }
     }
 
@@ -198,32 +273,40 @@ struct AddMyPhraseView: View {
         note = ""
         canon = nil
         didAutoSave = false
-        draft = ""
+        // Keep typed draft — locale follows its language (or lastPhraseLang if empty).
+        let locale = micLocaleId(forDraft: draft)
+        activeMicLocale = locale
         isListening = true
         listenTask = Task { @MainActor in
-            // Brief settle so the sheet finishes presenting before audio session.
             try? await Task.sleep(nanoseconds: 120_000_000)
             guard !Task.isCancelled else { return }
             let text = await capture.captureUntilStopped(
-                localeId: "ru-RU",
+                localeId: locale,
                 maxSeconds: 45,
                 contextualStrings: []
             )
             guard !Task.isCancelled else { return }
             isListening = false
             let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-            // Show spoken RU immediately.
-            draft = trimmed
             if trimmed.isEmpty {
                 note = capture.errorMessage.isEmpty ? "Не расслышал — ещё раз" : capture.errorMessage
                 return
             }
             if LanguageDetect.classify(trimmed) == .garbage {
-                note = "Не расслышал — скажи ещё раз"
-                draft = ""
+                note = "Не расслышал — скажи ещё раз (язык: \(locale))"
                 return
             }
+            draft = trimmed
+            rememberLang(from: trimmed)
             await runCanon(autoSave: autoSaveAfterVoice)
+        }
+    }
+
+    /// Keyboard primary path: canonize then save into Мои фразы.
+    private func saveFromKeyboard() async {
+        await runCanon(autoSave: true)
+        if canon != nil, didAutoSave {
+            note = "Сохранено в Мои фразы"
         }
     }
 
@@ -234,6 +317,7 @@ struct AddMyPhraseView: View {
             note = "Не расслышал — скажи ещё раз"
             return
         }
+        rememberLang(from: raw)
         isWorking = true
         note = settings.geminiEnabledAndReady ? "Перевожу…" : "Офлайн-канон…"
         defer { isWorking = false }
@@ -244,7 +328,6 @@ struct AddMyPhraseView: View {
                 phrasalHint: phrasalHint
             )
             canon = c
-            // Prefer showing spoken RU when source was Russian.
             if c.sourceIsRussian, !raw.isEmpty {
                 draft = raw
             }
