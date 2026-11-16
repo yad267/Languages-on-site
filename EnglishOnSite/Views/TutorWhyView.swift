@@ -119,6 +119,7 @@ struct TutorWhyView: View {
             Text("Вставь ключ Gemini в Настройках.")
         }
         .onAppear {
+            history = WhyHistoryStore.refreshFromCloud()
             guard !didAutoAsk else { return }
             if let q = initialQuestion?.trimmingCharacters(in: .whitespacesAndNewlines), !q.isEmpty {
                 didAutoAsk = true
@@ -201,5 +202,21 @@ private enum WhyHistoryStore {
         if let data = try? JSONEncoder().encode(items) {
             UserDefaults.standard.set(data, forKey: key)
         }
+        let dto = items.map { CloudUserDataStore.WhyItemDTO(q: $0.q, a: $0.a) }
+        Task { @MainActor in
+            CloudUserDataStore.saveWhyHistory(dto)
+        }
+    }
+
+    @MainActor
+    static func refreshFromCloud() -> [WhyHistoryItem] {
+        let cloud = CloudUserDataStore.loadWhyHistory().map { WhyHistoryItem(q: $0.q, a: $0.a) }
+        if !cloud.isEmpty {
+            if let data = try? JSONEncoder().encode(cloud) {
+                UserDefaults.standard.set(data, forKey: key)
+            }
+            return cloud
+        }
+        return load()
     }
 }

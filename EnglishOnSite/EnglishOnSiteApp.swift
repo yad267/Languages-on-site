@@ -7,18 +7,48 @@ struct EnglishOnSiteApp: App {
     private let container: ModelContainer
 
     init() {
+        container = Self.makeUserDataContainer()
+    }
+
+    /// All @Model user data in one private CloudKit container (per Apple ID).
+    /// Falls back to local-only if CloudKit is unavailable; syncs when iCloud becomes available.
+    private static func makeUserDataContainer() -> ModelContainer {
+        let schema = Schema([
+            LibraryItem.self,
+            SyncedPrefsRecord.self,
+            SyncedMarkRecord.self,
+            SyncedWhyRecord.self,
+            SyncedBlobRecord.self,
+        ])
         do {
-            container = try ModelContainer(for: LibraryItem.self)
+            let cloud = ModelConfiguration(schema: schema, cloudKitDatabase: .automatic)
+            let c = try ModelContainer(for: schema, configurations: [cloud])
+            print("[cloud-user] SwiftData CloudKit container OK (private DB, .automatic)")
+            return c
         } catch {
-            // Schema evolve (B17b/B20 fields) — reset local library store once, keep app bootable.
-            if let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
-                let names = (try? FileManager.default.contentsOfDirectory(atPath: dir.path)) ?? []
-                for name in names where name.contains(".store") {
-                    try? FileManager.default.removeItem(at: dir.appendingPathComponent(name))
-                }
+            print("[cloud-user] CloudKit container failed (\(error)) — trying local-only")
+        }
+        do {
+            let local = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
+            let c = try ModelContainer(for: schema, configurations: [local])
+            print("[cloud-user] SwiftData local-only container OK")
+            return c
+        } catch {
+            print("[cloud-user] Local container failed (\(error)) — resetting store files")
+        }
+        if let dir = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first {
+            let names = (try? FileManager.default.contentsOfDirectory(atPath: dir.path)) ?? []
+            for name in names where name.contains(".store") || name.contains("default.store") {
+                try? FileManager.default.removeItem(at: dir.appendingPathComponent(name))
             }
+        }
+        do {
+            let cloud = ModelConfiguration(schema: schema, cloudKitDatabase: .automatic)
+            return try ModelContainer(for: schema, configurations: [cloud])
+        } catch {
             do {
-                container = try ModelContainer(for: LibraryItem.self)
+                let local = ModelConfiguration(schema: schema, cloudKitDatabase: .none)
+                return try ModelContainer(for: schema, configurations: [local])
             } catch {
                 fatalError("SwiftData container failed: \(error)")
             }
@@ -30,6 +60,13 @@ struct EnglishOnSiteApp: App {
             ContentView()
                 .environment(settings)
                 .onAppear {
+                    CloudUserDataStore.configure(container: container, settings: settings)
+                    CloudUserDataStore.applyCloudPrefs(to: settings)
+                    CloudUserDataStore.savePrefs(from: settings)
+                    PairsKnownStore.refreshFromCloud()
+                    LessonProgressStore.refreshFromCloud()
+                    TutorBankStore.refreshFromCloud()
+
                     let seedMsg = AppSecrets.seedKeychainIfNeeded(into: settings)
                     settings.geminiAPIKeyDraft = KeychainStore.loadGeminiAPIKey()
                     settings.elevenLabsAPIKeyDraft = KeychainStore.loadElevenLabsAPIKey()

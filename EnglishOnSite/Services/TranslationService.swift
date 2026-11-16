@@ -97,10 +97,14 @@ enum TranslationService {
         )
     }
 
-    /// Offline first; if unmatched and Gemini ON+key → MUST call API (errors surface in geminiErrorRU).
-    static func translate(recognized: String, settings: AppSettings) async -> TranslationResult {
-        let kind = LanguageDetect.classify(recognized)
-        if kind == .garbage || kind == .empty {
+    /// PhraseBank → ML Kit offline (if preferred/ready) → Gemini online.
+    static func translate(
+        recognized: String,
+        settings: AppSettings,
+        sourceLanguage: TranslatorSourceLanguage
+    ) async -> TranslationResult {
+        let trimmed = recognized.trimmingCharacters(in: .whitespacesAndNewlines)
+        if trimmed.isEmpty {
             return TranslationResult(
                 sourceText: recognized,
                 translatedText: "",
@@ -114,31 +118,64 @@ enum TranslationService {
             )
         }
 
-        let offline = translateOffline(recognized: recognized)
-        if offline.matched { return offline }
+        // Exact site bank (EN↔RU) still wins when it hits.
+        let bank = translateOffline(recognized: trimmed)
+        if bank.matched { return bank }
+
+        let preferOffline = settings.preferOfflineTranslation
+        if preferOffline || !settings.geminiEnabledAndReady {
+            do {
+                return try await MLKitOfflineTranslateService.shared.translateText(
+                    trimmed,
+                    source: sourceLanguage
+                )
+            } catch let e as MLKitOfflineError {
+                if !settings.geminiEnabledAndReady {
+                    var o = bank
+                    o.geminiErrorRU = e.shortRU
+                    return o
+                }
+                // Fall through to Gemini when online is allowed.
+            } catch {
+                if !settings.geminiEnabledAndReady {
+                    var o = bank
+                    o.geminiErrorRU = "Офлайн-перевод не вышел"
+                    return o
+                }
+            }
+        }
 
         guard settings.geminiEnabledAndReady else {
-            var o = offline
+            var o = bank
             if settings.useGemini && !settings.hasGeminiKey {
                 o.geminiErrorRU = "Нет ключа Gemini в Настройках"
             } else if !settings.useGemini {
-                o.geminiErrorRU = "Включи Gemini в Настройках"
+                o.geminiErrorRU = "Включи Gemini или скачай офлайн-модель"
             }
             return o
         }
 
-        let hint: TranslateSourceHint = kind == .russian ? .ru : .en
         do {
             return try await GeminiSiteCoachService.shared.translateThrowing(
-                text: recognized,
-                sourceHint: hint
+                text: trimmed,
+                sourceHint: .auto,
+                sourceLanguageCode: sourceLanguage.geminiSourceHint
             )
         } catch let e as GeminiRequestError {
-            var o = offline
+            // Online failed — last try ML Kit if we skipped it earlier.
+            if !preferOffline {
+                if let ml = try? await MLKitOfflineTranslateService.shared.translateText(
+                    trimmed,
+                    source: sourceLanguage
+                ) {
+                    return ml
+                }
+            }
+            var o = bank
             o.geminiErrorRU = e.shortRU
             return o
         } catch {
-            var o = offline
+            var o = bank
             o.geminiErrorRU = "Нет сети / таймаут Gemini"
             return o
         }
@@ -149,14 +186,11 @@ enum TranslationService {
         LanguageDetect.isMostlyRussian(text)
     }
 
-    /// One clean locale per pass. Empty → RU speech; Cyrillic draft → EN mic; Latin → RU mic.
-    static func translatorMicLocaleId(draftOrInput: String, englishLocale: String) -> String {
-        let t = draftOrInput.trimmingCharacters(in: .whitespacesAndNewlines)
-        if t.isEmpty { return "ru-RU" }
-        switch LanguageDetect.classify(t) {
-        case .russian: return englishLocale
-        case .english: return "ru-RU"
-        case .garbage, .empty: return "ru-RU"
-        }
+    /// Mic locale follows the language picker — never flips to ru-RU on empty input.
+    static func translatorMicLocaleId(
+        sourceLanguage: TranslatorSourceLanguage,
+        englishLocale: String
+    ) -> String {
+        sourceLanguage.speechLocaleId(englishLocale: englishLocale)
     }
 }

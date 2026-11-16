@@ -202,5 +202,11 @@
     "ru": "Пылесось пыль.",
     "tag": "tools",
     "tip_ru": ""
+  },
+  {
+    "en": "I tighten the nut on the bracket.",
+    "ru": "Затягиваю гайку на кронштейне.",
+    "tag": "electrical",
+    "tip_ru": "nut + bracket — крепёж на объекте (лоток / прибор / канал)"
   }
 ]

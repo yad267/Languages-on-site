@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6PHRLADBUILD00007 /* TutorPhrasalLadderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */; };
+		A08A2CEA358140AD8A75D8D2 /* CloudUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0365C7EE4468A81DC0F1 /* CloudUserModels.swift */; };
+		FC73912EE5BE40ADB10500FD /* CloudUserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D68560B184FC1919F9C59 /* CloudUserDataStore.swift */; };
+		L9ONJSONBUILD01 /* lessons_onsite_sections_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */; };
+		L9REGJSONBUILD01 /* lessons_regular_sections_v1.json in Resources */ = {isa = PBXBuildFile; fileRef = L9REGJSONFILE01 /* lessons_regular_sections_v1.json */; };
+		L9SECSTOREBUILD01 /* SectionLessonStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L9SECSTOREFILE01 /* SectionLessonStore.swift */; };
+		L7REGLANGBUILD01 /* RegularLanguageRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L7REGLANGFILE01 /* RegularLanguageRequestView.swift */; };
+		L7APPLMODEBUILD01 /* AppLearningMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = L7APPLMODEFILE01 /* AppLearningMode.swift */; };
+		L0CEFRLEVELBUILD01 /* CEFRLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0CEFRLEVELFILE01 /* CEFRLevel.swift */; };
+		T9TRNSRCLANGBLD001 /* TranslatorSourceLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = T9TRNSRCLANGFIL001 /* TranslatorSourceLanguage.swift */; };
+		T9MLKITOFFBLD00001 /* MLKitOfflineTranslateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = T9MLKITOFFFIL00001 /* MLKitOfflineTranslateService.swift */; };
+		T9MLKITTRBUNDLEBLD /* MLKitTranslate_resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = T9MLKITTRBUNDLEFIL /* MLKitTranslate_resource.bundle */; };
+		T9MLKITLATINBNDBLD /* LatinOCRResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = T9MLKITLATINBNDFIL /* LatinOCRResources.bundle */; };
+		T9MLKITTRANSLATEPF /* MLKitTranslate in Frameworks */ = {isa = PBXBuildFile; productRef = T9MLKITTRANSLATEPD /* MLKitTranslate */; };
+		T9MLKITTEXTRECPF /* MLKitTextRecognition in Frameworks */ = {isa = PBXBuildFile; productRef = T9MLKITTEXTRECPD /* MLKitTextRecognition */; };
 		B14PHRASALHUBBUILD001 /* PhrasalHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14PHRASALHUBFILE001 /* PhrasalHubView.swift */; };
 		B17ADDPHRASEBUILD001 /* AddMyPhraseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */; };
 		B17LANGDETECTBUILD01 /* LanguageDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17LANGDETECTFILE01 /* LanguageDetect.swift */; };
@@ -17,6 +32,7 @@
 		C6VFORMBUILD0000006 /* TutorVerbFormsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6VFORMFILE0000006 /* TutorVerbFormsView.swift */; };
 		C5WRITEBUILD0000005 /* TutorWriteDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5WRITEFILE0000005 /* TutorWriteDrillView.swift */; };
 		C4SPEAKBUILD0000004 /* TutorSpeakDrillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */; };
+		C6PHRSENTBUILD00006 /* TutorPhrasalSentenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */; };
 		C3EXHUBBUILD0000003 /* TutorExercisesHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */; };
 		C2GRAMMARBUILD00002 /* GrammarPatterns.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2GRAMMARFILE00002 /* GrammarPatterns.swift */; };
 		C1BANKSTOREBUILD001 /* TutorBankStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BANKSTOREFILE001 /* TutorBankStore.swift */; };
@@ -101,6 +117,7 @@
 		F108A2B3C4D5E6F708090A1C /* RoleplayLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */; };
 		F109A2B3C4D5E6F708090A1C /* SiteTutorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */; };
 		F110A2B3C4D5E6F708090A1C /* PhraseSimilarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */; };
+		F110A2B3C4D5E6F708090A2C /* PairsKnownStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F110A2B3C4D5E6F708090A2B /* PairsKnownStore.swift */; };
 		F111A2B3C4D5E6F708090A1C /* PhraseLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F111A2B3C4D5E6F708090A1B /* PhraseLoopView.swift */; };
 		F112A2B3C4D5E6F708090A1C /* ElevenLabsAudioCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F112A2B3C4D5E6F708090A1B /* ElevenLabsAudioCache.swift */; };
 		F113A2B3C4D5E6F708090A1C /* AppSecrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */; };
@@ -133,12 +150,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_onsite_sections_v1.json; sourceTree = "<group>"; };
+		L9REGJSONFILE01 /* lessons_regular_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_regular_sections_v1.json; sourceTree = "<group>"; };
+		L9SECSTOREFILE01 /* SectionLessonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLessonStore.swift; sourceTree = "<group>"; };
+		L7REGLANGFILE01 /* RegularLanguageRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularLanguageRequestView.swift; sourceTree = "<group>"; };
+		L7APPLMODEFILE01 /* AppLearningMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLearningMode.swift; sourceTree = "<group>"; };
+		L0CEFRLEVELFILE01 /* CEFRLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CEFRLevel.swift; sourceTree = "<group>"; };
+		T9TRNSRCLANGFIL001 /* TranslatorSourceLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorSourceLanguage.swift; sourceTree = "<group>"; };
+		T9MLKITOFFFIL00001 /* MLKitOfflineTranslateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLKitOfflineTranslateService.swift; sourceTree = "<group>"; };
+		T9MLKITTRBUNDLEFIL /* MLKitTranslate_resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cfbundle; path = MLKitTranslate_resource.bundle; sourceTree = "<group>"; };
+		T9MLKITLATINBNDFIL /* LatinOCRResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = wrapper.cfbundle; path = LatinOCRResources.bundle; sourceTree = "<group>"; };
 		D1LESSONSCONFIGFILE1 /* LessonsConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonsConfig.swift; sourceTree = "<group>"; };
 		C8PRINTFILE0000008 /* TutorPrintSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPrintSheetView.swift; sourceTree = "<group>"; };
 		C7VBANKFILE0000007 /* TutorVerbBankView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorVerbBankView.swift; sourceTree = "<group>"; };
 		C6VFORMFILE0000006 /* TutorVerbFormsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorVerbFormsView.swift; sourceTree = "<group>"; };
 		C5WRITEFILE0000005 /* TutorWriteDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorWriteDrillView.swift; sourceTree = "<group>"; };
 		C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorSpeakDrillView.swift; sourceTree = "<group>"; };
+		C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPhrasalSentenceView.swift; sourceTree = "<group>"; };
+		C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorPhrasalLadderView.swift; sourceTree = "<group>"; };
 		C3EXHUBFILE0000003 /* TutorExercisesHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorExercisesHubView.swift; sourceTree = "<group>"; };
 		C2GRAMMARFILE00002 /* GrammarPatterns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarPatterns.swift; sourceTree = "<group>"; };
 		C1BANKSTOREFILE001 /* TutorBankStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorBankStore.swift; sourceTree = "<group>"; };
@@ -220,6 +249,7 @@
 		F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleplayLoopView.swift; sourceTree = "<group>"; };
 		F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteTutorView.swift; sourceTree = "<group>"; };
 		F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseSimilarity.swift; sourceTree = "<group>"; };
+		F110A2B3C4D5E6F708090A2B /* PairsKnownStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsKnownStore.swift; sourceTree = "<group>"; };
 		F111A2B3C4D5E6F708090A1B /* PhraseLoopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseLoopView.swift; sourceTree = "<group>"; };
 		F112A2B3C4D5E6F708090A1B /* ElevenLabsAudioCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsAudioCache.swift; sourceTree = "<group>"; };
 		F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSecrets.swift; sourceTree = "<group>"; };
@@ -233,6 +263,8 @@
 		L2BANKSWIFTFILE0002 /* LearningBankStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningBankStore.swift; sourceTree = "<group>"; };
 		L1AUDIOSWIFTFILE0001 /* LibraryAudioStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryAudioStore.swift; sourceTree = "<group>"; };
 		FAF0838E2C614A3CB0C7D4D6 /* LibraryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryItem.swift; sourceTree = "<group>"; };
+		025B0365C7EE4468A81DC0F1 /* CloudUserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudUserModels.swift; sourceTree = "<group>"; };
+		BE1D68560B184FC1919F9C59 /* CloudUserDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudUserDataStore.swift; sourceTree = "<group>"; };
 		FEAC115E41E945E098E09B0B /* PhoneLessonRelay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneLessonRelay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,6 +273,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				T9MLKITTRANSLATEPF /* MLKitTranslate in Frameworks */,
+				T9MLKITTEXTRECPF /* MLKitTextRecognition in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,11 +300,16 @@
 			isa = PBXGroup;
 			children = (
 				5B637836A90E456FBC8BFAE7 /* Lessons */,
+				T9MLKITRESGROUP001 /* MLKit */,
+				L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */,
+				L9REGJSONFILE01 /* lessons_regular_sections_v1.json */,
 				F4DC786A4B84434398725196 /* SitePhraseBank.json */,
 				L6SENTJSONFILE00006 /* learning_sentences_v1.json */,
 				L5PHRASJSONFILE0005 /* learning_phrasals_site_v1.json */,
 				L4WORDSJSONFILE0004 /* learning_words_v1.json */,
 				F301A2B3C4D5E6F708090B01 /* lessons_pack.json */,
+				L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */,
+				L9REGJSONFILE01 /* lessons_regular_sections_v1.json */,
 				B3OPPJSONFILE000003 /* opposites_bank_v1.json */,
 				B2PHRASJSONFILE0002 /* phrasals_bank_v1.json */,
 				B1VERBJSONFILE00001 /* verbs_bank_v1.json */,
@@ -279,6 +318,15 @@
 				G3VERBGENFILE00003 /* verbs_general_v1.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		T9MLKITRESGROUP001 /* MLKit */ = {
+			isa = PBXGroup;
+			children = (
+				T9MLKITTRBUNDLEFIL /* MLKitTranslate_resource.bundle */,
+				T9MLKITLATINBNDFIL /* LatinOCRResources.bundle */,
+			);
+			path = MLKit;
 			sourceTree = "<group>";
 		};
 		4EE15E2EA7F44CDAB75500F0 = {
@@ -321,16 +369,20 @@
 				32DFBDCFC9604D4DB3AA7ED9 /* LibraryView.swift */,
 				46DC29239AB646BC87EEA74C /* PlayerView.swift */,
 				F107A2B3C4D5E6F708090A1B /* RoleplayHubView.swift */,
+				L7REGLANGFILE01 /* RegularLanguageRequestView.swift */,
 				L3BANKVIEWFILE00003 /* LearningBankView.swift */,
 				F108A2B3C4D5E6F708090A1B /* RoleplayLoopView.swift */,
 				76070AC21D8E4FD4AF6B35C1 /* ReviewSessionView.swift */,
 				35DBFC032E43472C937520D1 /* SettingsView.swift */,
 				F109A2B3C4D5E6F708090A1B /* SiteTutorView.swift */,
+				L7REGLANGFILE01 /* RegularLanguageRequestView.swift */,
 				C8PRINTFILE0000008 /* TutorPrintSheetView.swift */,
 				C7VBANKFILE0000007 /* TutorVerbBankView.swift */,
 				C6VFORMFILE0000006 /* TutorVerbFormsView.swift */,
 				C5WRITEFILE0000005 /* TutorWriteDrillView.swift */,
 				C4SPEAKFILE0000004 /* TutorSpeakDrillView.swift */,
+				C6PHRSENTFILE00006 /* TutorPhrasalSentenceView.swift */,
+				C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */,
 								B14PHRASALHUBFILE001 /* PhrasalHubView.swift */,
 				B17ADDPHRASEFILE001 /* AddMyPhraseView.swift */,
 G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
@@ -361,9 +413,15 @@ G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
 		6FAFAE18C33B4A70BF75F259 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				L7APPLMODEFILE01 /* AppLearningMode.swift */,
+				L0CEFRLEVELFILE01 /* CEFRLevel.swift */,
 				7AAD728D7C804353A29AA17B /* AppSettings.swift */,
+				L7APPLMODEFILE01 /* AppLearningMode.swift */,
+				L0CEFRLEVELFILE01 /* CEFRLevel.swift */,
+				T9TRNSRCLANGFIL001 /* TranslatorSourceLanguage.swift */,
 				806B2BCEBA4B4D578DDBE38A /* Lesson.swift */,
 				FAF0838E2C614A3CB0C7D4D6 /* LibraryItem.swift */,
+				025B0365C7EE4468A81DC0F1 /* CloudUserModels.swift */,
 				F101A2B3C4D5E6F708090A1B /* RoleplayScript.swift */,
 				982D665158B64C0493FC4C40 /* SitePhrase.swift */,
 				2EE0D6926DA44C44962EB7D4 /* VoiceCommands.swift */,
@@ -403,6 +461,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				F113A2B3C4D5E6F708090A1B /* AppSecrets.swift */,
 				F301A2B3C4D5E6F708090B11 /* LessonPack.swift */,
 				F301A2B3C4D5E6F708090B21 /* LessonStore.swift */,
+				L9SECSTOREFILE01 /* SectionLessonStore.swift */,
 				B87CA81A0304492D8FAF1BF4 /* PhoneSpeechTranscriber.swift */,
 				0DE02CC959974126809F9B36 /* LessonRepository.swift */,
 				A95ADC5C6EEB4AB4B1010D62 /* AudioSessionManager.swift */,
@@ -418,13 +477,17 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				537ED273B494412BAD23CBFC /* PhoneWatchBridge.swift */,
 				C7D4705B68B84CD8B7618078 /* RememberCaptureService.swift */,
 				F110A2B3C4D5E6F708090A1B /* PhraseSimilarity.swift */,
+				F110A2B3C4D5E6F708090A2B /* PairsKnownStore.swift */,
+				BE1D68560B184FC1919F9C59 /* CloudUserDataStore.swift */,
 				F105A2B3C4D5E6F708090A1B /* RoleplayLoopEngine.swift */,
 				F104A2B3C4D5E6F708090A1B /* RoleplayParserService.swift */,
 				F103A2B3C4D5E6F708090A1B /* RoleplayRepository.swift */,
+				L9SECSTOREFILE01 /* SectionLessonStore.swift */,
 				5BEA417D3AAD4A2099080EA0 /* SpeechCommandListener.swift */,
 				1D4726A37135493386B965D0 /* SpeechSpeaker.swift */,
 				65E91C5CB9024E17B4B3ADFA /* TimedSpeechCapture.swift */,
 				D502758921FE42249194420F /* TranslationService.swift */,
+				T9MLKITOFFFIL00001 /* MLKitOfflineTranslateService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -476,6 +539,10 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				8DBBE0C544F147509528AF94 /* PBXTargetDependency */,
 			);
 			name = EnglishOnSite;
+			packageProductDependencies = (
+				T9MLKITTRANSLATEPD /* MLKitTranslate */,
+				T9MLKITTEXTRECPD /* MLKitTextRecognition */,
+			);
 			productName = LanguagesOnSite;
 			productReference = 54CA0806DD3D4EAF92480256 /* EnglishOnSite.app */;
 			productType = "com.apple.product-type.application";
@@ -525,6 +592,9 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				Base,
 			);
 			mainGroup = 4EE15E2EA7F44CDAB75500F0;
+			packageReferences = (
+				T9MLKITSWIFTPMREF001 /* XCRemoteSwiftPackageReference "google-mlkit-swiftpm" */,
+			);
 			productRefGroup = 78F842183FD54F0788D075C6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -579,6 +649,10 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				L6SENTJSONBUILD0006 /* learning_sentences_v1.json in Resources */,
 				L5PHRASJSONBUILD0005 /* learning_phrasals_site_v1.json in Resources */,
 				L4WORDSJSONBUILD0004 /* learning_words_v1.json in Resources */,
+				L9ONJSONBUILD01 /* lessons_onsite_sections_v1.json in Resources */,
+				L9REGJSONBUILD01 /* lessons_regular_sections_v1.json in Resources */,
+				T9MLKITTRBUNDLEBLD /* MLKitTranslate_resource.bundle in Resources */,
+				T9MLKITLATINBNDBLD /* LatinOCRResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +690,8 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				AF1FFC1BAF8B4999B551AF8D /* AppSettings.swift in Sources */,
 				EFD010FDDEAE4815810CFC39 /* Lesson.swift in Sources */,
 				4B64CD7E9B454BDEB8E0AD69 /* LibraryItem.swift in Sources */,
+				A08A2CEA358140AD8A75D8D2 /* CloudUserModels.swift in Sources */,
+				FC73912EE5BE40ADB10500FD /* CloudUserDataStore.swift in Sources */,
 				L3BANKVIEWBUILD0003 /* LearningBankView.swift in Sources */,
 				L2BANKSWIFTBUILD0002 /* LearningBankStore.swift in Sources */,
 				L1AUDIOSWIFTBUILD001 /* LibraryAudioStore.swift in Sources */,
@@ -644,6 +720,8 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				C6VFORMBUILD0000006 /* TutorVerbFormsView.swift in Sources */,
 				C5WRITEBUILD0000005 /* TutorWriteDrillView.swift in Sources */,
 				C4SPEAKBUILD0000004 /* TutorSpeakDrillView.swift in Sources */,
+				C6PHRSENTBUILD00006 /* TutorPhrasalSentenceView.swift in Sources */,
+				C6PHRLADBUILD00007 /* TutorPhrasalLadderView.swift in Sources */,
 				G4SEARCHBUILD000004 /* TutorPhrasalSearchView.swift in Sources */,
 				B14PHRASALHUBBUILD001 /* PhrasalHubView.swift in Sources */,
 				B17ADDPHRASEBUILD001 /* AddMyPhraseView.swift in Sources */,
@@ -655,6 +733,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				A2TUTOR02TALKBUILD0002 /* TutorTalkView.swift in Sources */,
 				A2TUTOR01LEGACYBUILD01 /* SiteTutorLegacyView.swift in Sources */,
 				F110A2B3C4D5E6F708090A1C /* PhraseSimilarity.swift in Sources */,
+				F110A2B3C4D5E6F708090A2C /* PairsKnownStore.swift in Sources */,
 				F111A2B3C4D5E6F708090A1C /* PhraseLoopView.swift in Sources */,
 				F113A2B3C4D5E6F708090A1C /* AppSecrets.swift in Sources */,
 				F114A2B3C4D5E6F708090A1C /* Secrets.local.swift in Sources */,
@@ -663,9 +742,15 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				B8D93ACE030E4E57BE2FC994 /* SpeechSpeaker.swift in Sources */,
 				6C3878F82DBB4A1D9BE0A9C0 /* TimedSpeechCapture.swift in Sources */,
 				7550969D9BF945D6ABB5E9FB /* TranslationService.swift in Sources */,
+				T9MLKITOFFBLD00001 /* MLKitOfflineTranslateService.swift in Sources */,
 				D42222C881D1490AAB3D7F7C /* CoachSourceBadge.swift in Sources */,
 				E2690924126F4C8F93CA8088 /* ContentView.swift in Sources */,
 				870B22D0153543F296A98D55 /* HomeView.swift in Sources */,
+				L0CEFRLEVELBUILD01 /* CEFRLevel.swift in Sources */,
+				T9TRNSRCLANGBLD001 /* TranslatorSourceLanguage.swift in Sources */,
+				L7APPLMODEBUILD01 /* AppLearningMode.swift in Sources */,
+				L7REGLANGBUILD01 /* RegularLanguageRequestView.swift in Sources */,
+				L9SECSTOREBUILD01 /* SectionLessonStore.swift in Sources */,
 				5828CEA1E8754C59A5FFF077 /* LibraryView.swift in Sources */,
 				291449976F084B63936875A2 /* PlayerView.swift in Sources */,
 				10C8AF3653444817A806B437 /* ReviewSessionView.swift in Sources */,
@@ -706,7 +791,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = EnglishOnSiteWatch/Info.plist;
@@ -755,8 +840,9 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EnglishOnSite/EnglishOnSite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -768,6 +854,11 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sputnik.englishonsite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -783,8 +874,9 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = EnglishOnSite/EnglishOnSite.Debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -796,6 +888,11 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 4.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.sputnik.englishonsite;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -812,7 +909,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = EnglishOnSiteWatch/Info.plist;
@@ -883,6 +980,30 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		T9MLKITSWIFTPMREF001 /* XCRemoteSwiftPackageReference "google-mlkit-swiftpm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/d-date/google-mlkit-swiftpm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		T9MLKITTRANSLATEPD /* MLKitTranslate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = T9MLKITSWIFTPMREF001 /* XCRemoteSwiftPackageReference "google-mlkit-swiftpm" */;
+			productName = MLKitTranslate;
+		};
+		T9MLKITTEXTRECPD /* MLKitTextRecognition */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = T9MLKITSWIFTPMREF001 /* XCRemoteSwiftPackageReference "google-mlkit-swiftpm" */;
+			productName = MLKitTextRecognition;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 36FECA7A90554FA5A151AA47 /* Project object */;
 }

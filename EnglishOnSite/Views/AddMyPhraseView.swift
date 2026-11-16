@@ -1,7 +1,8 @@
 import SwiftUI
 import SwiftData
 
-/// B17: one phrase (RU or EN, voice or text) → canon → Мои фразы.
+/// B17: one phrase (RU or EN, voice or keyboard) → canon → Мои фразы.
+/// Mic locale follows phrase language (draft / last STT); keyboard Save = canon + library.
 struct AddMyPhraseView: View {
     @Environment(AppSettings.self) private var settings
     @Environment(\.modelContext) private var modelContext
@@ -11,123 +12,314 @@ struct AddMyPhraseView: View {
     var source: LibrarySource = .manual
     var phrasalHint: String? = nil
     var onSaved: ((LibraryItem) -> Void)? = nil
+    /// When true (voice path), save as soon as canon is ready.
+    var autoSaveAfterVoice: Bool = true
 
     @State private var draft = ""
     @State private var canon: CanonPhrase?
     @State private var note = ""
     @State private var isWorking = false
     @State private var isListening = false
+    @State private var didAutoSave = false
     @State private var capture = TimedSpeechCapture()
     @State private var speaker: SpeechSpeaker?
+    @State private var listenTask: Task<Void, Never>?
+    /// Last known phrase language for empty-draft mic (RU ↔ EN).
+    @State private var lastPhraseLang: SpeechLangKind = .russian
+    @State private var activeMicLocale = "ru-RU"
+    @FocusState private var draftFocused: Bool
 
     var body: some View {
         NavigationStack {
-            Form {
-                Section {
-                    TextField("Фраза RU или EN", text: $draft, axis: .vertical)
+            // ScrollView (not Form): Form rows often swallow mic taps / ignore actions.
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Клавиатура или микрофон")
+                        .font(.caption.weight(.bold))
+                        .foregroundStyle(.secondary)
+                        .textCase(.uppercase)
+
+                    TextField("Напиши фразу на русском или EN…", text: $draft, axis: .vertical)
                         .lineLimit(2...6)
+                        .textFieldStyle(.roundedBorder)
+                        .focused($draftFocused)
                         .disabled(isWorking || isListening)
+                        .accessibilityLabel("Ввод с клавиатуры")
+                        .onChange(of: draft) { _, newValue in
+                            rememberLang(from: newValue)
+                        }
 
-                    HStack {
+                    HStack(spacing: 12) {
                         Button {
-                            Task { await toggleMic() }
+                            draftFocused = false
+                            toggleMic()
                         } label: {
-                            Label(isListening ? "Стоп" : "Сказать", systemImage: isListening ? "stop.circle.fill" : "mic.fill")
+                            Label(
+                                isListening ? "Стоп" : "Сказать",
+                                systemImage: isListening ? "stop.circle.fill" : "mic.fill"
+                            )
+                            .font(.headline.weight(.bold))
+                            .frame(maxWidth: .infinity, minHeight: 52)
                         }
+                        .buttonStyle(.borderedProminent)
+                        .tint(isListening ? .red : .accentColor)
                         .disabled(isWorking)
+                        .accessibilityLabel(isListening ? "Стоп" : "Сказать голосом")
 
-                        Spacer()
-
-                        Button("Канон") { Task { await runCanon() } }
-                            .buttonStyle(.borderedProminent)
-                            .disabled(isWorking || isListening
-                                      || draft.trimmingCharacters(in: .whitespacesAndNewlines).count < 2)
-                    }
-                } header: {
-                    Text("Ввод")
-                } footer: {
-                    Text(note.isEmpty
-                         ? "Одна фраза или несколько строк. Имя: не обязательно. Gemini сделает правильный разговорный EN."
-                         : note)
-                }
-
-                if let canon {
-                    Section("Канон") {
-                        Text(canon.en)
-                            .font(.title3.weight(.bold))
-                        Text(canon.ru)
-                            .foregroundStyle(.secondary)
-                        if !canon.tipRu.isEmpty {
-                            Text(canon.tipRu).font(.caption).foregroundStyle(.secondary)
+                        Button {
+                            draftFocused = false
+                            Task { await saveFromKeyboard() }
+                        } label: {
+                            Text("Сохранить")
+                                .font(.headline.weight(.bold))
+                                .frame(maxWidth: .infinity, minHeight: 52)
                         }
-                        HStack {
-                            Button("▶ EN") {
-                                speaker?.updateSettings(settings)
-                                speaker?.speakEN(canon.en)
+                        .buttonStyle(.borderedProminent)
+                        .disabled(
+                            isWorking || isListening
+                                || draft.trimmingCharacters(in: .whitespacesAndNewlines).count < 2
+                        )
+                        .accessibilityLabel("Сохранить с клавиатуры")
+                    }
+
+                    Button {
+                        draftFocused = false
+                        Task { await runCanon(autoSave: false) }
+                    } label: {
+                        Text("Только канон (без сохранения)")
+                            .font(.subheadline.weight(.semibold))
+                            .frame(maxWidth: .infinity, minHeight: 40)
+                    }
+                    .buttonStyle(.bordered)
+                    .disabled(
+                        isWorking || isListening
+                            || draft.trimmingCharacters(in: .whitespacesAndNewlines).count < 2
+                    )
+
+                    if isListening {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text(listeningHint)
+                                .font(.caption.weight(.semibold))
+                                .foregroundStyle(.secondary)
+                            Text(capture.partialText.isEmpty ? "…" : capture.partialText)
+                                .font(.title3.weight(.semibold))
+                                .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
+                            HStack {
+                                Button("Готово") { capture.finish() }
+                                    .buttonStyle(.borderedProminent)
+                                Button("Отмена", role: .cancel) {
+                                    listenTask?.cancel()
+                                    capture.cancel()
+                                    isListening = false
+                                    note = ""
+                                }
+                                .buttonStyle(.bordered)
                             }
-                            .buttonStyle(.bordered)
-                            Button("Сохранить") { save(canon) }
-                                .buttonStyle(.borderedProminent)
                         }
+                        .padding(12)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(Color(.secondarySystemBackground))
+                        )
                     }
+
+                    if !note.isEmpty {
+                        Text(note)
+                            .font(.subheadline.weight(.semibold))
+                            .foregroundStyle(didAutoSave ? .green : .secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+
+                    if let canon {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("EN")
+                                .font(.caption.weight(.bold))
+                                .foregroundStyle(.secondary)
+                            Text(canon.en)
+                                .font(.title3.weight(.bold))
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            Text("RU")
+                                .font(.caption.weight(.bold))
+                                .foregroundStyle(.secondary)
+                            Text(canon.ru)
+                                .font(.body.weight(.medium))
+                                .foregroundStyle(.secondary)
+                                .fixedSize(horizontal: false, vertical: true)
+
+                            if !canon.tipRu.isEmpty {
+                                Text(canon.tipRu)
+                                    .font(.caption)
+                                    .foregroundStyle(.tertiary)
+                            }
+
+                            HStack(spacing: 10) {
+                                Button("▶ EN") {
+                                    speaker?.updateSettings(settings)
+                                    speaker?.speakEN(canon.en)
+                                }
+                                .buttonStyle(.bordered)
+
+                                if !didAutoSave {
+                                    Button("Сохранить") { save(canon) }
+                                        .buttonStyle(.borderedProminent)
+                                } else {
+                                    Button("Ещё фраза") {
+                                        draft = ""
+                                        self.canon = nil
+                                        note = ""
+                                        didAutoSave = false
+                                        draftFocused = true
+                                    }
+                                    .buttonStyle(.borderedProminent)
+                                }
+                            }
+                        }
+                        .padding(12)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(Color.accentColor.opacity(0.08))
+                        )
+                    }
+
+                    Text("Микрофон сам выбирает RU или EN по языку текста в поле (или по прошлой фразе). Клавиатура: набери → Сохранить.")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
+                .padding(16)
             }
+            .scrollDismissesKeyboard(.interactively)
             .navigationTitle("Добавить фразу")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     NavChrome.close(dismiss: dismiss)
                 }
+                ToolbarItemGroup(placement: .keyboard) {
+                    Spacer()
+                    Button("Сохранить") {
+                        draftFocused = false
+                        Task { await saveFromKeyboard() }
+                    }
+                    .fontWeight(.semibold)
+                    .disabled(
+                        isWorking || isListening
+                            || draft.trimmingCharacters(in: .whitespacesAndNewlines).count < 2
+                    )
+                }
             }
             .onAppear {
                 speaker = SpeechSpeaker(settings: settings)
-                if draft.isEmpty, !initialText.isEmpty { draft = initialText }
+                if draft.isEmpty, !initialText.isEmpty {
+                    draft = initialText
+                    rememberLang(from: initialText)
+                }
             }
             .onDisappear {
+                listenTask?.cancel()
                 capture.cancel()
                 speaker?.stop()
             }
         }
     }
 
-    private func toggleMic() async {
+    private var listeningHint: String {
+        if activeMicLocale.lowercased().hasPrefix("en") {
+            return "Слушаю… говори по-английски (\(activeMicLocale))"
+        }
+        return "Слушаю… говори по-русски (\(activeMicLocale))"
+    }
+
+    private var englishSpeechLocale: String {
+        settings.rememberLocale == .enGB ? "en-GB" : "en-IE"
+    }
+
+    /// ASR locale from draft script; empty draft → last known phrase language.
+    private func micLocaleId(forDraft text: String) -> String {
+        switch LanguageDetect.classify(text) {
+        case .russian:
+            return "ru-RU"
+        case .english:
+            return englishSpeechLocale
+        case .empty, .garbage:
+            switch lastPhraseLang {
+            case .english:
+                return englishSpeechLocale
+            case .russian, .empty, .garbage:
+                return "ru-RU"
+            }
+        }
+    }
+
+    private func rememberLang(from text: String) {
+        switch LanguageDetect.classify(text) {
+        case .russian:
+            lastPhraseLang = .russian
+        case .english:
+            lastPhraseLang = .english
+        case .empty, .garbage:
+            break
+        }
+    }
+
+    private func toggleMic() {
         if isListening {
             capture.finish()
             return
         }
+        listenTask?.cancel()
         note = ""
         canon = nil
-        draft = "" // B12-style: fresh attempt
+        didAutoSave = false
+        // Keep typed draft — locale follows its language (or lastPhraseLang if empty).
+        let locale = micLocaleId(forDraft: draft)
+        activeMicLocale = locale
         isListening = true
-        let enLocale = settings.rememberLocale == .enGB ? "en-GB" : "en-IE"
-        // Prefer RU mic for empty field (site workers); EN if draft was Cyrillic before clear — use RU.
-        let locale = "ru-RU"
-        _ = enLocale
-        let text = await capture.captureUntilStopped(localeId: locale, maxSeconds: 45, contextualStrings: [])
-        isListening = false
-        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        draft = trimmed
-        if trimmed.isEmpty {
-            note = capture.errorMessage.isEmpty ? "Не расслышал — ещё раз" : capture.errorMessage
-            return
+        listenTask = Task { @MainActor in
+            try? await Task.sleep(nanoseconds: 120_000_000)
+            guard !Task.isCancelled else { return }
+            let text = await capture.captureUntilStopped(
+                localeId: locale,
+                maxSeconds: 45,
+                contextualStrings: []
+            )
+            guard !Task.isCancelled else { return }
+            isListening = false
+            let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+            if trimmed.isEmpty {
+                note = capture.errorMessage.isEmpty ? "Не расслышал — ещё раз" : capture.errorMessage
+                return
+            }
+            if LanguageDetect.classify(trimmed) == .garbage {
+                note = "Не расслышал — скажи ещё раз (язык: \(locale))"
+                return
+            }
+            draft = trimmed
+            rememberLang(from: trimmed)
+            await runCanon(autoSave: autoSaveAfterVoice)
         }
-        if LanguageDetect.classify(trimmed) == .garbage {
-            note = "Не расслышал — скажи ещё раз"
-            draft = ""
-            return
-        }
-        await runCanon()
     }
 
-    private func runCanon() async {
+    /// Keyboard primary path: canonize then save into Мои фразы.
+    private func saveFromKeyboard() async {
+        await runCanon(autoSave: true)
+        if canon != nil, didAutoSave {
+            note = "Сохранено в Мои фразы"
+        }
+    }
+
+    private func runCanon(autoSave: Bool) async {
         let raw = draft.trimmingCharacters(in: .whitespacesAndNewlines)
         guard raw.count >= 2 else { return }
         if LanguageDetect.classify(raw) == .garbage {
             note = "Не расслышал — скажи ещё раз"
             return
         }
+        rememberLang(from: raw)
         isWorking = true
-        note = settings.geminiEnabledAndReady ? "Gemini делает канон…" : "Офлайн…"
+        note = settings.geminiEnabledAndReady ? "Перевожу…" : "Офлайн-канон…"
         defer { isWorking = false }
         do {
             let c = try await MyPhraseCanonService.canonize(
@@ -136,16 +328,23 @@ struct AddMyPhraseView: View {
                 phrasalHint: phrasalHint
             )
             canon = c
-            note = c.viaGemini ? "Канон готов" : "Офлайн-канон"
-            // Warm EN audio for evening ▶
+            if c.sourceIsRussian, !raw.isEmpty {
+                draft = raw
+            }
+            note = c.viaGemini ? "Готово" : "Офлайн-канон"
             await ElevenLabsTTS.shared.prefetchToDisk(text: c.en, lang: .en, settings: settings)
+            if autoSave {
+                save(c, dismissAfter: false)
+                note = "Сохранено в Мои фразы"
+                didAutoSave = true
+            }
         } catch {
             note = error.localizedDescription
             canon = nil
         }
     }
 
-    private func save(_ c: CanonPhrase) {
+    private func save(_ c: CanonPhrase, dismissAfter: Bool = true) {
         let item = LibraryStore.add(
             context: modelContext,
             source: source,
@@ -169,6 +368,8 @@ struct AddMyPhraseView: View {
             }
         }
         onSaved?(item)
-        dismiss()
+        if dismissAfter {
+            dismiss()
+        }
     }
 }
