@@ -62,6 +62,8 @@ final class AppSettings {
         static let rememberDuration = "rememberDuration"
         static let translateDuration = "translateDuration"
         static let rememberLocale = "rememberLocale"
+        static let translatorSourceLanguage = "translatorSourceLanguage"
+        static let preferOfflineTranslation = "preferOfflineTranslation"
         static let useGemini = "useGemini"
         static let useElevenLabs = "useElevenLabs"
         static let elModel = "elModel"
@@ -126,6 +128,22 @@ final class AppSettings {
     var rememberLocale: RememberLocale {
         didSet {
             UserDefaults.standard.set(rememberLocale.rawValue, forKey: Keys.rememberLocale)
+            cloudNoteChanged()
+        }
+    }
+
+    /// Translator mic + Gemini/ML Kit source (EN / ES / DE / FR / PT).
+    var translatorSourceLanguage: TranslatorSourceLanguage {
+        didSet {
+            UserDefaults.standard.set(translatorSourceLanguage.rawValue, forKey: Keys.translatorSourceLanguage)
+            cloudNoteChanged()
+        }
+    }
+
+    /// Prefer on-device ML Kit before Gemini (models ~30 MB per language + RU).
+    var preferOfflineTranslation: Bool {
+        didSet {
+            UserDefaults.standard.set(preferOfflineTranslation, forKey: Keys.preferOfflineTranslation)
             cloudNoteChanged()
         }
     }
@@ -385,6 +403,19 @@ final class AppSettings {
             rememberLocale = remembered
         } else {
             rememberLocale = .enIE
+        }
+
+        if let raw = UserDefaults.standard.string(forKey: Keys.translatorSourceLanguage),
+           let lang = TranslatorSourceLanguage(rawValue: raw) {
+            translatorSourceLanguage = lang
+        } else {
+            translatorSourceLanguage = .english
+        }
+
+        if UserDefaults.standard.object(forKey: Keys.preferOfflineTranslation) != nil {
+            preferOfflineTranslation = UserDefaults.standard.bool(forKey: Keys.preferOfflineTranslation)
+        } else {
+            preferOfflineTranslation = true
         }
 
         // Load toggle before key draft to avoid didSet forcing ON on launch.

@@ -23,6 +23,7 @@ struct TranslateView: View {
     @State private var result: TranslationResult?
     @State private var note = ""
     @State private var badge: CoachSourceBadge.Kind = .offline
+    @ObservedObject private var offlineML = MLKitOfflineTranslateService.shared
 
     // Mic → STT review (no auto-send trash)
     @State private var capture = TimedSpeechCapture()
@@ -35,6 +36,8 @@ struct TranslateView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 headerRow
+                languagePickerRow
+                offlineOnlineRow
                 inputBlock
                 photoPreview
                 if isListening || awaitingReview {
@@ -45,6 +48,11 @@ struct TranslateView: View {
                     Text(note)
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.orange)
+                }
+                if offlineML.isDownloading || !offlineML.statusRU.isEmpty {
+                    Text(offlineML.statusRU)
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
                 }
                 if let r = result {
                     if let photo = r.photo {
@@ -107,9 +115,61 @@ struct TranslateView: View {
         }
     }
 
+    private var languagePickerRow: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text("Язык ввода → RU")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+            Picker("Язык", selection: Binding(
+                get: { settings.translatorSourceLanguage },
+                set: { settings.translatorSourceLanguage = $0 }
+            )) {
+                ForEach(TranslatorSourceLanguage.allCases) { lang in
+                    Text("\(lang.shortCode) · \(lang.titleRU)").tag(lang)
+                }
+            }
+            .pickerStyle(.segmented)
+            Text("Микрофон и перевод идут с \(settings.translatorSourceLanguage.shortCode)")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+        }
+    }
+
+    private var offlineOnlineRow: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Toggle(
+                "Офлайн ML Kit сначала",
+                isOn: Binding(
+                    get: { settings.preferOfflineTranslation },
+                    set: { settings.preferOfflineTranslation = $0 }
+                )
+            )
+            .font(.subheadline.weight(.semibold))
+            HStack(spacing: 10) {
+                Button("Скачать модель") {
+                    Task {
+                        _ = await offlineML.prepareModels(source: settings.translatorSourceLanguage)
+                    }
+                }
+                .buttonStyle(.bordered)
+                .disabled(offlineML.isDownloading)
+                if settings.geminiEnabledAndReady {
+                    Text("Онлайн Gemini — запасной")
+                        .font(.caption2)
+                        .foregroundStyle(.secondary)
+                } else {
+                    Text("Gemini выкл. — только офлайн / банк")
+                        .font(.caption2)
+                        .foregroundStyle(.orange)
+                }
+            }
+        }
+    }
+
     private var inputBlock: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Текст, речь или фото с объекта")
+            Text("Текст, речь или фото · \(settings.translatorSourceLanguage.shortCode)→RU")
                 .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.secondary)
 
@@ -461,13 +521,15 @@ struct TranslateView: View {
         isListening = true
         let enLocale = settings.rememberLocale == .enGB ? "en-GB" : "en-IE"
         let locale = TranslationService.translatorMicLocaleId(
-            draftOrInput: inputText,
+            sourceLanguage: settings.translatorSourceLanguage,
             englishLocale: enLocale
         )
         let text = await capture.captureUntilStopped(localeId: locale, maxSeconds: 45, contextualStrings: [])
         isListening = false
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        if LanguageDetect.classify(trimmed) == .garbage {
+        // Latin picker languages: don't reject as RU/EN mash garbage on short noise.
+        if settings.translatorSourceLanguage == .english,
+           LanguageDetect.classify(trimmed) == .garbage {
             sttDraft = ""
             awaitingReview = false
             note = "Не расслышал — скажи ещё раз"
@@ -493,19 +555,26 @@ struct TranslateView: View {
             return
         }
 
-        // B15: keyboard / STT mash → retry, never Translate.
+        // B15: keyboard / STT mash → retry for EN; other picker langs allow Latin freely.
         if !hasPhoto {
-            switch LanguageDetect.classify(text) {
-            case .garbage, .empty:
-                note = "Не расслышал — скажи ещё раз"
+            if text.isEmpty {
+                note = "Введи текст, скажи или добавь фото"
                 return
-            case .russian, .english:
-                break
+            }
+            if settings.translatorSourceLanguage == .english {
+                switch LanguageDetect.classify(text) {
+                case .garbage, .empty:
+                    note = "Не расслышал — скажи ещё раз"
+                    return
+                case .russian, .english:
+                    break
+                }
             }
         }
 
         isWorking = true
         defer { isWorking = false }
+        let sourceLang = settings.translatorSourceLanguage
 
         if hasPhoto, let data = photoData {
             guard data.count > 800 else {
@@ -513,8 +582,38 @@ struct TranslateView: View {
                 badge = .offline
                 return
             }
+            // Offline-first photo: OCR + ML Kit; else Gemini with picker source language.
+            if settings.preferOfflineTranslation || !settings.geminiEnabledAndReady {
+                do {
+                    let r = try await MLKitOfflineTranslateService.shared.translatePhoto(
+                        imageJPEG: data,
+                        caption: text,
+                        source: sourceLang
+                    )
+                    result = r
+                    badge = .offline
+                    note = "Офлайн фото · \(sourceLang.shortCode)→RU"
+                    clearInputForNextEntry()
+                    return
+                } catch let e as MLKitOfflineError {
+                    if !settings.geminiEnabledAndReady {
+                        note = e.shortRU
+                        badge = .offline
+                        return
+                    }
+                    note = "\(e.shortRU) — пробую Gemini…"
+                } catch {
+                    if !settings.geminiEnabledAndReady {
+                        note = "Офлайн фото не вышло"
+                        badge = .offline
+                        return
+                    }
+                    note = "Офлайн фото не вышло — пробую Gemini…"
+                }
+            }
+
             guard settings.geminiEnabledAndReady else {
-                note = settings.useGemini ? "Нет ключа Gemini в Настройках" : "Включи Gemini в Настройках"
+                note = settings.useGemini ? "Нет ключа Gemini в Настройках" : "Включи Gemini или скачай офлайн-модель"
                 badge = .offline
                 return
             }
@@ -522,7 +621,8 @@ struct TranslateView: View {
                 let r = try await GeminiSiteCoachService.shared.translatePhoto(
                     imageJPEG: data,
                     caption: text,
-                    settings: settings
+                    settings: settings,
+                    sourceLanguage: sourceLang
                 )
                 if let err = r.geminiErrorRU, r.photo?.unclear == true || (r.sourceText.isEmpty && r.translatedText.isEmpty && r.photo == nil) {
                     note = err
@@ -537,7 +637,7 @@ struct TranslateView: View {
                 }
                 result = r
                 badge = .gemini
-                note = text.isEmpty ? "" : "Текст + фото"
+                note = text.isEmpty ? "Онлайн фото · \(sourceLang.shortCode)" : "Текст + фото · \(sourceLang.shortCode)"
                 clearInputForNextEntry()
             } catch let e as GeminiRequestError {
                 note = e.shortRU
@@ -556,10 +656,14 @@ struct TranslateView: View {
             clearInputForNextEntry()
             return
         }
-        note = settings.geminiEnabledAndReady
-            ? "Офлайн не нашёл — спрашиваю Gemini…"
-            : (settings.useGemini ? "Нет ключа Gemini" : "Gemini выключен")
-        let cloud = await TranslationService.translate(recognized: text, settings: settings)
+        note = settings.preferOfflineTranslation
+            ? "Офлайн ML Kit…"
+            : (settings.geminiEnabledAndReady ? "Онлайн Gemini…" : "Офлайн…")
+        let cloud = await TranslationService.translate(
+            recognized: text,
+            settings: settings,
+            sourceLanguage: sourceLang
+        )
         let empty = cloud.sourceText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             && cloud.translatedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         if empty {
@@ -569,7 +673,7 @@ struct TranslateView: View {
         }
         result = cloud
         badge = cloud.viaGemini ? .gemini : .offline
-        note = cloud.viaGemini ? "" : (cloud.geminiErrorRU ?? note)
+        note = cloud.viaGemini ? "Онлайн Gemini" : (cloud.geminiErrorRU ?? "Офлайн")
         clearInputForNextEntry()
     }
 

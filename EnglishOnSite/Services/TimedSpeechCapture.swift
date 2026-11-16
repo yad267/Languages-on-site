@@ -85,13 +85,24 @@ final class TimedSpeechCapture {
 
         guard await ensureAuth() else { return "" }
 
-        // B15: never cross RU↔EN fallbacks in one pass (was «Ай Don't Hell»).
+        // Same-language fallbacks only — never cross tongues (was «Ай Don't Hell»).
         let preferred = localeId
+        let lower = preferred.lowercased()
         let fallbacks: [String]
-        if preferred.lowercased().hasPrefix("ru") {
+        if lower.hasPrefix("ru") {
             fallbacks = [preferred, "ru-RU"]
-        } else {
+        } else if lower.hasPrefix("es") {
+            fallbacks = [preferred, "es-ES", "es-MX", "es-US"]
+        } else if lower.hasPrefix("de") {
+            fallbacks = [preferred, "de-DE", "de-AT"]
+        } else if lower.hasPrefix("fr") {
+            fallbacks = [preferred, "fr-FR", "fr-CA"]
+        } else if lower.hasPrefix("pt") {
+            fallbacks = [preferred, "pt-PT", "pt-BR"]
+        } else if lower.hasPrefix("en") {
             fallbacks = [preferred, "en-IE", "en-GB", "en-US"]
+        } else {
+            fallbacks = [preferred]
         }
         var picked: SFSpeechRecognizer?
         var usedLocale = preferred

@@ -699,7 +699,11 @@ struct PlayerView: View {
             statusBanner = settings.geminiEnabledAndReady
                 ? "Офлайн не нашёл — Gemini…"
                 : "Gemini выкл / нет ключа"
-            let cloud = await TranslationService.translate(recognized: recognized, settings: settings)
+            let cloud = await TranslationService.translate(
+                recognized: recognized,
+                settings: settings,
+                sourceLanguage: settings.translatorSourceLanguage
+            )
             if cloud.viaGemini {
                 translateResult = cloud
                 coachBadge = .gemini

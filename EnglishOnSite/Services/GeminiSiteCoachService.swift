@@ -11,6 +11,7 @@ struct RememberAnalysis: Equatable {
 
 enum TranslateSourceHint: String {
     case en, ru, auto
+    case es, de, fr, pt
 }
 
 /// One place for Gemini model id + 404 fallback chain (translate / remember / lessons).
@@ -247,14 +248,19 @@ final class GeminiSiteCoachService {
         }
     }
 
-    func translateThrowing(text: String, sourceHint: TranslateSourceHint) async throws -> TranslationResult {
+    func translateThrowing(
+        text: String,
+        sourceHint: TranslateSourceHint,
+        sourceLanguageCode: String? = nil
+    ) async throws -> TranslationResult {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 1 else { throw GeminiRequestError.tooShort }
 
+        let langLine = sourceLanguageCode.map { "source_language: \($0) (treat input as this language; do NOT assume Russian)\n" } ?? ""
         let user = """
         Переведи ЦЕЛИКОМ всё сказанное/написанное для объекта Ireland (electrical/CCTV/tools/safety).
         Не обрезай, не суммаризируй — каждое слово фразы должно попасть в en и ru.
-        source_hint: \(sourceHint.rawValue)
+        \(langLine)source_hint: \(sourceHint.rawValue)
         text: \(trimmed)
         Ответ ТОЛЬКО JSON:
         {"en":"...полный EN...","ru":"...полный RU...","tip_ru":"...","tag":"electrical","say_it":"...","colloquial_note_ru":null}
@@ -279,8 +285,13 @@ final class GeminiSiteCoachService {
         let sourceIsRU: Bool
         switch sourceHint {
         case .ru: sourceIsRU = true
-        case .en: sourceIsRU = false
-        case .auto: sourceIsRU = isMostlyRussian(trimmed)
+        case .en, .es, .de, .fr, .pt: sourceIsRU = false
+        case .auto:
+            if let code = sourceLanguageCode?.lowercased(), code != "ru" {
+                sourceIsRU = false
+            } else {
+                sourceIsRU = isMostlyRussian(trimmed)
+            }
         }
 
         if sourceIsRU {
@@ -911,17 +922,20 @@ final class GeminiSiteCoachService {
     func translatePhoto(
         imageJPEG: Data,
         caption: String,
-        settings: AppSettings
+        settings: AppSettings,
+        sourceLanguage: TranslatorSourceLanguage = .english
     ) async throws -> TranslationResult {
         let note = caption.trimmingCharacters(in: .whitespacesAndNewlines)
         let system = """
         You identify Ireland construction-site photos (tools, PPE, labels, signs, forms).
         ALWAYS identify WHAT is in the photo first (name_en / name_ru / kind).
         Then OCR any visible text and translate. If blurry/empty: unclear=true, short RU message in summary_ru.
+        Prefer treating on-photo text as \(sourceLanguage.promptLanguageName) (code \(sourceLanguage.geminiSourceHint)) — do NOT assume Russian unless the glyphs are clearly Cyrillic.
         Output ONLY JSON matching the user schema. No markdown.
         """
         let user = """
         Фото с объекта Ireland (инструмент / бирка / каска / лист / щит / форма).
+        source_language: \(sourceLanguage.geminiSourceHint) (\(sourceLanguage.promptLanguageName)) — OCR/translate from this language toward RU (and EN mirror).
         \(note.isEmpty ? "" : "Подпись пользователя: \(note)\n")
         Сначала ОПРЕДЕЛИ объект, потом OCR/перевод.
         Ответ ТОЛЬКО JSON:
@@ -976,10 +990,11 @@ final class GeminiSiteCoachService {
         let enOut = photo.translationEN.isEmpty ? (photo.siteTipEN.isEmpty ? photo.nameEN : photo.siteTipEN) : photo.translationEN
         let ruOut = photo.translationRU.isEmpty ? (photo.siteTipRU.isEmpty ? photo.nameRU : photo.siteTipRU) : photo.translationRU
         let source = photo.ocrText.isEmpty ? photo.nameEN : photo.ocrText
-        let sourceIsRU = isMostlyRussian(source)
+        // Picker source language wins over Cyrillic heuristic — never force RU for EN/ES/DE/FR/PT.
+        let sourceIsRU = false
         return TranslationResult(
-            sourceText: sourceIsRU ? (photo.ocrText.isEmpty ? photo.nameRU : photo.ocrText) : source,
-            translatedText: sourceIsRU ? enOut : ruOut,
+            sourceText: source.isEmpty ? photo.nameEN : source,
+            translatedText: ruOut.isEmpty ? enOut : ruOut,
             sourceIsRussian: sourceIsRU,
             matched: true,
             tipRu: photo.siteTipRU.isEmpty ? photo.summaryRU : photo.siteTipRU,
