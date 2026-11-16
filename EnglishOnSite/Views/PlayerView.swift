@@ -272,13 +272,20 @@ struct PlayerView: View {
             ForEach(Array(lesson.lines.enumerated()), id: \.offset) { idx, line in
                 let isCurrent = (player.mode == .lesson || player.mode == .practiceFeedback)
                     && player.currentIndex == idx
-                dialogueBubble(
-                    role: line.role,
-                    en: line.en,
-                    ru: line.ru,
-                    tipRu: line.tipRu,
-                    isCurrent: isCurrent
-                )
+                Button {
+                    player.selectAndPlayDialogueLine(at: idx)
+                    syncListening(with: player)
+                } label: {
+                    dialogueBubble(
+                        role: line.role,
+                        en: line.en,
+                        ru: line.ru,
+                        tipRu: line.tipRu,
+                        isCurrent: isCurrent
+                    )
+                }
+                .buttonStyle(.plain)
+                .accessibilityHint("Воспроизвести эту фразу")
                 .id("line-\(idx)")
             }
 
@@ -292,14 +299,21 @@ struct PlayerView: View {
 
                 ForEach(Array(lesson.sayToday.enumerated()), id: \.offset) { idx, phrase in
                     let isCurrent = player.mode == .sayToday && player.sayTodayIndex == idx
-                    dialogueBubble(
-                        role: lesson.yourRole,
-                        en: phrase.en,
-                        ru: phrase.ru,
-                        tipRu: nil,
-                        isCurrent: isCurrent,
-                        forceWorker: true
-                    )
+                    Button {
+                        player.selectAndPlaySayToday(at: idx)
+                        syncListening(with: player)
+                    } label: {
+                        dialogueBubble(
+                            role: lesson.yourRole,
+                            en: phrase.en,
+                            ru: phrase.ru,
+                            tipRu: nil,
+                            isCurrent: isCurrent,
+                            forceWorker: true
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityHint("Воспроизвести эту фразу")
                     .id("say-\(idx)")
                 }
             }
@@ -685,7 +699,11 @@ struct PlayerView: View {
             statusBanner = settings.geminiEnabledAndReady
                 ? "Офлайн не нашёл — Gemini…"
                 : "Gemini выкл / нет ключа"
-            let cloud = await TranslationService.translate(recognized: recognized, settings: settings)
+            let cloud = await TranslationService.translate(
+                recognized: recognized,
+                settings: settings,
+                sourceLanguage: settings.translatorSourceLanguage
+            )
             if cloud.viaGemini {
                 translateResult = cloud
                 coachBadge = .gemini
