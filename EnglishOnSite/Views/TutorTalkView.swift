@@ -47,13 +47,10 @@ struct TutorTalkView: View {
     }
 
     /// Live / review box: only target words matched so far (never wrong STT).
+    /// While listening, reuse `draft` (updated once in onChange) — avoid double correctOnlyDisplay.
     private var correctLiveText: String {
-        if isListening {
-            return PhraseSimilarity.correctOnlyDisplay(
-                recognized: capture.partialText,
-                expected: pinnedSayNowEN,
-                useTalkThreshold: true
-            )
+        if isListening || awaitingReview {
+            return draft
         }
         return PhraseSimilarity.correctOnlyDisplay(
             recognized: draft,
@@ -130,7 +127,10 @@ struct TutorTalkView: View {
             TutorBankStore.setMode(contentMode)
             guard !didBootstrap else { return }
             didBootstrap = true
-            Task { await bootstrap() }
+            Task {
+                await Task.yield()
+                await bootstrap()
+            }
             #if DEBUG
             // -EOSTutorFakeSTT "I save myself pass card here" → review card without mic
             let args = ProcessInfo.processInfo.arguments

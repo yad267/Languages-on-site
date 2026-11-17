@@ -157,9 +157,9 @@ enum TutorBankStore {
     /// Cached site→general merge for Репетитор → Пары (`.phrasal` / sidesReversed).
     private static var cachedPairsPhrasals: [PhrasalEntry]?
 
-    /// Warm / rebuild the merged pairs pool (site first, then general).
+    /// Warm the merged pairs pool (site first, then general). No-op when already cached.
     static func primePairsPhrasals() {
-        cachedPairsPhrasals = nil
+        if let cachedPairsPhrasals, !cachedPairsPhrasals.isEmpty { return }
         _ = pairsPhrasals
     }
 

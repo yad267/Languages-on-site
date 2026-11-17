@@ -53,6 +53,9 @@ final class TimedSpeechCapture {
     private let autoFinishHoldSeconds: TimeInterval = 0.12
     private var restartGeneration = 0
     private var interruptionObserver: NSObjectProtocol?
+    /// Throttle Observable `partialText` publishes (ASR still evaluated every partial).
+    private var lastPartialPublishAt: Date = .distantPast
+    private let partialPublishMinInterval: TimeInterval = 0.12
 
     /// Start mic + speech recognition; returns when user calls `finish()` / `cancel()` or max reached.
     /// - Parameter contextualStrings: SFSpeech hints (target phrase + site lexemes). Max ~100 used.
@@ -160,11 +163,14 @@ final class TimedSpeechCapture {
 
         timerTask = Task { @MainActor in
             while !Task.isCancelled && self.isCapturing {
-                try? await Task.sleep(nanoseconds: 200_000_000)
+                try? await Task.sleep(nanoseconds: 500_000_000)
                 guard let start = self.startedAt else { break }
                 let elapsed = Date().timeIntervalSince(start)
-                self.elapsedSeconds = Int(elapsed)
-                self.secondsLeft = max(0, self.maxSeconds - Int(ceil(elapsed)))
+                let secs = Int(elapsed)
+                let left = max(0, self.maxSeconds - Int(ceil(elapsed)))
+                // Only publish when the displayed second changes — fewer SwiftUI invalidations.
+                if secs != self.elapsedSeconds { self.elapsedSeconds = secs }
+                if left != self.secondsLeft { self.secondsLeft = left }
                 if elapsed >= Double(self.maxSeconds) {
                     self.hitMaxCap = true
                     self.log("maxSeconds reached")
@@ -266,18 +272,18 @@ final class TimedSpeechCapture {
                         ? PhraseSimilarity.correctSiteASR(raw, expected: self.expectedPhrase)
                         : raw
                     self.segmentPartial = heard
-                    self.publishCombined()
-                    self.considerAutoFinish(heard: self.partialText)
+                    let combined = self.publishCombined(force: result.isFinal)
+                    self.considerAutoFinish(heard: combined)
 
                     if result.isFinal {
-                        let combined = self.partialText.trimmingCharacters(in: .whitespacesAndNewlines)
-                        self.log("isFinal segment=\"\(heard)\" combined=\"\(combined)\" latched=\(self.passLatched)")
+                        let trimmed = combined.trimmingCharacters(in: .whitespacesAndNewlines)
+                        self.log("isFinal segment=\"\(heard)\" combined=\"\(trimmed)\" latched=\(self.passLatched)")
                         // Full PASS (or latched PASS) → end take immediately.
                         // Translation-app pattern: finalize on complete hypothesis; don't
                         // restart the session and drop trailing words.
-                        if self.passLatched || self.shouldAutoFinish(combined) {
-                            if self.shouldAutoFinish(combined) {
-                                self.lastPassText = combined
+                        if self.passLatched || self.shouldAutoFinish(trimmed) {
+                            if self.shouldAutoFinish(trimmed) {
+                                self.lastPassText = trimmed
                             }
                             self.log("autoFinish on isFinal+fullPass")
                             self.didAutoFinish = true
@@ -306,11 +312,21 @@ final class TimedSpeechCapture {
         }
     }
 
-    private func publishCombined() {
+    @discardableResult
+    private func publishCombined(force: Bool = false) -> String {
         let combined = Self.joinTranscript(committed: committedText, segment: segmentPartial)
-        partialText = isEnglish
+        let corrected = isEnglish
             ? PhraseSimilarity.correctSiteASR(combined, expected: expectedPhrase)
             : combined
+        let now = Date()
+        let changed = corrected != partialText
+        let due = corrected.isEmpty
+            || now.timeIntervalSince(lastPartialPublishAt) >= partialPublishMinInterval
+        if force || (changed && due) {
+            lastPartialPublishAt = now
+            partialText = corrected
+        }
+        return corrected
     }
 
     private func commitSegmentAndContinue(reason: String) {
