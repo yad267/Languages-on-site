@@ -273,32 +273,42 @@ struct PlayerView: View {
             ForEach(Array(lesson.lines.enumerated()), id: \.offset) { idx, line in
                 let isCurrent = (player.mode == .lesson || player.mode == .practiceFeedback)
                     && player.currentIndex == idx
-                Button {
-                    player.selectAndPlayDialogueLine(at: idx)
-                    syncListening(with: player)
-                } label: {
-                    dialogueBubble(
-                        role: line.role,
-                        en: line.en,
-                        ru: line.ru,
-                        tipRu: line.tipRu,
-                        transcription: line.transcription,
-                        isCurrent: isCurrent,
-                        onExplain: { explainLine = line }
-                    )
-                }
-                .buttonStyle(.plain)
-                .contextMenu {
-                    Button("Пояснить", systemImage: "text.book.closed") {
-                        explainLine = line
+                // Keep play Button free of LongPress — competing gestures made taps feel laggy.
+                HStack(alignment: .top, spacing: 6) {
+                    Button {
+                        player.selectAndPlayDialogueLine(at: idx)
+                        syncListening(with: player)
+                    } label: {
+                        dialogueBubble(
+                            role: line.role,
+                            en: line.en,
+                            ru: line.ru,
+                            tipRu: line.tipRu,
+                            transcription: line.transcription,
+                            isCurrent: isCurrent,
+                            showsExplainHint: false
+                        )
                     }
-                }
-                .simultaneousGesture(
-                    LongPressGesture(minimumDuration: 0.45).onEnded { _ in
-                        explainLine = line
+                    .buttonStyle(.plain)
+                    .contextMenu {
+                        Button("Пояснить", systemImage: "text.book.closed") {
+                            explainLine = line
+                        }
                     }
-                )
-                .accessibilityHint("Короткий тап — слушать. Долгое нажатие — грамматика и транскрипция.")
+                    .accessibilityHint("Тап — слушать. Удерживай для меню «Пояснить».")
+
+                    Button {
+                        explainLine = line
+                    } label: {
+                        Image(systemName: "text.book.closed")
+                            .font(.body.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                            .frame(width: 36, height: 36)
+                            .background(Circle().fill(Color(.secondarySystemBackground)))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Пояснить")
+                }
                 .id("line-\(idx)")
             }
 
@@ -324,13 +334,7 @@ struct PlayerView: View {
                             transcription: nil,
                             isCurrent: isCurrent,
                             forceWorker: true,
-                            onExplain: {
-                                explainLine = LessonLine(
-                                    en: phrase.en,
-                                    ru: phrase.ru,
-                                    role: lesson.yourRole
-                                )
-                            }
+                            showsExplainHint: false
                         )
                     }
                     .buttonStyle(.plain)
@@ -366,7 +370,7 @@ struct PlayerView: View {
         transcription: String?,
         isCurrent: Bool,
         forceWorker: Bool = false,
-        onExplain: (() -> Void)? = nil
+        showsExplainHint: Bool = false
     ) -> some View {
         let supervisor = forceWorker ? false : lesson.isSupervisorRole(role)
         let align: Alignment = supervisor ? .leading : .trailing
@@ -379,17 +383,10 @@ struct PlayerView: View {
         HStack {
             if !supervisor { Spacer(minLength: 36) }
             VStack(alignment: supervisor ? .leading : .trailing, spacing: 6) {
-                HStack(spacing: 6) {
-                    Text(lesson.roleLabel(for: role))
-                        .font(.caption2.weight(.bold))
-                        .foregroundStyle(accent)
-                        .textCase(.uppercase)
-                    if onExplain != nil {
-                        Image(systemName: "text.book.closed")
-                            .font(.caption2.weight(.semibold))
-                            .foregroundStyle(.tertiary)
-                    }
-                }
+                Text(lesson.roleLabel(for: role))
+                    .font(.caption2.weight(.bold))
+                    .foregroundStyle(accent)
+                    .textCase(.uppercase)
 
                 Text(en)
                     .font(.system(size: isCurrent ? 22 : 17, weight: .bold))
@@ -415,8 +412,8 @@ struct PlayerView: View {
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
-                } else if onExplain != nil, isCurrent {
-                    Text("Удерживай · пояснение")
+                } else if showsExplainHint, isCurrent {
+                    Text("Кнопка 📖 · пояснение")
                         .font(.caption2.weight(.semibold))
                         .foregroundStyle(.tertiary)
                 }
@@ -660,20 +657,8 @@ struct PlayerView: View {
 
     @ViewBuilder
     private func voiceHint(_ player: LessonPlayer) -> some View {
-        VStack(spacing: 2) {
-            Text("стоп · дальше · повтори")
-                .font(.caption2)
-                .foregroundStyle(.tertiary)
-                .multilineTextAlignment(.center)
-            if let listener {
-                if !listener.authorizationMessage.isEmpty {
-                    Text(listener.authorizationMessage).font(.caption2).foregroundStyle(.orange)
-                } else if listener.isListening {
-                    Text(listener.lastHeard.isEmpty ? "Слушаю…" : listener.lastHeard)
-                        .font(.caption2).foregroundStyle(.tertiary).lineLimit(1)
-                }
-            }
-        }
+        // Isolated subview so ASR partials don't rebuild the whole player/chat thread.
+        PlayerVoiceHintBanner(listener: listener)
     }
 
     private func setup() async {
@@ -917,12 +902,41 @@ struct PlayerView: View {
         player.updateSettings(settings)
         speaker?.updateSettings(settings)
 
-        if overlay != .none { return }
+        if overlay != .none {
+            if listener.isListening { listener.stop() }
+            return
+        }
 
-        if player.isPlaying && !player.isPaused && player.mode != .practiceFeedback {
-            listener.start()
-        } else {
+        let wantListen = player.isPlaying && !player.isPaused && player.mode != .practiceFeedback
+        if wantListen {
+            // Don't block the tap; audio engine start is deferred inside start().
+            if !listener.isListening {
+                listener.start()
+            }
+        } else if listener.isListening {
             listener.stop()
+        }
+    }
+}
+
+/// Owns observation of ASR partials so PlayerView chat bubbles stay snappy.
+private struct PlayerVoiceHintBanner: View {
+    let listener: SpeechCommandListener?
+
+    var body: some View {
+        VStack(spacing: 2) {
+            Text("стоп · дальше · повтори")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+                .multilineTextAlignment(.center)
+            if let listener {
+                if !listener.authorizationMessage.isEmpty {
+                    Text(listener.authorizationMessage).font(.caption2).foregroundStyle(.orange)
+                } else if listener.isListening {
+                    Text(listener.lastHeard.isEmpty ? "Слушаю…" : listener.lastHeard)
+                        .font(.caption2).foregroundStyle(.tertiary).lineLimit(1)
+                }
+            }
         }
     }
 }

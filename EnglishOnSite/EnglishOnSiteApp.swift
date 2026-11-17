@@ -75,6 +75,9 @@ struct EnglishOnSiteApp: App {
                     PhoneWatchBridge.shared.configure(settings: settings, container: container)
                     LessonRepository.shared.reload()
                     Task { @MainActor in
+                        // After first frame: warm section packs without blocking the first tap.
+                        await Task.yield()
+                        SectionLessonStore.warmUp()
                         await LessonStore.shared.checkForUpdatesIfNeeded(settings: settings)
                         LessonRepository.shared.reload()
                     }

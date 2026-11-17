@@ -36,7 +36,7 @@ struct HomeView: View {
         .navigationTitle(mode == .onSite ? "Onsite Language" : "Regular Language")
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            repository.reload()
+            // Avoid re-decoding the whole lesson pack on every return to this tab.
             TutorBankStore.setMode(mode == .onSite ? .site : .general)
         }
         .onChange(of: settings.learningMode) { _, newMode in

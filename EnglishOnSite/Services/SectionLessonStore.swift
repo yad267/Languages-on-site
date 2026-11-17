@@ -52,6 +52,12 @@ enum SectionLessonStore {
         return p
     }
 
+    /// Prefetch both packs so the first section tap is not a main-thread hitch.
+    static func warmUp() {
+        _ = onsite()
+        _ = regular()
+    }
+
     static func sections(track: AppLearningMode) -> [LessonSectionInfo] {
         switch track {
         case .onSite: return onsite().sections
