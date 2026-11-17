@@ -60,49 +60,53 @@ struct EnglishOnSiteApp: App {
             ContentView()
                 .environment(settings)
                 .onAppear {
+                    // Keep first paint light: configure store + secrets, defer banks / cloud / DEBUG checks.
                     CloudUserDataStore.configure(container: container, settings: settings)
-                    CloudUserDataStore.applyCloudPrefs(to: settings)
-                    CloudUserDataStore.savePrefs(from: settings)
-                    PairsKnownStore.refreshFromCloud()
-                    LessonProgressStore.refreshFromCloud()
-                    TutorBankStore.refreshFromCloud()
-
                     let seedMsg = AppSecrets.seedKeychainIfNeeded(into: settings)
                     settings.geminiAPIKeyDraft = KeychainStore.loadGeminiAPIKey()
                     settings.elevenLabsAPIKeyDraft = KeychainStore.loadElevenLabsAPIKey()
                     print("[secrets] \(seedMsg)")
                     print("[secrets] \(AppSecrets.settingsStatusLine)")
                     PhoneWatchBridge.shared.configure(settings: settings, container: container)
-                    LessonRepository.shared.reload()
+
                     Task { @MainActor in
-                        // After first frame: warm section packs without blocking the first tap.
                         await Task.yield()
+                        CloudUserDataStore.applyCloudPrefs(to: settings)
+                        CloudUserDataStore.savePrefs(from: settings)
+                        PairsKnownStore.refreshFromCloud()
+                        LessonProgressStore.refreshFromCloud()
+                        TutorBankStore.refreshFromCloud()
+                        TutorBankStore.warmUp()
+                        LessonRepository.shared.reload()
                         SectionLessonStore.warmUp()
                         await LessonStore.shared.checkForUpdatesIfNeeded(settings: settings)
                         LessonRepository.shared.reload()
                     }
                     #if DEBUG
-                    let fails = ElevenLabsAudioCache.selfCheckFailures()
-                    if fails.isEmpty {
-                        print("[el] cache selfCheck OK")
-                    } else {
-                        print("[el] cache selfCheck FAIL: \(fails.joined(separator: "; "))")
-                    }
-                    let simFails = PhraseSimilarity.selfCheckFailures()
-                    if simFails.isEmpty {
-                        print("[PhraseSimilarity] selfCheck OK (incl. twenty vs 20)")
-                    } else {
-                        print("[PhraseSimilarity] selfCheck FAIL:\n" + simFails.joined(separator: "\n"))
-                    }
-                    let pathLessons = LessonStore.shared.lessons
-                    let pathIds = pathLessons.map(\.id)
-                    print("[path] pack v\(LessonStore.shared.contentVersion) count=\(pathLessons.count) src=\(LessonStore.shared.sourceLabel)")
-                    print("[path] ids=\(pathIds.joined(separator: ","))")
-                    let expectedPrefix = ["lesson_0_1_safe_pass", "lesson_0_2_induction", "lesson_0_3_ppe", "lesson_1_1_tray_basket"]
-                    if Array(pathIds.prefix(4)) != expectedPrefix || pathIds.count < 9 {
-                        print("[path] FAIL expected 0.1–1.6 pack")
-                    } else {
-                        print("[path] OK 0.1–1.6")
+                    Task { @MainActor in
+                        try? await Task.sleep(nanoseconds: 1_500_000_000)
+                        let fails = ElevenLabsAudioCache.selfCheckFailures()
+                        if fails.isEmpty {
+                            print("[el] cache selfCheck OK")
+                        } else {
+                            print("[el] cache selfCheck FAIL: \(fails.joined(separator: "; "))")
+                        }
+                        let simFails = PhraseSimilarity.selfCheckFailures()
+                        if simFails.isEmpty {
+                            print("[PhraseSimilarity] selfCheck OK (incl. twenty vs 20)")
+                        } else {
+                            print("[PhraseSimilarity] selfCheck FAIL:\n" + simFails.joined(separator: "\n"))
+                        }
+                        let pathLessons = LessonStore.shared.lessons
+                        let pathIds = pathLessons.map(\.id)
+                        print("[path] pack v\(LessonStore.shared.contentVersion) count=\(pathLessons.count) src=\(LessonStore.shared.sourceLabel)")
+                        print("[path] ids=\(pathIds.joined(separator: ","))")
+                        let expectedPrefix = ["lesson_0_1_safe_pass", "lesson_0_2_induction", "lesson_0_3_ppe", "lesson_1_1_tray_basket"]
+                        if Array(pathIds.prefix(4)) != expectedPrefix || pathIds.count < 9 {
+                            print("[path] FAIL expected 0.1–1.6 pack")
+                        } else {
+                            print("[path] OK 0.1–1.6")
+                        }
                     }
                     if ProcessInfo.processInfo.environment["EOS_SMOKE_EL"] == "1" {
                         Task { @MainActor in

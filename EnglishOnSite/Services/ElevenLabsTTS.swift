@@ -347,19 +347,34 @@ final class ElevenLabsTTS: NSObject {
             ElevenLabsAudioCache.pruneIfNeeded()
             print("[el] cache store \(cacheURL.lastPathComponent)")
             if let sync {
-                EosSyncService.postAudioIfConfigured(
-                    settings: settings,
-                    payload: EosSyncService.AudioPayload(
-                        lessonId: sync.lessonId,
-                        lineId: sync.lineId,
-                        role: sync.role,
-                        textEN: sync.textEN,
-                        textRU: sync.textRU,
-                        voiceId: voiceId,
-                        audioBase64: data.base64EncodedString(),
-                        contentVersion: sync.contentVersion
-                    )
-                )
+                // Base64 encode off the audio path — don't stall playback start.
+                let audioData = data
+                let settingsRef = settings
+                let lessonId = sync.lessonId
+                let lineId = sync.lineId
+                let role = sync.role
+                let textEN = sync.textEN
+                let textRU = sync.textRU
+                let contentVersion = sync.contentVersion
+                let voice = voiceId
+                Task.detached(priority: .utility) {
+                    let b64 = audioData.base64EncodedString()
+                    await MainActor.run {
+                        EosSyncService.postAudioIfConfigured(
+                            settings: settingsRef,
+                            payload: EosSyncService.AudioPayload(
+                                lessonId: lessonId,
+                                lineId: lineId,
+                                role: role,
+                                textEN: textEN,
+                                textRU: textRU,
+                                voiceId: voice,
+                                audioBase64: b64,
+                                contentVersion: contentVersion
+                            )
+                        )
+                    }
+                }
             }
             return .success(cacheURL)
         } catch {

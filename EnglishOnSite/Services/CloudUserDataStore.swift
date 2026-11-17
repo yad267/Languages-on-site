@@ -26,18 +26,16 @@ enum CloudUserDataStore {
         settingsForRemoteApply = settings
         migrateFromUserDefaultsIfNeeded()
         print("[cloud-user] configured ModelContext (private CloudKit when available)")
-        // CloudKit import is async — refresh a couple of times after launch so reinstall restore lands.
+        // One delayed pass only — CloudKit import is async, but double refresh was thrashing UI.
         Task { @MainActor in
-            for delay in [2_000_000_000, 8_000_000_000] as [UInt64] {
-                try? await Task.sleep(nanoseconds: delay)
-                PairsKnownStore.refreshFromCloud()
-                LessonProgressStore.refreshFromCloud()
-                TutorBankStore.refreshFromCloud()
-                if let settings = settingsForRemoteApply {
-                    applyCloudPrefs(to: settings)
-                }
-                print("[cloud-user] delayed CloudKit refresh")
+            try? await Task.sleep(nanoseconds: 3_500_000_000)
+            PairsKnownStore.refreshFromCloud()
+            LessonProgressStore.refreshFromCloud()
+            TutorBankStore.refreshFromCloud()
+            if let settings = settingsForRemoteApply {
+                applyCloudPrefs(to: settings)
             }
+            print("[cloud-user] delayed CloudKit refresh")
         }
     }
 

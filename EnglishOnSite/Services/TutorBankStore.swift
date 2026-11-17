@@ -339,15 +339,28 @@ enum TutorBankStore {
     /// Pull CloudKit / SwiftData blobs into UserDefaults cache.
     @MainActor
     static func refreshFromCloud() {
+        var changed = false
         func pull(_ kind: String, defaultsKey: String) {
             guard let json = CloudUserDataStore.loadBlobJSON(kind: kind),
                   let data = json.data(using: .utf8) else { return }
+            if let existing = UserDefaults.standard.data(forKey: defaultsKey), existing == data {
+                return
+            }
             UserDefaults.standard.set(data, forKey: defaultsKey)
+            changed = true
         }
         pull(CloudUserDataStore.blobExtraVerbsSite, defaultsKey: extraVerbsKey)
         pull(CloudUserDataStore.blobExtraVerbsGeneral, defaultsKey: extraVerbsGeneralKey)
         pull(CloudUserDataStore.blobGlossCache, defaultsKey: glossCacheKey)
-        reload()
+        // Skip full JSON bank reload when nothing cloud-side changed and banks are warm.
+        if changed || (verbs.isEmpty && phrasals.isEmpty) {
+            reload()
+        }
+    }
+
+    /// Decode active banks after first frame (launch warm-up).
+    static func warmUp() {
+        ensureLoaded()
     }
 
     static func splitOppositeRU(_ ru: String) -> (left: String?, right: String?) {

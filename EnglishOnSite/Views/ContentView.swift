@@ -98,7 +98,11 @@ struct ContentView: View {
             NavChrome.dismissKeyboard()
         }
         .onAppear {
-            TutorBankStore.setMode(settings.learningMode.tutorMode)
+            let mode = settings.learningMode.tutorMode
+            Task { @MainActor in
+                await Task.yield()
+                TutorBankStore.setMode(mode)
+            }
         }
         .onChange(of: settings.learningMode) { _, mode in
             TutorBankStore.setMode(mode.tutorMode)
