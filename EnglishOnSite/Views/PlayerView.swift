@@ -20,6 +20,7 @@ struct PlayerView: View {
     @State private var statusBanner = ""
     @State private var coachBadge: CoachSourceBadge.Kind = .offline
     @State private var showPhraseLoop = false
+    @State private var explainLine: LessonLine?
 
     enum OverlayKind {
         case none, translating, translateResult, remembering, rememberResult
@@ -281,11 +282,23 @@ struct PlayerView: View {
                         en: line.en,
                         ru: line.ru,
                         tipRu: line.tipRu,
-                        isCurrent: isCurrent
+                        transcription: line.transcription,
+                        isCurrent: isCurrent,
+                        onExplain: { explainLine = line }
                     )
                 }
                 .buttonStyle(.plain)
-                .accessibilityHint("Воспроизвести эту фразу")
+                .contextMenu {
+                    Button("Пояснить", systemImage: "text.book.closed") {
+                        explainLine = line
+                    }
+                }
+                .simultaneousGesture(
+                    LongPressGesture(minimumDuration: 0.45).onEnded { _ in
+                        explainLine = line
+                    }
+                )
+                .accessibilityHint("Короткий тап — слушать. Долгое нажатие — грамматика и транскрипция.")
                 .id("line-\(idx)")
             }
 
@@ -308,8 +321,16 @@ struct PlayerView: View {
                             en: phrase.en,
                             ru: phrase.ru,
                             tipRu: nil,
+                            transcription: nil,
                             isCurrent: isCurrent,
-                            forceWorker: true
+                            forceWorker: true,
+                            onExplain: {
+                                explainLine = LessonLine(
+                                    en: phrase.en,
+                                    ru: phrase.ru,
+                                    role: lesson.yourRole
+                                )
+                            }
                         )
                     }
                     .buttonStyle(.plain)
@@ -319,6 +340,21 @@ struct PlayerView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .topLeading)
+        .sheet(item: $explainLine) { line in
+            LessonLineExplainSheet(
+                line: line,
+                roleLabel: lesson.roleLabel(for: line.role),
+                onSpeak: {
+                    let sp = speaker ?? SpeechSpeaker(settings: settings)
+                    speaker = sp
+                    sp.updateSettings(settings)
+                    sp.stop()
+                    sp.speakEN(line.en)
+                }
+            )
+            .presentationDetents([.medium, .large])
+            .presentationDragIndicator(.visible)
+        }
     }
 
     @ViewBuilder
@@ -327,8 +363,10 @@ struct PlayerView: View {
         en: String,
         ru: String,
         tipRu: String?,
+        transcription: String?,
         isCurrent: Bool,
-        forceWorker: Bool = false
+        forceWorker: Bool = false,
+        onExplain: (() -> Void)? = nil
     ) -> some View {
         let supervisor = forceWorker ? false : lesson.isSupervisorRole(role)
         let align: Alignment = supervisor ? .leading : .trailing
@@ -341,10 +379,17 @@ struct PlayerView: View {
         HStack {
             if !supervisor { Spacer(minLength: 36) }
             VStack(alignment: supervisor ? .leading : .trailing, spacing: 6) {
-                Text(lesson.roleLabel(for: role))
-                    .font(.caption2.weight(.bold))
-                    .foregroundStyle(accent)
-                    .textCase(.uppercase)
+                HStack(spacing: 6) {
+                    Text(lesson.roleLabel(for: role))
+                        .font(.caption2.weight(.bold))
+                        .foregroundStyle(accent)
+                        .textCase(.uppercase)
+                    if onExplain != nil {
+                        Image(systemName: "text.book.closed")
+                            .font(.caption2.weight(.semibold))
+                            .foregroundStyle(.tertiary)
+                    }
+                }
 
                 Text(en)
                     .font(.system(size: isCurrent ? 22 : 17, weight: .bold))
@@ -357,11 +402,23 @@ struct PlayerView: View {
                     .multilineTextAlignment(supervisor ? .leading : .trailing)
                     .fixedSize(horizontal: false, vertical: true)
 
+                if let transcription, !transcription.isEmpty, isCurrent {
+                    Text(transcription)
+                        .font(.footnote.monospaced())
+                        .foregroundStyle(.tertiary)
+                        .multilineTextAlignment(supervisor ? .leading : .trailing)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
                 if settings.showTips, let tipRu, !tipRu.isEmpty, isCurrent {
                     Text(tipRu)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
+                } else if onExplain != nil, isCurrent {
+                    Text("Удерживай · пояснение")
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(.tertiary)
                 }
             }
             .padding(12)
@@ -867,5 +924,88 @@ struct PlayerView: View {
         } else {
             listener.stop()
         }
+    }
+}
+
+/// Tap/long-press card: translation + short grammar tip + transcription.
+struct LessonLineExplainSheet: View {
+    let line: LessonLine
+    let roleLabel: String
+    var onSpeak: (() -> Void)?
+
+    @Environment(\.dismiss) private var dismiss
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(roleLabel)
+                        .font(.caption.weight(.bold))
+                        .foregroundStyle(.secondary)
+                        .textCase(.uppercase)
+
+                    Text(line.en)
+                        .font(.title2.weight(.bold))
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    Text(line.ru)
+                        .font(.title3.weight(.medium))
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    if let transcription = line.transcription, !transcription.isEmpty {
+                        labeled("Как звучит", transcription)
+                            .font(.body.monospaced())
+                    }
+
+                    if let tip = line.tipRu, !tip.isEmpty {
+                        labeled("Грамматика / зачем так", tip)
+                    } else {
+                        labeled(
+                            "Грамматика / зачем так",
+                            "Короткой подсказки пока нет — слушай фразу и сравни с русским."
+                        )
+                    }
+
+                    if let onSpeak {
+                        Button {
+                            onSpeak()
+                        } label: {
+                            Label("Слушать ещё раз", systemImage: "speaker.wave.2.fill")
+                                .frame(maxWidth: .infinity, minHeight: 44)
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .navigationTitle("Пояснение")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Готово") { dismiss() }
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func labeled(_ title: String, _ body: String) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title)
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+            Text(body)
+                .font(.body)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(Color(.secondarySystemBackground))
+        )
     }
 }

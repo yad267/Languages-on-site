@@ -129,9 +129,14 @@ struct HomeView: View {
 struct SectionLessonsListView: View {
     let track: AppLearningMode
     let section: LessonSectionInfo
+    @State private var band: CEFRLevel.Band = .all
+
+    private var allLessons: [Lesson] {
+        SectionLessonStore.lessons(sectionId: section.id, track: track)
+    }
 
     private var lessons: [Lesson] {
-        SectionLessonStore.lessons(sectionId: section.id, track: track)
+        allLessons.filter { band.contains($0.cefrLevel) }
     }
 
     var body: some View {
@@ -142,8 +147,22 @@ struct SectionLessonsListView: View {
                      : "Regular · только этот раздел")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+                Picker("Уровень", selection: $band) {
+                    ForEach(CEFRLevel.Band.allCases) { b in
+                        Text(b.titleRU).tag(b)
+                    }
+                }
+                .pickerStyle(.segmented)
+                Text(band.subtitleRU)
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
             }
             Section("Уроки · \(lessons.count)") {
+                if lessons.isEmpty {
+                    Text("Пока нет уроков для \(band.titleRU). Выбери «Все» или другой уровень.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
                 ForEach(lessons) { lesson in
                     // Destination link (not value:/path): section was pushed with
                     // NavigationLink { … }, so value-based Lesson pushes bounce back
@@ -152,7 +171,20 @@ struct SectionLessonsListView: View {
                         PlayerView(lesson: lesson)
                     } label: {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text(lesson.titleRu).font(.headline)
+                            HStack(spacing: 8) {
+                                Text(lesson.titleRu).font(.headline)
+                                if let cefr = lesson.cefr, !cefr.isEmpty {
+                                    Text(cefr)
+                                        .font(.caption2.weight(.bold))
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(
+                                            Capsule(style: .continuous)
+                                                .fill(Color.accentColor.opacity(0.15))
+                                        )
+                                        .foregroundStyle(Color.accentColor)
+                                }
+                            }
                             if let en = lesson.titleEn {
                                 Text(en).font(.caption).foregroundStyle(.secondary)
                             }

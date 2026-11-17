@@ -8,6 +8,12 @@
       "title_en": "Construction",
       "track": "onsite",
       "lesson_ids": [
+        "onsite-construction-a1-01",
+        "onsite-construction-a1-02",
+        "onsite-construction-a1-03",
+        "onsite-construction-a1-04",
+        "onsite-construction-a1-05",
+        "onsite-construction-a1-06",
         "onsite-construction-cmds-01",
         "onsite-construction-01",
         "onsite-construction-02",
@@ -22,7 +28,7 @@
         "onsite-construction-11",
         "onsite-construction-12"
       ],
-      "lesson_count": 13
+      "lesson_count": 19
     },
     {
       "id": "websites_cctv",
@@ -117,7 +123,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Утренний брифинг: план на день.",
       "your_role": "electrician",
@@ -178,7 +185,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 1
+      "order": 1,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-02",
@@ -187,7 +195,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Подъём материалов — куда нести.",
       "your_role": "electrician",
@@ -248,7 +257,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 2
+      "order": 2,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-03",
@@ -257,7 +267,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Опасная зона — нельзя заходить.",
       "your_role": "electrician",
@@ -318,7 +329,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 3
+      "order": 3,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-04",
@@ -327,7 +339,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Доступ к лотку — подмости.",
       "your_role": "electrician",
@@ -388,7 +401,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 4
+      "order": 4,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-05",
@@ -397,7 +411,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Поставка короба опаздывает.",
       "your_role": "electrician",
@@ -458,7 +473,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 5
+      "order": 5,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-06",
@@ -467,7 +483,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Ветер на крыше — стоп работы.",
       "your_role": "electrician",
@@ -528,7 +545,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 6
+      "order": 6,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-07",
@@ -537,7 +555,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Разметка перед сверлением.",
       "your_role": "electrician",
@@ -598,7 +617,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 7
+      "order": 7,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-08",
@@ -607,7 +627,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Сантехники в том же стояке.",
       "your_role": "electrician",
@@ -668,7 +689,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 8
+      "order": 8,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-09",
@@ -677,7 +699,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Конец смены — уборка и передача.",
       "your_role": "electrician",
@@ -738,7 +761,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 9
+      "order": 9,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-10",
@@ -747,7 +771,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Порез — аптечка и акт.",
       "your_role": "electrician",
@@ -808,7 +833,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 10
+      "order": 10,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-11",
@@ -817,7 +843,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Клиент на площадке — коротко.",
       "your_role": "electrician",
@@ -878,7 +905,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 11
+      "order": 11,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-12",
@@ -887,7 +915,8 @@
       "tags": [
         "onsite",
         "construction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Ночной тихий режим у жилья.",
       "your_role": "electrician",
@@ -948,7 +977,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 12
+      "order": 12,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-01",
@@ -957,7 +987,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Обход с заказчиком — точки камер.",
       "your_role": "electrician",
@@ -1018,7 +1049,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 1
+      "order": 1,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-02",
@@ -1027,7 +1059,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Питание камеры — PoE.",
       "your_role": "electrician",
@@ -1088,7 +1121,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 2
+      "order": 2,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-03",
@@ -1097,7 +1131,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Витая пара без заломов.",
       "your_role": "electrician",
@@ -1158,7 +1193,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 3
+      "order": 3,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-04",
@@ -1167,7 +1203,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "NVR — пароль и удалёнка.",
       "your_role": "electrician",
@@ -1228,7 +1265,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 4
+      "order": 4,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-05",
@@ -1237,7 +1275,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Камера смотрит в стену.",
       "your_role": "electrician",
@@ -1298,7 +1337,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 5
+      "order": 5,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-06",
@@ -1307,7 +1347,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Ночная засветка.",
       "your_role": "electrician",
@@ -1368,7 +1409,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 6
+      "order": 6,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-07",
@@ -1377,7 +1419,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Запись остановилась.",
       "your_role": "electrician",
@@ -1438,7 +1481,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 7
+      "order": 7,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-08",
@@ -1447,7 +1491,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Приложение не находит NVR.",
       "your_role": "electrician",
@@ -1508,7 +1553,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 8
+      "order": 8,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-09",
@@ -1517,7 +1563,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Кабель перерезали.",
       "your_role": "electrician",
@@ -1578,7 +1625,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 9
+      "order": 9,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-10",
@@ -1587,7 +1635,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Передача объекта.",
       "your_role": "electrician",
@@ -1648,7 +1697,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 10
+      "order": 10,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-11",
@@ -1657,7 +1707,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Ложные тревоги по движению.",
       "your_role": "electrician",
@@ -1718,7 +1769,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 11
+      "order": 11,
+      "cefr": "B1"
     },
     {
       "id": "onsite-websites_cctv-12",
@@ -1727,7 +1779,8 @@
       "tags": [
         "onsite",
         "websites_cctv",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Ещё одна камера на склад.",
       "your_role": "electrician",
@@ -1788,7 +1841,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "websites_cctv",
-      "order": 12
+      "order": 12,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-01",
@@ -1797,7 +1851,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Регистрация на induction.",
       "your_role": "electrician",
@@ -1858,7 +1913,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 1
+      "order": 1,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-02",
@@ -1867,7 +1923,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "PPE — что надеть.",
       "your_role": "electrician",
@@ -1928,7 +1985,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 2
+      "order": 2,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-03",
@@ -1937,7 +1995,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Аварийные выходы.",
       "your_role": "electrician",
@@ -1998,7 +2057,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 3
+      "order": 3,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-04",
@@ -2007,7 +2067,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Разрешения на работы.",
       "your_role": "electrician",
@@ -2068,7 +2129,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 4
+      "order": 4,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-05",
@@ -2077,7 +2139,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Изоляция / LOTO.",
       "your_role": "electrician",
@@ -2138,7 +2201,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 5
+      "order": 5,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-06",
@@ -2147,7 +2211,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Сообщить об опасности.",
       "your_role": "electrician",
@@ -2208,7 +2273,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 6
+      "order": 6,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-07",
@@ -2217,7 +2283,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Работа на высоте.",
       "your_role": "electrician",
@@ -2278,7 +2345,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 7
+      "order": 7,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-08",
@@ -2287,7 +2355,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Химия / SDS.",
       "your_role": "electrician",
@@ -2348,7 +2417,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 8
+      "order": 8,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-09",
@@ -2357,7 +2427,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Первая помощь.",
       "your_role": "electrician",
@@ -2418,7 +2489,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 9
+      "order": 9,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-10",
@@ -2427,7 +2499,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Транспорт на площадке.",
       "your_role": "electrician",
@@ -2488,7 +2561,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 10
+      "order": 10,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-11",
@@ -2497,7 +2571,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Электричество — чужие щиты.",
       "your_role": "electrician",
@@ -2558,7 +2633,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 11
+      "order": 11,
+      "cefr": "B1"
     },
     {
       "id": "onsite-induction-12",
@@ -2567,7 +2643,8 @@
       "tags": [
         "onsite",
         "induction",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Конец induction — вопросы.",
       "your_role": "electrician",
@@ -2628,7 +2705,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "induction",
-      "order": 12
+      "order": 12,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-01",
@@ -2637,7 +2715,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Изоляция фидера перед работой.",
       "your_role": "electrician",
@@ -2698,7 +2777,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 1
+      "order": 1,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-02",
@@ -2707,7 +2787,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Кабель не тот сечением.",
       "your_role": "electrician",
@@ -2768,7 +2849,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 2
+      "order": 2,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-03",
@@ -2777,7 +2859,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Розетка не работает — диагностика.",
       "your_role": "electrician",
@@ -2838,7 +2921,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 3
+      "order": 3,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-04",
@@ -2847,7 +2931,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Подключение светильников.",
       "your_role": "electrician",
@@ -2908,7 +2993,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 4
+      "order": 4,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-05",
@@ -2917,7 +3003,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Щит — маркировка.",
       "your_role": "electrician",
@@ -2978,7 +3065,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 5
+      "order": 5,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-06",
@@ -2987,7 +3075,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Генератор на время отключения.",
       "your_role": "electrician",
@@ -3048,7 +3137,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 6
+      "order": 6,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-07",
@@ -3057,7 +3147,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Трасса в штробе — глубина.",
       "your_role": "electrician",
@@ -3118,7 +3209,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 7
+      "order": 7,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-08",
@@ -3127,7 +3219,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Тест УЗО.",
       "your_role": "electrician",
@@ -3188,7 +3281,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 8
+      "order": 8,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-09",
@@ -3197,7 +3291,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Клиент просит доп. розетки.",
       "your_role": "electrician",
@@ -3258,7 +3353,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 9
+      "order": 9,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-10",
@@ -3267,7 +3363,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Короткое замыкание при включении.",
       "your_role": "electrician",
@@ -3328,7 +3425,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 10
+      "order": 10,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-11",
@@ -3337,7 +3435,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Уличное освещение.",
       "your_role": "electrician",
@@ -3398,7 +3497,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 11
+      "order": 11,
+      "cefr": "B1"
     },
     {
       "id": "onsite-electrical-12",
@@ -3407,7 +3507,8 @@
       "tags": [
         "onsite",
         "electrical",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Сдача электрики — документы.",
       "your_role": "electrician",
@@ -3468,7 +3569,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "electrical",
-      "order": 12
+      "order": 12,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-01",
@@ -3477,7 +3579,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Нет нужного бита.",
       "your_role": "electrician",
@@ -3538,7 +3641,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 1
+      "order": 1,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-02",
@@ -3547,7 +3651,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Лазерный уровень сел.",
       "your_role": "electrician",
@@ -3608,7 +3713,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 2
+      "order": 2,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-03",
@@ -3617,7 +3723,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Дрель греется.",
       "your_role": "electrician",
@@ -3678,7 +3785,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 3
+      "order": 3,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-04",
@@ -3687,7 +3795,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Мультиметр чужой — не брать.",
       "your_role": "electrician",
@@ -3748,7 +3857,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 4
+      "order": 4,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-05",
@@ -3757,7 +3867,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Стремянка повреждена.",
       "your_role": "electrician",
@@ -3818,7 +3929,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 5
+      "order": 5,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-06",
@@ -3827,7 +3939,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Нужен кабельный нож / стриппер.",
       "your_role": "electrician",
@@ -3888,7 +4001,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 6
+      "order": 6,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-07",
@@ -3897,7 +4011,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Генераторный удлинитель.",
       "your_role": "electrician",
@@ -3958,7 +4073,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 7
+      "order": 7,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-08",
@@ -3967,7 +4083,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Аккумуляторы разряжены.",
       "your_role": "electrician",
@@ -4028,7 +4145,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 8
+      "order": 8,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-09",
@@ -4037,7 +4155,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Аренда перфоратора.",
       "your_role": "electrician",
@@ -4098,7 +4217,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 9
+      "order": 9,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-10",
@@ -4107,7 +4227,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Калибровка динамометрического ключа.",
       "your_role": "electrician",
@@ -4168,7 +4289,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 10
+      "order": 10,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-11",
@@ -4177,7 +4299,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Порядок на тележке.",
       "your_role": "electrician",
@@ -4238,7 +4361,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 11
+      "order": 11,
+      "cefr": "B1"
     },
     {
       "id": "onsite-tools-12",
@@ -4247,7 +4371,8 @@
       "tags": [
         "onsite",
         "tools",
-        "dialogue"
+        "dialogue",
+        "B1"
       ],
       "scene_ru": "Сдача инструмента в конце дня.",
       "your_role": "electrician",
@@ -4308,7 +4433,8 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "tools",
-      "order": 12
+      "order": 12,
+      "cefr": "B1"
     },
     {
       "id": "onsite-construction-cmds-01",
@@ -4318,7 +4444,8 @@
         "onsite",
         "construction",
         "dialogue",
-        "site_commands"
+        "site_commands",
+        "B1"
       ],
       "scene_ru": "Бригадир даёт короткие команды на объекте.",
       "your_role": "electrician",
@@ -4401,7 +4528,572 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "construction",
-      "order": 0
+      "order": 0,
+      "cefr": "B1"
+    },
+    {
+      "id": "onsite-construction-a1-01",
+      "title_ru": "A1 · Привет и план",
+      "title_en": "A1 · Hello and plan",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Утро на объекте: простое приветствие и план.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "order": -20,
+      "created_by": "pack_section_a1",
+      "topic_raw": "construction-a1",
+      "lines": [
+        {
+          "en": "Good morning.",
+          "ru": "Доброе утро.",
+          "role": "electrician",
+          "tip_ru": "Good morning — стандартное утреннее приветствие.",
+          "transcription": "gud MOR-ning",
+          "practice": true
+        },
+        {
+          "en": "Hello. How are you?",
+          "ru": "Привет. Как дела?",
+          "role": "foreman",
+          "tip_ru": "How are you? — вежливый вопрос «как ты?»",
+          "transcription": "he-LOH · how ar yu",
+          "practice": false
+        },
+        {
+          "en": "I am fine, thanks.",
+          "ru": "Нормально, спасибо.",
+          "role": "electrician",
+          "tip_ru": "I am / I'm — «я есть». Thanks = thank you.",
+          "transcription": "ai am FAIN · thanks",
+          "practice": true
+        },
+        {
+          "en": "What is the plan today?",
+          "ru": "Какой план на сегодня?",
+          "role": "electrician",
+          "tip_ru": "What is…? — вопрос «что / какой?»",
+          "transcription": "wot iz dhe plan te-DEY",
+          "practice": true
+        },
+        {
+          "en": "We work on the first floor.",
+          "ru": "Работаем на первом этаже.",
+          "role": "foreman",
+          "tip_ru": "first floor в Ireland/UK часто = 1-й над землёй; уточняй на объекте.",
+          "transcription": "wi werk on dhe ferst flor",
+          "practice": false
+        },
+        {
+          "en": "OK. I understand.",
+          "ru": "Ок. Понял.",
+          "role": "electrician",
+          "tip_ru": "I understand — «я понимаю».",
+          "transcription": "oh-KAY · ai un-der-STAND",
+          "practice": true
+        },
+        {
+          "en": "Start now, please.",
+          "ru": "Начинай сейчас, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "please смягчает приказ.",
+          "transcription": "start now · pleez",
+          "practice": false
+        },
+        {
+          "en": "Yes. I start now.",
+          "ru": "Да. Начинаю сейчас.",
+          "role": "electrician",
+          "tip_ru": "Yes + короткое действие. Простой Present.",
+          "transcription": "yes · ai start now",
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What is the plan today?",
+          "ru": "Какой план на сегодня?"
+        },
+        {
+          "en": "I understand.",
+          "ru": "Понял."
+        }
+      ]
+    },
+    {
+      "id": "onsite-construction-a1-02",
+      "title_ru": "A1 · Где и куда",
+      "title_en": "A1 · Where",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Ищем место и туалет на площадке.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "order": -19,
+      "created_by": "pack_section_a1",
+      "topic_raw": "construction-a1",
+      "lines": [
+        {
+          "en": "Where is the cabin?",
+          "ru": "Где вагончик?",
+          "role": "electrician",
+          "tip_ru": "Where is…? — «где находится?»",
+          "transcription": "wehr iz dhe KA-bin",
+          "practice": true
+        },
+        {
+          "en": "It is near the gate.",
+          "ru": "Он возле ворот.",
+          "role": "foreman",
+          "tip_ru": "near = рядом с.",
+          "transcription": "it iz neer dhe gayt",
+          "practice": false
+        },
+        {
+          "en": "Where is the toilet?",
+          "ru": "Где туалет?",
+          "role": "electrician",
+          "tip_ru": "toilet — обычное слово на объекте в Ireland.",
+          "transcription": "wehr iz dhe TOY-let",
+          "practice": true
+        },
+        {
+          "en": "Go left, then right.",
+          "ru": "Иди налево, потом направо.",
+          "role": "foreman",
+          "tip_ru": "left / right — лево / право.",
+          "transcription": "goh left · then rait",
+          "practice": false
+        },
+        {
+          "en": "Is this the right place?",
+          "ru": "Это правильное место?",
+          "role": "electrician",
+          "tip_ru": "right = правильный / правый — смотри контекст.",
+          "transcription": "iz this dhe rait plays",
+          "practice": true
+        },
+        {
+          "en": "Yes. Wait here.",
+          "ru": "Да. Жди здесь.",
+          "role": "foreman",
+          "tip_ru": "Wait here — короткая команда.",
+          "transcription": "yes · wait heer",
+          "practice": false
+        },
+        {
+          "en": "OK. I wait here.",
+          "ru": "Ок. Жду здесь.",
+          "role": "electrician",
+          "tip_ru": "I wait — простой Present для «сейчас делаю».",
+          "transcription": "oh-KAY · ai wait heer",
+          "practice": true
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thank you / Thanks.",
+          "transcription": "thank yu",
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the toilet?",
+          "ru": "Где туалет?"
+        },
+        {
+          "en": "I wait here.",
+          "ru": "Жду здесь."
+        }
+      ]
+    },
+    {
+      "id": "onsite-construction-a1-03",
+      "title_ru": "A1 · Инструменты",
+      "title_en": "A1 · Tools",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Простые просьбы: дай / возьми инструмент.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "order": -18,
+      "created_by": "pack_section_a1",
+      "topic_raw": "construction-a1",
+      "lines": [
+        {
+          "en": "I need a drill.",
+          "ru": "Мне нужна дрель.",
+          "role": "electrician",
+          "tip_ru": "I need + вещь — «мне нужно».",
+          "transcription": "ai need e drill",
+          "practice": true
+        },
+        {
+          "en": "Here you are.",
+          "ru": "Держи / вот.",
+          "role": "foreman",
+          "tip_ru": "Here you are — когда даёшь вещь.",
+          "transcription": "heer yu ar",
+          "practice": false
+        },
+        {
+          "en": "Can I have a screwdriver?",
+          "ru": "Можно отвёртку?",
+          "role": "electrician",
+          "tip_ru": "Can I have…? — вежливая просьба.",
+          "transcription": "can ai hav e screw-DRY-ver",
+          "practice": true
+        },
+        {
+          "en": "Yes. Take this one.",
+          "ru": "Да. Возьми эту.",
+          "role": "foreman",
+          "tip_ru": "Take this one — укажи на предмет.",
+          "transcription": "yes · tayk this wun",
+          "practice": false
+        },
+        {
+          "en": "Where is my hammer?",
+          "ru": "Где мой молоток?",
+          "role": "electrician",
+          "tip_ru": "my = мой.",
+          "transcription": "wehr iz mai HA-mer",
+          "practice": true
+        },
+        {
+          "en": "It is on the table.",
+          "ru": "Он на столе.",
+          "role": "foreman",
+          "tip_ru": "on the table — на поверхности.",
+          "transcription": "it iz on dhe TAY-bul",
+          "practice": false
+        },
+        {
+          "en": "I need gloves too.",
+          "ru": "Мне ещё нужны перчатки.",
+          "role": "electrician",
+          "tip_ru": "too = тоже / ещё.",
+          "transcription": "ai need gluvz too",
+          "practice": true
+        },
+        {
+          "en": "OK. Get them now.",
+          "ru": "Ок. Возьми их сейчас.",
+          "role": "foreman",
+          "tip_ru": "Get = взять / принести (разговорно).",
+          "transcription": "oh-KAY · get them now",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need a drill.",
+          "ru": "Мне нужна дрель."
+        },
+        {
+          "en": "Can I have a screwdriver?",
+          "ru": "Можно отвёртку?"
+        }
+      ]
+    },
+    {
+      "id": "onsite-construction-a1-04",
+      "title_ru": "A1 · Безопасность",
+      "title_en": "A1 · Safety",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Каска, жилет, осторожно.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "order": -17,
+      "created_by": "pack_section_a1",
+      "topic_raw": "construction-a1",
+      "lines": [
+        {
+          "en": "Put on your hard hat.",
+          "ru": "Надень каску.",
+          "role": "foreman",
+          "tip_ru": "Put on = надеть. hard hat = каска.",
+          "transcription": "put on yor hard hat",
+          "practice": false
+        },
+        {
+          "en": "OK. I put it on.",
+          "ru": "Ок. Надеваю.",
+          "role": "electrician",
+          "tip_ru": "I put it on — Present для действия сейчас.",
+          "transcription": "oh-KAY · ai put it on",
+          "practice": true
+        },
+        {
+          "en": "Wear your vest.",
+          "ru": "Надень жилет.",
+          "role": "foreman",
+          "tip_ru": "Wear = носить (одежду/СИЗ).",
+          "transcription": "wehr yor vest",
+          "practice": false
+        },
+        {
+          "en": "Is this area safe?",
+          "ru": "Эта зона безопасна?",
+          "role": "electrician",
+          "tip_ru": "safe = безопасный.",
+          "transcription": "iz this EHR-ee-uh sayf",
+          "practice": true
+        },
+        {
+          "en": "No. Stop. Look.",
+          "ru": "Нет. Стой. Смотри.",
+          "role": "foreman",
+          "tip_ru": "Stop / Look — короткие команды.",
+          "transcription": "no · stop · look",
+          "practice": false
+        },
+        {
+          "en": "Be careful.",
+          "ru": "Будь осторожен.",
+          "role": "foreman",
+          "tip_ru": "Be careful — стандартное предупреждение.",
+          "transcription": "bee KEHR-ful",
+          "practice": false
+        },
+        {
+          "en": "I am careful.",
+          "ru": "Я осторожен.",
+          "role": "electrician",
+          "tip_ru": "I am + adjective.",
+          "transcription": "ai am KEHR-ful",
+          "practice": true
+        },
+        {
+          "en": "Good. Continue.",
+          "ru": "Хорошо. Продолжай.",
+          "role": "foreman",
+          "tip_ru": "Continue = продолжай.",
+          "transcription": "gud · kon-TIN-yoo",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this area safe?",
+          "ru": "Эта зона безопасна?"
+        },
+        {
+          "en": "Be careful.",
+          "ru": "Будь осторожен."
+        }
+      ]
+    },
+    {
+      "id": "onsite-construction-a1-05",
+      "title_ru": "A1 · Числа и время",
+      "title_en": "A1 · Numbers and time",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Простые числа, этаж, время перерыва.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "order": -16,
+      "created_by": "pack_section_a1",
+      "topic_raw": "construction-a1",
+      "lines": [
+        {
+          "en": "What time is break?",
+          "ru": "Во сколько перерыв?",
+          "role": "electrician",
+          "tip_ru": "What time is…? — «во сколько?»",
+          "transcription": "wot taìm iz break",
+          "practice": true
+        },
+        {
+          "en": "Break is at ten.",
+          "ru": "Перерыв в десять.",
+          "role": "foreman",
+          "tip_ru": "at ten = в 10:00.",
+          "transcription": "break iz at ten",
+          "practice": false
+        },
+        {
+          "en": "Which floor?",
+          "ru": "Какой этаж?",
+          "role": "electrician",
+          "tip_ru": "Which = какой из вариантов.",
+          "transcription": "wich flor",
+          "practice": true
+        },
+        {
+          "en": "Floor two.",
+          "ru": "Второй этаж.",
+          "role": "foreman",
+          "tip_ru": "Floor + число.",
+          "transcription": "flor too",
+          "practice": false
+        },
+        {
+          "en": "How many boxes?",
+          "ru": "Сколько коробок?",
+          "role": "electrician",
+          "tip_ru": "How many + plural.",
+          "transcription": "how MEN-ee BOX-iz",
+          "practice": true
+        },
+        {
+          "en": "Five boxes.",
+          "ru": "Пять коробок.",
+          "role": "foreman",
+          "tip_ru": "Число + существительное во мн.ч.",
+          "transcription": "faiv BOX-iz",
+          "practice": false
+        },
+        {
+          "en": "I need ten minutes.",
+          "ru": "Мне нужно десять минут.",
+          "role": "electrician",
+          "tip_ru": "I need + время.",
+          "transcription": "ai need ten MIN-its",
+          "practice": true
+        },
+        {
+          "en": "OK. Ten minutes.",
+          "ru": "Ок. Десять минут.",
+          "role": "foreman",
+          "tip_ru": "Повтор для подтверждения.",
+          "transcription": "oh-KAY · ten MIN-its",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What time is break?",
+          "ru": "Во сколько перерыв?"
+        },
+        {
+          "en": "I need ten minutes.",
+          "ru": "Мне нужно десять минут."
+        }
+      ]
+    },
+    {
+      "id": "onsite-construction-a1-06",
+      "title_ru": "A1 · Помощь",
+      "title_en": "A1 · Help",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Попросить помощь и сказать «готово».",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "order": -15,
+      "created_by": "pack_section_a1",
+      "topic_raw": "construction-a1",
+      "lines": [
+        {
+          "en": "Can you help me?",
+          "ru": "Можешь помочь?",
+          "role": "electrician",
+          "tip_ru": "Can you…? — вежливая просьба.",
+          "transcription": "can yu help mee",
+          "practice": true
+        },
+        {
+          "en": "Yes. One minute.",
+          "ru": "Да. Одну минуту.",
+          "role": "foreman",
+          "tip_ru": "One minute = сейчас / минутку.",
+          "transcription": "yes · wun MIN-it",
+          "practice": false
+        },
+        {
+          "en": "Please hold this.",
+          "ru": "Подержи это, пожалуйста.",
+          "role": "electrician",
+          "tip_ru": "Hold = держать.",
+          "transcription": "pleez hold this",
+          "practice": true
+        },
+        {
+          "en": "OK. I hold it.",
+          "ru": "Ок. Держу.",
+          "role": "foreman",
+          "tip_ru": "Короткий ответ-действие.",
+          "transcription": "oh-KAY · ai hold it",
+          "practice": false
+        },
+        {
+          "en": "Is it ready?",
+          "ru": "Готово?",
+          "role": "foreman",
+          "tip_ru": "ready = готово.",
+          "transcription": "iz it RED-ee",
+          "practice": false
+        },
+        {
+          "en": "Yes. It is ready.",
+          "ru": "Да. Готово.",
+          "role": "electrician",
+          "tip_ru": "It is ready.",
+          "transcription": "yes · it iz RED-ee",
+          "practice": true
+        },
+        {
+          "en": "Good job.",
+          "ru": "Хорошая работа.",
+          "role": "foreman",
+          "tip_ru": "Good job — похвала на объекте.",
+          "transcription": "gud job",
+          "practice": false
+        },
+        {
+          "en": "Thank you. See you later.",
+          "ru": "Спасибо. До позже.",
+          "role": "electrician",
+          "tip_ru": "See you later — до встречи позже.",
+          "transcription": "thank yu · see yu LAY-ter",
+          "practice": true
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can you help me?",
+          "ru": "Можешь помочь?"
+        },
+        {
+          "en": "It is ready.",
+          "ru": "Готово."
+        }
+      ]
     }
   ]
 }

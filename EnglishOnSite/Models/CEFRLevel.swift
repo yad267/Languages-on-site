@@ -32,4 +32,51 @@ enum CEFRLevel: String, CaseIterable, Identifiable, Hashable, Codable {
         case .c2: return "Только C2"
         }
     }
+
+    /// Coarse bands for lesson browsing (A1–A2 / B1–B2 / C).
+    enum Band: String, CaseIterable, Identifiable, Hashable {
+        case all
+        case a1a2
+        case b1b2
+        case c
+
+        var id: String { rawValue }
+
+        var titleRU: String {
+            switch self {
+            case .all: return "Все"
+            case .a1a2: return "A1–A2"
+            case .b1b2: return "B1–B2"
+            case .c: return "C1–C2"
+            }
+        }
+
+        var subtitleRU: String {
+            switch self {
+            case .all: return "Все уровни"
+            case .a1a2: return "Простые фразы"
+            case .b1b2: return "На площадке"
+            case .c: return "Сложнее"
+            }
+        }
+
+        func contains(_ level: CEFRLevel?) -> Bool {
+            guard let level else {
+                // Untagged legacy lessons sit in the mid band.
+                return self == .all || self == .b1b2
+            }
+            switch self {
+            case .all: return true
+            case .a1a2: return level == .a1 || level == .a2
+            case .b1b2: return level == .b1 || level == .b2
+            case .c: return level == .c1 || level == .c2
+            }
+        }
+    }
+
+    static func parse(_ raw: String?) -> CEFRLevel? {
+        guard let raw else { return nil }
+        let t = raw.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        return CEFRLevel(rawValue: t)
+    }
 }
