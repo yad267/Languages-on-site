@@ -21,5 +21,6 @@
   {"en": "Mind yourself.", "ru": "Осторожно / береги себя.", "tag": "safety", "tip_ru": "часто на объекте в Ireland"},
   {"en": "That's grand.", "ru": "Отлично / порядок.", "tag": "electrical", "tip_ru": "grand = ок (Ireland)"},
   {"en": "Give me five minutes.", "ru": "Дай пять минут.", "tag": "electrical", "tip_ru": ""},
-  {"en": "Call me when you're ready.", "ru": "Позови, когда будешь готов.", "tag": "electrical", "tip_ru": ""}
+  {"en": "Call me when you're ready.", "ru": "Позови, когда будешь готов.", "tag": "electrical", "tip_ru": ""},
+  {"en": "I tighten the nut on the bracket.", "ru": "Затягиваю гайку на кронштейне.", "tag": "electrical", "tip_ru": "nut + bracket — крепёж кабель-канала / лотка / прибора на объекте"}
 ]

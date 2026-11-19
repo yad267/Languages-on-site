@@ -24,8 +24,13 @@ enum LearningBankStore {
         let category: String?
     }
 
+    private static var wordsCache: [LearningBankEntry]?
+    private static var phrasalsCache: [LearningBankEntry]?
+    private static var sentencesCache: [LearningBankEntry]?
+
     static func words() -> [LearningBankEntry] {
-        load(resource: "learning_words_v1", type: .word) { row in
+        if let wordsCache { return wordsCache }
+        let rows = load(resource: "learning_words_v1", type: .word) { row in
             LearningBankEntry(
                 en: row.en,
                 ru: row.ru ?? "",
@@ -34,10 +39,13 @@ enum LearningBankStore {
                 type: .word
             )
         }
+        wordsCache = rows
+        return rows
     }
 
     static func sitePhrasals() -> [LearningBankEntry] {
-        load(resource: "learning_phrasals_site_v1", type: .phrasal) { row in
+        if let phrasalsCache { return phrasalsCache }
+        let rows = load(resource: "learning_phrasals_site_v1", type: .phrasal) { row in
             LearningBankEntry(
                 en: row.en,
                 ru: row.ru ?? "",
@@ -46,10 +54,13 @@ enum LearningBankStore {
                 type: .phrasal
             )
         }
+        phrasalsCache = rows
+        return rows
     }
 
     static func sentences() -> [LearningBankEntry] {
-        load(resource: "learning_sentences_v1", type: .sentence) { row in
+        if let sentencesCache { return sentencesCache }
+        let rows = load(resource: "learning_sentences_v1", type: .sentence) { row in
             LearningBankEntry(
                 en: row.en,
                 ru: row.ru ?? "",
@@ -58,6 +69,8 @@ enum LearningBankStore {
                 type: .sentence
             )
         }
+        sentencesCache = rows
+        return rows
     }
 
     private static func load(

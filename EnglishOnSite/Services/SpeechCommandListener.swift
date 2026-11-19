@@ -21,6 +21,8 @@ final class SpeechCommandListener {
 
     private var lastActionAt: Date = .distantPast
     private let cooldown: TimeInterval = 1.2
+    private var lastHeardPublishedAt: Date = .distantPast
+    private let lastHeardMinInterval: TimeInterval = 0.28
 
     init(settings: AppSettings) {
         self.settings = settings
@@ -60,7 +62,11 @@ final class SpeechCommandListener {
 
     func start() {
         shouldListen = true
-        beginListeningSession()
+        guard !isListening else { return }
+        // Return immediately so UI taps stay snappy; engine starts next turn.
+        Task { @MainActor in
+            self.beginListeningSession()
+        }
     }
 
     func stop() {
@@ -105,7 +111,7 @@ final class SpeechCommandListener {
                 guard let self else { return }
                 if let result {
                     let text = result.bestTranscription.formattedString
-                    self.lastHeard = text
+                    self.publishLastHeard(text)
                     self.process(text: text)
                 }
                 if error != nil || (result?.isFinal ?? false) {
@@ -122,6 +128,16 @@ final class SpeechCommandListener {
             authorizationMessage = "Микрофон: \(error.localizedDescription)"
             tearDownEngine()
         }
+    }
+
+    private func publishLastHeard(_ text: String) {
+        let now = Date()
+        if text == lastHeard { return }
+        if now.timeIntervalSince(lastHeardPublishedAt) < lastHeardMinInterval, !text.isEmpty {
+            return
+        }
+        lastHeardPublishedAt = now
+        lastHeard = text
     }
 
     private func tearDownEngine() {
