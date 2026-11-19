@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "track": "regular",
   "sections": [
     {
@@ -125,6 +125,27 @@
         "regular-work_office-10",
         "regular-work_office-11",
         "regular-work_office-12"
+      ],
+      "lesson_count": 12
+    },
+    {
+      "id": "job_interview",
+      "title_ru": "Собеседование",
+      "title_en": "Job interview",
+      "track": "regular",
+      "lesson_ids": [
+        "regular-job_interview-01",
+        "regular-job_interview-02",
+        "regular-job_interview-03",
+        "regular-job_interview-04",
+        "regular-job_interview-05",
+        "regular-job_interview-06",
+        "regular-job_interview-07",
+        "regular-job_interview-08",
+        "regular-job_interview-09",
+        "regular-job_interview-10",
+        "regular-job_interview-11",
+        "regular-job_interview-12"
       ],
       "lesson_count": 12
     }
@@ -5168,6 +5189,1086 @@
       ],
       "created_by": "pack_section",
       "topic_raw": "work_office",
+      "order": 12
+    },
+    {
+      "id": "regular-job_interview-01",
+      "title_ru": "A1 · Меня зовут…",
+      "title_en": "A1 · My name is…",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Коротко представиться на собеседовании.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "Good morning. Please sit down.",
+          "ru": "Доброе утро. Садитесь, пожалуйста.",
+          "role": "interviewer",
+          "tip_ru": "Please sit down — вежливое приглашение.",
+          "practice": false
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "candidate",
+          "tip_ru": "Thank you после приглашения сесть.",
+          "practice": true,
+          "transcription": "thenk yu"
+        },
+        {
+          "en": "What is your name?",
+          "ru": "Как вас зовут?",
+          "role": "interviewer",
+          "tip_ru": "What is your name?",
+          "practice": false
+        },
+        {
+          "en": "My name is Alex.",
+          "ru": "Меня зовут Алекс.",
+          "role": "candidate",
+          "tip_ru": "My name is … — базовая формула.",
+          "practice": true,
+          "transcription": "mai neim iz A-leks"
+        },
+        {
+          "en": "Nice to meet you, Alex.",
+          "ru": "Приятно познакомиться, Алекс.",
+          "role": "interviewer",
+          "tip_ru": "Nice to meet you.",
+          "practice": false
+        },
+        {
+          "en": "Nice to meet you too.",
+          "ru": "Мне тоже приятно.",
+          "role": "candidate",
+          "tip_ru": "… too = тоже.",
+          "practice": true,
+          "transcription": "nais to meet yu too"
+        },
+        {
+          "en": "Are you ready to start?",
+          "ru": "Готовы начать?",
+          "role": "interviewer",
+          "tip_ru": "Are you ready …?",
+          "practice": false
+        },
+        {
+          "en": "Yes. I am ready.",
+          "ru": "Да. Я готов.",
+          "role": "candidate",
+          "tip_ru": "I am ready.",
+          "practice": true,
+          "transcription": "yes · ai em RED-ee"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "My name is Alex.",
+          "ru": "Меня зовут Алекс."
+        },
+        {
+          "en": "Nice to meet you too.",
+          "ru": "Мне тоже приятно."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": -20
+    },
+    {
+      "id": "regular-job_interview-02",
+      "title_ru": "A1 · Откуда я / кем работаю",
+      "title_en": "A1 · Where I’m from / my job",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Сказать город и текущую работу простыми фразами.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "Where are you from?",
+          "ru": "Откуда вы?",
+          "role": "interviewer",
+          "tip_ru": "Where are you from?",
+          "practice": false
+        },
+        {
+          "en": "I am from Dublin.",
+          "ru": "Я из Дублина.",
+          "role": "candidate",
+          "tip_ru": "I am from + city.",
+          "practice": true,
+          "transcription": "ai em from DUB-lin"
+        },
+        {
+          "en": "What do you do now?",
+          "ru": "Кем вы сейчас работаете?",
+          "role": "interviewer",
+          "tip_ru": "What do you do?",
+          "practice": false
+        },
+        {
+          "en": "I am an electrician.",
+          "ru": "Я электрик.",
+          "role": "candidate",
+          "tip_ru": "I am a/an + job.",
+          "practice": true,
+          "transcription": "ai em en i-lek-TRISH-an"
+        },
+        {
+          "en": "How many years?",
+          "ru": "Сколько лет?",
+          "role": "interviewer",
+          "tip_ru": "How many years?",
+          "practice": false
+        },
+        {
+          "en": "Five years.",
+          "ru": "Пять лет.",
+          "role": "candidate",
+          "tip_ru": "Number + years.",
+          "practice": true,
+          "transcription": "faiv yeerz"
+        },
+        {
+          "en": "Do you like the job?",
+          "ru": "Вам нравится работа?",
+          "role": "interviewer",
+          "tip_ru": "Do you like …?",
+          "practice": false
+        },
+        {
+          "en": "Yes. I like it.",
+          "ru": "Да. Мне нравится.",
+          "role": "candidate",
+          "tip_ru": "I like it.",
+          "practice": true,
+          "transcription": "yes · ai laik it"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I am from Dublin.",
+          "ru": "Я из Дублина."
+        },
+        {
+          "en": "I am an electrician.",
+          "ru": "Я электрик."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": -19
+    },
+    {
+      "id": "regular-job_interview-03",
+      "title_ru": "A1 · Почему эта работа",
+      "title_en": "A1 · Why this job",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Простой ответ: почему хотите эту работу.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "Why do you want this job?",
+          "ru": "Почему хотите эту работу?",
+          "role": "interviewer",
+          "tip_ru": "Why do you want …?",
+          "practice": false
+        },
+        {
+          "en": "I want to learn more.",
+          "ru": "Хочу учиться дальше.",
+          "role": "candidate",
+          "tip_ru": "I want to + verb.",
+          "practice": true,
+          "transcription": "ai wont to lern mor"
+        },
+        {
+          "en": "Why here?",
+          "ru": "Почему у нас?",
+          "role": "interviewer",
+          "tip_ru": "Why here?",
+          "practice": false
+        },
+        {
+          "en": "Your company is good.",
+          "ru": "Ваша компания хорошая.",
+          "role": "candidate",
+          "tip_ru": "Your company is …",
+          "practice": true,
+          "transcription": "yor KUM-pa-nee iz gud"
+        },
+        {
+          "en": "Can you start soon?",
+          "ru": "Можете начать скоро?",
+          "role": "interviewer",
+          "tip_ru": "Can you start …?",
+          "practice": false
+        },
+        {
+          "en": "Yes. I can start next week.",
+          "ru": "Да. Могу на следующей неделе.",
+          "role": "candidate",
+          "tip_ru": "I can start + time.",
+          "practice": true,
+          "transcription": "ai ken start next week"
+        },
+        {
+          "en": "Do you have questions?",
+          "ru": "Есть вопросы?",
+          "role": "interviewer",
+          "tip_ru": "Do you have questions?",
+          "practice": false
+        },
+        {
+          "en": "Not now. Thank you.",
+          "ru": "Пока нет. Спасибо.",
+          "role": "candidate",
+          "tip_ru": "Not now.",
+          "practice": true,
+          "transcription": "not nau · thenk yu"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I want to learn more.",
+          "ru": "Хочу учиться дальше."
+        },
+        {
+          "en": "I can start next week.",
+          "ru": "Могу на следующей неделе."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": -18
+    },
+    {
+      "id": "regular-job_interview-04",
+      "title_ru": "A2 · Расскажите о себе",
+      "title_en": "A2 · Tell me about yourself",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Короткая самопрезентация на 30–40 секунд.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "Please tell me about yourself.",
+          "ru": "Расскажите о себе, пожалуйста.",
+          "role": "interviewer",
+          "tip_ru": "Tell me about yourself — классический старт.",
+          "practice": false
+        },
+        {
+          "en": "I am an electrician with five years on construction sites.",
+          "ru": "Я электрик с пятилетним опытом на стройках.",
+          "role": "candidate",
+          "tip_ru": "I am … with … years …",
+          "practice": true,
+          "transcription": "faiv yeerz"
+        },
+        {
+          "en": "What kind of work do you do most?",
+          "ru": "Чем больше всего занимаетесь?",
+          "role": "interviewer",
+          "tip_ru": "What kind of …?",
+          "practice": false
+        },
+        {
+          "en": "I install cable trays, boards, and lighting.",
+          "ru": "Монтирую лотки, щиты и освещение.",
+          "role": "candidate",
+          "tip_ru": "I install A, B, and C.",
+          "practice": true,
+          "transcription": "in-STAL"
+        },
+        {
+          "en": "Are you comfortable in English on site?",
+          "ru": "Вам комфортно на английском на объекте?",
+          "role": "interviewer",
+          "tip_ru": "Are you comfortable …?",
+          "practice": false
+        },
+        {
+          "en": "Yes. I can talk about tools, safety, and the job.",
+          "ru": "Да. Могу говорить про инструмент, безопасность и работу.",
+          "role": "candidate",
+          "tip_ru": "I can talk about …",
+          "practice": true,
+          "transcription": "ai ken tok a-baut"
+        },
+        {
+          "en": "Good. We will continue.",
+          "ru": "Хорошо. Продолжим.",
+          "role": "interviewer",
+          "tip_ru": "We will continue.",
+          "practice": false
+        },
+        {
+          "en": "Thank you. I am happy to answer more questions.",
+          "ru": "Спасибо. Готов ответить на вопросы.",
+          "role": "candidate",
+          "tip_ru": "I am happy to + verb.",
+          "practice": true,
+          "transcription": "HAP-ee to AN-ser"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I am an electrician with five years on construction sites.",
+          "ru": "Я электрик с пятилетним опытом на стройках."
+        },
+        {
+          "en": "I install cable trays, boards, and lighting.",
+          "ru": "Монтирую лотки, щиты и освещение."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": -10
+    },
+    {
+      "id": "regular-job_interview-05",
+      "title_ru": "A2 · Опыт и навыки",
+      "title_en": "A2 · Experience and skills",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Описать опыт и сильные стороны простыми фразами.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "What experience do you have?",
+          "ru": "Какой у вас опыт?",
+          "role": "interviewer",
+          "tip_ru": "What experience …?",
+          "practice": false
+        },
+        {
+          "en": "I worked on commercial sites and data halls.",
+          "ru": "Работал на коммерческих объектах и в дата-холлах.",
+          "role": "candidate",
+          "tip_ru": "I worked on …",
+          "practice": true,
+          "transcription": "kom-MER-shal"
+        },
+        {
+          "en": "Which skills are strongest?",
+          "ru": "Какие навыки сильнее всего?",
+          "role": "interviewer",
+          "tip_ru": "Which skills …?",
+          "practice": false
+        },
+        {
+          "en": "Safe isolation, neat terminations, and reading drawings.",
+          "ru": "Безопасная изоляция, аккуратная разделка и чтение чертежей.",
+          "role": "candidate",
+          "tip_ru": "A, B, and C list.",
+          "practice": true,
+          "transcription": "i-so-LAY-shen"
+        },
+        {
+          "en": "Do you have certificates?",
+          "ru": "Есть сертификаты?",
+          "role": "interviewer",
+          "tip_ru": "Do you have …?",
+          "practice": false
+        },
+        {
+          "en": "Yes. Manual handling and working at height.",
+          "ru": "Да. Manual handling и работа на высоте.",
+          "role": "candidate",
+          "tip_ru": "Yes. A and B.",
+          "practice": true,
+          "transcription": "SER-ti-fi-kits"
+        },
+        {
+          "en": "Can you work night shifts?",
+          "ru": "Можете в ночные смены?",
+          "role": "interviewer",
+          "tip_ru": "Can you work …?",
+          "practice": false
+        },
+        {
+          "en": "Yes, if the rota is clear in advance.",
+          "ru": "Да, если график известен заранее.",
+          "role": "candidate",
+          "tip_ru": "If … in advance.",
+          "practice": true,
+          "transcription": "RO-ta"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I worked on commercial sites and data halls.",
+          "ru": "Работал на коммерческих объектах и в дата-холлах."
+        },
+        {
+          "en": "Safe isolation, neat terminations, and reading drawings.",
+          "ru": "Безопасная изоляция, аккуратная разделка и чтение чертежей."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": -9
+    },
+    {
+      "id": "regular-job_interview-06",
+      "title_ru": "A2 · Когда можете выйти",
+      "title_en": "A2 · Availability",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Обсудить старт, смены и транспорт.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "When can you start?",
+          "ru": "Когда можете выйти?",
+          "role": "interviewer",
+          "tip_ru": "When can you start?",
+          "practice": false
+        },
+        {
+          "en": "I can start in two weeks after notice.",
+          "ru": "Через две недели после отработки.",
+          "role": "candidate",
+          "tip_ru": "In two weeks after notice.",
+          "practice": true,
+          "transcription": "TOO weeks"
+        },
+        {
+          "en": "Do you have your own transport?",
+          "ru": "Есть свой транспорт?",
+          "role": "interviewer",
+          "tip_ru": "Do you have …?",
+          "practice": false
+        },
+        {
+          "en": "Yes. I drive and I have a full licence.",
+          "ru": "Да. Езжу, права полные.",
+          "role": "candidate",
+          "tip_ru": "Full licence.",
+          "practice": true,
+          "transcription": "LAI-senss"
+        },
+        {
+          "en": "Are you OK with travel between sites?",
+          "ru": "Готовы ездить между объектами?",
+          "role": "interviewer",
+          "tip_ru": "Are you OK with …?",
+          "practice": false
+        },
+        {
+          "en": "Yes. That is fine for me.",
+          "ru": "Да. Мне нормально.",
+          "role": "candidate",
+          "tip_ru": "That is fine for me.",
+          "practice": true,
+          "transcription": "that iz fain"
+        },
+        {
+          "en": "Any other commitments we should know?",
+          "ru": "Есть ещё обязательства, о которых знать?",
+          "role": "interviewer",
+          "tip_ru": "Any other …?",
+          "practice": false
+        },
+        {
+          "en": "No. I can focus on this role.",
+          "ru": "Нет. Могу сосредоточиться на этой роли.",
+          "role": "candidate",
+          "tip_ru": "I can focus on …",
+          "practice": true,
+          "transcription": "FO-kus"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I can start in two weeks after notice.",
+          "ru": "Через две недели после отработки."
+        },
+        {
+          "en": "I drive and I have a full licence.",
+          "ru": "Езжу, права полные."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": -8
+    },
+    {
+      "id": "regular-job_interview-07",
+      "title_ru": "B1 · Полная самопрезентация",
+      "title_en": "B1 · Full self-introduction",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "B1"
+      ],
+      "cefr": "B1",
+      "scene_ru": "Связная презентация: кто я, опыт, цель.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "Walk me through your background.",
+          "ru": "Расскажите про ваш бэкграунд.",
+          "role": "interviewer",
+          "tip_ru": "Walk me through …",
+          "practice": false
+        },
+        {
+          "en": "I trained as an electrician, then spent five years on live sites in Ireland.",
+          "ru": "Учился на электрика, потом пять лет на действующих объектах в Ирландии.",
+          "role": "candidate",
+          "tip_ru": "I trained as …, then …",
+          "practice": true,
+          "transcription": "bak-ground"
+        },
+        {
+          "en": "What are you looking for now?",
+          "ru": "Что ищете сейчас?",
+          "role": "interviewer",
+          "tip_ru": "What are you looking for?",
+          "practice": false
+        },
+        {
+          "en": "A stable crew where I can grow into a chargehand role.",
+          "ru": "Стабильную бригаду, где могу вырасти до старшего.",
+          "role": "candidate",
+          "tip_ru": "Where I can grow into …",
+          "practice": true,
+          "transcription": "charg-hand"
+        },
+        {
+          "en": "Why should we hire you?",
+          "ru": "Почему взять именно вас?",
+          "role": "interviewer",
+          "tip_ru": "Why should we hire you?",
+          "practice": false
+        },
+        {
+          "en": "I show up, I communicate issues early, and my work is tidy.",
+          "ru": "Я прихожу, рано сообщаю о проблемах, работа аккуратная.",
+          "role": "candidate",
+          "tip_ru": "I …, I …, and …",
+          "practice": true,
+          "transcription": "SHO up"
+        },
+        {
+          "en": "Give me one recent example.",
+          "ru": "Приведите недавний пример.",
+          "role": "interviewer",
+          "tip_ru": "Give me one … example.",
+          "practice": false
+        },
+        {
+          "en": "Last month I caught a drawing clash before we cut tray and saved a rework day.",
+          "ru": "В прошлом месяце заметил clash на чертеже до резки лотка и сэкономил день переделки.",
+          "role": "candidate",
+          "tip_ru": "I caught … before … and saved …",
+          "practice": true,
+          "transcription": "ree-werk"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I trained as an electrician, then spent five years on live sites in Ireland.",
+          "ru": "Учился на электрика, потом пять лет на действующих объектах в Ирландии."
+        },
+        {
+          "en": "I show up, I communicate issues early, and my work is tidy.",
+          "ru": "Я прихожу, рано сообщаю о проблемах, работа аккуратная."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": 1
+    },
+    {
+      "id": "regular-job_interview-08",
+      "title_ru": "B1 · Сильные и слабые стороны",
+      "title_en": "B1 · Strengths and weaknesses",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "B1"
+      ],
+      "cefr": "B1",
+      "scene_ru": "Честный ответ без клише «я перфекционист».",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "What is your biggest strength on site?",
+          "ru": "В чём ваша сильная сторона на объекте?",
+          "role": "interviewer",
+          "tip_ru": "Biggest strength.",
+          "practice": false
+        },
+        {
+          "en": "I stay calm under pressure and keep the area safe.",
+          "ru": "Сохраняю спокойствие под давлением и держу зону безопасной.",
+          "role": "candidate",
+          "tip_ru": "Stay calm under pressure.",
+          "practice": true,
+          "transcription": "PRES-her"
+        },
+        {
+          "en": "And a weakness you are working on?",
+          "ru": "А слабость, над которой работаете?",
+          "role": "interviewer",
+          "tip_ru": "Working on …?",
+          "practice": false
+        },
+        {
+          "en": "I used to rush paperwork; now I block ten minutes at the end of each shift.",
+          "ru": "Раньше торопился с бумагами; теперь оставляю 10 минут в конце смены.",
+          "role": "candidate",
+          "tip_ru": "I used to …; now I …",
+          "practice": true,
+          "transcription": "PAY-per-werk"
+        },
+        {
+          "en": "How do you take feedback?",
+          "ru": "Как принимаете фидбек?",
+          "role": "interviewer",
+          "tip_ru": "Take feedback?",
+          "practice": false
+        },
+        {
+          "en": "I listen, clarify, and fix it the same day if I can.",
+          "ru": "Слушаю, уточняю и по возможности исправляю в тот же день.",
+          "role": "candidate",
+          "tip_ru": "Listen, clarify, and fix.",
+          "practice": true,
+          "transcription": "FEED-bak"
+        },
+        {
+          "en": "Good. That sounds practical.",
+          "ru": "Хорошо. Звучит по-деловому.",
+          "role": "interviewer",
+          "tip_ru": "That sounds …",
+          "practice": false
+        },
+        {
+          "en": "I prefer clear feedback so the job stays right first time.",
+          "ru": "Люблю ясный фидбек, чтобы с первого раза было правильно.",
+          "role": "candidate",
+          "tip_ru": "Right first time.",
+          "practice": true,
+          "transcription": "ferst taim"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I stay calm under pressure and keep the area safe.",
+          "ru": "Сохраняю спокойствие под давлением и держу зону безопасной."
+        },
+        {
+          "en": "I used to rush paperwork; now I block ten minutes at the end of each shift.",
+          "ru": "Раньше торопился с бумагами; теперь оставляю 10 минут в конце смены."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": 2
+    },
+    {
+      "id": "regular-job_interview-09",
+      "title_ru": "B1 · Вопросы к работодателю",
+      "title_en": "B1 · Your questions for us",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "B1"
+      ],
+      "cefr": "B1",
+      "scene_ru": "Задать умные вопросы в конце интервью.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "Do you have any questions for us?",
+          "ru": "Есть вопросы к нам?",
+          "role": "interviewer",
+          "tip_ru": "Any questions for us?",
+          "practice": false
+        },
+        {
+          "en": "Yes. What does a typical first month look like?",
+          "ru": "Да. Как выглядит обычный первый месяц?",
+          "role": "candidate",
+          "tip_ru": "What does … look like?",
+          "practice": true,
+          "transcription": "TIP-i-kal"
+        },
+        {
+          "en": "Mostly induction, then you join a bay crew.",
+          "ru": "В основном инструктаж, потом бригада на пролёте.",
+          "role": "interviewer",
+          "tip_ru": "Mostly …, then …",
+          "practice": false
+        },
+        {
+          "en": "How do you measure success in the first 90 days?",
+          "ru": "Как измеряете успех в первые 90 дней?",
+          "role": "candidate",
+          "tip_ru": "How do you measure …?",
+          "practice": true,
+          "transcription": "SUK-sess"
+        },
+        {
+          "en": "Safety record, attendance, and quality of installs.",
+          "ru": "Безопасность, посещаемость и качество монтажа.",
+          "role": "interviewer",
+          "tip_ru": "A, B, and C.",
+          "practice": false
+        },
+        {
+          "en": "Who would I report to day to day?",
+          "ru": "Кому подчиняюсь изо дня в день?",
+          "role": "candidate",
+          "tip_ru": "Who would I report to …?",
+          "practice": true,
+          "transcription": "ri-PORT"
+        },
+        {
+          "en": "The chargehand on your allocated site.",
+          "ru": "Старшему на закреплённом объекте.",
+          "role": "interviewer",
+          "tip_ru": "Allocated site.",
+          "practice": false
+        },
+        {
+          "en": "Thank you. That helps a lot.",
+          "ru": "Спасибо. Это многое проясняет.",
+          "role": "candidate",
+          "tip_ru": "That helps a lot.",
+          "practice": true,
+          "transcription": "helps e lot"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What does a typical first month look like?",
+          "ru": "Как выглядит обычный первый месяц?"
+        },
+        {
+          "en": "Who would I report to day to day?",
+          "ru": "Кому подчиняюсь изо дня в день?"
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": 3
+    },
+    {
+      "id": "regular-job_interview-10",
+      "title_ru": "B2 · Поведенческий вопрос STAR",
+      "title_en": "B2 · STAR behavioural question",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Ответ по схеме Situation–Task–Action–Result.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "Tell me about a time you handled a safety issue.",
+          "ru": "Расскажите, как вы решали вопрос безопасности.",
+          "role": "interviewer",
+          "tip_ru": "Tell me about a time …",
+          "practice": false
+        },
+        {
+          "en": "On a live panel changeover, I noticed the permit didn't list a standby.",
+          "ru": "На переключении живого щита заметил, что в допуске нет наблюдающего.",
+          "role": "candidate",
+          "tip_ru": "I noticed … didn't …",
+          "practice": true,
+          "transcription": "PER-mit"
+        },
+        {
+          "en": "What did you do?",
+          "ru": "Что вы сделали?",
+          "role": "interviewer",
+          "tip_ru": "What did you do?",
+          "practice": false
+        },
+        {
+          "en": "I stopped the job, raised it with the supervisor, and we added a named standby before switching.",
+          "ru": "Остановил работу, сказал супервайзеру, добавили именного наблюдающего до переключения.",
+          "role": "candidate",
+          "tip_ru": "I stopped …, raised …, and we added …",
+          "practice": true,
+          "transcription": "STAND-by"
+        },
+        {
+          "en": "What was the result?",
+          "ru": "Какой был результат?",
+          "role": "interviewer",
+          "tip_ru": "What was the result?",
+          "practice": false
+        },
+        {
+          "en": "We avoided a near miss and updated the checklist for the next crew.",
+          "ru": "Избежали near miss и обновили чеклист для следующей бригады.",
+          "role": "candidate",
+          "tip_ru": "Avoided … and updated …",
+          "practice": true,
+          "transcription": "neer mis"
+        },
+        {
+          "en": "Would you do anything differently?",
+          "ru": "Что-то сделали бы иначе?",
+          "role": "interviewer",
+          "tip_ru": "Would you … differently?",
+          "practice": false
+        },
+        {
+          "en": "I'd flag the gap at the morning briefing so it never reaches the board.",
+          "ru": "Отметил бы пробел на утреннем брифинге, чтобы до щита не доходило.",
+          "role": "candidate",
+          "tip_ru": "I'd flag … so …",
+          "practice": true,
+          "transcription": "BREEF-ing"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I stopped the job, raised it with the supervisor, and we added a named standby before switching.",
+          "ru": "Остановил работу, сказал супервайзеру, добавили именного наблюдающего до переключения."
+        },
+        {
+          "en": "We avoided a near miss and updated the checklist for the next crew.",
+          "ru": "Избежали near miss и обновили чеклист для следующей бригады."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": 10
+    },
+    {
+      "id": "regular-job_interview-11",
+      "title_ru": "B2 · Зарплата и условия",
+      "title_en": "B2 · Pay and conditions",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Вежливо обсудить деньги, смены и инструмент.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "What are your salary expectations?",
+          "ru": "Какие ожидания по зарплате?",
+          "role": "interviewer",
+          "tip_ru": "Salary expectations.",
+          "practice": false
+        },
+        {
+          "en": "I'm looking for the market rate for a qualified electrician on your sites, plus clear overtime rules.",
+          "ru": "Ориентируюсь на рынок для квалифицированного электрика на ваших объектах плюс понятные правила сверхурочных.",
+          "role": "candidate",
+          "tip_ru": "Market rate … plus …",
+          "practice": true,
+          "transcription": "SAL-a-ree"
+        },
+        {
+          "en": "We pay weekly. Overtime after 40 hours.",
+          "ru": "Платим еженедельно. Сверхурочные после 40 часов.",
+          "role": "interviewer",
+          "tip_ru": "After 40 hours.",
+          "practice": false
+        },
+        {
+          "en": "Is PPE and basic hand tools provided?",
+          "ru": "СИЗ и базовый ручной инструмент выдаёте?",
+          "role": "candidate",
+          "tip_ru": "Is … provided?",
+          "practice": true,
+          "transcription": "pee-pee-EE"
+        },
+        {
+          "en": "PPE yes. Specialty tools are on the van.",
+          "ru": "СИЗ — да. Специнструмент в фургоне.",
+          "role": "interviewer",
+          "tip_ru": "Specialty tools.",
+          "practice": false
+        },
+        {
+          "en": "That works. Could you share the holiday entitlement in writing?",
+          "ru": "Подходит. Можете прислать отпускные дни письменно?",
+          "role": "candidate",
+          "tip_ru": "In writing?",
+          "practice": true,
+          "transcription": "HOL-i-day"
+        },
+        {
+          "en": "HR will send the pack with the offer.",
+          "ru": "HR пришлёт пакет с оффером.",
+          "role": "interviewer",
+          "tip_ru": "HR will send …",
+          "practice": false
+        },
+        {
+          "en": "Perfect. I appreciate the clarity.",
+          "ru": "Отлично. Спасибо за ясность.",
+          "role": "candidate",
+          "tip_ru": "I appreciate …",
+          "practice": true,
+          "transcription": "a-PREE-shee-ate"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I'm looking for the market rate for a qualified electrician on your sites, plus clear overtime rules.",
+          "ru": "Ориентируюсь на рынок для квалифицированного электрика на ваших объектах плюс понятные правила сверхурочных."
+        },
+        {
+          "en": "Could you share the holiday entitlement in writing?",
+          "ru": "Можете прислать отпускные дни письменно?"
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
+      "order": 11
+    },
+    {
+      "id": "regular-job_interview-12",
+      "title_ru": "B2 · Закрытие и follow-up",
+      "title_en": "B2 · Closing and follow-up",
+      "tags": [
+        "regular",
+        "job_interview",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Завершить интервью и договориться о следующем шаге.",
+      "your_role": "candidate",
+      "partner_role": "interviewer",
+      "lines": [
+        {
+          "en": "We're at the end of our questions. Anything else from you?",
+          "ru": "Вопросы закончили. Что-то ещё с вашей стороны?",
+          "role": "interviewer",
+          "tip_ru": "Anything else from you?",
+          "practice": false
+        },
+        {
+          "en": "Only that I'm genuinely interested and can provide references this week.",
+          "ru": "Только что мне реально интересно, и рекомендации могу дать на этой неделе.",
+          "role": "candidate",
+          "tip_ru": "Genuinely interested; references.",
+          "practice": true,
+          "transcription": "REF-ren-sez"
+        },
+        {
+          "en": "What is the next step and timeline?",
+          "ru": "Какой следующий шаг и сроки?",
+          "role": "candidate",
+          "tip_ru": "Next step and timeline?",
+          "practice": true,
+          "transcription": "TAIM-lain"
+        },
+        {
+          "en": "We'll shortlist by Friday and call successful candidates.",
+          "ru": "Шортлист к пятнице, успешным перезвоним.",
+          "role": "interviewer",
+          "tip_ru": "Shortlist by …",
+          "practice": false
+        },
+        {
+          "en": "Should I send my tickets and Safe Pass copy to HR?",
+          "ru": "Прислать сертификаты и Safe Pass в HR?",
+          "role": "candidate",
+          "tip_ru": "Should I send …?",
+          "practice": true,
+          "transcription": "Safe Pas"
+        },
+        {
+          "en": "Yes, please — use the email on the invite.",
+          "ru": "Да — на email из приглашения.",
+          "role": "interviewer",
+          "tip_ru": "Use the email on …",
+          "practice": false
+        },
+        {
+          "en": "I'll send them today. Thank you for your time.",
+          "ru": "Отправлю сегодня. Спасибо за время.",
+          "role": "candidate",
+          "tip_ru": "Thank you for your time.",
+          "practice": true,
+          "transcription": "thenk yu for yor taim"
+        },
+        {
+          "en": "Thanks for coming in. We'll be in touch.",
+          "ru": "Спасибо, что пришли. Напишем.",
+          "role": "interviewer",
+          "tip_ru": "We'll be in touch.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What is the next step and timeline?",
+          "ru": "Какой следующий шаг и сроки?"
+        },
+        {
+          "en": "I'll send them today. Thank you for your time.",
+          "ru": "Отправлю сегодня. Спасибо за время."
+        }
+      ],
+      "created_by": "pack_section_interview",
+      "topic_raw": "job_interview",
       "order": 12
     }
   ]
