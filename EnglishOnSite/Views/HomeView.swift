@@ -29,12 +29,16 @@ struct HomeView: View {
 
             Section {
                 NavigationLink {
-                    WhoAmIView()
+                    WhoAmIView { lesson in
+                        path.append(lesson)
+                    }
                 } label: {
                     VStack(alignment: .leading, spacing: 4) {
                         Label(
-                            profileStore.profile.isSet ? "Профиль · под тебя" : "Кто я · подстроить приложение",
-                            systemImage: "person.crop.circle.badge.questionmark"
+                            profileStore.profile.isSet ? "Профиль · под тебя" : "Кто я · скажи о себе",
+                            systemImage: profileStore.profile.isSet
+                                ? "person.crop.circle.badge.checkmark"
+                                : "person.crop.circle.badge.questionmark"
                         )
                         if profileStore.profile.isSet {
                             Text(profileStore.profile.summaryChipsRU.joined(separator: " · "))
@@ -42,10 +46,18 @@ struct HomeView: View {
                                 .foregroundStyle(.secondary)
                                 .lineLimit(2)
                         } else {
-                            Text("Электрик, продавец, фрилансер… — расскажи, подстроим разделы.")
+                            Text("Голосом или текстом — подстроим разделы и откроем первый урок.")
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
+                    }
+                }
+
+                if profileStore.profile.isSet, let lesson = profileStore.firstRecommendedLesson() {
+                    Button {
+                        path.append(lesson)
+                    } label: {
+                        Label("К уроку для тебя", systemImage: "play.circle.fill")
                     }
                 }
             }
@@ -166,7 +178,7 @@ struct HomeView: View {
 struct SectionLessonsListView: View {
     let track: AppLearningMode
     let section: LessonSectionInfo
-    @State private var band: CEFRLevel.Band = .all
+    @State private var band: CEFRLevel.Band = LearnerProfileStore.shared.preferredBand
 
     private var allLessons: [Lesson] {
         SectionLessonStore.lessons(sectionId: section.id, track: track)
@@ -196,9 +208,16 @@ struct SectionLessonsListView: View {
             }
             Section("Уроки · \(lessons.count)") {
                 if lessons.isEmpty {
-                    Text("Пока нет уроков для \(band.titleRU). Выбери «Все» или другой уровень.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("В \(band.titleRU) пока пусто.")
+                            .font(.subheadline.weight(.semibold))
+                        Text("Открой «Все» — там \(allLessons.count) уроков этого раздела.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Button("Показать все уровни") { band = .all }
+                            .buttonStyle(.bordered)
+                    }
+                    .padding(.vertical, 4)
                 }
                 ForEach(lessons) { lesson in
                     // Destination link (not value:/path): section was pushed with

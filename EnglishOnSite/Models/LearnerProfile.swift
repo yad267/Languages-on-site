@@ -130,6 +130,8 @@ struct LearnerProfile: Codable, Hashable, Equatable {
     var cefr: CEFRLevel?
     /// Free-text “about me” (source of truth for re-parse / Gemini later).
     var aboutRaw: String
+    /// Fasteners / tools extracted from introduction (mixed RU/EN compounds kept).
+    var tools: [LearnerToolTerm]
     /// Country / market hint, e.g. IE, UK.
     var market: String?
     /// Interface language (menus). Default ru today.
@@ -140,11 +142,54 @@ struct LearnerProfile: Codable, Hashable, Equatable {
     var targetLocale: AppLocaleCode
     var updatedAt: Date
 
+    enum CodingKeys: String, CodingKey {
+        case role, goal, cefr, aboutRaw, tools, market, uiLocale, explainLocale, targetLocale, updatedAt
+    }
+
+    init(
+        role: LearnerRole,
+        goal: LearnerGoal,
+        cefr: CEFRLevel?,
+        aboutRaw: String,
+        tools: [LearnerToolTerm] = [],
+        market: String?,
+        uiLocale: AppLocaleCode,
+        explainLocale: AppLocaleCode,
+        targetLocale: AppLocaleCode,
+        updatedAt: Date
+    ) {
+        self.role = role
+        self.goal = goal
+        self.cefr = cefr
+        self.aboutRaw = aboutRaw
+        self.tools = tools
+        self.market = market
+        self.uiLocale = uiLocale
+        self.explainLocale = explainLocale
+        self.targetLocale = targetLocale
+        self.updatedAt = updatedAt
+    }
+
+    init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        role = try c.decodeIfPresent(LearnerRole.self, forKey: .role) ?? .unknown
+        goal = try c.decodeIfPresent(LearnerGoal.self, forKey: .goal) ?? .workEnglish
+        cefr = try c.decodeIfPresent(CEFRLevel.self, forKey: .cefr)
+        aboutRaw = try c.decodeIfPresent(String.self, forKey: .aboutRaw) ?? ""
+        tools = try c.decodeIfPresent([LearnerToolTerm].self, forKey: .tools) ?? []
+        market = try c.decodeIfPresent(String.self, forKey: .market)
+        uiLocale = try c.decodeIfPresent(AppLocaleCode.self, forKey: .uiLocale) ?? .ru
+        explainLocale = try c.decodeIfPresent(AppLocaleCode.self, forKey: .explainLocale) ?? .ru
+        targetLocale = try c.decodeIfPresent(AppLocaleCode.self, forKey: .targetLocale) ?? .en
+        updatedAt = try c.decodeIfPresent(Date.self, forKey: .updatedAt) ?? Date(timeIntervalSince1970: 0)
+    }
+
     static let `default` = LearnerProfile(
         role: .unknown,
         goal: .workEnglish,
         cefr: nil,
         aboutRaw: "",
+        tools: [],
         market: nil,
         uiLocale: .ru,
         explainLocale: .ru,
@@ -160,12 +205,24 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         chips.append(goal.titleRU)
         if let cefr { chips.append(cefr.rawValue) }
         if let market, !market.isEmpty { chips.append(market.uppercased()) }
+        for tool in tools.prefix(3) {
+            chips.append(tool.chipRU)
+        }
+        if tools.count > 3 {
+            chips.append("+\(tools.count - 3) инструмент.")
+        }
         return chips
+    }
+
+    /// Inject into Gemini / coach — introduction + structured tools.
+    var contentContextBlock: String {
+        SiteToolLexicon.promptBlock(for: tools, aboutRaw: aboutRaw)
     }
 }
 
 extension LearnerProfile {
     /// Offline keyword parse — works without Gemini (pitfall: flaky network / no key).
+    /// Keeps full introduction text; extracts compound tool phrases without dropping modifiers.
     static func infer(from raw: String, base: LearnerProfile = .default) -> LearnerProfile {
         let t = raw.lowercased()
         var role = base.role
@@ -173,7 +230,8 @@ extension LearnerProfile {
         var market = base.market
         var cefr = base.cefr
 
-        if t.contains("электрик") || t.contains("electrician") || t.contains("sparky") {
+        if t.contains("электрик") || t.contains("electrician") || t.contains("sparky")
+            || t.contains("болт") || t.contains("лотк") || t.contains("кабел") || t.contains("tray") {
             role = .electricianSiteIE
         } else if t.contains("фриланс") || t.contains("freelance") || t.contains("самозанят") {
             role = .freelancer
@@ -213,11 +271,19 @@ extension LearnerProfile {
             }
         }
 
+        let tools = SiteToolLexicon.extract(from: raw)
+
+        // Prefer tools section when learner talks fasteners/tools heavily.
+        if !tools.isEmpty, role == .electricianSiteIE || role == .siteGeneral || role == .unknown {
+            if role == .unknown { role = .electricianSiteIE }
+        }
+
         return LearnerProfile(
             role: role,
             goal: goal,
             cefr: cefr,
             aboutRaw: raw.trimmingCharacters(in: .whitespacesAndNewlines),
+            tools: tools,
             market: market,
             uiLocale: base.uiLocale,
             explainLocale: base.explainLocale,

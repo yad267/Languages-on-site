@@ -169,12 +169,14 @@ final class GeminiSiteCoachService {
     Правила языка:
     - Ireland/UK terms only: consumer unit, MCB, two-way, isolator, kopex, back box, earth, live, fused spur, ring…
     - Не US/NEC default (panel, ground wire как основное слово).
+    - Смешанный RU/EN от ученика: сохраняй смысл составных названий крепежа
+      (форма шляпки, шлиц/Phillips/Pozidriv/Torx, «под плоскую отвёртку»).
     - Каждая реплика: зеркало en + ru.
     - 6–10 lines диалога.
     - 2–4 реплики electrician с "practice": true (для «Скажи это»).
     - Ровно 2 фразы в say_today.
     - tip_ru коротко, где полезно (можно null / опустить).
-    - your_role всегда "electrician"; partner_role: "foreman" | "client" | "colleague".
+    - your_role обычно "electrician"; partner_role: "foreman" | "client" | "colleague".
     - tags: подмножество ["electrical","cctv","sockets","safety","tools","other"].
 
     Ответ ТОЛЬКО JSON одного объекта (без markdown):
@@ -191,7 +193,7 @@ final class GeminiSiteCoachService {
       "topic_raw":"..."
     }
 
-    Если тема совсем не про объект/электрика/CCTV/инструмент/safety — сделай ближайший site-урок
+    Если тема совсем не про объект/электрика/CCTV/инструмент/safety/крепёж — сделай ближайший site-урок
     ИЛИ верни: {"error":"off_topic","message_ru":"..."}.
     """
 
@@ -488,7 +490,8 @@ final class GeminiSiteCoachService {
     }
 
     /// Create a full site lesson from a free-text topic. Timeout 20s, rate-limit 5s.
-    func generateLesson(topic: String) async throws -> Lesson {
+    /// Pass `profile` so introduction + mixed RU/EN tool compounds shape the dialogue.
+    func generateLesson(topic: String, profile: LearnerProfile? = nil) async throws -> Lesson {
         let trimmed = topic.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2 else { throw GeminiLessonError.invalidResponse }
 
@@ -501,9 +504,28 @@ final class GeminiSiteCoachService {
         }
         lastLessonRequestAt = now
 
+        let profile = profile ?? LearnerProfileStore.shared.profile
+        // Re-extract from topic too — user may name fasteners only in the lesson request.
+        let topicTools = SiteToolLexicon.extract(from: trimmed)
+        let mergedTools = mergeTools(profile.tools, topicTools)
+        let context = SiteToolLexicon.promptBlock(
+            for: mergedTools,
+            aboutRaw: profile.aboutRaw.isEmpty ? trimmed : profile.aboutRaw
+        )
+
         let user = """
         Создай урок по теме пользователя (Ireland site).
         topic: \(trimmed)
+
+        \(context)
+
+        Правила под профиль:
+        - Смешанный RU/EN ввод нормален: не теряй уточнения (шляпка, шлиц/крест, под какую отвёртку).
+        - В EN-репликах используй канонические site terms из списка (round-head bolt, Phillips, flat screwdriver…).
+        - В tip_ru можно кратко пояснить RU↔EN для этих деталей крепежа.
+        - Если в профиле есть инструменты — хотя бы 2 реплики и 1 say_today должны их употребить.
+        - your_role подстрой под роль профиля (electrician / installer), не выдумывай офис.
+
         Заполни topic_raw исходной темой. id можешь поставить временный — клиент перезапишет.
         """
 
@@ -530,12 +552,15 @@ final class GeminiSiteCoachService {
         }
 
         let id = LessonTopicParser.makeUserLessonId(topic: trimmed)
+        let defaultRole = profile.role == .unknown ? "electrician" : "electrician"
+        var tags = lesson.tags.isEmpty ? ["other"] : lesson.tags
+        if !mergedTools.isEmpty, !tags.contains("tools") { tags.append("tools") }
         lesson = Lesson(
             id: id,
             titleRu: lesson.titleRu,
-            tags: lesson.tags.isEmpty ? ["other"] : lesson.tags,
+            tags: tags,
             sceneRu: lesson.sceneRu,
-            yourRole: lesson.yourRole.isEmpty ? "electrician" : lesson.yourRole,
+            yourRole: lesson.yourRole.isEmpty ? defaultRole : lesson.yourRole,
             partnerRole: lesson.partnerRole.isEmpty ? "foreman" : lesson.partnerRole,
             lines: lesson.lines,
             sayToday: lesson.sayToday,
@@ -547,6 +572,16 @@ final class GeminiSiteCoachService {
             throw GeminiLessonError.invalidResponse
         }
         return ok
+    }
+
+    private func mergeTools(_ a: [LearnerToolTerm], _ b: [LearnerToolTerm]) -> [LearnerToolTerm] {
+        var seen = Set<String>()
+        var out: [LearnerToolTerm] = []
+        for t in a + b {
+            let key = t.enCanonical.lowercased()
+            if seen.insert(key).inserted { out.append(t) }
+        }
+        return out
     }
 
     /// Parse pasted site dialogue into RoleplayScript (roles + turns).

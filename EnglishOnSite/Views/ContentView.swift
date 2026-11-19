@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var repository = LessonRepository.shared
     @State private var showCreateLesson = false
     @State private var selectedTab = 0
+    @State private var showIntroOnboarding = false
+    @State private var didCheckOnboarding = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -103,6 +105,23 @@ struct ContentView: View {
                 await Task.yield()
                 TutorBankStore.setMode(mode)
             }
+            if !didCheckOnboarding {
+                didCheckOnboarding = true
+                if !LearnerProfileStore.shared.profile.isSet {
+                    showIntroOnboarding = true
+                }
+            }
+        }
+        .sheet(isPresented: $showIntroOnboarding) {
+            NavigationStack {
+                WhoAmIView(isOnboarding: true) { lesson in
+                    showIntroOnboarding = false
+                    selectedTab = 0
+                    lessonsPath.append(lesson)
+                }
+            }
+            .presentationDetents([.large])
+            .presentationDragIndicator(.visible)
         }
         .onChange(of: settings.learningMode) { _, mode in
             TutorBankStore.setMode(mode.tutorMode)

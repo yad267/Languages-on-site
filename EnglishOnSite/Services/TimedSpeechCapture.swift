@@ -83,7 +83,8 @@ final class TimedSpeechCapture {
         restartGeneration &+= 1
         self.expectedPhrase = expectedPhrase.trimmingCharacters(in: .whitespacesAndNewlines)
         self.autoFinishWhen = autoFinishWhen
-        self.maxSeconds = max(5, min(maxSeconds, 60))
+        // Intro monologues need >60s; keep a hard safety cap so the mic can't hang forever.
+        self.maxSeconds = max(5, min(maxSeconds, 180))
         secondsLeft = self.maxSeconds
 
         guard await ensureAuth() else { return "" }
@@ -126,7 +127,7 @@ final class TimedSpeechCapture {
         do {
             try AudioSessionManager.configureForRecording()
         } catch {
-            errorMessage = "Аудиосессия"
+            errorMessage = "Не удалось включить микрофон. Проверь разрешение в Настройках iPhone."
             log("session configure failed: \(error.localizedDescription)")
             return ""
         }
@@ -150,7 +151,7 @@ final class TimedSpeechCapture {
         do {
             try audioEngine.start()
         } catch {
-            errorMessage = "Микрофон"
+            errorMessage = "Микрофон занят или недоступен. Закрой другое приложение с записью и попробуй снова."
             log("engine start failed: \(error.localizedDescription)")
             tearDown()
             return ""
@@ -245,8 +246,12 @@ final class TimedSpeechCapture {
         request.shouldReportPartialResults = true
         // Dictation for full phrases (search is too keyword-biased for site sentences).
         request.taskHint = .dictation
-        request.shouldReportPartialResults = true
-        if !isEnglish, recognizer.supportsOnDeviceRecognition {
+        if #available(iOS 16.0, *) {
+            request.addsPunctuation = true
+        }
+        // On-device RU chops long monologues into tiny replacing hypotheses.
+        // Keep on-device only for short auto-finish drills; free dictation → server.
+        if !isEnglish, autoFinishWhen != nil, recognizer.supportsOnDeviceRecognition {
             request.requiresOnDeviceRecognition = true
         }
         // Prefer short 1–2 word hints first (Apple guidance); already ordered by caller.
@@ -271,13 +276,15 @@ final class TimedSpeechCapture {
                     let heard = self.isEnglish
                         ? PhraseSimilarity.correctSiteASR(raw, expected: self.expectedPhrase)
                         : raw
-                    self.segmentPartial = heard
+                    // Long dictation: SFSpeech often replaces a short hypothesis without
+                    // isFinal (3–4 words wiped). Commit diverging segments instead of replace.
+                    self.absorbHypothesis(heard, isFinal: result.isFinal)
                     let combined = self.publishCombined(force: result.isFinal)
                     self.considerAutoFinish(heard: combined)
 
                     if result.isFinal {
                         let trimmed = combined.trimmingCharacters(in: .whitespacesAndNewlines)
-                        self.log("isFinal segment=\"\(heard)\" combined=\"\(trimmed)\" latched=\(self.passLatched)")
+                        self.log("isFinal segment=\"\(self.segmentPartial)\" combined=\"\(trimmed)\" latched=\(self.passLatched)")
                         // Full PASS (or latched PASS) → end take immediately.
                         // Translation-app pattern: finalize on complete hypothesis; don't
                         // restart the session and drop trailing words.
@@ -327,6 +334,57 @@ final class TimedSpeechCapture {
             partialText = corrected
         }
         return corrected
+    }
+
+    /// Merge a live SFSpeech hypothesis into `segmentPartial` / `committedText`.
+    /// Same-utterance growth or brief flicker → update/keep; brand-new clause → commit old.
+    private func absorbHypothesis(_ heard: String, isFinal: Bool) {
+        let neu = heard.trimmingCharacters(in: .whitespacesAndNewlines)
+        let old = segmentPartial.trimmingCharacters(in: .whitespacesAndNewlines)
+        if old.isEmpty {
+            segmentPartial = heard
+            return
+        }
+        if neu.isEmpty { return }
+
+        if Self.isSameUtteranceRefinement(old: old, new: neu) {
+            // Prefer the longer string on prefix flicker so 3–4 words don't wipe.
+            if neu.count >= old.count || isFinal {
+                segmentPartial = heard
+            }
+            // else keep `old` through a short regression
+            return
+        }
+
+        // Divergent hypothesis without a proper final → treat as next clause.
+        committedText = Self.joinTranscript(committed: committedText, segment: old)
+        segmentPartial = heard
+        log("absorb commit-before-replace old=\"\(old)\" new=\"\(neu)\"")
+    }
+
+    /// True when `new` is a growth/refinement/flicker of `old`, not a fresh clause.
+    private static func isSameUtteranceRefinement(old: String, new: String) -> Bool {
+        let a = old.lowercased()
+        let b = new.lowercased()
+        if a == b { return true }
+        if b.hasPrefix(a) || a.hasPrefix(b) { return true }
+
+        let aToks = a.split(whereSeparator: { $0.isWhitespace || $0.isNewline }).map(String.init)
+        let bToks = b.split(whereSeparator: { $0.isWhitespace || $0.isNewline }).map(String.init)
+        guard !aToks.isEmpty, !bToks.isEmpty else { return false }
+
+        // Shared leading tokens → same utterance being rewritten.
+        let sharedPrefix = zip(aToks, bToks).prefix(while: { $0.0 == $0.1 }).count
+        if sharedPrefix >= 1, sharedPrefix >= min(2, min(aToks.count, bToks.count)) {
+            return true
+        }
+        // High Jaccard on short hypotheses (ASR reshuffle of the same clause).
+        let aSet = Set(aToks)
+        let bSet = Set(bToks)
+        let inter = aSet.intersection(bSet).count
+        let uni = aSet.union(bSet).count
+        if uni > 0, Double(inter) / Double(uni) >= 0.55 { return true }
+        return false
     }
 
     private func commitSegmentAndContinue(reason: String) {

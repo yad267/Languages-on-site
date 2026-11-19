@@ -183,7 +183,8 @@ struct CreateLessonView: View {
                 await MainActor.run {
                     isGenerating = false
                     status = ""
-                    errorMessage = error.localizedDescription
+                    errorMessage = (error as? LocalizedError)?.errorDescription
+                        ?? "Не получилось собрать урок. Проверь сеть и попробуй короче тему."
                     if let ge = error as? GeminiLessonError {
                         switch ge {
                         case .noAPIKey, .geminiDisabled:
@@ -207,30 +208,33 @@ struct CreateLessonView: View {
         )
         isListening = false
 
-        let recognized: String
         if text.isEmpty {
-            recognized = "урок про CCTV кабель"
-            status = "Симулятор: демо-тема"
-        } else {
-            recognized = text
+            errorMessage = capture.errorMessage.isEmpty
+                ? "Не расслышала тему. Нажми микрофон ещё раз или набери текстом."
+                : capture.errorMessage
             status = ""
+            return
         }
 
-        let extracted = LessonTopicParser.extractTopic(from: recognized)
-        topic = extracted.isEmpty ? recognized : extracted
+        let extracted = LessonTopicParser.extractTopic(from: text)
+        topic = extracted.isEmpty ? text : extracted
+        status = ""
 
-        if topic.count < 3 || isOnlyLessonCommand(recognized) {
+        if topic.count < 3 || isOnlyLessonCommand(text) {
             isListening = true
-            status = "Тема? → Готово"
+            status = "Скажи тему целиком → Готово"
             let more = await capture.captureUntilStopped(
                 localeId: "ru-RU",
                 maxSeconds: settings.translateDuration.rawValue
             )
             isListening = false
-            if !more.isEmpty {
-                topic = LessonTopicParser.extractTopic(from: more)
+            if more.isEmpty {
+                errorMessage = "Нужна тема урока — например «кабель в лотке»."
                 status = ""
+                return
             }
+            topic = LessonTopicParser.extractTopic(from: more)
+            status = ""
         }
     }
 

@@ -75,7 +75,11 @@ final class LearnerProfileStore {
 
     /// Rank section list for Home — unknown profile keeps pack order.
     func rankedSections(_ sections: [LessonSectionInfo]) -> [LessonSectionInfo] {
-        let preferred = profile.role.preferredSectionIds
+        var preferred = profile.role.preferredSectionIds
+        // Fastener/tool-heavy intros → surface Tools before generic electrical.
+        if !profile.tools.isEmpty {
+            preferred = ["tools"] + preferred.filter { $0 != "tools" }
+        }
         guard !preferred.isEmpty else { return sections }
         var rank: [String: Int] = [:]
         for (i, id) in preferred.enumerated() { rank[id] = i }
@@ -84,6 +88,42 @@ final class LearnerProfileStore {
             let rb = rank[b.id] ?? 1_000
             if ra != rb { return ra < rb }
             return a.titleRu < b.titleRu
+        }
+    }
+
+    /// Auto-build + save profile from a free-text introduction (first open / voice).
+    @discardableResult
+    func applyIntroduction(_ raw: String, settings: AppSettings?) -> LearnerProfile {
+        let inferred = LearnerProfile.infer(from: raw, base: profile.isSet ? profile : .default)
+        save(inferred, applyLearningModeTo: settings)
+        return inferred
+    }
+
+    /// First lesson matching the current profile — for instant post-intro jump.
+    func firstRecommendedLesson() -> Lesson? {
+        let mode = profile.role == .unknown ? AppLearningMode.onSite : profile.role.preferredLearningMode
+        let sections = rankedSections(SectionLessonStore.sections(track: mode))
+        guard let section = sections.first else { return nil }
+        let band: CEFRLevel.Band = {
+            switch profile.cefr {
+            case .a1, .a2: return .a1a2
+            case .b1, .b2: return .b1b2
+            case .c1, .c2: return .c
+            case nil: return .all
+            }
+        }()
+        let lessons = SectionLessonStore.lessons(sectionId: section.id, track: mode)
+            .filter { band.contains($0.cefrLevel) }
+        return lessons.first ?? SectionLessonStore.lessons(sectionId: section.id, track: mode).first
+    }
+
+    /// CEFR band for browsing lists (defaults to all when unset).
+    var preferredBand: CEFRLevel.Band {
+        switch profile.cefr {
+        case .a1, .a2: return .a1a2
+        case .b1, .b2: return .b1b2
+        case .c1, .c2: return .c
+        case nil: return .all
         }
     }
 
