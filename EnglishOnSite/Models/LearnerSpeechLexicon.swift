@@ -139,33 +139,87 @@ enum LearnerSpeechLexicon {
         return mapped.joined(separator: " ")
     }
 
-    /// Personal dictionary entries (Cyrillic slang) found in text + extras.
+    /// Spoken forms found in text (compat helper).
     static func extractSpokenTerms(from raw: String, extras: [String] = []) -> [String] {
-        let corrected = correctASR(raw, profileTerms: extras)
-        let lower = corrected.lowercased()
-        var out: [String] = []
         var seen = Set<String>()
-
-        func add(_ s: String) {
-            let t = cyrillicForm(s)
-            guard !t.isEmpty, seen.insert(t.lowercased()).inserted else { return }
+        var out: [String] = []
+        for e in harvestEntries(from: raw, knownSpoken: [], source: .manual) {
+            if seen.insert(e.spoken.lowercased()).inserted { out.append(e.spoken) }
+        }
+        for x in extras {
+            let t = cyrillicForm(x)
+            guard !t.isEmpty, seen.insert(t.lowercased()).inserted else { continue }
             out.append(t)
         }
+        return out
+    }
 
-        for term in seedTerms {
-            let hit = term.asrAliases.contains { lower.contains($0.lowercased()) }
-                || lower.contains(term.spoken.lowercased())
-            if hit { add(term.spoken) }
+    /// New slang candidates not yet in `knownSpoken` (seed hits + Latin→Cyrillic + slang-like tokens).
+    static func harvestEntries(
+        from raw: String,
+        knownSpoken: Set<String>,
+        source: SpeechTermSource
+    ) -> [LearnerSpeechTermEntry] {
+        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return [] }
+
+        let rawTokens = trimmed
+            .split(whereSeparator: { $0.isWhitespace || $0.isNewline })
+            .map { String($0).trimmingCharacters(in: .punctuationCharacters) }
+            .filter { !$0.isEmpty }
+
+        let corrected = correctASR(trimmed, profileTerms: Array(knownSpoken))
+        var out: [LearnerSpeechTermEntry] = []
+        var seen = Set(knownSpoken.map { $0.lowercased() })
+
+        func consider(_ spokenRaw: String, enHint: String?, aliases: [String]) {
+            let spoken = cyrillicForm(spokenRaw)
+            guard spoken.count >= 3, isMostlyCyrillic(spoken) else { return }
+            let key = spoken.lowercased()
+            guard !russianStopWords.contains(key), seen.insert(key).inserted else { return }
+            let slangy = looksLikeLearnerSlang(spoken) || seedTerms.contains { $0.spoken == spoken }
+            let fromLatin = aliases.contains { looksLatin($0) } || (enHint != nil)
+            guard slangy || fromLatin else { return }
+            var entry = LearnerSpeechTermEntry(
+                spoken: spoken,
+                enHint: enHint,
+                aliases: aliases.filter { !$0.isEmpty },
+                source: source
+            )
+            if let seed = seedTerms.first(where: { $0.spoken == spoken }) {
+                entry.enHint = seed.enCanonical
+                entry.aliases = Array(Set(entry.aliases + seed.asrAliases))
+            }
+            out.append(entry)
         }
-        for e in extras { add(e) }
 
-        // Persist newly heard Cyrillic slang tokens (≥4 letters, not stop-words).
+        for tok in rawTokens where looksLatin(tok) {
+            let cyr = transliterateEnglishToCyrillic(tok)
+            consider(cyr, enHint: tok.lowercased(), aliases: [tok, cyr])
+        }
+
         for tok in corrected.split(whereSeparator: { $0.isWhitespace || $0.isNewline }) {
-            let core = String(tok).trimmingCharacters(in: .punctuationCharacters).lowercased()
-            guard core.count >= 4, isMostlyCyrillic(core), !russianStopWords.contains(core) else { continue }
-            if seedTerms.contains(where: { $0.spoken == core }) { add(core) }
+            let core = String(tok).trimmingCharacters(in: .punctuationCharacters)
+            guard !core.isEmpty else { continue }
+            if let seed = seedTerms.first(where: {
+                $0.spoken.compare(core, options: .caseInsensitive) == .orderedSame
+                    || $0.asrAliases.contains { $0.compare(core, options: .caseInsensitive) == .orderedSame }
+            }) {
+                consider(seed.spoken, enHint: seed.enCanonical, aliases: seed.asrAliases)
+            } else {
+                consider(core, enHint: nil, aliases: [core])
+            }
         }
         return out
+    }
+
+    private static func looksLikeLearnerSlang(_ spoken: String) -> Bool {
+        let t = spoken.lowercased()
+        if seedTerms.contains(where: { $0.spoken == t }) { return true }
+        let markers = ["соу", "джиг", "трей", "мент", "флюкс", "контейн", "бенд", "кейбл", "лотк"]
+        if markers.contains(where: { t.contains($0) }) { return true }
+        if t.count >= 4, t.hasSuffix("соу") || t.hasSuffix("ей") || t.hasSuffix("мент") { return true }
+        return false
     }
 
     /// Force a display/storage form: Cyrillic slang, never Latin.

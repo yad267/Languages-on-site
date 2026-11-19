@@ -197,11 +197,13 @@ struct WhoAmIView: View {
         }
         .navigationTitle(isOnboarding ? "Кто ты?" : "Кто я")
         .navigationBarTitleDisplayMode(.inline)
+        .lexiconToast()
         .onAppear {
             guard !didLoad else { return }
             didLoad = true
             draft = store.profile
             draftText = store.profile.aboutRaw
+            Task { await SpeechLexiconStore.shared.pullFromN8N() }
         }
     }
 
@@ -251,6 +253,19 @@ struct WhoAmIView: View {
             draftText = Self.joinIntro(existing: draftText, addition: repaired)
         }
         draft = LearnerProfile.infer(from: draftText, base: draft)
+        // Auto-save new slang → Documents cache + n8n (source of truth).
+        let known = draft.speechTerms
+        Task {
+            let added = await SpeechLexiconStore.shared.ingest(
+                text: repaired,
+                source: .introduction,
+                knownProfileTerms: known
+            )
+            if !added.isEmpty {
+                draft.speechTerms = SpeechLexiconStore.shared.spokenTerms
+                draft.speechTermEntries = SpeechLexiconStore.shared.entries
+            }
+        }
         if capture.hitMaxCap {
             voiceError = "Достигли лимита записи — нажми «Ещё голосом», если нужно продолжить."
         }

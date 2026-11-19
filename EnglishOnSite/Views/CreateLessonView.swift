@@ -150,8 +150,10 @@ struct CreateLessonView: View {
             .navigationDestination(for: Lesson.self) { lesson in
                 PlayerView(lesson: lesson)
             }
+            .lexiconToast()
             .onAppear {
                 catalog.sync(from: LessonRepository.shared.lessons)
+                Task { await SpeechLexiconStore.shared.pullFromN8N() }
             }
         }
     }
@@ -245,6 +247,20 @@ struct CreateLessonView: View {
 
         let hit = TopicCategoryClassifier.classify(extracted)
         predictedFolder = hit
+        let lexSource: SpeechTermSource = {
+            switch kind {
+            case .photo: return .photo
+            case .text: return .document
+            case .topic: return .topic
+            }
+        }()
+        Task {
+            _ = await SpeechLexiconStore.shared.ingest(
+                text: extracted,
+                source: lexSource,
+                knownProfileTerms: LearnerProfileStore.shared.profile.speechTerms
+            )
+        }
         isGenerating = true
         status = "Собираю урок → \(hit.titleRu)…"
         generateTask = Task {
@@ -338,6 +354,13 @@ struct CreateLessonView: View {
         topic = extracted.isEmpty ? text : extracted
         predictedFolder = TopicCategoryClassifier.classify(topic)
         status = ""
+        Task {
+            _ = await SpeechLexiconStore.shared.ingest(
+                text: topic,
+                source: .topic,
+                knownProfileTerms: LearnerProfileStore.shared.profile.speechTerms
+            )
+        }
     }
 
     private func loadPicked(_ item: PhotosPickerItem?) async {

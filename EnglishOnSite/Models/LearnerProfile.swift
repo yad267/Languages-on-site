@@ -134,6 +134,8 @@ struct LearnerProfile: Codable, Hashable, Equatable {
     var tools: [LearnerToolTerm]
     /// Personal ASR vocabulary (трей, джигсо, бенсоу…) — keep learner slang, don't “fix” it.
     var speechTerms: [String]
+    /// Rich lexicon rows (source, hits). Synced with n8n; `speechTerms` mirrors spoken forms.
+    var speechTermEntries: [LearnerSpeechTermEntry]
     /// Country / market hint, e.g. IE, UK.
     var market: String?
     /// Interface language (menus). Default ru today.
@@ -145,7 +147,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
     var updatedAt: Date
 
     enum CodingKeys: String, CodingKey {
-        case role, goal, cefr, aboutRaw, tools, speechTerms, market, uiLocale, explainLocale, targetLocale, updatedAt
+        case role, goal, cefr, aboutRaw, tools, speechTerms, speechTermEntries, market, uiLocale, explainLocale, targetLocale, updatedAt
     }
 
     init(
@@ -155,6 +157,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         aboutRaw: String,
         tools: [LearnerToolTerm] = [],
         speechTerms: [String] = [],
+        speechTermEntries: [LearnerSpeechTermEntry] = [],
         market: String?,
         uiLocale: AppLocaleCode,
         explainLocale: AppLocaleCode,
@@ -167,6 +170,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         self.aboutRaw = aboutRaw
         self.tools = tools
         self.speechTerms = speechTerms
+        self.speechTermEntries = speechTermEntries
         self.market = market
         self.uiLocale = uiLocale
         self.explainLocale = explainLocale
@@ -182,6 +186,11 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         aboutRaw = try c.decodeIfPresent(String.self, forKey: .aboutRaw) ?? ""
         tools = try c.decodeIfPresent([LearnerToolTerm].self, forKey: .tools) ?? []
         speechTerms = try c.decodeIfPresent([String].self, forKey: .speechTerms) ?? []
+        speechTermEntries = try c.decodeIfPresent([LearnerSpeechTermEntry].self, forKey: .speechTermEntries) ?? []
+        // Migrate legacy string-only lexicon into entries once.
+        if speechTermEntries.isEmpty, !speechTerms.isEmpty {
+            speechTermEntries = speechTerms.map { LearnerSpeechTermEntry(spoken: $0, source: .manual) }
+        }
         market = try c.decodeIfPresent(String.self, forKey: .market)
         uiLocale = try c.decodeIfPresent(AppLocaleCode.self, forKey: .uiLocale) ?? .ru
         explainLocale = try c.decodeIfPresent(AppLocaleCode.self, forKey: .explainLocale) ?? .ru
@@ -196,6 +205,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         aboutRaw: "",
         tools: [],
         speechTerms: [],
+        speechTermEntries: [],
         market: nil,
         uiLocale: .ru,
         explainLocale: .ru,
@@ -308,13 +318,25 @@ extension LearnerProfile {
             if role == .unknown { role = .electricianSiteIE }
         }
 
+        let harvested = LearnerSpeechLexicon.harvestEntries(
+            from: cleaned,
+            knownSpoken: Set(base.speechTerms.map { $0.lowercased() }),
+            source: .introduction
+        )
+        let entries = LearnerSpeechTermEntry.mergeAll([
+            base.speechTermEntries,
+            harvested,
+            speech.map { LearnerSpeechTermEntry(spoken: $0, source: .introduction) },
+        ])
+
         return LearnerProfile(
             role: role,
             goal: goal,
             cefr: cefr,
             aboutRaw: cleaned.trimmingCharacters(in: .whitespacesAndNewlines),
             tools: tools,
-            speechTerms: speech,
+            speechTerms: entries.map(\.spoken),
+            speechTermEntries: entries,
             market: market,
             uiLocale: base.uiLocale,
             explainLocale: base.explainLocale,
