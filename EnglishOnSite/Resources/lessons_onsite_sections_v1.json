@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "track": "onsite",
   "sections": [
     {
@@ -14,6 +14,9 @@
         "onsite-construction-a1-04",
         "onsite-construction-a1-05",
         "onsite-construction-a1-06",
+        "onsite-construction-a2-01",
+        "onsite-construction-a2-02",
+        "onsite-construction-a2-03",
         "onsite-construction-cmds-01",
         "onsite-construction-01",
         "onsite-construction-02",
@@ -26,9 +29,13 @@
         "onsite-construction-09",
         "onsite-construction-10",
         "onsite-construction-11",
-        "onsite-construction-12"
+        "onsite-construction-12",
+        "onsite-construction-b2-01",
+        "onsite-construction-b2-02",
+        "onsite-construction-c1-01",
+        "onsite-construction-c1-02"
       ],
-      "lesson_count": 19
+      "lesson_count": 26
     },
     {
       "id": "websites_cctv",
@@ -36,6 +43,15 @@
       "title_en": "Websites & CCTV",
       "track": "onsite",
       "lesson_ids": [
+        "onsite-websites_cctv-a1-01",
+        "onsite-websites_cctv-a1-02",
+        "onsite-websites_cctv-a1-03",
+        "onsite-websites_cctv-a1-04",
+        "onsite-websites_cctv-a1-05",
+        "onsite-websites_cctv-a1-06",
+        "onsite-websites_cctv-a2-01",
+        "onsite-websites_cctv-a2-02",
+        "onsite-websites_cctv-a2-03",
         "onsite-websites_cctv-01",
         "onsite-websites_cctv-02",
         "onsite-websites_cctv-03",
@@ -47,9 +63,13 @@
         "onsite-websites_cctv-09",
         "onsite-websites_cctv-10",
         "onsite-websites_cctv-11",
-        "onsite-websites_cctv-12"
+        "onsite-websites_cctv-12",
+        "onsite-websites_cctv-b2-01",
+        "onsite-websites_cctv-b2-02",
+        "onsite-websites_cctv-c1-01",
+        "onsite-websites_cctv-c1-02"
       ],
-      "lesson_count": 12
+      "lesson_count": 25
     },
     {
       "id": "induction",
@@ -57,6 +77,15 @@
       "title_en": "Site induction",
       "track": "onsite",
       "lesson_ids": [
+        "onsite-induction-a1-01",
+        "onsite-induction-a1-02",
+        "onsite-induction-a1-03",
+        "onsite-induction-a1-04",
+        "onsite-induction-a1-05",
+        "onsite-induction-a1-06",
+        "onsite-induction-a2-01",
+        "onsite-induction-a2-02",
+        "onsite-induction-a2-03",
         "onsite-induction-01",
         "onsite-induction-02",
         "onsite-induction-03",
@@ -68,9 +97,13 @@
         "onsite-induction-09",
         "onsite-induction-10",
         "onsite-induction-11",
-        "onsite-induction-12"
+        "onsite-induction-12",
+        "onsite-induction-b2-01",
+        "onsite-induction-b2-02",
+        "onsite-induction-c1-01",
+        "onsite-induction-c1-02"
       ],
-      "lesson_count": 12
+      "lesson_count": 25
     },
     {
       "id": "electrical",
@@ -78,6 +111,15 @@
       "title_en": "Electrical",
       "track": "onsite",
       "lesson_ids": [
+        "onsite-electrical-a1-01",
+        "onsite-electrical-a1-02",
+        "onsite-electrical-a1-03",
+        "onsite-electrical-a1-04",
+        "onsite-electrical-a1-05",
+        "onsite-electrical-a1-06",
+        "onsite-electrical-a2-01",
+        "onsite-electrical-a2-02",
+        "onsite-electrical-a2-03",
         "onsite-electrical-01",
         "onsite-electrical-02",
         "onsite-electrical-03",
@@ -89,9 +131,13 @@
         "onsite-electrical-09",
         "onsite-electrical-10",
         "onsite-electrical-11",
-        "onsite-electrical-12"
+        "onsite-electrical-12",
+        "onsite-electrical-b2-01",
+        "onsite-electrical-b2-02",
+        "onsite-electrical-c1-01",
+        "onsite-electrical-c1-02"
       ],
-      "lesson_count": 12
+      "lesson_count": 25
     },
     {
       "id": "tools",
@@ -99,6 +145,15 @@
       "title_en": "Tools",
       "track": "onsite",
       "lesson_ids": [
+        "onsite-tools-a1-01",
+        "onsite-tools-a1-02",
+        "onsite-tools-a1-03",
+        "onsite-tools-a1-04",
+        "onsite-tools-a1-05",
+        "onsite-tools-a1-06",
+        "onsite-tools-a2-01",
+        "onsite-tools-a2-02",
+        "onsite-tools-a2-03",
         "onsite-tools-01",
         "onsite-tools-02",
         "onsite-tools-03",
@@ -110,9 +165,13 @@
         "onsite-tools-09",
         "onsite-tools-10",
         "onsite-tools-11",
-        "onsite-tools-12"
+        "onsite-tools-12",
+        "onsite-tools-b2-01",
+        "onsite-tools-b2-02",
+        "onsite-tools-c1-01",
+        "onsite-tools-c1-02"
       ],
-      "lesson_count": 12
+      "lesson_count": 25
     }
   ],
   "lessons": [
@@ -5100,6 +5159,5016 @@
           "ru": "Готово."
         }
       ]
+    },
+    {
+      "id": "onsite-electrical-a1-01",
+      "title_ru": "A1 · Кабель и щит",
+      "title_en": "A1 · Cable and board",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Простые слова: кабель, щит, проверить.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Is this the cable?",
+          "ru": "Это кабель?",
+          "role": "electrician",
+          "tip_ru": "Is this …? — «это …?» для проверки предмета.",
+          "practice": true,
+          "transcription": "iz this the KAY-bel"
+        },
+        {
+          "en": "Yes. This cable.",
+          "ru": "Да. Этот кабель.",
+          "role": "foreman",
+          "tip_ru": "Короткий ответ Yes + уточнение.",
+          "practice": false
+        },
+        {
+          "en": "Where is the board?",
+          "ru": "Где щит?",
+          "role": "electrician",
+          "tip_ru": "Where is …? — «где?»",
+          "practice": true,
+          "transcription": "wer iz the bord"
+        },
+        {
+          "en": "The board is here.",
+          "ru": "Щит здесь.",
+          "role": "foreman",
+          "tip_ru": "Here = здесь.",
+          "practice": false
+        },
+        {
+          "en": "I check the cable.",
+          "ru": "Я проверяю кабель.",
+          "role": "electrician",
+          "tip_ru": "I + глагол — простое настоящее для действия сейчас/по плану.",
+          "practice": true,
+          "transcription": "ai chek the KAY-bel"
+        },
+        {
+          "en": "Good. Check it.",
+          "ru": "Хорошо. Проверь.",
+          "role": "foreman",
+          "tip_ru": "Повелительное Check it.",
+          "practice": false
+        },
+        {
+          "en": "It is OK.",
+          "ru": "Всё в порядке.",
+          "role": "electrician",
+          "tip_ru": "It is OK — простой статус.",
+          "practice": true,
+          "transcription": "it iz oh-KAY"
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "foreman",
+          "tip_ru": "Thank you — вежливость на объекте.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this the cable?",
+          "ru": "Это кабель?"
+        },
+        {
+          "en": "Where is the board?",
+          "ru": "Где щит?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -30
+    },
+    {
+      "id": "onsite-electrical-a1-02",
+      "title_ru": "A1 · Вкл / Выкл",
+      "title_en": "A1 · On / Off",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Включить и выключить питание простыми фразами.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Is the power on?",
+          "ru": "Питание включено?",
+          "role": "electrician",
+          "tip_ru": "Is … on? — вопрос про состояние.",
+          "practice": true,
+          "transcription": "iz the PAU-er on"
+        },
+        {
+          "en": "No. Power is off.",
+          "ru": "Нет. Питание выключено.",
+          "role": "foreman",
+          "tip_ru": "Off = выключено.",
+          "practice": false
+        },
+        {
+          "en": "Can I switch it on?",
+          "ru": "Можно включить?",
+          "role": "electrician",
+          "tip_ru": "Can I …? — просьба разрешения.",
+          "practice": true,
+          "transcription": "ken ai switch it on"
+        },
+        {
+          "en": "Yes. Switch it on.",
+          "ru": "Да. Включай.",
+          "role": "foreman",
+          "tip_ru": "Switch it on — команда.",
+          "practice": false
+        },
+        {
+          "en": "Power is on now.",
+          "ru": "Теперь питание включено.",
+          "role": "electrician",
+          "tip_ru": "Now = сейчас.",
+          "practice": true,
+          "transcription": "PAU-er iz on nau"
+        },
+        {
+          "en": "OK. Be careful.",
+          "ru": "Ок. Будь осторожен.",
+          "role": "foreman",
+          "tip_ru": "Be careful — предупреждение.",
+          "practice": false
+        },
+        {
+          "en": "I understand.",
+          "ru": "Понял.",
+          "role": "electrician",
+          "tip_ru": "I understand — короткое подтверждение.",
+          "practice": true,
+          "transcription": "ai an-der-STAND"
+        },
+        {
+          "en": "Good.",
+          "ru": "Хорошо.",
+          "role": "foreman",
+          "tip_ru": "Good — короткое одобрение.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is the power on?",
+          "ru": "Питание включено?"
+        },
+        {
+          "en": "Can I switch it on?",
+          "ru": "Можно включить?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -29
+    },
+    {
+      "id": "onsite-electrical-a1-03",
+      "title_ru": "A1 · Инструменты",
+      "title_en": "A1 · Tools",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Просить простой инструмент на щите.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I need a tester.",
+          "ru": "Мне нужен тестер.",
+          "role": "electrician",
+          "tip_ru": "I need … — «мне нужно».",
+          "practice": true,
+          "transcription": "ai need e TES-ter"
+        },
+        {
+          "en": "Here is the tester.",
+          "ru": "Вот тестер.",
+          "role": "foreman",
+          "tip_ru": "Here is … — «вот …».",
+          "practice": false
+        },
+        {
+          "en": "And a screwdriver?",
+          "ru": "И отвёртка?",
+          "role": "electrician",
+          "tip_ru": "And …? — добавить в просьбу.",
+          "practice": true,
+          "transcription": "end e SCREW-drai-ver"
+        },
+        {
+          "en": "Yes. Take this one.",
+          "ru": "Да. Возьми эту.",
+          "role": "foreman",
+          "tip_ru": "Take this one — «возьми эту».",
+          "practice": false
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thank you после получения.",
+          "practice": true,
+          "transcription": "thenk yu"
+        },
+        {
+          "en": "No problem.",
+          "ru": "Без проблем.",
+          "role": "foreman",
+          "tip_ru": "No problem — ответ на спасибо.",
+          "practice": false
+        },
+        {
+          "en": "I start now.",
+          "ru": "Начинаю сейчас.",
+          "role": "electrician",
+          "tip_ru": "I start now — простое «начинаю».",
+          "practice": true,
+          "transcription": "ai start nau"
+        },
+        {
+          "en": "OK. Go.",
+          "ru": "Ок. Давай.",
+          "role": "foreman",
+          "tip_ru": "Go — короткая команда «начинай».",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need a tester.",
+          "ru": "Мне нужен тестер."
+        },
+        {
+          "en": "I start now.",
+          "ru": "Начинаю сейчас."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -28
+    },
+    {
+      "id": "onsite-electrical-a1-04",
+      "title_ru": "A1 · Безопасно?",
+      "title_en": "A1 · Is it safe?",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Спросить, безопасно ли открывать щит.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Is it safe?",
+          "ru": "Это безопасно?",
+          "role": "electrician",
+          "tip_ru": "Is it safe? — ключевой вопрос перед работой.",
+          "practice": true,
+          "transcription": "iz it seif"
+        },
+        {
+          "en": "Wait. I check.",
+          "ru": "Подожди. Проверяю.",
+          "role": "foreman",
+          "tip_ru": "Wait — «подожди».",
+          "practice": false
+        },
+        {
+          "en": "Is the power off?",
+          "ru": "Питание выключено?",
+          "role": "electrician",
+          "tip_ru": "Повтор проверки состояния.",
+          "practice": true,
+          "transcription": "iz the PAU-er off"
+        },
+        {
+          "en": "Yes. Power is off.",
+          "ru": "Да. Выключено.",
+          "role": "foreman",
+          "tip_ru": "Yes + повтор факта.",
+          "practice": false
+        },
+        {
+          "en": "Can I open the cover?",
+          "ru": "Можно открыть крышку?",
+          "role": "electrician",
+          "tip_ru": "Can I open …? — разрешение на действие.",
+          "practice": true,
+          "transcription": "ken ai OH-pen the KA-ver"
+        },
+        {
+          "en": "Yes. Open it.",
+          "ru": "Да. Открывай.",
+          "role": "foreman",
+          "tip_ru": "Open it — повелительное.",
+          "practice": false
+        },
+        {
+          "en": "The cover is open.",
+          "ru": "Крышка открыта.",
+          "role": "electrician",
+          "tip_ru": "Состояние after + is.",
+          "practice": true,
+          "transcription": "the KA-ver iz OH-pen"
+        },
+        {
+          "en": "Good work.",
+          "ru": "Хорошая работа.",
+          "role": "foreman",
+          "tip_ru": "Good work — похвала.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is it safe?",
+          "ru": "Это безопасно?"
+        },
+        {
+          "en": "Can I open the cover?",
+          "ru": "Можно открыть крышку?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -27
+    },
+    {
+      "id": "onsite-electrical-a1-05",
+      "title_ru": "A1 · Проблема",
+      "title_en": "A1 · A problem",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Коротко сказать о проблеме на щите.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I have a problem.",
+          "ru": "У меня проблема.",
+          "role": "electrician",
+          "tip_ru": "I have a problem — универсальный старт.",
+          "practice": true,
+          "transcription": "ai hev e PROB-lem"
+        },
+        {
+          "en": "What is the problem?",
+          "ru": "В чём проблема?",
+          "role": "foreman",
+          "tip_ru": "What is …? — «что / в чём?»",
+          "practice": false
+        },
+        {
+          "en": "This wire is loose.",
+          "ru": "Этот провод ослаб.",
+          "role": "electrician",
+          "tip_ru": "This … is + adjective.",
+          "practice": true,
+          "transcription": "this wair iz loos"
+        },
+        {
+          "en": "OK. Fix it please.",
+          "ru": "Ок. Почини, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Fix it — «почини»; please смягчает.",
+          "practice": false
+        },
+        {
+          "en": "I fix it now.",
+          "ru": "Сейчас починю.",
+          "role": "electrician",
+          "tip_ru": "I + verb + now.",
+          "practice": true,
+          "transcription": "ai fiks it nau"
+        },
+        {
+          "en": "Is it OK now?",
+          "ru": "Теперь нормально?",
+          "role": "foreman",
+          "tip_ru": "Is it OK now? — проверка результата.",
+          "practice": false
+        },
+        {
+          "en": "Yes. It is OK.",
+          "ru": "Да. Всё ок.",
+          "role": "electrician",
+          "tip_ru": "Yes. It is OK.",
+          "practice": true,
+          "transcription": "yes · it iz oh-KAY"
+        },
+        {
+          "en": "Thanks.",
+          "ru": "Спасибо.",
+          "role": "foreman",
+          "tip_ru": "Thanks — короткая форма.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I have a problem.",
+          "ru": "У меня проблема."
+        },
+        {
+          "en": "This wire is loose.",
+          "ru": "Этот провод ослаб."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -26
+    },
+    {
+      "id": "onsite-electrical-a1-06",
+      "title_ru": "A1 · Готово",
+      "title_en": "A1 · Done",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Закрыть работу простыми статусами.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I am done.",
+          "ru": "Я закончил.",
+          "role": "electrician",
+          "tip_ru": "I am done — «готово / закончил».",
+          "practice": true,
+          "transcription": "ai em dan"
+        },
+        {
+          "en": "Is everything OK?",
+          "ru": "Всё в порядке?",
+          "role": "foreman",
+          "tip_ru": "Is everything OK? — финальная проверка.",
+          "practice": false
+        },
+        {
+          "en": "Yes. Everything is OK.",
+          "ru": "Да. Всё в порядке.",
+          "role": "electrician",
+          "tip_ru": "Everything is OK.",
+          "practice": true,
+          "transcription": "EV-ri-thing iz oh-KAY"
+        },
+        {
+          "en": "Close the board please.",
+          "ru": "Закрой щит, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Close … please.",
+          "practice": false
+        },
+        {
+          "en": "The board is closed.",
+          "ru": "Щит закрыт.",
+          "role": "electrician",
+          "tip_ru": "Пассивное состояние is closed.",
+          "practice": true,
+          "transcription": "the bord iz klozd"
+        },
+        {
+          "en": "Good. Clean the area.",
+          "ru": "Хорошо. Убери зону.",
+          "role": "foreman",
+          "tip_ru": "Clean the area — уборка.",
+          "practice": false
+        },
+        {
+          "en": "OK. I clean it.",
+          "ru": "Ок. Уберу.",
+          "role": "electrician",
+          "tip_ru": "I clean it — согласие + действие.",
+          "practice": true,
+          "transcription": "oh-KAY · ai kleen it"
+        },
+        {
+          "en": "See you tomorrow.",
+          "ru": "До завтра.",
+          "role": "foreman",
+          "tip_ru": "See you tomorrow.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I am done.",
+          "ru": "Я закончил."
+        },
+        {
+          "en": "Everything is OK.",
+          "ru": "Всё в порядке."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -25
+    },
+    {
+      "id": "onsite-electrical-a2-01",
+      "title_ru": "A2 · Изоляция",
+      "title_en": "A2 · Isolation",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Простая изоляция фидера своими словами.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Which feeder is this?",
+          "ru": "Какой это фидер?",
+          "role": "electrician",
+          "tip_ru": "Which + noun — выбор из известных.",
+          "practice": true,
+          "transcription": "wich FEE-der iz this"
+        },
+        {
+          "en": "This is feeder F2.",
+          "ru": "Это фидер F2.",
+          "role": "foreman",
+          "tip_ru": "This is + ID.",
+          "practice": false
+        },
+        {
+          "en": "I will lock it off.",
+          "ru": "Я его отключу и закрою замком.",
+          "role": "electrician",
+          "tip_ru": "I will + verb — план.",
+          "practice": true,
+          "transcription": "ai wil lock it off"
+        },
+        {
+          "en": "Prove it dead first.",
+          "ru": "Сначала проверь отсутствие напряжения.",
+          "role": "foreman",
+          "tip_ru": "First = сначала; prove dead — термин площадки.",
+          "practice": false
+        },
+        {
+          "en": "I proved it dead.",
+          "ru": "Проверил: напряжения нет.",
+          "role": "electrician",
+          "tip_ru": "I + V2 — результат уже сделан.",
+          "practice": true,
+          "transcription": "ai pruovd it ded"
+        },
+        {
+          "en": "Put your tag on it.",
+          "ru": "Повесь свою бирку.",
+          "role": "foreman",
+          "tip_ru": "Put … on it.",
+          "practice": false
+        },
+        {
+          "en": "Tag is on. Safe to work?",
+          "ru": "Бирка на месте. Можно работать?",
+          "role": "electrician",
+          "tip_ru": "Safe to work? — можно ли.",
+          "practice": true,
+          "transcription": "tag iz on · seif to werk"
+        },
+        {
+          "en": "Yes. You can work now.",
+          "ru": "Да. Можно работать.",
+          "role": "foreman",
+          "tip_ru": "You can + verb.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I will lock it off.",
+          "ru": "Я отключу и закрою замком."
+        },
+        {
+          "en": "I proved it dead.",
+          "ru": "Проверил: напряжения нет."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -20
+    },
+    {
+      "id": "onsite-electrical-a2-02",
+      "title_ru": "A2 · Короткое замыкание",
+      "title_en": "A2 · Short circuit",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Сообщить о срабатывании и что делать дальше.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "The breaker tripped.",
+          "ru": "Автомат сработал.",
+          "role": "electrician",
+          "tip_ru": "Tripped — сработал (защита).",
+          "practice": true,
+          "transcription": "the BRAIK-er tript"
+        },
+        {
+          "en": "Do not reset yet.",
+          "ru": "Пока не включай снова.",
+          "role": "foreman",
+          "tip_ru": "Do not + verb — запрет.",
+          "practice": false
+        },
+        {
+          "en": "I will find the fault.",
+          "ru": "Найду неисправность.",
+          "role": "electrician",
+          "tip_ru": "I will find …",
+          "practice": true,
+          "transcription": "ai wil faind the falt"
+        },
+        {
+          "en": "Check the outgoing cables.",
+          "ru": "Проверь отходящие кабели.",
+          "role": "foreman",
+          "tip_ru": "Outgoing — отходящие.",
+          "practice": false
+        },
+        {
+          "en": "One cable is damaged.",
+          "ru": "Один кабель повреждён.",
+          "role": "electrician",
+          "tip_ru": "is damaged — состояние.",
+          "practice": true,
+          "transcription": "wan KAY-bel iz DAM-ijd"
+        },
+        {
+          "en": "Isolate that cable.",
+          "ru": "Отключи этот кабель.",
+          "role": "foreman",
+          "tip_ru": "Isolate — изолировать/отключить.",
+          "practice": false
+        },
+        {
+          "en": "Done. Can I reset?",
+          "ru": "Готово. Можно включить?",
+          "role": "electrician",
+          "tip_ru": "Can I reset?",
+          "practice": true,
+          "transcription": "dan · ken ai ree-SET"
+        },
+        {
+          "en": "Yes. Reset and test.",
+          "ru": "Да. Включи и проверь.",
+          "role": "foreman",
+          "tip_ru": "Reset and test — два шага.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The breaker tripped.",
+          "ru": "Автомат сработал."
+        },
+        {
+          "en": "One cable is damaged.",
+          "ru": "Один кабель повреждён."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -19
+    },
+    {
+      "id": "onsite-electrical-a2-03",
+      "title_ru": "A2 · Земля и фаза",
+      "title_en": "A2 · Earth and phase",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Проверить фазу и заземление простыми фразами.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I need to check the earth.",
+          "ru": "Нужно проверить землю.",
+          "role": "electrician",
+          "tip_ru": "I need to + verb.",
+          "practice": true,
+          "transcription": "ai need to chek the erth"
+        },
+        {
+          "en": "Use the tester on earth and phase.",
+          "ru": "Тестером: земля и фаза.",
+          "role": "foreman",
+          "tip_ru": "Use … on A and B.",
+          "practice": false
+        },
+        {
+          "en": "Earth is good.",
+          "ru": "Земля в норме.",
+          "role": "electrician",
+          "tip_ru": "is good — короткий статус.",
+          "practice": true,
+          "transcription": "erth iz gud"
+        },
+        {
+          "en": "And the phase?",
+          "ru": "А фаза?",
+          "role": "foreman",
+          "tip_ru": "And …? — уточнение.",
+          "practice": false
+        },
+        {
+          "en": "Phase is live.",
+          "ru": "Фаза под напряжением.",
+          "role": "electrician",
+          "tip_ru": "Live = под напряжением.",
+          "practice": true,
+          "transcription": "feiz iz laiv"
+        },
+        {
+          "en": "Keep clear of live parts.",
+          "ru": "Не лезь к живым частям.",
+          "role": "foreman",
+          "tip_ru": "Keep clear of …",
+          "practice": false
+        },
+        {
+          "en": "I will put the cover back.",
+          "ru": "Поставлю крышку обратно.",
+          "role": "electrician",
+          "tip_ru": "Put … back.",
+          "practice": true,
+          "transcription": "ai wil put the KA-ver bak"
+        },
+        {
+          "en": "Good. Report when finished.",
+          "ru": "Хорошо. Доложи, когда закончишь.",
+          "role": "foreman",
+          "tip_ru": "Report when …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Earth is good.",
+          "ru": "Земля в норме."
+        },
+        {
+          "en": "Phase is live.",
+          "ru": "Фаза под напряжением."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": -18
+    },
+    {
+      "id": "onsite-electrical-b2-01",
+      "title_ru": "B2 · Разрешение на работу",
+      "title_en": "B2 · Permit to work",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Согласовать допуск и границы работ.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I've got the permit for panel three.",
+          "ru": "У меня допуск на щит три.",
+          "role": "electrician",
+          "tip_ru": "I've got = у меня есть (разг.).",
+          "practice": true,
+          "transcription": "aiv got the PER-mit"
+        },
+        {
+          "en": "Confirm the isolation points with me.",
+          "ru": "Сверь со мной точки изоляции.",
+          "role": "foreman",
+          "tip_ru": "Confirm … with me.",
+          "practice": false
+        },
+        {
+          "en": "Isolation is on F3 and the bus coupler.",
+          "ru": "Изоляция на F3 и секционном.",
+          "role": "electrician",
+          "tip_ru": "Bus coupler — секционный выключатель.",
+          "practice": true,
+          "transcription": "iso-LAY-shen iz on"
+        },
+        {
+          "en": "Who is your standby person?",
+          "ru": "Кто у тебя наблюдающий?",
+          "role": "foreman",
+          "tip_ru": "Standby person.",
+          "practice": false
+        },
+        {
+          "en": "Tom is standby outside the room.",
+          "ru": "Том — наблюдающий у двери.",
+          "role": "electrician",
+          "tip_ru": "Outside the room.",
+          "practice": true,
+          "transcription": "tom iz STAND-by"
+        },
+        {
+          "en": "If anything changes, stop and reissue the permit.",
+          "ru": "Если что-то меняется — стоп и новый допуск.",
+          "role": "foreman",
+          "tip_ru": "If …, stop and … — условие на площадке.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I've got the permit for panel three.",
+          "ru": "У меня допуск на щит три."
+        },
+        {
+          "en": "Tom is standby outside the room.",
+          "ru": "Том — наблюдающий у двери."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": 20
+    },
+    {
+      "id": "onsite-electrical-b2-02",
+      "title_ru": "B2 · Несоответствие схеме",
+      "title_en": "B2 · Drawing mismatch",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Найти расхождение со схемой и эскалировать.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "The as-built doesn't match the single-line.",
+          "ru": "Исполнительная не совпадает с однолинейной.",
+          "role": "electrician",
+          "tip_ru": "Doesn't match — не совпадает.",
+          "practice": true,
+          "transcription": "az-bilt daznt match"
+        },
+        {
+          "en": "Show me the discrepancy.",
+          "ru": "Покажи расхождение.",
+          "role": "foreman",
+          "tip_ru": "Discrepancy — расхождение.",
+          "practice": false
+        },
+        {
+          "en": "Cable C12 lands on a spare that is already live.",
+          "ru": "Кабель C12 приходит на уже живой резерв.",
+          "role": "electrician",
+          "tip_ru": "Lands on — садится на клемму/ячейку.",
+          "practice": true,
+          "transcription": "KAY-bel see-twelve"
+        },
+        {
+          "en": "Stop terminating. We'll get engineering to redline it.",
+          "ru": "Стоп разделку. Инженеры внесут в красную правку.",
+          "role": "foreman",
+          "tip_ru": "We'll get X to … — поручим.",
+          "practice": false
+        },
+        {
+          "en": "I'll barrier the area and wait for the update.",
+          "ru": "Огорожу зону и жду обновление.",
+          "role": "electrician",
+          "tip_ru": "I'll + two actions.",
+          "practice": true,
+          "transcription": "ail BA-ree-er"
+        },
+        {
+          "en": "Ping me when the drawing pack is revised.",
+          "ru": "Напиши, когда пакет чертежей обновят.",
+          "role": "foreman",
+          "tip_ru": "Ping me when …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The as-built doesn't match the single-line.",
+          "ru": "Исполнительная не совпадает с однолинейной."
+        },
+        {
+          "en": "I'll barrier the area and wait for the update.",
+          "ru": "Огорожу зону и жду обновление."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": 21
+    },
+    {
+      "id": "onsite-electrical-c1-01",
+      "title_ru": "C1 · Координация отключения",
+      "title_en": "C1 · Outage coordination",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Согласовать окно отключения с нагрузкой и рисками.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "We can't take F3 offline until the UPS load transfer is confirmed.",
+          "ru": "F3 нельзя снимать, пока не подтверждён перевод нагрузки с UPS.",
+          "role": "electrician",
+          "tip_ru": "Can't … until … — нельзя, пока не …",
+          "practice": true,
+          "transcription": "we kant teik"
+        },
+        {
+          "en": "What is the residual risk if we slip the window by an hour?",
+          "ru": "Какой остаточный риск, если сдвинем окно на час?",
+          "role": "foreman",
+          "tip_ru": "Residual risk; slip the window.",
+          "practice": false
+        },
+        {
+          "en": "Mainly thermal overload on the parallel feeder during peak.",
+          "ru": "В основном тепловая перегрузка параллельного фидера в пик.",
+          "role": "electrician",
+          "tip_ru": "Mainly … during peak.",
+          "practice": true,
+          "transcription": "MAIN-lee THER-mal"
+        },
+        {
+          "en": "Hold the switching schedule and escalate to the client CEM.",
+          "ru": "Держим график переключений и эскалируем клиентскому CEM.",
+          "role": "foreman",
+          "tip_ru": "Hold … and escalate to …",
+          "practice": false
+        },
+        {
+          "en": "I'll document the constraint in the PTW remarks and notify ops.",
+          "ru": "Зафиксирую ограничение в PTW и уведомлю ops.",
+          "role": "electrician",
+          "tip_ru": "I'll document … and notify …",
+          "practice": true,
+          "transcription": "ail DOC-yu-ment"
+        },
+        {
+          "en": "Copy. No switching without a revised method statement.",
+          "ru": "Принято. Без обновлённого method statement — без переключений.",
+          "role": "foreman",
+          "tip_ru": "No X without Y.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "We can't take F3 offline until the UPS load transfer is confirmed.",
+          "ru": "F3 нельзя снимать, пока не подтверждён перевод нагрузки с UPS."
+        },
+        {
+          "en": "I'll document the constraint in the PTW remarks and notify ops.",
+          "ru": "Зафиксирую ограничение в PTW и уведомлю ops."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": 40
+    },
+    {
+      "id": "onsite-electrical-c1-02",
+      "title_ru": "C1 · Расследование инцидента",
+      "title_en": "C1 · Incident review",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Разобрать инцидент без обвинений, с фактами.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Before we restart, we need a clear sequence of what was energised.",
+          "ru": "До повторного пуска нужна чёткая последовательность, что было под напряжением.",
+          "role": "electrician",
+          "tip_ru": "Before …, we need …",
+          "practice": true,
+          "transcription": "bi-FOR we ree-start"
+        },
+        {
+          "en": "Walk me through the last switching steps from your log.",
+          "ru": "Пройди со мной последние шаги переключений по журналу.",
+          "role": "foreman",
+          "tip_ru": "Walk me through …",
+          "practice": false
+        },
+        {
+          "en": "We isolated F2, but the interlocking on the bus-tie was still in auto.",
+          "ru": "Изолировали F2, но блокировка секционника оставалась в auto.",
+          "role": "electrician",
+          "tip_ru": "Was still in auto — всё ещё в авто.",
+          "practice": true,
+          "transcription": "i-so-LAY-ted"
+        },
+        {
+          "en": "That explains the unexpected backfeed. We'll revise the LOTO checklist.",
+          "ru": "Отсюда обратное питание. Обновим чеклист LOTO.",
+          "role": "foreman",
+          "tip_ru": "That explains …; revise …",
+          "practice": false
+        },
+        {
+          "en": "I'll capture photos of the interlock status and attach them to the report.",
+          "ru": "Сфоткаю статус блокировки и приложу к отчёту.",
+          "role": "electrician",
+          "tip_ru": "I'll capture … and attach …",
+          "practice": true,
+          "transcription": "ail KAP-cher"
+        },
+        {
+          "en": "Do that, then brief the next shift before any re-energisation.",
+          "ru": "Сделай, затем проинструктуй следующую смену до подачи напряжения.",
+          "role": "foreman",
+          "tip_ru": "Before any re-energisation.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Before we restart, we need a clear sequence of what was energised.",
+          "ru": "До повторного пуска нужна чёткая последовательность, что было под напряжением."
+        },
+        {
+          "en": "I'll capture photos of the interlock status and attach them to the report.",
+          "ru": "Сфоткаю статус блокировки и приложу к отчёту."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "electrical",
+      "order": 41
+    },
+    {
+      "id": "onsite-tools-a1-01",
+      "title_ru": "A1 · Где дрель?",
+      "title_en": "A1 · Where is the drill?",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Найти простой инструмент.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Where is the drill?",
+          "ru": "Где дрель?",
+          "role": "electrician",
+          "tip_ru": "Where is the …?",
+          "practice": true,
+          "transcription": "wer iz the dril"
+        },
+        {
+          "en": "It is in the box.",
+          "ru": "В ящике.",
+          "role": "colleague",
+          "tip_ru": "In the box.",
+          "practice": false
+        },
+        {
+          "en": "Can I take it?",
+          "ru": "Можно взять?",
+          "role": "electrician",
+          "tip_ru": "Can I take it?",
+          "practice": true,
+          "transcription": "ken ai teik it"
+        },
+        {
+          "en": "Yes. Take it.",
+          "ru": "Да. Бери.",
+          "role": "colleague",
+          "tip_ru": "Take it.",
+          "practice": false
+        },
+        {
+          "en": "I need a bit too.",
+          "ru": "Ещё нужна бита.",
+          "role": "electrician",
+          "tip_ru": "… too = тоже.",
+          "practice": true,
+          "transcription": "ai need e bit too"
+        },
+        {
+          "en": "Here you are.",
+          "ru": "Держи.",
+          "role": "colleague",
+          "tip_ru": "Here you are.",
+          "practice": false
+        },
+        {
+          "en": "Thanks.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thanks.",
+          "practice": true,
+          "transcription": "thenks"
+        },
+        {
+          "en": "No problem.",
+          "ru": "Пожалуйста.",
+          "role": "colleague",
+          "tip_ru": "No problem.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the drill?",
+          "ru": "Где дрель?"
+        },
+        {
+          "en": "Can I take it?",
+          "ru": "Можно взять?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -30
+    },
+    {
+      "id": "onsite-tools-a1-02",
+      "title_ru": "A1 · Молоток и уровень",
+      "title_en": "A1 · Hammer and level",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Попросить молоток и уровень.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "I need a hammer.",
+          "ru": "Нужен молоток.",
+          "role": "electrician",
+          "tip_ru": "I need a …",
+          "practice": true,
+          "transcription": "ai need e HAM-er"
+        },
+        {
+          "en": "OK. One hammer.",
+          "ru": "Ок. Один молоток.",
+          "role": "colleague",
+          "tip_ru": "One + noun.",
+          "practice": false
+        },
+        {
+          "en": "And a level?",
+          "ru": "И уровень?",
+          "role": "electrician",
+          "tip_ru": "And …?",
+          "practice": true,
+          "transcription": "end e LEV-el"
+        },
+        {
+          "en": "Yes. Here.",
+          "ru": "Да. Вот.",
+          "role": "colleague",
+          "tip_ru": "Here.",
+          "practice": false
+        },
+        {
+          "en": "Is this level OK?",
+          "ru": "Этот уровень нормальный?",
+          "role": "electrician",
+          "tip_ru": "Is this … OK?",
+          "practice": true,
+          "transcription": "iz this LEV-el oh-KAY"
+        },
+        {
+          "en": "Yes. It is good.",
+          "ru": "Да. Хороший.",
+          "role": "colleague",
+          "tip_ru": "It is good.",
+          "practice": false
+        },
+        {
+          "en": "I start work.",
+          "ru": "Начинаю работу.",
+          "role": "electrician",
+          "tip_ru": "I start work.",
+          "practice": true,
+          "transcription": "ai start werk"
+        },
+        {
+          "en": "OK. Be safe.",
+          "ru": "Ок. Осторожно.",
+          "role": "colleague",
+          "tip_ru": "Be safe.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I need a hammer.",
+          "ru": "Нужен молоток."
+        },
+        {
+          "en": "Is this level OK?",
+          "ru": "Этот уровень нормальный?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -29
+    },
+    {
+      "id": "onsite-tools-a1-03",
+      "title_ru": "A1 · Сломанный инструмент",
+      "title_en": "A1 · Broken tool",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Сказать, что инструмент сломан.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "This tool is broken.",
+          "ru": "Этот инструмент сломан.",
+          "role": "electrician",
+          "tip_ru": "is broken.",
+          "practice": true,
+          "transcription": "this tool iz BRO-ken"
+        },
+        {
+          "en": "Which tool?",
+          "ru": "Какой инструмент?",
+          "role": "colleague",
+          "tip_ru": "Which …?",
+          "practice": false
+        },
+        {
+          "en": "This cutter.",
+          "ru": "Эти кусачки.",
+          "role": "electrician",
+          "tip_ru": "This + noun.",
+          "practice": true,
+          "transcription": "this KA-ter"
+        },
+        {
+          "en": "Do not use it.",
+          "ru": "Не используй.",
+          "role": "colleague",
+          "tip_ru": "Do not use it.",
+          "practice": false
+        },
+        {
+          "en": "I need a new one.",
+          "ru": "Нужен новый.",
+          "role": "electrician",
+          "tip_ru": "a new one.",
+          "practice": true,
+          "transcription": "ai need e nyu wan"
+        },
+        {
+          "en": "I will get one.",
+          "ru": "Принесу.",
+          "role": "colleague",
+          "tip_ru": "I will get one.",
+          "practice": false
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thank you.",
+          "practice": true,
+          "transcription": "thenk yu"
+        },
+        {
+          "en": "Wait here.",
+          "ru": "Подожди здесь.",
+          "role": "colleague",
+          "tip_ru": "Wait here.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "This tool is broken.",
+          "ru": "Этот инструмент сломан."
+        },
+        {
+          "en": "I need a new one.",
+          "ru": "Нужен новый."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -28
+    },
+    {
+      "id": "onsite-tools-a1-04",
+      "title_ru": "A1 · Вернуть инструмент",
+      "title_en": "A1 · Return the tool",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Вернуть инструмент после работы.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "I am done.",
+          "ru": "Я закончил.",
+          "role": "electrician",
+          "tip_ru": "I am done.",
+          "practice": true,
+          "transcription": "ai em dan"
+        },
+        {
+          "en": "Put the tools back.",
+          "ru": "Положи инструменты обратно.",
+          "role": "colleague",
+          "tip_ru": "Put … back.",
+          "practice": false
+        },
+        {
+          "en": "Where is the box?",
+          "ru": "Где ящик?",
+          "role": "electrician",
+          "tip_ru": "Where is …?",
+          "practice": true,
+          "transcription": "wer iz the box"
+        },
+        {
+          "en": "Next to the door.",
+          "ru": "У двери.",
+          "role": "colleague",
+          "tip_ru": "Next to …",
+          "practice": false
+        },
+        {
+          "en": "Tools are in the box.",
+          "ru": "Инструменты в ящике.",
+          "role": "electrician",
+          "tip_ru": "are in …",
+          "practice": true,
+          "transcription": "toolz ar in the box"
+        },
+        {
+          "en": "Is the drill there?",
+          "ru": "Дрель там?",
+          "role": "colleague",
+          "tip_ru": "Is … there?",
+          "practice": false
+        },
+        {
+          "en": "Yes. The drill is there.",
+          "ru": "Да. Дрель там.",
+          "role": "electrician",
+          "tip_ru": "Yes. … is there.",
+          "practice": true,
+          "transcription": "yes · the dril iz ther"
+        },
+        {
+          "en": "Good. Thanks.",
+          "ru": "Хорошо. Спасибо.",
+          "role": "colleague",
+          "tip_ru": "Good. Thanks.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Put the tools back.",
+          "ru": "Положи инструменты обратно."
+        },
+        {
+          "en": "Tools are in the box.",
+          "ru": "Инструменты в ящике."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -27
+    },
+    {
+      "id": "onsite-tools-a1-05",
+      "title_ru": "A1 · Тяжёлый ящик",
+      "title_en": "A1 · Heavy box",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Попросить помочь с ящиком.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "This box is heavy.",
+          "ru": "Этот ящик тяжёлый.",
+          "role": "electrician",
+          "tip_ru": "is heavy.",
+          "practice": true,
+          "transcription": "this box iz HEV-ee"
+        },
+        {
+          "en": "Do you need help?",
+          "ru": "Нужна помощь?",
+          "role": "colleague",
+          "tip_ru": "Do you need help?",
+          "practice": false
+        },
+        {
+          "en": "Yes. Please help me.",
+          "ru": "Да. Помоги, пожалуйста.",
+          "role": "electrician",
+          "tip_ru": "Please help me.",
+          "practice": true,
+          "transcription": "yes · plees help mee"
+        },
+        {
+          "en": "OK. Lift on three.",
+          "ru": "Ок. Поднимаем на три.",
+          "role": "colleague",
+          "tip_ru": "On three.",
+          "practice": false
+        },
+        {
+          "en": "One, two, three.",
+          "ru": "Раз, два, три.",
+          "role": "electrician",
+          "tip_ru": "Счёт.",
+          "practice": true,
+          "transcription": "wan too three"
+        },
+        {
+          "en": "Good. Put it here.",
+          "ru": "Хорошо. Сюда.",
+          "role": "colleague",
+          "tip_ru": "Put it here.",
+          "practice": false
+        },
+        {
+          "en": "It is OK now.",
+          "ru": "Теперь нормально.",
+          "role": "electrician",
+          "tip_ru": "It is OK now.",
+          "practice": true,
+          "transcription": "it iz oh-KAY nau"
+        },
+        {
+          "en": "Nice work.",
+          "ru": "Отлично.",
+          "role": "colleague",
+          "tip_ru": "Nice work.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "This box is heavy.",
+          "ru": "Этот ящик тяжёлый."
+        },
+        {
+          "en": "Please help me.",
+          "ru": "Помоги, пожалуйста."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -26
+    },
+    {
+      "id": "onsite-tools-a1-06",
+      "title_ru": "A1 · Аккумулятор",
+      "title_en": "A1 · Battery",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Заменить севший аккумулятор.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "The battery is low.",
+          "ru": "Аккумулятор сел.",
+          "role": "electrician",
+          "tip_ru": "is low.",
+          "practice": true,
+          "transcription": "the BAT-e-ree iz loh"
+        },
+        {
+          "en": "Change the battery.",
+          "ru": "Поменяй аккумулятор.",
+          "role": "colleague",
+          "tip_ru": "Change the …",
+          "practice": false
+        },
+        {
+          "en": "Where are the spare batteries?",
+          "ru": "Где запасные?",
+          "role": "electrician",
+          "tip_ru": "Where are the …?",
+          "practice": true,
+          "transcription": "wer ar the speir"
+        },
+        {
+          "en": "In the charging station.",
+          "ru": "На зарядке.",
+          "role": "colleague",
+          "tip_ru": "In the charging station.",
+          "practice": false
+        },
+        {
+          "en": "I take a full one.",
+          "ru": "Беру полный.",
+          "role": "electrician",
+          "tip_ru": "a full one.",
+          "practice": true,
+          "transcription": "ai teik e ful wan"
+        },
+        {
+          "en": "Put the empty one on charge.",
+          "ru": "Пустой поставь на зарядку.",
+          "role": "colleague",
+          "tip_ru": "Put … on charge.",
+          "practice": false
+        },
+        {
+          "en": "Done.",
+          "ru": "Готово.",
+          "role": "electrician",
+          "tip_ru": "Done.",
+          "practice": true,
+          "transcription": "dan"
+        },
+        {
+          "en": "OK. Continue.",
+          "ru": "Ок. Продолжай.",
+          "role": "colleague",
+          "tip_ru": "Continue.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The battery is low.",
+          "ru": "Аккумулятор сел."
+        },
+        {
+          "en": "I take a full one.",
+          "ru": "Беру полный."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -25
+    },
+    {
+      "id": "onsite-tools-a2-01",
+      "title_ru": "A2 · Не тот размер",
+      "title_en": "A2 · Wrong size",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Заменить биту/ключ неверного размера.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "This bit is the wrong size.",
+          "ru": "Эта бита не того размера.",
+          "role": "electrician",
+          "tip_ru": "the wrong size.",
+          "practice": true,
+          "transcription": "this bit iz the rong saiz"
+        },
+        {
+          "en": "What size do you need?",
+          "ru": "Какой размер нужен?",
+          "role": "colleague",
+          "tip_ru": "What size …?",
+          "practice": false
+        },
+        {
+          "en": "I need eight millimetres.",
+          "ru": "Нужно восемь миллиметров.",
+          "role": "electrician",
+          "tip_ru": "I need + number.",
+          "practice": true,
+          "transcription": "ai need eit"
+        },
+        {
+          "en": "Try this one.",
+          "ru": "Попробуй эту.",
+          "role": "colleague",
+          "tip_ru": "Try this one.",
+          "practice": false
+        },
+        {
+          "en": "It fits. Thanks.",
+          "ru": "Подходит. Спасибо.",
+          "role": "electrician",
+          "tip_ru": "It fits.",
+          "practice": true,
+          "transcription": "it fits · thenks"
+        },
+        {
+          "en": "Keep the set together.",
+          "ru": "Держи набор вместе.",
+          "role": "colleague",
+          "tip_ru": "Keep … together.",
+          "practice": false
+        },
+        {
+          "en": "I will put it back after.",
+          "ru": "Потом положу обратно.",
+          "role": "electrician",
+          "tip_ru": "I will put it back after.",
+          "practice": true,
+          "transcription": "ai wil put it bak"
+        },
+        {
+          "en": "Good.",
+          "ru": "Хорошо.",
+          "role": "colleague",
+          "tip_ru": "Good.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "This bit is the wrong size.",
+          "ru": "Эта бита не того размера."
+        },
+        {
+          "en": "It fits.",
+          "ru": "Подходит."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -20
+    },
+    {
+      "id": "onsite-tools-a2-02",
+      "title_ru": "A2 · Калибровка",
+      "title_en": "A2 · Calibration",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Проверить, что тестер в калибровке.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "Is this tester in calibration?",
+          "ru": "Этот тестер в калибровке?",
+          "role": "electrician",
+          "tip_ru": "in calibration.",
+          "practice": true,
+          "transcription": "iz this TES-ter"
+        },
+        {
+          "en": "Check the sticker date.",
+          "ru": "Смотри дату на наклейке.",
+          "role": "colleague",
+          "tip_ru": "Sticker date.",
+          "practice": false
+        },
+        {
+          "en": "The date is expired.",
+          "ru": "Срок вышел.",
+          "role": "electrician",
+          "tip_ru": "is expired.",
+          "practice": true,
+          "transcription": "the deit iz ek-SPAIRD"
+        },
+        {
+          "en": "Do not use it. Take the red one.",
+          "ru": "Не используй. Возьми красный.",
+          "role": "colleague",
+          "tip_ru": "Do not use it.",
+          "practice": false
+        },
+        {
+          "en": "This one is valid until June.",
+          "ru": "Этот годен до июня.",
+          "role": "electrician",
+          "tip_ru": "valid until …",
+          "practice": true,
+          "transcription": "this wan iz VAL-id"
+        },
+        {
+          "en": "OK. Log the swap.",
+          "ru": "Ок. Запиши замену.",
+          "role": "colleague",
+          "tip_ru": "Log the swap.",
+          "practice": false
+        },
+        {
+          "en": "I logged it.",
+          "ru": "Записал.",
+          "role": "electrician",
+          "tip_ru": "I logged it.",
+          "practice": true,
+          "transcription": "ai logd it"
+        },
+        {
+          "en": "Thanks. Carry on.",
+          "ru": "Спасибо. Продолжай.",
+          "role": "colleague",
+          "tip_ru": "Carry on.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this tester in calibration?",
+          "ru": "Этот тестер в калибровке?"
+        },
+        {
+          "en": "The date is expired.",
+          "ru": "Срок вышел."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -19
+    },
+    {
+      "id": "onsite-tools-a2-03",
+      "title_ru": "A2 · Оградить зону",
+      "title_en": "A2 · Barrier the area",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Поставить барьеры перед резкой.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "I will cut this tray.",
+          "ru": "Буду резать этот лоток.",
+          "role": "electrician",
+          "tip_ru": "I will cut …",
+          "practice": true,
+          "transcription": "ai wil kat"
+        },
+        {
+          "en": "Barrier the area first.",
+          "ru": "Сначала огороди зону.",
+          "role": "colleague",
+          "tip_ru": "… first.",
+          "practice": false
+        },
+        {
+          "en": "Where are the cones?",
+          "ru": "Где конусы?",
+          "role": "electrician",
+          "tip_ru": "Where are …?",
+          "practice": true,
+          "transcription": "wer ar the konhz"
+        },
+        {
+          "en": "Behind the van.",
+          "ru": "За фургоном.",
+          "role": "colleague",
+          "tip_ru": "Behind …",
+          "practice": false
+        },
+        {
+          "en": "Barriers are up.",
+          "ru": "Барьеры стоят.",
+          "role": "electrician",
+          "tip_ru": "are up.",
+          "practice": true,
+          "transcription": "BA-ree-erz ar ap"
+        },
+        {
+          "en": "Wear your glasses.",
+          "ru": "Надень очки.",
+          "role": "colleague",
+          "tip_ru": "Wear your …",
+          "practice": false
+        },
+        {
+          "en": "Glasses are on. Starting.",
+          "ru": "Очки надеты. Начинаю.",
+          "role": "electrician",
+          "tip_ru": "are on.",
+          "practice": true,
+          "transcription": "GLA-sez ar on"
+        },
+        {
+          "en": "OK. Call if you need a spotter.",
+          "ru": "Ок. Позови, если нужен наблюдающий.",
+          "role": "colleague",
+          "tip_ru": "Call if …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Barrier the area first.",
+          "ru": "Сначала огороди зону."
+        },
+        {
+          "en": "Barriers are up.",
+          "ru": "Барьеры стоят."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": -18
+    },
+    {
+      "id": "onsite-tools-b2-01",
+      "title_ru": "B2 · Чужой инструмент",
+      "title_en": "B2 · Borrowed kit",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Вернуть арендованный набор без потерь.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "This torque wrench isn't ours — it's from the hire kit.",
+          "ru": "Этот динамометрический ключ не наш — из проката.",
+          "role": "electrician",
+          "tip_ru": "Isn't ours; hire kit.",
+          "practice": true,
+          "transcription": "torque wrench"
+        },
+        {
+          "en": "Inventory it before demob.",
+          "ru": "Проверь по описи перед демобилизацией.",
+          "role": "colleague",
+          "tip_ru": "Inventory it; demob.",
+          "practice": false
+        },
+        {
+          "en": "We're missing the 13 mm deep socket.",
+          "ru": "Не хватает глубокой головки 13 мм.",
+          "role": "electrician",
+          "tip_ru": "We're missing …",
+          "practice": true,
+          "transcription": "MIS-ing"
+        },
+        {
+          "en": "Check the van and the last workface.",
+          "ru": "Проверь фургон и последнюю точку работ.",
+          "role": "colleague",
+          "tip_ru": "Workface.",
+          "practice": false
+        },
+        {
+          "en": "Found it under the tray offcut.",
+          "ru": "Нашёл под обрезком лотка.",
+          "role": "electrician",
+          "tip_ru": "Offcut.",
+          "practice": true,
+          "transcription": "found it"
+        },
+        {
+          "en": "Bag it and photograph the case before return.",
+          "ru": "Положи и сфоткай кейс перед возвратом.",
+          "role": "colleague",
+          "tip_ru": "Bag it and photograph …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "We're missing the 13 mm deep socket.",
+          "ru": "Не хватает глубокой головки 13 мм."
+        },
+        {
+          "en": "Found it under the tray offcut.",
+          "ru": "Нашёл под обрезком лотка."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": 20
+    },
+    {
+      "id": "onsite-tools-b2-02",
+      "title_ru": "B2 · Неисправный павер",
+      "title_en": "B2 · Faulty power tool",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Оформить неисправный электроинструмент.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "The SDS keeps cutting out under load.",
+          "ru": "SDS глохнет под нагрузкой.",
+          "role": "electrician",
+          "tip_ru": "Keeps + V-ing.",
+          "practice": true,
+          "transcription": "SDS keeps"
+        },
+        {
+          "en": "Tag it out and raise a defect.",
+          "ru": "Повесь бирку и заведи дефект.",
+          "role": "colleague",
+          "tip_ru": "Tag it out; raise a defect.",
+          "practice": false
+        },
+        {
+          "en": "I've quarantined it in the red cage.",
+          "ru": "Убрал в красную клетку карантина.",
+          "role": "electrician",
+          "tip_ru": "Quarantined.",
+          "practice": true,
+          "transcription": "KWAR-an-teen"
+        },
+        {
+          "en": "Note the serial and hours on the ticket.",
+          "ru": "Укажи серийник и моточасы в заявке.",
+          "role": "colleague",
+          "tip_ru": "Serial and hours.",
+          "practice": false
+        },
+        {
+          "en": "I'll request a replacement for tomorrow's pour.",
+          "ru": "Закажу замену на завтрашнюю заливку.",
+          "role": "electrician",
+          "tip_ru": "I'll request …",
+          "practice": true,
+          "transcription": "ree-KWEST"
+        },
+        {
+          "en": "Good. Do not jury-rig a temporary fix.",
+          "ru": "Хорошо. Без самодельного временного ремонта.",
+          "role": "colleague",
+          "tip_ru": "Jury-rig — кустарно чинить.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The SDS keeps cutting out under load.",
+          "ru": "SDS глохнет под нагрузкой."
+        },
+        {
+          "en": "I've quarantined it in the red cage.",
+          "ru": "Убрал в красную клетку карантина."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": 21
+    },
+    {
+      "id": "onsite-tools-c1-01",
+      "title_ru": "C1 · Контроль калибровки парка",
+      "title_en": "C1 · Fleet calibration control",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Спор о выводе инструмента из оборота.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "If we keep running out-of-cal meters, any test result is indefensible in an audit.",
+          "ru": "Если продолжим работать просроченными приборами, любой замер не устоит на аудите.",
+          "role": "electrician",
+          "tip_ru": "If we keep …, … is indefensible.",
+          "practice": true,
+          "transcription": "out-of-cal"
+        },
+        {
+          "en": "Agreed — we'll freeze the amber-tagged set until the lab returns them.",
+          "ru": "Согласен — заморозим «янтарный» набор, пока лаборатория не вернёт.",
+          "role": "colleague",
+          "tip_ru": "Freeze … until …",
+          "practice": false
+        },
+        {
+          "en": "I'll remap the register so only green-tagged kit can be booked out.",
+          "ru": "Перестрою реестр: в выдачу только «зелёные».",
+          "role": "electrician",
+          "tip_ru": "Remap the register.",
+          "practice": true,
+          "transcription": "ree-MAP"
+        },
+        {
+          "en": "Loop procurement — we need buffer stock for next week’s testing window.",
+          "ru": "Подключи закупки — нужен буфер на окно испытаний на неделе.",
+          "role": "colleague",
+          "tip_ru": "Buffer stock; testing window.",
+          "practice": false
+        },
+        {
+          "en": "I'll send them the gap list with due dates and criticality.",
+          "ru": "Отправлю им список пробелов со сроками и критичностью.",
+          "role": "electrician",
+          "tip_ru": "Gap list; criticality.",
+          "practice": true,
+          "transcription": "gap list"
+        },
+        {
+          "en": "Do that today before the afternoon toolbox.",
+          "ru": "Сделай сегодня до afternoon toolbox.",
+          "role": "colleague",
+          "tip_ru": "Before the … toolbox.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "If we keep running out-of-cal meters, any test result is indefensible in an audit.",
+          "ru": "Если продолжим работать просроченными приборами, любой замер не устоит на аудите."
+        },
+        {
+          "en": "I'll remap the register so only green-tagged kit can be booked out.",
+          "ru": "Перестрою реестр: в выдачу только «зелёные»."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": 40
+    },
+    {
+      "id": "onsite-tools-c1-02",
+      "title_ru": "C1 · Расследование повреждения",
+      "title_en": "C1 · Damage investigation",
+      "tags": [
+        "onsite",
+        "tools",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Выяснить, кто повредил дорогой прибор.",
+      "your_role": "electrician",
+      "partner_role": "colleague",
+      "lines": [
+        {
+          "en": "The thermal camera's lens housing is cracked — we need a chain of custody from last issue.",
+          "ru": "Корпус объектива тепловизора треснул — нужна цепочка выдачи с последней выдачи.",
+          "role": "electrician",
+          "tip_ru": "Chain of custody.",
+          "practice": true,
+          "transcription": "THER-mal CAM-ra"
+        },
+        {
+          "en": "Pull the booking log and CCTV for the stores counter.",
+          "ru": "Выгрузи журнал брони и CCTV у склада.",
+          "role": "colleague",
+          "tip_ru": "Booking log; stores counter.",
+          "practice": false
+        },
+        {
+          "en": "It was signed out to Bay 4, but returned with no defect note.",
+          "ru": "Выдан на Bay 4, но возвращён без записи о дефекте.",
+          "role": "electrician",
+          "tip_ru": "Signed out; defect note.",
+          "practice": true,
+          "transcription": "signed out"
+        },
+        {
+          "en": "Then we treat it as an undeclared incident — brief the supervisor, don't speculate.",
+          "ru": "Тогда это незаявленный инцидент — доложи супервайзеру, без домыслов.",
+          "role": "colleague",
+          "tip_ru": "Don't speculate.",
+          "practice": false
+        },
+        {
+          "en": "I'll quarantine the unit and write a factual timeline only.",
+          "ru": "Отправлю в карантин и напишу только фактическую хронологию.",
+          "role": "electrician",
+          "tip_ru": "Factual timeline.",
+          "practice": true,
+          "transcription": "KWAR-an-teen"
+        },
+        {
+          "en": "Yes. Photos, timestamps, names — nothing else in writing yet.",
+          "ru": "Да. Фото, метки времени, имена — пока больше ничего в письме.",
+          "role": "colleague",
+          "tip_ru": "Nothing else in writing yet.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The thermal camera's lens housing is cracked — we need a chain of custody from last issue.",
+          "ru": "Корпус объектива тепловизора треснул — нужна цепочка выдачи."
+        },
+        {
+          "en": "I'll quarantine the unit and write a factual timeline only.",
+          "ru": "Отправлю в карантин и напишу только фактическую хронологию."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "tools",
+      "order": 41
+    },
+    {
+      "id": "onsite-induction-a1-01",
+      "title_ru": "A1 · Пропуск",
+      "title_en": "A1 · Pass card",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Показать пропуск на входе.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Here is my pass.",
+          "ru": "Вот мой пропуск.",
+          "role": "electrician",
+          "tip_ru": "Here is my …",
+          "practice": true,
+          "transcription": "heer iz mai pas"
+        },
+        {
+          "en": "Show me your photo.",
+          "ru": "Покажи фото.",
+          "role": "foreman",
+          "tip_ru": "Show me …",
+          "practice": false
+        },
+        {
+          "en": "This is my photo.",
+          "ru": "Это моё фото.",
+          "role": "electrician",
+          "tip_ru": "This is my …",
+          "practice": true,
+          "transcription": "this iz mai FO-to"
+        },
+        {
+          "en": "OK. Go in.",
+          "ru": "Ок. Проходи.",
+          "role": "foreman",
+          "tip_ru": "Go in.",
+          "practice": false
+        },
+        {
+          "en": "Where is the site office?",
+          "ru": "Где офис объекта?",
+          "role": "electrician",
+          "tip_ru": "Where is …?",
+          "practice": true,
+          "transcription": "wer iz the sait OF-is"
+        },
+        {
+          "en": "Straight ahead.",
+          "ru": "Прямо.",
+          "role": "foreman",
+          "tip_ru": "Straight ahead.",
+          "practice": false
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thank you.",
+          "practice": true,
+          "transcription": "thenk yu"
+        },
+        {
+          "en": "You are welcome.",
+          "ru": "Пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "You are welcome.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Here is my pass.",
+          "ru": "Вот мой пропуск."
+        },
+        {
+          "en": "Where is the site office?",
+          "ru": "Где офис объекта?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -30
+    },
+    {
+      "id": "onsite-induction-a1-02",
+      "title_ru": "A1 · Каска и жилет",
+      "title_en": "A1 · Hard hat and vest",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Надеть СИЗ.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Do I need a hard hat?",
+          "ru": "Нужна каска?",
+          "role": "electrician",
+          "tip_ru": "Do I need …?",
+          "practice": true,
+          "transcription": "doo ai need e hard hat"
+        },
+        {
+          "en": "Yes. Always.",
+          "ru": "Да. Всегда.",
+          "role": "foreman",
+          "tip_ru": "Always.",
+          "practice": false
+        },
+        {
+          "en": "And a vest?",
+          "ru": "И жилет?",
+          "role": "electrician",
+          "tip_ru": "And …?",
+          "practice": true,
+          "transcription": "end e vest"
+        },
+        {
+          "en": "Yes. Put them on.",
+          "ru": "Да. Надень.",
+          "role": "foreman",
+          "tip_ru": "Put them on.",
+          "practice": false
+        },
+        {
+          "en": "Hard hat is on.",
+          "ru": "Каска надета.",
+          "role": "electrician",
+          "tip_ru": "is on.",
+          "practice": true,
+          "transcription": "hard hat iz on"
+        },
+        {
+          "en": "Good. Vest too.",
+          "ru": "Хорошо. И жилет.",
+          "role": "foreman",
+          "tip_ru": "… too.",
+          "practice": false
+        },
+        {
+          "en": "I am ready.",
+          "ru": "Я готов.",
+          "role": "electrician",
+          "tip_ru": "I am ready.",
+          "practice": true,
+          "transcription": "ai em RED-ee"
+        },
+        {
+          "en": "Come with me.",
+          "ru": "Иди со мной.",
+          "role": "foreman",
+          "tip_ru": "Come with me.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do I need a hard hat?",
+          "ru": "Нужна каска?"
+        },
+        {
+          "en": "I am ready.",
+          "ru": "Я готов."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -29
+    },
+    {
+      "id": "onsite-induction-a1-03",
+      "title_ru": "A1 · Аварийный выход",
+      "title_en": "A1 · Fire exit",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Найти аварийный выход.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Where is the fire exit?",
+          "ru": "Где аварийный выход?",
+          "role": "electrician",
+          "tip_ru": "Where is the fire exit?",
+          "practice": true,
+          "transcription": "wer iz the fair EG-zit"
+        },
+        {
+          "en": "Follow the green signs.",
+          "ru": "Иди по зелёным знакам.",
+          "role": "foreman",
+          "tip_ru": "Follow the …",
+          "practice": false
+        },
+        {
+          "en": "Is this the exit?",
+          "ru": "Это выход?",
+          "role": "electrician",
+          "tip_ru": "Is this …?",
+          "practice": true,
+          "transcription": "iz this the EG-zit"
+        },
+        {
+          "en": "Yes. This is it.",
+          "ru": "Да. Это он.",
+          "role": "foreman",
+          "tip_ru": "This is it.",
+          "practice": false
+        },
+        {
+          "en": "Where is the meeting point?",
+          "ru": "Где точка сбора?",
+          "role": "electrician",
+          "tip_ru": "Meeting point.",
+          "practice": true,
+          "transcription": "wer iz the MEE-ting point"
+        },
+        {
+          "en": "Outside the gate.",
+          "ru": "За воротами.",
+          "role": "foreman",
+          "tip_ru": "Outside …",
+          "practice": false
+        },
+        {
+          "en": "I understand.",
+          "ru": "Понял.",
+          "role": "electrician",
+          "tip_ru": "I understand.",
+          "practice": true,
+          "transcription": "ai an-der-STAND"
+        },
+        {
+          "en": "Good. Remember it.",
+          "ru": "Хорошо. Запомни.",
+          "role": "foreman",
+          "tip_ru": "Remember it.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the fire exit?",
+          "ru": "Где аварийный выход?"
+        },
+        {
+          "en": "Where is the meeting point?",
+          "ru": "Где точка сбора?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -28
+    },
+    {
+      "id": "onsite-induction-a1-04",
+      "title_ru": "A1 · Не ходи туда",
+      "title_en": "A1 · Do not go there",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Зона закрыта.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Can I go this way?",
+          "ru": "Можно сюда?",
+          "role": "electrician",
+          "tip_ru": "Can I go …?",
+          "practice": true,
+          "transcription": "ken ai go this wei"
+        },
+        {
+          "en": "No. Do not go there.",
+          "ru": "Нет. Туда нельзя.",
+          "role": "foreman",
+          "tip_ru": "Do not go there.",
+          "practice": false
+        },
+        {
+          "en": "Why not?",
+          "ru": "Почему нет?",
+          "role": "electrician",
+          "tip_ru": "Why not?",
+          "practice": true,
+          "transcription": "wai not"
+        },
+        {
+          "en": "It is not safe.",
+          "ru": "Там небезопасно.",
+          "role": "foreman",
+          "tip_ru": "It is not safe.",
+          "practice": false
+        },
+        {
+          "en": "Which way is OK?",
+          "ru": "Куда можно?",
+          "role": "electrician",
+          "tip_ru": "Which way …?",
+          "practice": true,
+          "transcription": "wich wei iz oh-KAY"
+        },
+        {
+          "en": "Use the walkway.",
+          "ru": "Иди по дорожке.",
+          "role": "foreman",
+          "tip_ru": "Use the walkway.",
+          "practice": false
+        },
+        {
+          "en": "OK. I use the walkway.",
+          "ru": "Ок. Иду по дорожке.",
+          "role": "electrician",
+          "tip_ru": "I use …",
+          "practice": true,
+          "transcription": "oh-KAY · ai yuz"
+        },
+        {
+          "en": "Thank you for asking.",
+          "ru": "Спасибо, что спросил.",
+          "role": "foreman",
+          "tip_ru": "Thank you for + V-ing.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Can I go this way?",
+          "ru": "Можно сюда?"
+        },
+        {
+          "en": "Which way is OK?",
+          "ru": "Куда можно?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -27
+    },
+    {
+      "id": "onsite-induction-a1-05",
+      "title_ru": "A1 · Туалет и вода",
+      "title_en": "A1 · Toilet and water",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Бытовые вопросы на объекте.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Where is the toilet?",
+          "ru": "Где туалет?",
+          "role": "electrician",
+          "tip_ru": "Where is …?",
+          "practice": true,
+          "transcription": "wer iz the TOI-let"
+        },
+        {
+          "en": "Near the canteen.",
+          "ru": "Возле столовой.",
+          "role": "foreman",
+          "tip_ru": "Near …",
+          "practice": false
+        },
+        {
+          "en": "Where can I get water?",
+          "ru": "Где взять воду?",
+          "role": "electrician",
+          "tip_ru": "Where can I get …?",
+          "practice": true,
+          "transcription": "wer ken ai get WA-ter"
+        },
+        {
+          "en": "There is a tap outside.",
+          "ru": "Кран снаружи.",
+          "role": "foreman",
+          "tip_ru": "There is a …",
+          "practice": false
+        },
+        {
+          "en": "Is the water free?",
+          "ru": "Вода бесплатная?",
+          "role": "electrician",
+          "tip_ru": "Is … free?",
+          "practice": true,
+          "transcription": "iz the WA-ter free"
+        },
+        {
+          "en": "Yes. Free for workers.",
+          "ru": "Да. Для рабочих бесплатно.",
+          "role": "foreman",
+          "tip_ru": "Free for …",
+          "practice": false
+        },
+        {
+          "en": "Thanks.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thanks.",
+          "practice": true,
+          "transcription": "thenks"
+        },
+        {
+          "en": "No problem.",
+          "ru": "Без проблем.",
+          "role": "foreman",
+          "tip_ru": "No problem.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the toilet?",
+          "ru": "Где туалет?"
+        },
+        {
+          "en": "Where can I get water?",
+          "ru": "Где взять воду?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -26
+    },
+    {
+      "id": "onsite-induction-a1-06",
+      "title_ru": "A1 · Конец инструктажа",
+      "title_en": "A1 · End of induction",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Подписать и начать работу.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Is the induction finished?",
+          "ru": "Инструктаж закончен?",
+          "role": "electrician",
+          "tip_ru": "Is … finished?",
+          "practice": true,
+          "transcription": "iz the in-DUK-shen"
+        },
+        {
+          "en": "Yes. Sign here please.",
+          "ru": "Да. Распишись здесь.",
+          "role": "foreman",
+          "tip_ru": "Sign here please.",
+          "practice": false
+        },
+        {
+          "en": "I sign here.",
+          "ru": "Расписываюсь здесь.",
+          "role": "electrician",
+          "tip_ru": "I sign here.",
+          "practice": true,
+          "transcription": "ai sain heer"
+        },
+        {
+          "en": "Keep your card with you.",
+          "ru": "Носи карту с собой.",
+          "role": "foreman",
+          "tip_ru": "Keep … with you.",
+          "practice": false
+        },
+        {
+          "en": "Card is with me.",
+          "ru": "Карта у меня.",
+          "role": "electrician",
+          "tip_ru": "is with me.",
+          "practice": true,
+          "transcription": "card iz with mee"
+        },
+        {
+          "en": "You can start work.",
+          "ru": "Можешь начинать работу.",
+          "role": "foreman",
+          "tip_ru": "You can start …",
+          "practice": false
+        },
+        {
+          "en": "Where do I start?",
+          "ru": "Где начинать?",
+          "role": "electrician",
+          "tip_ru": "Where do I …?",
+          "practice": true,
+          "transcription": "wer doo ai start"
+        },
+        {
+          "en": "Ask your foreman at Bay 2.",
+          "ru": "Спроси бригадира на Bay 2.",
+          "role": "foreman",
+          "tip_ru": "Ask … at …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is the induction finished?",
+          "ru": "Инструктаж закончен?"
+        },
+        {
+          "en": "Where do I start?",
+          "ru": "Где начинать?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -25
+    },
+    {
+      "id": "onsite-induction-a2-01",
+      "title_ru": "A2 · Горячие работы",
+      "title_en": "A2 · Hot works",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Спросить про hot works permit.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Do I need a hot works permit?",
+          "ru": "Нужен допуск на горячие работы?",
+          "role": "electrician",
+          "tip_ru": "Do I need a … permit?",
+          "practice": true,
+          "transcription": "hot works PER-mit"
+        },
+        {
+          "en": "Yes, for grinding and welding.",
+          "ru": "Да, для шлифовки и сварки.",
+          "role": "foreman",
+          "tip_ru": "For + V-ing.",
+          "practice": false
+        },
+        {
+          "en": "Who signs the permit?",
+          "ru": "Кто подписывает допуск?",
+          "role": "electrician",
+          "tip_ru": "Who …?",
+          "practice": true,
+          "transcription": "hoo sainz"
+        },
+        {
+          "en": "Your supervisor and the fire watcher.",
+          "ru": "Твой супервайзер и наблюдающий за огнём.",
+          "role": "foreman",
+          "tip_ru": "Fire watcher.",
+          "practice": false
+        },
+        {
+          "en": "I will get the form now.",
+          "ru": "Сейчас возьму бланк.",
+          "role": "electrician",
+          "tip_ru": "I will get …",
+          "practice": true,
+          "transcription": "ai wil get"
+        },
+        {
+          "en": "Bring a fire extinguisher too.",
+          "ru": "Принеси ещё огнетушитель.",
+          "role": "foreman",
+          "tip_ru": "Bring … too.",
+          "practice": false
+        },
+        {
+          "en": "Extinguisher is ready.",
+          "ru": "Огнетушитель готов.",
+          "role": "electrician",
+          "tip_ru": "is ready.",
+          "practice": true,
+          "transcription": "ek-STING-gwi-sher"
+        },
+        {
+          "en": "Good. Start after the signature.",
+          "ru": "Хорошо. Начинай после подписи.",
+          "role": "foreman",
+          "tip_ru": "After the signature.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do I need a hot works permit?",
+          "ru": "Нужен допуск на горячие работы?"
+        },
+        {
+          "en": "I will get the form now.",
+          "ru": "Сейчас возьму бланк."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -20
+    },
+    {
+      "id": "onsite-induction-a2-02",
+      "title_ru": "A2 · Первая помощь",
+      "title_en": "A2 · First aid",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Куда идти при травме.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "I cut my hand.",
+          "ru": "Я порезал руку.",
+          "role": "electrician",
+          "tip_ru": "I cut my …",
+          "practice": true,
+          "transcription": "ai kat mai hand"
+        },
+        {
+          "en": "Is it bad?",
+          "ru": "Сильно?",
+          "role": "foreman",
+          "tip_ru": "Is it bad?",
+          "practice": false
+        },
+        {
+          "en": "It is small, but it bleeds.",
+          "ru": "Небольшой, но кровь идёт.",
+          "role": "electrician",
+          "tip_ru": "It bleeds.",
+          "practice": true,
+          "transcription": "it bleeds"
+        },
+        {
+          "en": "Go to first aid now.",
+          "ru": "Иди в медпункт сейчас.",
+          "role": "foreman",
+          "tip_ru": "Go to first aid.",
+          "practice": false
+        },
+        {
+          "en": "Where is first aid?",
+          "ru": "Где медпункт?",
+          "role": "electrician",
+          "tip_ru": "Where is first aid?",
+          "practice": true,
+          "transcription": "wer iz first aid"
+        },
+        {
+          "en": "Next to the site office.",
+          "ru": "Рядом с офисом.",
+          "role": "foreman",
+          "tip_ru": "Next to …",
+          "practice": false
+        },
+        {
+          "en": "I go now.",
+          "ru": "Иду сейчас.",
+          "role": "electrician",
+          "tip_ru": "I go now.",
+          "practice": true,
+          "transcription": "ai go nau"
+        },
+        {
+          "en": "Tell them what happened.",
+          "ru": "Скажи им, что случилось.",
+          "role": "foreman",
+          "tip_ru": "Tell them what happened.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I cut my hand.",
+          "ru": "Я порезал руку."
+        },
+        {
+          "en": "Go to first aid now.",
+          "ru": "Иди в медпункт сейчас."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -19
+    },
+    {
+      "id": "onsite-induction-a2-03",
+      "title_ru": "A2 · Гость на объекте",
+      "title_en": "A2 · Site visitor",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Сопроводить посетителя.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "We have a visitor today.",
+          "ru": "Сегодня будет посетитель.",
+          "role": "electrician",
+          "tip_ru": "We have a …",
+          "practice": true,
+          "transcription": "VIS-i-ter"
+        },
+        {
+          "en": "He needs a visitor pass and PPE.",
+          "ru": "Нужны гостевой пропуск и СИЗ.",
+          "role": "foreman",
+          "tip_ru": "Needs … and …",
+          "practice": false
+        },
+        {
+          "en": "I will wait at the gate.",
+          "ru": "Подожду у ворот.",
+          "role": "electrician",
+          "tip_ru": "I will wait at …",
+          "practice": true,
+          "transcription": "ai wil weit"
+        },
+        {
+          "en": "Do not leave him alone on site.",
+          "ru": "Не оставляй его одного на объекте.",
+          "role": "foreman",
+          "tip_ru": "Do not leave … alone.",
+          "practice": false
+        },
+        {
+          "en": "I will stay with him.",
+          "ru": "Буду с ним.",
+          "role": "electrician",
+          "tip_ru": "I will stay with …",
+          "practice": true,
+          "transcription": "ai wil stei"
+        },
+        {
+          "en": "Show him the walkways only.",
+          "ru": "Покажи только пешеходные дорожки.",
+          "role": "foreman",
+          "tip_ru": "Show him … only.",
+          "practice": false
+        },
+        {
+          "en": "Understood.",
+          "ru": "Понял.",
+          "role": "electrician",
+          "tip_ru": "Understood.",
+          "practice": true,
+          "transcription": "an-der-STUD"
+        },
+        {
+          "en": "Call me if plans change.",
+          "ru": "Позвони, если планы меняются.",
+          "role": "foreman",
+          "tip_ru": "Call me if …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "We have a visitor today.",
+          "ru": "Сегодня будет посетитель."
+        },
+        {
+          "en": "I will stay with him.",
+          "ru": "Буду с ним."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": -18
+    },
+    {
+      "id": "onsite-induction-b2-01",
+      "title_ru": "B2 · Брифинг смены",
+      "title_en": "B2 · Shift briefing",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Утренний toolbox talk.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Today's main hazard is live testing in Room 2.",
+          "ru": "Главная опасность сегодня — испытания под напряжением в Room 2.",
+          "role": "electrician",
+          "tip_ru": "Main hazard is …",
+          "practice": true,
+          "transcription": "HAZ-erd"
+        },
+        {
+          "en": "Who has not signed the briefing sheet?",
+          "ru": "Кто не расписался на брифинге?",
+          "role": "foreman",
+          "tip_ru": "Who has not …?",
+          "practice": false
+        },
+        {
+          "en": "I'll chase the late arrivals before we start.",
+          "ru": "Догоню опоздавших до старта.",
+          "role": "electrician",
+          "tip_ru": "I'll chase …",
+          "practice": true,
+          "transcription": "chase"
+        },
+        {
+          "en": "Remind them about exclusion zones around the panels.",
+          "ru": "Напомни про запретные зоны у щитов.",
+          "role": "foreman",
+          "tip_ru": "Exclusion zones.",
+          "practice": false
+        },
+        {
+          "en": "Exclusion zones are taped and signed.",
+          "ru": "Зоны оклеены лентой и подписаны.",
+          "role": "electrician",
+          "tip_ru": "Are taped and signed.",
+          "practice": true,
+          "transcription": "ek-SKLOO-zhun"
+        },
+        {
+          "en": "Good. Any questions before we disperse?",
+          "ru": "Хорошо. Вопросы перед тем как разойтись?",
+          "role": "foreman",
+          "tip_ru": "Before we disperse.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Today's main hazard is live testing in Room 2.",
+          "ru": "Главная опасность сегодня — испытания под напряжением в Room 2."
+        },
+        {
+          "en": "I'll chase the late arrivals before we start.",
+          "ru": "Догоню опоздавших до старта."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": 20
+    },
+    {
+      "id": "onsite-induction-b2-02",
+      "title_ru": "B2 · Нарушение СИЗ",
+      "title_en": "B2 · PPE breach",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Остановить человека без каски.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Stop — no hard hat past this line.",
+          "ru": "Стоп — без каски дальше линии нельзя.",
+          "role": "electrician",
+          "tip_ru": "Stop — no X past …",
+          "practice": true,
+          "transcription": "hard hat"
+        },
+        {
+          "en": "He says he is only walking through.",
+          "ru": "Говорит, что просто проходит.",
+          "role": "foreman",
+          "tip_ru": "Only walking through.",
+          "practice": false
+        },
+        {
+          "en": "Walking through still needs PPE here.",
+          "ru": "Даже транзит здесь требует СИЗ.",
+          "role": "electrician",
+          "tip_ru": "Still needs …",
+          "practice": true,
+          "transcription": "walking through"
+        },
+        {
+          "en": "Escort him back to the gate for a vest and hat.",
+          "ru": "Проводи к воротам за жилетом и каской.",
+          "role": "foreman",
+          "tip_ru": "Escort him back …",
+          "practice": false
+        },
+        {
+          "en": "I'll log it as a near miss if he argues.",
+          "ru": "Если будет спорить — зафиксирую как near miss.",
+          "role": "electrician",
+          "tip_ru": "Near miss.",
+          "practice": true,
+          "transcription": "neer mis"
+        },
+        {
+          "en": "Do that. Consistency matters.",
+          "ru": "Делай. Важна последовательность.",
+          "role": "foreman",
+          "tip_ru": "Consistency matters.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Stop — no hard hat past this line.",
+          "ru": "Стоп — без каски дальше линии нельзя."
+        },
+        {
+          "en": "I'll log it as a near miss if he argues.",
+          "ru": "Если будет спорить — зафиксирую как near miss."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": 21
+    },
+    {
+      "id": "onsite-induction-c1-01",
+      "title_ru": "C1 · Обновление правил",
+      "title_en": "C1 · Rule update",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Внедрить новое правило доступа.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "From Monday, biometric access replaces paper visitor slips for escorts.",
+          "ru": "С понедельника биометрия вместо бумажных гостевых для сопровождающих.",
+          "role": "electrician",
+          "tip_ru": "From Monday, X replaces Y.",
+          "practice": true,
+          "transcription": "bio-ME-trik"
+        },
+        {
+          "en": "Will legacy cards still work during the transition week?",
+          "ru": "Старые карты будут работать в переходную неделю?",
+          "role": "foreman",
+          "tip_ru": "During the transition week?",
+          "practice": false
+        },
+        {
+          "en": "Only with a temporary override logged by security.",
+          "ru": "Только с временным override от охраны.",
+          "role": "electrician",
+          "tip_ru": "Temporary override.",
+          "practice": true,
+          "transcription": "O-ver-raid"
+        },
+        {
+          "en": "Brief every crew at tomorrow's induction refresh.",
+          "ru": "Проинструктуй все бригады на завтрашнем refresh.",
+          "role": "foreman",
+          "tip_ru": "Induction refresh.",
+          "practice": false
+        },
+        {
+          "en": "I'll add a one-pager to the site app and the notice boards.",
+          "ru": "Добавлю one-pager в приложение объекта и на доски.",
+          "role": "electrician",
+          "tip_ru": "One-pager; notice boards.",
+          "practice": true,
+          "transcription": "WAN-pay-ger"
+        },
+        {
+          "en": "Good. Flag any access failures to me within the hour.",
+          "ru": "Хорошо. Любые сбои доступа — мне в течение часа.",
+          "role": "foreman",
+          "tip_ru": "Within the hour.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "From Monday, biometric access replaces paper visitor slips for escorts.",
+          "ru": "С понедельника биометрия вместо бумажных гостевых для сопровождающих."
+        },
+        {
+          "en": "I'll add a one-pager to the site app and the notice boards.",
+          "ru": "Добавлю one-pager в приложение объекта и на доски."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": 40
+    },
+    {
+      "id": "onsite-induction-c1-02",
+      "title_ru": "C1 · Аудит допуска",
+      "title_en": "C1 · Access audit",
+      "tags": [
+        "onsite",
+        "induction",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Подготовиться к аудиту допусков.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "The auditor will sample PTWs against actual isolation states.",
+          "ru": "Аудитор сверит PTW с фактическими состояниями изоляции.",
+          "role": "electrician",
+          "tip_ru": "Sample X against Y.",
+          "practice": true,
+          "transcription": "AU-di-ter"
+        },
+        {
+          "en": "Where are our weak spots from last month?",
+          "ru": "Где слабые места с прошлого месяца?",
+          "role": "foreman",
+          "tip_ru": "Weak spots.",
+          "practice": false
+        },
+        {
+          "en": "Missing standby signatures and late close-outs after shift.",
+          "ru": "Нет подписей наблюдающих и поздние закрытия после смены.",
+          "role": "electrician",
+          "tip_ru": "Close-outs.",
+          "practice": true,
+          "transcription": "STAND-by SIG-na-cherz"
+        },
+        {
+          "en": "Fix the process, not just the paperwork trail.",
+          "ru": "Чини процесс, а не только бумажный след.",
+          "role": "foreman",
+          "tip_ru": "Not just the paperwork trail.",
+          "practice": false
+        },
+        {
+          "en": "I'll run a spot-check this afternoon and coach the supervisors.",
+          "ru": "Сделаю выборочную проверку сегодня и пройдусь с супервайзерами.",
+          "role": "electrician",
+          "tip_ru": "Spot-check; coach.",
+          "practice": true,
+          "transcription": "spot-check"
+        },
+        {
+          "en": "Send me the findings before the pre-audit meeting.",
+          "ru": "Пришли находки до pre-audit встречи.",
+          "role": "foreman",
+          "tip_ru": "Findings before …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The auditor will sample PTWs against actual isolation states.",
+          "ru": "Аудитор сверит PTW с фактическими состояниями изоляции."
+        },
+        {
+          "en": "I'll run a spot-check this afternoon and coach the supervisors.",
+          "ru": "Сделаю выборочную проверку сегодня и пройдусь с супервайзерами."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "induction",
+      "order": 41
+    },
+    {
+      "id": "onsite-websites_cctv-a1-01",
+      "title_ru": "A1 · Камера здесь?",
+      "title_en": "A1 · Is the camera here?",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Найти место камеры.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Is the camera here?",
+          "ru": "Камера здесь?",
+          "role": "electrician",
+          "tip_ru": "Is … here?",
+          "practice": true,
+          "transcription": "iz the KAM-ra heer"
+        },
+        {
+          "en": "Yes. On this wall.",
+          "ru": "Да. На этой стене.",
+          "role": "client",
+          "tip_ru": "On this wall.",
+          "practice": false
+        },
+        {
+          "en": "How high?",
+          "ru": "На какой высоте?",
+          "role": "electrician",
+          "tip_ru": "How high?",
+          "practice": true,
+          "transcription": "hau hai"
+        },
+        {
+          "en": "About three metres.",
+          "ru": "Около трёх метров.",
+          "role": "client",
+          "tip_ru": "About …",
+          "practice": false
+        },
+        {
+          "en": "I need a ladder.",
+          "ru": "Нужна лестница.",
+          "role": "electrician",
+          "tip_ru": "I need …",
+          "practice": true,
+          "transcription": "ai need e LAD-er"
+        },
+        {
+          "en": "The ladder is outside.",
+          "ru": "Лестница снаружи.",
+          "role": "client",
+          "tip_ru": "Outside.",
+          "practice": false
+        },
+        {
+          "en": "OK. I get it.",
+          "ru": "Ок. Возьму.",
+          "role": "electrician",
+          "tip_ru": "I get it.",
+          "practice": true,
+          "transcription": "oh-KAY · ai get it"
+        },
+        {
+          "en": "Be careful.",
+          "ru": "Осторожно.",
+          "role": "client",
+          "tip_ru": "Be careful.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is the camera here?",
+          "ru": "Камера здесь?"
+        },
+        {
+          "en": "I need a ladder.",
+          "ru": "Нужна лестница."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -30
+    },
+    {
+      "id": "onsite-websites_cctv-a1-02",
+      "title_ru": "A1 · Питание камеры",
+      "title_en": "A1 · Camera power",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Проверить питание.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Is there power here?",
+          "ru": "Здесь есть питание?",
+          "role": "electrician",
+          "tip_ru": "Is there …?",
+          "practice": true,
+          "transcription": "iz ther PAU-er heer"
+        },
+        {
+          "en": "Yes. This socket.",
+          "ru": "Да. Эта розетка.",
+          "role": "client",
+          "tip_ru": "This socket.",
+          "practice": false
+        },
+        {
+          "en": "Can I use it?",
+          "ru": "Можно пользоваться?",
+          "role": "electrician",
+          "tip_ru": "Can I use it?",
+          "practice": true,
+          "transcription": "ken ai yuz it"
+        },
+        {
+          "en": "Yes. Use it.",
+          "ru": "Да. Используй.",
+          "role": "client",
+          "tip_ru": "Use it.",
+          "practice": false
+        },
+        {
+          "en": "Power is OK.",
+          "ru": "Питание в норме.",
+          "role": "electrician",
+          "tip_ru": "is OK.",
+          "practice": true,
+          "transcription": "PAU-er iz oh-KAY"
+        },
+        {
+          "en": "Good. Mount the camera.",
+          "ru": "Хорошо. Крепи камеру.",
+          "role": "client",
+          "tip_ru": "Mount the …",
+          "practice": false
+        },
+        {
+          "en": "I mount it now.",
+          "ru": "Сейчас креплю.",
+          "role": "electrician",
+          "tip_ru": "I mount it now.",
+          "practice": true,
+          "transcription": "ai mount it nau"
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "client",
+          "tip_ru": "Thank you.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is there power here?",
+          "ru": "Здесь есть питание?"
+        },
+        {
+          "en": "Power is OK.",
+          "ru": "Питание в норме."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -29
+    },
+    {
+      "id": "onsite-websites_cctv-a1-03",
+      "title_ru": "A1 · Кабель сети",
+      "title_en": "A1 · Network cable",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Проложить сетевой кабель.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Where is the network point?",
+          "ru": "Где сетевая точка?",
+          "role": "electrician",
+          "tip_ru": "Where is …?",
+          "practice": true,
+          "transcription": "wer iz the NET-werk point"
+        },
+        {
+          "en": "In the office rack.",
+          "ru": "В стойке в офисе.",
+          "role": "client",
+          "tip_ru": "In the … rack.",
+          "practice": false
+        },
+        {
+          "en": "I need a long cable.",
+          "ru": "Нужен длинный кабель.",
+          "role": "electrician",
+          "tip_ru": "a long cable.",
+          "practice": true,
+          "transcription": "ai need e long KAY-bel"
+        },
+        {
+          "en": "We have thirty metres.",
+          "ru": "Есть тридцать метров.",
+          "role": "client",
+          "tip_ru": "We have …",
+          "practice": false
+        },
+        {
+          "en": "That is enough.",
+          "ru": "Этого хватит.",
+          "role": "electrician",
+          "tip_ru": "That is enough.",
+          "practice": true,
+          "transcription": "that iz i-NUF"
+        },
+        {
+          "en": "Pull it carefully.",
+          "ru": "Тяни аккуратно.",
+          "role": "client",
+          "tip_ru": "Pull it carefully.",
+          "practice": false
+        },
+        {
+          "en": "Cable is in.",
+          "ru": "Кабель затянут.",
+          "role": "electrician",
+          "tip_ru": "is in.",
+          "practice": true,
+          "transcription": "KAY-bel iz in"
+        },
+        {
+          "en": "Great. Test the link.",
+          "ru": "Отлично. Проверь линк.",
+          "role": "client",
+          "tip_ru": "Test the link.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Where is the network point?",
+          "ru": "Где сетевая точка?"
+        },
+        {
+          "en": "Cable is in.",
+          "ru": "Кабель затянут."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -28
+    },
+    {
+      "id": "onsite-websites_cctv-a1-04",
+      "title_ru": "A1 · Картинка есть?",
+      "title_en": "A1 · Do we have a picture?",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Проверить изображение.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Do we have a picture?",
+          "ru": "Есть картинка?",
+          "role": "electrician",
+          "tip_ru": "Do we have …?",
+          "practice": true,
+          "transcription": "doo we hev e PIK-cher"
+        },
+        {
+          "en": "Not yet. Wait.",
+          "ru": "Пока нет. Подожди.",
+          "role": "client",
+          "tip_ru": "Not yet.",
+          "practice": false
+        },
+        {
+          "en": "Is the camera on?",
+          "ru": "Камера включена?",
+          "role": "electrician",
+          "tip_ru": "Is … on?",
+          "practice": true,
+          "transcription": "iz the KAM-ra on"
+        },
+        {
+          "en": "Yes. It is on.",
+          "ru": "Да. Включена.",
+          "role": "client",
+          "tip_ru": "It is on.",
+          "practice": false
+        },
+        {
+          "en": "I check the cable again.",
+          "ru": "Снова проверю кабель.",
+          "role": "electrician",
+          "tip_ru": "again.",
+          "practice": true,
+          "transcription": "ai chek the KAY-bel"
+        },
+        {
+          "en": "OK. Tell me when ready.",
+          "ru": "Ок. Скажи, когда готово.",
+          "role": "client",
+          "tip_ru": "Tell me when …",
+          "practice": false
+        },
+        {
+          "en": "Now we have a picture.",
+          "ru": "Теперь картинка есть.",
+          "role": "electrician",
+          "tip_ru": "Now we have …",
+          "practice": true,
+          "transcription": "nau we hev"
+        },
+        {
+          "en": "Perfect.",
+          "ru": "Отлично.",
+          "role": "client",
+          "tip_ru": "Perfect.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do we have a picture?",
+          "ru": "Есть картинка?"
+        },
+        {
+          "en": "Now we have a picture.",
+          "ru": "Теперь картинка есть."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -27
+    },
+    {
+      "id": "onsite-websites_cctv-a1-05",
+      "title_ru": "A1 · Пароль",
+      "title_en": "A1 · Password",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Спросить пароль на регистратор.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "What is the password?",
+          "ru": "Какой пароль?",
+          "role": "electrician",
+          "tip_ru": "What is the password?",
+          "practice": true,
+          "transcription": "wot iz the PAS-word"
+        },
+        {
+          "en": "I will write it for you.",
+          "ru": "Я запишу для тебя.",
+          "role": "client",
+          "tip_ru": "I will write it …",
+          "practice": false
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thank you.",
+          "practice": true,
+          "transcription": "thenk yu"
+        },
+        {
+          "en": "Change it later.",
+          "ru": "Потом смени.",
+          "role": "client",
+          "tip_ru": "Change it later.",
+          "practice": false
+        },
+        {
+          "en": "I change it after the test.",
+          "ru": "Сменю после теста.",
+          "role": "electrician",
+          "tip_ru": "after the test.",
+          "practice": true,
+          "transcription": "ai cheinj it"
+        },
+        {
+          "en": "Good. Keep it safe.",
+          "ru": "Хорошо. Храни надёжно.",
+          "role": "client",
+          "tip_ru": "Keep it safe.",
+          "practice": false
+        },
+        {
+          "en": "Password is saved.",
+          "ru": "Пароль сохранён.",
+          "role": "electrician",
+          "tip_ru": "is saved.",
+          "practice": true,
+          "transcription": "PAS-word iz seivd"
+        },
+        {
+          "en": "OK. Continue.",
+          "ru": "Ок. Продолжай.",
+          "role": "client",
+          "tip_ru": "Continue.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "What is the password?",
+          "ru": "Какой пароль?"
+        },
+        {
+          "en": "I change it after the test.",
+          "ru": "Сменю после теста."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -26
+    },
+    {
+      "id": "onsite-websites_cctv-a1-06",
+      "title_ru": "A1 · Работа готова",
+      "title_en": "A1 · Work is done",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A1"
+      ],
+      "cefr": "A1",
+      "scene_ru": "Сдать работу клиенту.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "The work is done.",
+          "ru": "Работа готова.",
+          "role": "electrician",
+          "tip_ru": "The work is done.",
+          "practice": true,
+          "transcription": "the werk iz dan"
+        },
+        {
+          "en": "Can you show me?",
+          "ru": "Покажешь?",
+          "role": "client",
+          "tip_ru": "Can you show me?",
+          "practice": false
+        },
+        {
+          "en": "Yes. Look at this screen.",
+          "ru": "Да. Смотри на экран.",
+          "role": "electrician",
+          "tip_ru": "Look at …",
+          "practice": true,
+          "transcription": "yes · look at this skreen"
+        },
+        {
+          "en": "All cameras are online?",
+          "ru": "Все камеры онлайн?",
+          "role": "client",
+          "tip_ru": "Are … online?",
+          "practice": false
+        },
+        {
+          "en": "Yes. All four are online.",
+          "ru": "Да. Все четыре онлайн.",
+          "role": "electrician",
+          "tip_ru": "All … are online.",
+          "practice": true,
+          "transcription": "ol for ar on-LAIN"
+        },
+        {
+          "en": "Good job.",
+          "ru": "Хорошая работа.",
+          "role": "client",
+          "tip_ru": "Good job.",
+          "practice": false
+        },
+        {
+          "en": "Thank you.",
+          "ru": "Спасибо.",
+          "role": "electrician",
+          "tip_ru": "Thank you.",
+          "practice": true,
+          "transcription": "thenk yu"
+        },
+        {
+          "en": "See you next time.",
+          "ru": "До следующей встречи.",
+          "role": "client",
+          "tip_ru": "See you next time.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The work is done.",
+          "ru": "Работа готова."
+        },
+        {
+          "en": "All four are online.",
+          "ru": "Все четыре онлайн."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -25
+    },
+    {
+      "id": "onsite-websites_cctv-a2-01",
+      "title_ru": "A2 · Слепое пятно",
+      "title_en": "A2 · Blind spot",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Сдвинуть камеру из-за слепой зоны.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "There is a blind spot near the door.",
+          "ru": "У двери слепая зона.",
+          "role": "electrician",
+          "tip_ru": "Blind spot.",
+          "practice": true,
+          "transcription": "blaind spot"
+        },
+        {
+          "en": "Can you move the camera left?",
+          "ru": "Можешь сдвинуть камеру влево?",
+          "role": "client",
+          "tip_ru": "Move … left?",
+          "practice": false
+        },
+        {
+          "en": "I will angle it ten degrees.",
+          "ru": "Поверну на десять градусов.",
+          "role": "electrician",
+          "tip_ru": "I will angle it …",
+          "practice": true,
+          "transcription": "ANG-gel"
+        },
+        {
+          "en": "Check the live view with me.",
+          "ru": "Проверим live view вместе.",
+          "role": "client",
+          "tip_ru": "Live view.",
+          "practice": false
+        },
+        {
+          "en": "Door and corridor are both covered now.",
+          "ru": "Дверь и коридор теперь в кадре.",
+          "role": "electrician",
+          "tip_ru": "Both covered.",
+          "practice": true,
+          "transcription": "KOR-i-dor"
+        },
+        {
+          "en": "Good. Save this position.",
+          "ru": "Хорошо. Сохрани позицию.",
+          "role": "client",
+          "tip_ru": "Save this position.",
+          "practice": false
+        },
+        {
+          "en": "Position is saved.",
+          "ru": "Позиция сохранена.",
+          "role": "electrician",
+          "tip_ru": "is saved.",
+          "practice": true,
+          "transcription": "po-ZI-shen"
+        },
+        {
+          "en": "Thanks. That was quick.",
+          "ru": "Спасибо. Быстро вышло.",
+          "role": "client",
+          "tip_ru": "That was quick.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "There is a blind spot near the door.",
+          "ru": "У двери слепая зона."
+        },
+        {
+          "en": "Door and corridor are both covered now.",
+          "ru": "Дверь и коридор теперь в кадре."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -20
+    },
+    {
+      "id": "onsite-websites_cctv-a2-02",
+      "title_ru": "A2 · PoE и свитч",
+      "title_en": "A2 · PoE switch",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Подключить камеру к PoE.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Does this switch have PoE?",
+          "ru": "На этом свитче есть PoE?",
+          "role": "electrician",
+          "tip_ru": "Does … have …?",
+          "practice": true,
+          "transcription": "pee-oh-EE"
+        },
+        {
+          "en": "Yes. Ports one to eight.",
+          "ru": "Да. Порты один-восемь.",
+          "role": "client",
+          "tip_ru": "Ports … to …",
+          "practice": false
+        },
+        {
+          "en": "I will plug the camera into port three.",
+          "ru": "Включу камеру в порт три.",
+          "role": "electrician",
+          "tip_ru": "Plug … into …",
+          "practice": true,
+          "transcription": "plug in-too"
+        },
+        {
+          "en": "Wait — port three is reserved for the desk phone.",
+          "ru": "Стоп — порт три для телефона.",
+          "role": "client",
+          "tip_ru": "Is reserved for …",
+          "practice": false
+        },
+        {
+          "en": "OK. I use port five instead.",
+          "ru": "Ок. Тогда порт пять.",
+          "role": "electrician",
+          "tip_ru": "Instead.",
+          "practice": true,
+          "transcription": "in-STED"
+        },
+        {
+          "en": "Link light is on.",
+          "ru": "Линк загорелся.",
+          "role": "client",
+          "tip_ru": "Link light.",
+          "practice": false
+        },
+        {
+          "en": "Camera is online on the NVR.",
+          "ru": "Камера онлайн на NVR.",
+          "role": "electrician",
+          "tip_ru": "On the NVR.",
+          "practice": true,
+          "transcription": "en-vee-AR"
+        },
+        {
+          "en": "Perfect. Label the port please.",
+          "ru": "Отлично. Подпиши порт.",
+          "role": "client",
+          "tip_ru": "Label the port.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Does this switch have PoE?",
+          "ru": "На этом свитче есть PoE?"
+        },
+        {
+          "en": "Camera is online on the NVR.",
+          "ru": "Камера онлайн на NVR."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -19
+    },
+    {
+      "id": "onsite-websites_cctv-a2-03",
+      "title_ru": "A2 · Запись 24/7",
+      "title_en": "A2 · 24/7 recording",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Включить постоянную запись.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Do you want twenty-four seven recording?",
+          "ru": "Нужна запись круглосуточно?",
+          "role": "electrician",
+          "tip_ru": "24/7 recording.",
+          "practice": true,
+          "transcription": "TWEN-tee for SEV-en"
+        },
+        {
+          "en": "Yes. All cameras, continuous.",
+          "ru": "Да. Все камеры, постоянно.",
+          "role": "client",
+          "tip_ru": "Continuous.",
+          "practice": false
+        },
+        {
+          "en": "That needs more hard drive space.",
+          "ru": "Нужно больше места на диске.",
+          "role": "electrician",
+          "tip_ru": "Hard drive space.",
+          "practice": true,
+          "transcription": "hard draiv"
+        },
+        {
+          "en": "We can add a second disk next week.",
+          "ru": "Вторую диск можно на следующей неделе.",
+          "role": "client",
+          "tip_ru": "Add a second disk.",
+          "practice": false
+        },
+        {
+          "en": "I will set continuous for now and watch the capacity.",
+          "ru": "Поставлю continuous сейчас и посмотрю ёмкость.",
+          "role": "electrician",
+          "tip_ru": "Watch the capacity.",
+          "practice": true,
+          "transcription": "ka-PAS-i-tee"
+        },
+        {
+          "en": "Alert me if storage drops below twenty percent.",
+          "ru": "Напиши, если место упадёт ниже 20%.",
+          "role": "client",
+          "tip_ru": "Drops below …",
+          "practice": false
+        },
+        {
+          "en": "Alert is set.",
+          "ru": "Алерт настроен.",
+          "role": "electrician",
+          "tip_ru": "is set.",
+          "practice": true,
+          "transcription": "a-LERT"
+        },
+        {
+          "en": "Thanks.",
+          "ru": "Спасибо.",
+          "role": "client",
+          "tip_ru": "Thanks.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Do you want twenty-four seven recording?",
+          "ru": "Нужна запись круглосуточно?"
+        },
+        {
+          "en": "Alert is set.",
+          "ru": "Алерт настроен."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": -18
+    },
+    {
+      "id": "onsite-websites_cctv-b2-01",
+      "title_ru": "B2 · Удалённый доступ",
+      "title_en": "B2 · Remote access",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Настроить VPN доступ клиенту.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Remote viewing should go through your VPN, not a public port forward.",
+          "ru": "Удалённый просмотр — через ваш VPN, не через проброс порта наружу.",
+          "role": "electrician",
+          "tip_ru": "Port forward.",
+          "practice": true,
+          "transcription": "VEE-pee-en"
+        },
+        {
+          "en": "Can you whitelist our office public IP only?",
+          "ru": "Можешь открыть только наш офисный белый IP?",
+          "role": "client",
+          "tip_ru": "Whitelist … only?",
+          "practice": false
+        },
+        {
+          "en": "I'll lock the NVR firewall to that IP and MFA for users.",
+          "ru": "Закрою фаервол NVR на этот IP и MFA для пользователей.",
+          "role": "electrician",
+          "tip_ru": "MFA.",
+          "practice": true,
+          "transcription": "FIRE-wal"
+        },
+        {
+          "en": "We also need an audit log of who watched which camera.",
+          "ru": "Нужен ещё журнал, кто какие камеры смотрел.",
+          "role": "client",
+          "tip_ru": "Audit log.",
+          "practice": false
+        },
+        {
+          "en": "Audit logging is on; I will export a weekly report.",
+          "ru": "Журнал включён; буду выгружать недельный отчёт.",
+          "role": "electrician",
+          "tip_ru": "Export a weekly report.",
+          "practice": true,
+          "transcription": "AU-dit"
+        },
+        {
+          "en": "Send the first report after go-live.",
+          "ru": "Пришли первый отчёт после запуска.",
+          "role": "client",
+          "tip_ru": "After go-live.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Remote viewing should go through your VPN, not a public port forward.",
+          "ru": "Удалённый просмотр — через ваш VPN, не через проброс порта наружу."
+        },
+        {
+          "en": "I'll lock the NVR firewall to that IP and MFA for users.",
+          "ru": "Закрою фаервол NVR на этот IP и MFA для пользователей."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": 20
+    },
+    {
+      "id": "onsite-websites_cctv-b2-02",
+      "title_ru": "B2 · Ложное срабатывание",
+      "title_en": "B2 · False alarm",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Снизить ложные алармы аналитики.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Motion alerts are firing on headlights every night.",
+          "ru": "Ночные алерты срабатывают на фары.",
+          "role": "electrician",
+          "tip_ru": "Firing on …",
+          "practice": true,
+          "transcription": "MO-shen a-LERTS"
+        },
+        {
+          "en": "Can we tighten the detection zone?",
+          "ru": "Можем сузить зону детекции?",
+          "role": "client",
+          "tip_ru": "Tighten the … zone?",
+          "practice": false
+        },
+        {
+          "en": "I'll shrink the ROI and raise the sensitivity threshold.",
+          "ru": "Уменьшу ROI и подниму порог чувствительности.",
+          "role": "electrician",
+          "tip_ru": "ROI; threshold.",
+          "practice": true,
+          "transcription": "thresh-hold"
+        },
+        {
+          "en": "Keep person detection on for the loading bay.",
+          "ru": "Детекцию людей на рампе оставь.",
+          "role": "client",
+          "tip_ru": "Person detection.",
+          "practice": false
+        },
+        {
+          "en": "Done. We should see fewer false positives overnight.",
+          "ru": "Готово. Ночью ложных должно стать меньше.",
+          "role": "electrician",
+          "tip_ru": "False positives.",
+          "practice": true,
+          "transcription": "FALSE POZ-i-tivz"
+        },
+        {
+          "en": "Review it with security after three nights.",
+          "ru": "Сверь с охраной через три ночи.",
+          "role": "client",
+          "tip_ru": "After three nights.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Motion alerts are firing on headlights every night.",
+          "ru": "Ночные алерты срабатывают на фары."
+        },
+        {
+          "en": "I'll shrink the ROI and raise the sensitivity threshold.",
+          "ru": "Уменьшу ROI и подниму порог чувствительности."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": 21
+    },
+    {
+      "id": "onsite-websites_cctv-c1-01",
+      "title_ru": "C1 · Соответствие GDPR",
+      "title_en": "C1 · GDPR retention",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Согласовать срок хранения записи.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "Retention beyond thirty days needs a documented lawful basis for your sites.",
+          "ru": "Хранение дольше 30 дней — только с задокументированным правовым основанием.",
+          "role": "electrician",
+          "tip_ru": "Lawful basis; retention.",
+          "practice": true,
+          "transcription": "ree-TEN-shun"
+        },
+        {
+          "en": "Our insurer asks for ninety days on loading areas only.",
+          "ru": "Страховщик просит 90 дней только на зонах погрузки.",
+          "role": "client",
+          "tip_ru": "On … only.",
+          "practice": false
+        },
+        {
+          "en": "I'll split retention policies by camera group and encrypt the archive.",
+          "ru": "Разделю политики хранения по группам камер и зашифрую архив.",
+          "role": "electrician",
+          "tip_ru": "Split policies; encrypt.",
+          "practice": true,
+          "transcription": "en-KRIPT"
+        },
+        {
+          "en": "Who can export footage without a dual approval?",
+          "ru": "Кто может выгрузить запись без двойного согласования?",
+          "role": "client",
+          "tip_ru": "Dual approval?",
+          "practice": false
+        },
+        {
+          "en": "Nobody — export will require security plus facilities sign-off.",
+          "ru": "Никто — выгрузка только с подписью security и facilities.",
+          "role": "electrician",
+          "tip_ru": "Require … sign-off.",
+          "practice": true,
+          "transcription": "sain-off"
+        },
+        {
+          "en": "Put that in the DPIA and send me the draft.",
+          "ru": "Внеси в DPIA и пришли черновик.",
+          "role": "client",
+          "tip_ru": "DPIA.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Retention beyond thirty days needs a documented lawful basis for your sites.",
+          "ru": "Хранение дольше 30 дней — только с задокументированным правовым основанием."
+        },
+        {
+          "en": "I'll split retention policies by camera group and encrypt the archive.",
+          "ru": "Разделю политики хранения по группам камер и зашифрую архив."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": 40
+    },
+    {
+      "id": "onsite-websites_cctv-c1-02",
+      "title_ru": "C1 · Интеграция СКУД",
+      "title_en": "C1 · Access control integration",
+      "tags": [
+        "onsite",
+        "websites_cctv",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Связать камеры с событиями СКУД.",
+      "your_role": "electrician",
+      "partner_role": "client",
+      "lines": [
+        {
+          "en": "We can overlay door-forced events on the camera timeline for investigations.",
+          "ru": "Можем накладывать события «дверь взломана» на таймлайн камеры для расследований.",
+          "role": "electrician",
+          "tip_ru": "Door-forced; overlay.",
+          "practice": true,
+          "transcription": "O-ver-lay"
+        },
+        {
+          "en": "Will that add latency to live viewing?",
+          "ru": "Это добавит задержку к live?",
+          "role": "client",
+          "tip_ru": "Latency.",
+          "practice": false
+        },
+        {
+          "en": "Negligible on LAN; we should avoid hairpinning through the cloud.",
+          "ru": "На LAN почти нет; без hairpin через облако.",
+          "role": "electrician",
+          "tip_ru": "Hairpinning.",
+          "practice": true,
+          "transcription": "ne-GLIJ-i-bel"
+        },
+        {
+          "en": "Scope phase one to the two main entrances only.",
+          "ru": "В первой фазе только два главных входа.",
+          "role": "client",
+          "tip_ru": "Scope phase one …",
+          "practice": false
+        },
+        {
+          "en": "I'll map badge IDs to camera presets and run a failure test on Friday.",
+          "ru": "Привяжу badge ID к пресетам камер и в пятницу сделаю failure test.",
+          "role": "electrician",
+          "tip_ru": "Badge IDs; failure test.",
+          "practice": true,
+          "transcription": "presets"
+        },
+        {
+          "en": "Invite IT security to that test — they own the directory.",
+          "ru": "Позови IT security на тест — каталог у них.",
+          "role": "client",
+          "tip_ru": "They own the directory.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "We can overlay door-forced events on the camera timeline for investigations.",
+          "ru": "Можем накладывать события «дверь взломана» на таймлайн камеры для расследований."
+        },
+        {
+          "en": "I'll map badge IDs to camera presets and run a failure test on Friday.",
+          "ru": "Привяжу badge ID к пресетам камер и в пятницу сделаю failure test."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "websites_cctv",
+      "order": 41
+    },
+    {
+      "id": "onsite-construction-a2-01",
+      "title_ru": "A2 · Лоток и опора",
+      "title_en": "A2 · Tray and support",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Простая установка лотка.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Is this tray level?",
+          "ru": "Лоток по уровню?",
+          "role": "electrician",
+          "tip_ru": "Is … level?",
+          "practice": true,
+          "transcription": "iz this trei LEV-el"
+        },
+        {
+          "en": "Check with the spirit level.",
+          "ru": "Проверь пузырьковым уровнем.",
+          "role": "foreman",
+          "tip_ru": "Spirit level.",
+          "practice": false
+        },
+        {
+          "en": "It is a bit low on the left.",
+          "ru": "Слева чуть ниже.",
+          "role": "electrician",
+          "tip_ru": "A bit low.",
+          "practice": true,
+          "transcription": "e bit loh"
+        },
+        {
+          "en": "Raise that support ten millimetres.",
+          "ru": "Подними опору на 10 мм.",
+          "role": "foreman",
+          "tip_ru": "Raise …",
+          "practice": false
+        },
+        {
+          "en": "Support is fixed.",
+          "ru": "Опора закреплена.",
+          "role": "electrician",
+          "tip_ru": "is fixed.",
+          "practice": true,
+          "transcription": "sa-PORT iz fikst"
+        },
+        {
+          "en": "Tighten all bolts.",
+          "ru": "Затяни все болты.",
+          "role": "foreman",
+          "tip_ru": "Tighten …",
+          "practice": false
+        },
+        {
+          "en": "All bolts are tight.",
+          "ru": "Все болты затянуты.",
+          "role": "electrician",
+          "tip_ru": "are tight.",
+          "practice": true,
+          "transcription": "ol bolts ar tait"
+        },
+        {
+          "en": "Good. Next bay.",
+          "ru": "Хорошо. Следующий пролёт.",
+          "role": "foreman",
+          "tip_ru": "Next bay.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this tray level?",
+          "ru": "Лоток по уровню?"
+        },
+        {
+          "en": "All bolts are tight.",
+          "ru": "Все болты затянуты."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "construction",
+      "order": -15
+    },
+    {
+      "id": "onsite-construction-a2-02",
+      "title_ru": "A2 · Погода и работа",
+      "title_en": "A2 · Weather and work",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Решить, работать ли под дождём.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "It is raining hard.",
+          "ru": "Сильно дождь.",
+          "role": "electrician",
+          "tip_ru": "It is raining.",
+          "practice": true,
+          "transcription": "it iz REIN-ing"
+        },
+        {
+          "en": "Stop outdoor cutting for now.",
+          "ru": "Уличную резку пока стоп.",
+          "role": "foreman",
+          "tip_ru": "Stop … for now.",
+          "practice": false
+        },
+        {
+          "en": "Can we work inside Bay 1?",
+          "ru": "Можно работать внутри Bay 1?",
+          "role": "electrician",
+          "tip_ru": "Can we work inside …?",
+          "practice": true,
+          "transcription": "ken we werk"
+        },
+        {
+          "en": "Yes. Move the tools inside.",
+          "ru": "Да. Перенесите инструмент внутрь.",
+          "role": "foreman",
+          "tip_ru": "Move … inside.",
+          "practice": false
+        },
+        {
+          "en": "Tools are inside.",
+          "ru": "Инструмент внутри.",
+          "role": "electrician",
+          "tip_ru": "are inside.",
+          "practice": true,
+          "transcription": "toolz ar in-SAID"
+        },
+        {
+          "en": "Wear dry gloves.",
+          "ru": "Надень сухие перчатки.",
+          "role": "foreman",
+          "tip_ru": "Wear dry …",
+          "practice": false
+        },
+        {
+          "en": "Gloves are on.",
+          "ru": "Перчатки надеты.",
+          "role": "electrician",
+          "tip_ru": "are on.",
+          "practice": true,
+          "transcription": "gluvz ar on"
+        },
+        {
+          "en": "OK. Continue carefully.",
+          "ru": "Ок. Продолжайте аккуратно.",
+          "role": "foreman",
+          "tip_ru": "Continue carefully.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "It is raining hard.",
+          "ru": "Сильно дождь."
+        },
+        {
+          "en": "Can we work inside Bay 1?",
+          "ru": "Можно работать внутри Bay 1?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "construction",
+      "order": -14
+    },
+    {
+      "id": "onsite-construction-a2-03",
+      "title_ru": "A2 · Материал не тот",
+      "title_en": "A2 · Wrong material",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "A2"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Сообщить о неверном материале.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "These brackets are the wrong type.",
+          "ru": "Эти кронштейны не того типа.",
+          "role": "electrician",
+          "tip_ru": "Wrong type.",
+          "practice": true,
+          "transcription": "BRAK-its"
+        },
+        {
+          "en": "What do we need instead?",
+          "ru": "Что нужно вместо?",
+          "role": "foreman",
+          "tip_ru": "Instead?",
+          "practice": false
+        },
+        {
+          "en": "We need heavy-duty ones for this span.",
+          "ru": "Нужны усиленные на этот пролёт.",
+          "role": "electrician",
+          "tip_ru": "Heavy-duty.",
+          "practice": true,
+          "transcription": "HEV-ee DOO-tee"
+        },
+        {
+          "en": "I will order them today.",
+          "ru": "Закажу сегодня.",
+          "role": "foreman",
+          "tip_ru": "I will order …",
+          "practice": false
+        },
+        {
+          "en": "Should I stop installing?",
+          "ru": "Мне остановить монтаж?",
+          "role": "electrician",
+          "tip_ru": "Should I …?",
+          "practice": true,
+          "transcription": "shud ai stop"
+        },
+        {
+          "en": "Yes. Do not install the wrong ones.",
+          "ru": "Да. Неверные не ставь.",
+          "role": "foreman",
+          "tip_ru": "Do not install …",
+          "practice": false
+        },
+        {
+          "en": "I will stage the correct ones when they arrive.",
+          "ru": "Разложу правильные, когда приедут.",
+          "role": "electrician",
+          "tip_ru": "Stage … when …",
+          "practice": true,
+          "transcription": "steij"
+        },
+        {
+          "en": "Good. Update the delivery note.",
+          "ru": "Хорошо. Обнови накладную.",
+          "role": "foreman",
+          "tip_ru": "Delivery note.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "These brackets are the wrong type.",
+          "ru": "Эти кронштейны не того типа."
+        },
+        {
+          "en": "Should I stop installing?",
+          "ru": "Мне остановить монтаж?"
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "construction",
+      "order": -13
+    },
+    {
+      "id": "onsite-construction-b2-01",
+      "title_ru": "B2 · Координация с другими",
+      "title_en": "B2 · Trade coordination",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Не мешать HVAC при монтаже лотков.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "HVAC is hanging ductwork on our tray route this afternoon.",
+          "ru": "HVAC вешает воздуховоды на нашем маршруте лотков после обеда.",
+          "role": "electrician",
+          "tip_ru": "Ductwork; tray route.",
+          "practice": true,
+          "transcription": "aitch-vee-ay-see"
+        },
+        {
+          "en": "Sequence it — trays first on Grid C, then they can cross.",
+          "ru": "Выстроим порядок: сначала лотки на Grid C, потом они.",
+          "role": "foreman",
+          "tip_ru": "Sequence it.",
+          "practice": false
+        },
+        {
+          "en": "I'll pull two more guys from Bay 5 to finish before 14:00.",
+          "ru": "Возьму ещё двоих с Bay 5, чтобы успеть до 14:00.",
+          "role": "electrician",
+          "tip_ru": "Pull … from …",
+          "practice": true,
+          "transcription": "pull"
+        },
+        {
+          "en": "Flag any clash in the model before you cut.",
+          "ru": "Любой clash в модели — отметь до резки.",
+          "role": "foreman",
+          "tip_ru": "Clash in the model.",
+          "practice": false
+        },
+        {
+          "en": "Clash on C-12 is already marked red.",
+          "ru": "Clash на C-12 уже красным.",
+          "role": "electrician",
+          "tip_ru": "Marked red.",
+          "practice": true,
+          "transcription": "klash"
+        },
+        {
+          "en": "Good. Brief both crews at midday.",
+          "ru": "Хорошо. Обе бригады — брифинг в midday.",
+          "role": "foreman",
+          "tip_ru": "Brief both crews.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "HVAC is hanging ductwork on our tray route this afternoon.",
+          "ru": "HVAC вешает воздуховоды на нашем маршруте лотков после обеда."
+        },
+        {
+          "en": "I'll pull two more guys from Bay 5 to finish before 14:00.",
+          "ru": "Возьму ещё двоих с Bay 5, чтобы успеть до 14:00."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "construction",
+      "order": 20
+    },
+    {
+      "id": "onsite-construction-b2-02",
+      "title_ru": "B2 · Переделка после инспекции",
+      "title_en": "B2 · Rework after inspection",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "B2"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Исправить замечание инспектора.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Inspection failed on edge distance for the anchors.",
+          "ru": "Инспекция завалила крайнее расстояние анкеров.",
+          "role": "electrician",
+          "tip_ru": "Edge distance; anchors.",
+          "practice": true,
+          "transcription": "AN-kerz"
+        },
+        {
+          "en": "How many need relocating?",
+          "ru": "Сколько нужно перенести?",
+          "role": "foreman",
+          "tip_ru": "Relocating?",
+          "practice": false
+        },
+        {
+          "en": "Six on the north wall — I'll mark them before lunch.",
+          "ru": "Шесть на северной стене — отмечу до обеда.",
+          "role": "electrician",
+          "tip_ru": "I'll mark them …",
+          "practice": true,
+          "transcription": "north wal"
+        },
+        {
+          "en": "Do not patch the old holes until engineering signs the fix.",
+          "ru": "Старые отверстия не заделывай, пока инженеры не подпишут.",
+          "role": "foreman",
+          "tip_ru": "Until engineering signs …",
+          "practice": false
+        },
+        {
+          "en": "Understood. I'll quarantine that bay.",
+          "ru": "Понял. Закрою этот пролёт.",
+          "role": "electrician",
+          "tip_ru": "Quarantine that bay.",
+          "practice": true,
+          "transcription": "KWAR-an-teen"
+        },
+        {
+          "en": "Update the ITP with the rework step.",
+          "ru": "Добавь шаг переделки в ITP.",
+          "role": "foreman",
+          "tip_ru": "ITP; rework step.",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Inspection failed on edge distance for the anchors.",
+          "ru": "Инспекция завалила крайнее расстояние анкеров."
+        },
+        {
+          "en": "Understood. I'll quarantine that bay.",
+          "ru": "Понял. Закрою этот пролёт."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "construction",
+      "order": 21
+    },
+    {
+      "id": "onsite-construction-c1-01",
+      "title_ru": "C1 · Сжатие графика",
+      "title_en": "C1 · Programme compression",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Согласовать ускорение без потери качества.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "Client wants two weeks off the tray programme without reducing QA hold points.",
+          "ru": "Клиент хочет срезать две недели с программы лотков без урезания QA hold points.",
+          "role": "electrician",
+          "tip_ru": "Without reducing …",
+          "practice": true,
+          "transcription": "pro-GRAM"
+        },
+        {
+          "en": "Where can we overlap night shift without stacking trades unsafely?",
+          "ru": "Где можно наложить ночную смену без опасного наложения подрядчиков?",
+          "role": "foreman",
+          "tip_ru": "Overlap; stacking trades.",
+          "practice": false
+        },
+        {
+          "en": "Grids E-F are clear of HVAC at night if we pre-stage materials by 18:00.",
+          "ru": "Сетки E-F ночью свободны от HVAC, если материалы подготовим к 18:00.",
+          "role": "electrician",
+          "tip_ru": "Pre-stage materials.",
+          "practice": true,
+          "transcription": "pre-steij"
+        },
+        {
+          "en": "Cost the night premium and fatigue risk before we commit.",
+          "ru": "Посчитай ночную премию и риск усталости до обещания.",
+          "role": "foreman",
+          "tip_ru": "Night premium; fatigue risk.",
+          "practice": false
+        },
+        {
+          "en": "I'll send a resource-loaded option A/B by tomorrow standup.",
+          "ru": "Пришлю ресурсный вариант A/B к завтрашнему standup.",
+          "role": "electrician",
+          "tip_ru": "Resource-loaded; option A/B.",
+          "practice": true,
+          "transcription": "ri-SORS"
+        },
+        {
+          "en": "Copy. No verbal promises to the client until then.",
+          "ru": "Принято. Клиенту без устных обещаний до этого.",
+          "role": "foreman",
+          "tip_ru": "No verbal promises …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Client wants two weeks off the tray programme without reducing QA hold points.",
+          "ru": "Клиент хочет срезать две недели с программы лотков без урезания QA hold points."
+        },
+        {
+          "en": "I'll send a resource-loaded option A/B by tomorrow standup.",
+          "ru": "Пришлю ресурсный вариант A/B к завтрашнему standup."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "construction",
+      "order": 40
+    },
+    {
+      "id": "onsite-construction-c1-02",
+      "title_ru": "C1 · Несоответствие BIM",
+      "title_en": "C1 · BIM clash escalation",
+      "tags": [
+        "onsite",
+        "construction",
+        "dialogue",
+        "C1"
+      ],
+      "cefr": "C1",
+      "scene_ru": "Эскалировать критический clash.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "lines": [
+        {
+          "en": "The coordinated model still shows our 600 tray through a structural haunch.",
+          "ru": "В согласованной модели наш лоток 600 всё ещё идёт через усиление балки.",
+          "role": "electrician",
+          "tip_ru": "Structural haunch.",
+          "practice": true,
+          "transcription": "struk-cher-al haunch"
+        },
+        {
+          "en": "Has structural signed a redesign, or are we expected to dog-leg?",
+          "ru": "Конструктив подписал redesign или от нас ждут обход?",
+          "role": "foreman",
+          "tip_ru": "Dog-leg?",
+          "practice": false
+        },
+        {
+          "en": "No sign-off yet — I'll raise an RFI with photos and the clash ID.",
+          "ru": "Подписи нет — подниму RFI с фото и ID clash.",
+          "role": "electrician",
+          "tip_ru": "Raise an RFI.",
+          "practice": true,
+          "transcription": "RFI"
+        },
+        {
+          "en": "Hold fabrication for that run until the RFI closes.",
+          "ru": "Не запускай изготовление этого участка, пока RFI не закроют.",
+          "role": "foreman",
+          "tip_ru": "Hold fabrication …",
+          "practice": false
+        },
+        {
+          "en": "I'll freeze the shop drawings and notify the fabricator today.",
+          "ru": "Заморожу чертежи цеха и уведомлю изготовителя сегодня.",
+          "role": "electrician",
+          "tip_ru": "Freeze shop drawings.",
+          "practice": true,
+          "transcription": "fab-ri-KAY-ter"
+        },
+        {
+          "en": "Escalate if there is no answer in forty-eight hours.",
+          "ru": "Эскалируй, если за 48 часов тишина.",
+          "role": "foreman",
+          "tip_ru": "Escalate if …",
+          "practice": false
+        }
+      ],
+      "say_today": [
+        {
+          "en": "The coordinated model still shows our 600 tray through a structural haunch.",
+          "ru": "В согласованной модели наш лоток 600 всё ещё идёт через усиление балки."
+        },
+        {
+          "en": "I'll freeze the shop drawings and notify the fabricator today.",
+          "ru": "Заморожу чертежи цеха и уведомлю изготовителя сегодня."
+        }
+      ],
+      "created_by": "pack_section_cefr",
+      "topic_raw": "construction",
+      "order": 41
     }
   ]
 }
