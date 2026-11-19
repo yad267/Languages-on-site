@@ -16,12 +16,38 @@ struct HomeView: View {
         }
     }
 
+    /// Held as @State so @Observable profile changes refresh Home (singleton pitfall).
+    @State private var profileStore = LearnerProfileStore.shared
+
     var body: some View {
         List {
             Section {
                 LearningModePicker(mode: Bindable(settings).learningMode)
             } header: {
                 Text("Уроки")
+            }
+
+            Section {
+                NavigationLink {
+                    WhoAmIView()
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Label(
+                            profileStore.profile.isSet ? "Профиль · под тебя" : "Кто я · подстроить приложение",
+                            systemImage: "person.crop.circle.badge.questionmark"
+                        )
+                        if profileStore.profile.isSet {
+                            Text(profileStore.profile.summaryChipsRU.joined(separator: " · "))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(2)
+                        } else {
+                            Text("Электрик, продавец, фрилансер… — расскажи, подстроим разделы.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
             }
 
             if mode == .onSite {
@@ -47,11 +73,11 @@ struct HomeView: View {
     @ViewBuilder
     private var onsiteSections: some View {
         Section("Разделы · Onsite") {
-            ForEach(SectionLessonStore.sections(track: .onSite)) { sec in
+            ForEach(profileStore.rankedSections(SectionLessonStore.sections(track: .onSite))) { sec in
                 NavigationLink {
                     SectionLessonsListView(track: .onSite, section: sec)
                 } label: {
-                    sectionLabel(sec)
+                    sectionLabel(sec, highlighted: isPreferred(sec.id))
                 }
             }
         }
@@ -68,11 +94,11 @@ struct HomeView: View {
     @ViewBuilder
     private var regularSections: some View {
         Section("Разделы · Regular") {
-            ForEach(SectionLessonStore.sections(track: .regular)) { sec in
+            ForEach(profileStore.rankedSections(SectionLessonStore.sections(track: .regular))) { sec in
                 NavigationLink {
                     SectionLessonsListView(track: .regular, section: sec)
                 } label: {
-                    sectionLabel(sec)
+                    sectionLabel(sec, highlighted: isPreferred(sec.id))
                 }
             }
         }
@@ -112,9 +138,20 @@ struct HomeView: View {
         }
     }
 
-    private func sectionLabel(_ sec: LessonSectionInfo) -> some View {
+    private func isPreferred(_ sectionId: String) -> Bool {
+        profileStore.profile.role.preferredSectionIds.contains(sectionId)
+    }
+
+    private func sectionLabel(_ sec: LessonSectionInfo, highlighted: Bool = false) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(sec.titleRu).font(.headline)
+            HStack(spacing: 6) {
+                Text(sec.titleRu).font(.headline)
+                if highlighted {
+                    Text("для тебя")
+                        .font(.caption2.weight(.bold))
+                        .foregroundStyle(.tint)
+                }
+            }
             Text(sec.titleEn)
                 .font(.caption)
                 .foregroundStyle(.secondary)

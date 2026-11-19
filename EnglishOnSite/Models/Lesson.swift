@@ -225,6 +225,20 @@ struct LessonLine: Codable, Identifiable, Hashable {
     var isPractice: Bool {
         practice == true || role == "electrician"
     }
+
+    /// Explain tip for a locale. Today packs use `tip_ru`; keep that as RU fallback.
+    /// Pitfall for i18n: do not invent empty tips for other locales — caller shows placeholder.
+    func tip(forExplainLocale locale: AppLocaleCode) -> String? {
+        switch locale {
+        case .ru:
+            let t = tipRu?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return t.isEmpty ? nil : t
+        case .en, .uk, .pl:
+            // Future: tips[locale] map in JSON. Until then RU tip is better than silence for bilingual users.
+            let t = tipRu?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return t.isEmpty ? nil : t
+        }
+    }
 }
 
 struct SayTodayPhrase: Codable, Identifiable, Hashable {

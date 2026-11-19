@@ -12,6 +12,25 @@ struct SettingsView: View {
 
         Form {
             Section {
+                NavigationLink {
+                    WhoAmIView()
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Label("Кто я", systemImage: "person.crop.circle")
+                        let chips = LearnerProfileStore.shared.profile.summaryChipsRU
+                        Text(chips.isEmpty ? "Роль, цель, язык подсказок" : chips.joined(separator: " · "))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(2)
+                    }
+                }
+            } header: {
+                Text("Профиль")
+            } footer: {
+                Text("Роль поднимает нужные разделы на Home. tip_ru пока на русском; explain-locale уже в профиле под i18n.")
+            }
+
+            Section {
                 Button {
                     Task { @MainActor in
                         lessonsUpdateNote = "Проверяю…"

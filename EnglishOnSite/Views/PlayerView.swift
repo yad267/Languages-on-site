@@ -972,12 +972,12 @@ struct LessonLineExplainSheet: View {
                             .font(.body.monospaced())
                     }
 
-                    if let tip = line.tipRu, !tip.isEmpty {
+                    if let tip = line.tip(forExplainLocale: LearnerProfileStore.shared.profile.explainLocale) {
                         labeled("Грамматика / зачем так", tip)
                     } else {
                         labeled(
                             "Грамматика / зачем так",
-                            "Короткой подсказки пока нет — слушай фразу и сравни с русским."
+                            "Короткой подсказки пока нет — слушай фразу и сравни с переводом."
                         )
                     }
 

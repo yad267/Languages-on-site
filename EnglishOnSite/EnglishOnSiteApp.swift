@@ -76,6 +76,7 @@ struct EnglishOnSiteApp: App {
                         PairsKnownStore.refreshFromCloud()
                         LessonProgressStore.refreshFromCloud()
                         TutorBankStore.refreshFromCloud()
+                        LearnerProfileStore.shared.refreshFromCloud()
                         TutorBankStore.warmUp()
                         LessonRepository.shared.reload()
                         SectionLessonStore.warmUp()
