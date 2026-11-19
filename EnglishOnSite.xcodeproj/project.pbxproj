@@ -543,12 +543,11 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				5CB4314614334455A6442273 /* Sources */,
 				2235C01A309C4467AA116441 /* Frameworks */,
 				27F87E3FA8154F38A8F3764E /* Resources */,
-				757C7B034CB14B1E8FB40CC4 /* Embed Watch Content */,
+				/* Watch embed detached: watchkitapp profile expired; phone Debug installs must not require Watch. */
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8DBBE0C544F147509528AF94 /* PBXTargetDependency */,
 			);
 			name = EnglishOnSite;
 			packageProductDependencies = (
