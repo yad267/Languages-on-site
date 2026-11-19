@@ -18,6 +18,7 @@ struct HomeView: View {
 
     /// Held as @State so @Observable profile changes refresh Home (singleton pitfall).
     @State private var profileStore = LearnerProfileStore.shared
+    @State private var catalog = UserLessonCatalogStore.shared
 
     var body: some View {
         List {
@@ -25,6 +26,33 @@ struct HomeView: View {
                 LearningModePicker(mode: Bindable(settings).learningMode)
             } header: {
                 Text("Уроки")
+            }
+
+            Section {
+                Button {
+                    showCreateLesson = true
+                } label: {
+                    Label("Тема · голос · фото · текст", systemImage: "plus.circle.fill")
+                }
+                if !catalog.categories.isEmpty {
+                    ForEach(catalog.categories) { cat in
+                        NavigationLink {
+                            UserCategoryLessonsView(category: cat)
+                        } label: {
+                            HStack {
+                                Label(cat.titleRu, systemImage: "folder")
+                                Spacer()
+                                Text("\(catalog.lessons(in: cat.id, from: repository).count)")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.tertiary)
+                            }
+                        }
+                    }
+                }
+            } header: {
+                Text("Мои уроки")
+            } footer: {
+                Text("Папки появляются сами: Документы, Путешествия, Работа…")
             }
 
             Section {
@@ -76,6 +104,10 @@ struct HomeView: View {
         .onAppear {
             // Avoid re-decoding the whole lesson pack on every return to this tab.
             TutorBankStore.setMode(mode == .onSite ? .site : .general)
+            catalog.sync(from: repository.lessons)
+        }
+        .onChange(of: repository.lessons.count) { _, _ in
+            catalog.sync(from: repository.lessons)
         }
         .onChange(of: settings.learningMode) { _, newMode in
             TutorBankStore.setMode(newMode == .onSite ? .site : .general)
@@ -94,13 +126,6 @@ struct HomeView: View {
             }
         }
 
-        Section {
-            Button {
-                showCreateLesson = true
-            } label: {
-                Label("Новый урок · объект (Gemini)", systemImage: "plus.circle.fill")
-            }
-        }
     }
 
     @ViewBuilder

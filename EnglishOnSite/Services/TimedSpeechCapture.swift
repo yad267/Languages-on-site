@@ -99,14 +99,13 @@ final class TimedSpeechCapture {
 
         let preferred = localeId
         let lower = preferred.lowercased()
-        // Apple has no true bilingual locale. For mixed RU+EN tool talk we:
-        // 1) prefer server en-US (better EN slang: tray/jigsaw/bandsaw/containment),
-        // 2) fall back to ru-RU (Russian matrix),
-        // 3) bias both with bilingual contextualStrings + post-lexicon repair.
+        // Apple has no true bilingual locale. Mixed intro → server ASR + Cyrillic lexicon:
+        // prefer ru-RU (Russian matrix, Cyrillic output); EN slang repaired to learner
+        // transliteration (джигсо…), never left in Latin. Hints are Cyrillic-only.
         let fallbacks: [String]
         if lower == "mixed-ru-en" || lower.hasPrefix("mixed") {
             mixedLanguageDictation = true
-            fallbacks = ["en-US", "en-IE", "en-GB", "ru-RU"]
+            fallbacks = ["ru-RU", "en-US", "en-IE", "en-GB"]
         } else if lower.hasPrefix("ru") {
             mixedLanguageDictation = false
             fallbacks = [preferred, "ru-RU"]

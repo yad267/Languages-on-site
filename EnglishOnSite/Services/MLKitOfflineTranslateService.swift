@@ -104,6 +104,14 @@ final class MLKitOfflineTranslateService: ObservableObject {
         #endif
     }
 
+    /// Plain OCR for lesson-from-photo (no translate required).
+    func recognizeOCR(imageJPEG: Data) async throws -> String {
+        let text = try await recognizeText(imageJPEG: imageJPEG)
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { throw MLKitOfflineError.ocrEmpty }
+        return trimmed
+    }
+
     /// Photo: OCR (ML Kit Text Recognition if linked, else Vision) → ML Kit Translate → RU.
     func translatePhoto(
         imageJPEG: Data,

@@ -54,6 +54,7 @@ final class LessonRepository {
         if FileManager.default.fileExists(atPath: url.path) {
             try FileManager.default.removeItem(at: url)
         }
+        UserLessonCatalogStore.shared.removeLesson(id: id)
         reload()
     }
 

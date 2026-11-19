@@ -489,9 +489,14 @@ final class GeminiSiteCoachService {
         )
     }
 
-    /// Create a full site lesson from a free-text topic. Timeout 20s, rate-limit 5s.
-    /// Pass `profile` so introduction + mixed RU/EN tool compounds shape the dialogue.
-    func generateLesson(topic: String, profile: LearnerProfile? = nil) async throws -> Lesson {
+    /// Create a full lesson from free-text topic / pasted text / OCR. Timeout 20s, rate-limit 5s.
+    /// Pass `profile` so introduction shapes the dialogue; `categoryHint` pins the folder.
+    func generateLesson(
+        topic: String,
+        profile: LearnerProfile? = nil,
+        sourceKind: UserLessonSourceKind = .topic,
+        categoryHint: TopicCategoryClassifier.Hit? = nil
+    ) async throws -> Lesson {
         let trimmed = topic.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2 else { throw GeminiLessonError.invalidResponse }
 
@@ -505,6 +510,7 @@ final class GeminiSiteCoachService {
         lastLessonRequestAt = now
 
         let profile = profile ?? LearnerProfileStore.shared.profile
+        let hit = categoryHint ?? TopicCategoryClassifier.classify(trimmed)
         // Re-extract from topic too — user may name fasteners only in the lesson request.
         let topicTools = SiteToolLexicon.extract(from: trimmed)
         let mergedTools = mergeTools(profile.tools, topicTools)
@@ -512,21 +518,29 @@ final class GeminiSiteCoachService {
             for: mergedTools,
             aboutRaw: profile.aboutRaw.isEmpty ? trimmed : profile.aboutRaw
         )
+        let speech = profile.speechTerms.isEmpty
+            ? ""
+            : "Learner speech slang (Cyrillic): \(profile.speechTerms.joined(separator: ", "))"
 
+        let everyday = hit.id != "work-site"
         let user = """
-        Создай урок по теме пользователя (Ireland site).
-        topic: \(trimmed)
+        Создай урок по запросу пользователя.
+        source: \(sourceKind.rawValue)
+        topic_or_text: \(trimmed)
+        folder: \(hit.titleRu) / \(hit.titleEn) (id=\(hit.id))
 
         \(context)
+        \(speech)
 
         Правила под профиль:
-        - Смешанный RU/EN ввод нормален: не теряй уточнения (шляпка, шлиц/крест, под какую отвёртку).
-        - В EN-репликах используй канонические site terms из списка (round-head bolt, Phillips, flat screwdriver…).
-        - В tip_ru можно кратко пояснить RU↔EN для этих деталей крепежа.
-        - Если в профиле есть инструменты — хотя бы 2 реплики и 1 say_today должны их употребить.
-        - your_role подстрой под роль профиля (electrician / installer), не выдумывай офис.
+        - Учитывай introduction профиля во всех репликах (роль, рынок IE, инструменты/сленг).
+        - Английский в репликах — обычный разговорный EN\(everyday ? " (не только стройка)" : " Ireland site").
+        - Смешанный RU/EN ввод нормален; в tip_ru поясняй ключевые EN слова.
+        - Если в профиле есть инструменты/сленг и тема про работу — употреби их в 2+ репликах.
+        - your_role подстрой под профиль (electrician / traveler / applicant…), не выдумывай чужую жизнь.
+        - В tags добавь "\(hit.id)" и при необходимости documents/travel/work.
 
-        Заполни topic_raw исходной темой. id можешь поставить временный — клиент перезапишет.
+        Заполни topic_raw исходным текстом. id временный — клиент перезапишет.
         """
 
         let raw: String
@@ -552,8 +566,15 @@ final class GeminiSiteCoachService {
         }
 
         let id = LessonTopicParser.makeUserLessonId(topic: trimmed)
-        let defaultRole = profile.role == .unknown ? "electrician" : "electrician"
-        var tags = lesson.tags.isEmpty ? ["other"] : lesson.tags
+        let defaultRole: String = {
+            switch profile.role {
+            case .jobseeker: return "applicant"
+            case .freelancer, .ecommerce, .office: return "learner"
+            default: return "electrician"
+            }
+        }()
+        var tags = lesson.tags.isEmpty ? [hit.id] : lesson.tags
+        if !tags.contains(hit.id) { tags.append(hit.id) }
         if !mergedTools.isEmpty, !tags.contains("tools") { tags.append("tools") }
         lesson = Lesson(
             id: id,
@@ -561,11 +582,14 @@ final class GeminiSiteCoachService {
             tags: tags,
             sceneRu: lesson.sceneRu,
             yourRole: lesson.yourRole.isEmpty ? defaultRole : lesson.yourRole,
-            partnerRole: lesson.partnerRole.isEmpty ? "foreman" : lesson.partnerRole,
+            partnerRole: lesson.partnerRole.isEmpty ? (everyday ? "partner" : "foreman") : lesson.partnerRole,
             lines: lesson.lines,
             sayToday: lesson.sayToday,
             createdBy: "user_gemini",
-            topicRaw: trimmed
+            topicRaw: trimmed,
+            categoryId: hit.id,
+            categoryTitleRu: hit.titleRu,
+            sourceKind: sourceKind.rawValue
         )
 
         guard let ok = lesson.validated() else {

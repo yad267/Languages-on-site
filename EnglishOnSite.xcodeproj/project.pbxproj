@@ -11,6 +11,8 @@
 		L0LEARNSTOREBUILD01 /* LearnerProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */; };
 		L0SITETOOLLEXBUILD01 /* SiteToolLexicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */; };
 		L0SPEECHLEXBUILD01 /* LearnerSpeechLexicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */; };
+		L0USERCATBUILD01 /* UserLessonCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0USERCATFILE01 /* UserLessonCategory.swift */; };
+		L0USERCATSTOREBLD01 /* UserLessonCatalogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0USERCATSTOREFL01 /* UserLessonCatalogStore.swift */; };
 		L0WHOAMIVIEWBUILD01 /* WhoAmIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0WHOAMIVIEWFILE01 /* WhoAmIView.swift */; };
 		C6PHRLADBUILD00007 /* TutorPhrasalLadderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */; };
 		A08A2CEA358140AD8A75D8D2 /* CloudUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0365C7EE4468A81DC0F1 /* CloudUserModels.swift */; };
@@ -159,6 +161,8 @@
 		L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerProfileStore.swift; sourceTree = "<group>"; };
 		L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteToolLexicon.swift; sourceTree = "<group>"; };
 		L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerSpeechLexicon.swift; sourceTree = "<group>"; };
+		L0USERCATFILE01 /* UserLessonCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonCategory.swift; sourceTree = "<group>"; };
+		L0USERCATSTOREFL01 /* UserLessonCatalogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonCatalogStore.swift; sourceTree = "<group>"; };
 		L0WHOAMIVIEWFILE01 /* WhoAmIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAmIView.swift; sourceTree = "<group>"; };
 		L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_onsite_sections_v1.json; sourceTree = "<group>"; };
 		L9REGJSONFILE01 /* lessons_regular_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_regular_sections_v1.json; sourceTree = "<group>"; };
@@ -429,6 +433,7 @@ G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
 				L0LEARNPROFFILE01 /* LearnerProfile.swift */,
 				L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */,
 				L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */,
+				L0USERCATFILE01 /* UserLessonCategory.swift */,
 				7AAD728D7C804353A29AA17B /* AppSettings.swift */,
 				L7APPLMODEFILE01 /* AppLearningMode.swift */,
 				L0CEFRLEVELFILE01 /* CEFRLevel.swift */,
@@ -479,6 +484,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */,
 				B87CA81A0304492D8FAF1BF4 /* PhoneSpeechTranscriber.swift */,
 				0DE02CC959974126809F9B36 /* LessonRepository.swift */,
+				L0USERCATSTOREFL01 /* UserLessonCatalogStore.swift */,
 				A95ADC5C6EEB4AB4B1010D62 /* AudioSessionManager.swift */,
 				F102A2B3C4D5E6F708090A1B /* DocumentTextExtractor.swift */,
 				F22BBF05FAD14B29A6C5EDA0 /* GeminiSiteCoachService.swift */,
@@ -765,6 +771,8 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				L0LEARNSTOREBUILD01 /* LearnerProfileStore.swift in Sources */,
 				L0SITETOOLLEXBUILD01 /* SiteToolLexicon.swift in Sources */,
 				L0SPEECHLEXBUILD01 /* LearnerSpeechLexicon.swift in Sources */,
+				L0USERCATBUILD01 /* UserLessonCategory.swift in Sources */,
+				L0USERCATSTOREBLD01 /* UserLessonCatalogStore.swift in Sources */,
 				L0CEFRLEVELBUILD01 /* CEFRLevel.swift in Sources */,
 				T9TRNSRCLANGBLD001 /* TranslatorSourceLanguage.swift in Sources */,
 				L7APPLMODEBUILD01 /* AppLearningMode.swift in Sources */,

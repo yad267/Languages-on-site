@@ -295,7 +295,13 @@ extension LearnerProfile {
 
         let cleaned = LearnerSpeechLexicon.correctASR(raw, profileTerms: base.speechTerms)
         let tools = SiteToolLexicon.extract(from: cleaned)
-        let speech = LearnerSpeechLexicon.extractSpokenTerms(from: cleaned, extras: base.speechTerms)
+        // Merge: keep prior speechTerms + newly heard Cyrillic slang (never Latin).
+        var speech = LearnerSpeechLexicon.extractSpokenTerms(from: cleaned, extras: base.speechTerms)
+        var seenSpeech = Set(speech.map { $0.lowercased() })
+        for old in base.speechTerms {
+            let form = LearnerSpeechLexicon.cyrillicForm(old)
+            if seenSpeech.insert(form.lowercased()).inserted { speech.append(form) }
+        }
 
         // Prefer tools section when learner talks fasteners/tools heavily.
         if !tools.isEmpty || !speech.isEmpty, role == .electricianSiteIE || role == .siteGeneral || role == .unknown {
