@@ -76,6 +76,9 @@ struct EnglishOnSiteApp: App {
                         PairsKnownStore.refreshFromCloud()
                         LessonProgressStore.refreshFromCloud()
                         TutorBankStore.refreshFromCloud()
+                        LearnerProfileStore.shared.refreshFromCloud()
+                        // n8n = source of truth for personal speech lexicon; Documents is cache.
+                        await SpeechLexiconStore.shared.pullFromN8N()
                         TutorBankStore.warmUp()
                         LessonRepository.shared.reload()
                         SectionLessonStore.warmUp()

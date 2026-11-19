@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		L0LEARNPROFBUILD01 /* LearnerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0LEARNPROFFILE01 /* LearnerProfile.swift */; };
+		L0LEARNSTOREBUILD01 /* LearnerProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */; };
+		L0SITETOOLLEXBUILD01 /* SiteToolLexicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */; };
+		L0SPEECHLEXBUILD01 /* LearnerSpeechLexicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */; };
+		L0USERCATBUILD01 /* UserLessonCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0USERCATFILE01 /* UserLessonCategory.swift */; };
+		L0USERCATSTOREBLD01 /* UserLessonCatalogStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0USERCATSTOREFL01 /* UserLessonCatalogStore.swift */; };
+		L0SPEECHENTRYBLD01 /* LearnerSpeechTermEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SPEECHENTRYFIL01 /* LearnerSpeechTermEntry.swift */; };
+		L0SPEECHSTOREBLD01 /* SpeechLexiconStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SPEECHSTOREFIL01 /* SpeechLexiconStore.swift */; };
+		L0LEXTOASTBLD00001 /* LexiconToastBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0LEXTOASTFIL00001 /* LexiconToastBanner.swift */; };
+		L0WHOAMIVIEWBUILD01 /* WhoAmIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0WHOAMIVIEWFILE01 /* WhoAmIView.swift */; };
 		C6PHRLADBUILD00007 /* TutorPhrasalLadderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */; };
 		A08A2CEA358140AD8A75D8D2 /* CloudUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0365C7EE4468A81DC0F1 /* CloudUserModels.swift */; };
 		FC73912EE5BE40ADB10500FD /* CloudUserDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1D68560B184FC1919F9C59 /* CloudUserDataStore.swift */; };
@@ -150,6 +160,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		L0LEARNPROFFILE01 /* LearnerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerProfile.swift; sourceTree = "<group>"; };
+		L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerProfileStore.swift; sourceTree = "<group>"; };
+		L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteToolLexicon.swift; sourceTree = "<group>"; };
+		L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerSpeechLexicon.swift; sourceTree = "<group>"; };
+		L0USERCATFILE01 /* UserLessonCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonCategory.swift; sourceTree = "<group>"; };
+		L0USERCATSTOREFL01 /* UserLessonCatalogStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLessonCatalogStore.swift; sourceTree = "<group>"; };
+		L0SPEECHENTRYFIL01 /* LearnerSpeechTermEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerSpeechTermEntry.swift; sourceTree = "<group>"; };
+		L0SPEECHSTOREFIL01 /* SpeechLexiconStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechLexiconStore.swift; sourceTree = "<group>"; };
+		L0LEXTOASTFIL00001 /* LexiconToastBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexiconToastBanner.swift; sourceTree = "<group>"; };
+		L0WHOAMIVIEWFILE01 /* WhoAmIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAmIView.swift; sourceTree = "<group>"; };
 		L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_onsite_sections_v1.json; sourceTree = "<group>"; };
 		L9REGJSONFILE01 /* lessons_regular_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_regular_sections_v1.json; sourceTree = "<group>"; };
 		L9SECSTOREFILE01 /* SectionLessonStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionLessonStore.swift; sourceTree = "<group>"; };
@@ -365,6 +385,8 @@
 				C7869819CC03411B90C4AC3C /* CoachSourceBadge.swift */,
 				49A2E51669E745EA81AA403D /* ContentView.swift */,
 				30BF5B1CD4A547C289A5DC8F /* HomeView.swift */,
+				L0WHOAMIVIEWFILE01 /* WhoAmIView.swift */,
+				L0LEXTOASTFIL00001 /* LexiconToastBanner.swift */,
 				F106A2B3C4D5E6F708090A1B /* ImportRoleplayView.swift */,
 				32DFBDCFC9604D4DB3AA7ED9 /* LibraryView.swift */,
 				46DC29239AB646BC87EEA74C /* PlayerView.swift */,
@@ -415,6 +437,11 @@ G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
 			children = (
 				L7APPLMODEFILE01 /* AppLearningMode.swift */,
 				L0CEFRLEVELFILE01 /* CEFRLevel.swift */,
+				L0LEARNPROFFILE01 /* LearnerProfile.swift */,
+				L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */,
+				L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */,
+				L0USERCATFILE01 /* UserLessonCategory.swift */,
+				L0SPEECHENTRYFIL01 /* LearnerSpeechTermEntry.swift */,
 				7AAD728D7C804353A29AA17B /* AppSettings.swift */,
 				L7APPLMODEFILE01 /* AppLearningMode.swift */,
 				L0CEFRLEVELFILE01 /* CEFRLevel.swift */,
@@ -462,8 +489,11 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				F301A2B3C4D5E6F708090B11 /* LessonPack.swift */,
 				F301A2B3C4D5E6F708090B21 /* LessonStore.swift */,
 				L9SECSTOREFILE01 /* SectionLessonStore.swift */,
+				L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */,
 				B87CA81A0304492D8FAF1BF4 /* PhoneSpeechTranscriber.swift */,
 				0DE02CC959974126809F9B36 /* LessonRepository.swift */,
+				L0USERCATSTOREFL01 /* UserLessonCatalogStore.swift */,
+				L0SPEECHSTOREFIL01 /* SpeechLexiconStore.swift */,
 				A95ADC5C6EEB4AB4B1010D62 /* AudioSessionManager.swift */,
 				F102A2B3C4D5E6F708090A1B /* DocumentTextExtractor.swift */,
 				F22BBF05FAD14B29A6C5EDA0 /* GeminiSiteCoachService.swift */,
@@ -531,12 +561,11 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				5CB4314614334455A6442273 /* Sources */,
 				2235C01A309C4467AA116441 /* Frameworks */,
 				27F87E3FA8154F38A8F3764E /* Resources */,
-				757C7B034CB14B1E8FB40CC4 /* Embed Watch Content */,
+				/* Watch embed detached: watchkitapp profile expired; phone Debug installs must not require Watch. */
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8DBBE0C544F147509528AF94 /* PBXTargetDependency */,
 			);
 			name = EnglishOnSite;
 			packageProductDependencies = (
@@ -746,6 +775,16 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				D42222C881D1490AAB3D7F7C /* CoachSourceBadge.swift in Sources */,
 				E2690924126F4C8F93CA8088 /* ContentView.swift in Sources */,
 				870B22D0153543F296A98D55 /* HomeView.swift in Sources */,
+				L0WHOAMIVIEWBUILD01 /* WhoAmIView.swift in Sources */,
+				L0LEARNPROFBUILD01 /* LearnerProfile.swift in Sources */,
+				L0LEARNSTOREBUILD01 /* LearnerProfileStore.swift in Sources */,
+				L0SITETOOLLEXBUILD01 /* SiteToolLexicon.swift in Sources */,
+				L0SPEECHLEXBUILD01 /* LearnerSpeechLexicon.swift in Sources */,
+				L0USERCATBUILD01 /* UserLessonCategory.swift in Sources */,
+				L0USERCATSTOREBLD01 /* UserLessonCatalogStore.swift in Sources */,
+				L0SPEECHENTRYBLD01 /* LearnerSpeechTermEntry.swift in Sources */,
+				L0SPEECHSTOREBLD01 /* SpeechLexiconStore.swift in Sources */,
+				L0LEXTOASTBLD00001 /* LexiconToastBanner.swift in Sources */,
 				L0CEFRLEVELBUILD01 /* CEFRLevel.swift in Sources */,
 				T9TRNSRCLANGBLD001 /* TranslatorSourceLanguage.swift in Sources */,
 				L7APPLMODEBUILD01 /* AppLearningMode.swift in Sources */,
@@ -842,7 +881,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EnglishOnSite/EnglishOnSite.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;
@@ -876,7 +915,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = EnglishOnSite/EnglishOnSite.Debug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 31;
+				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = T62YGZ9Y59;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = NO;

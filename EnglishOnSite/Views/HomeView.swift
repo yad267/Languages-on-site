@@ -16,12 +16,78 @@ struct HomeView: View {
         }
     }
 
+    /// Held as @State so @Observable profile changes refresh Home (singleton pitfall).
+    @State private var profileStore = LearnerProfileStore.shared
+    @State private var catalog = UserLessonCatalogStore.shared
+
     var body: some View {
         List {
             Section {
                 LearningModePicker(mode: Bindable(settings).learningMode)
             } header: {
                 Text("Уроки")
+            }
+
+            Section {
+                Button {
+                    showCreateLesson = true
+                } label: {
+                    Label("Тема · голос · фото · текст", systemImage: "plus.circle.fill")
+                }
+                if !catalog.categories.isEmpty {
+                    ForEach(catalog.categories) { cat in
+                        NavigationLink {
+                            UserCategoryLessonsView(category: cat)
+                        } label: {
+                            HStack {
+                                Label(cat.titleRu, systemImage: "folder")
+                                Spacer()
+                                Text("\(catalog.lessons(in: cat.id, from: repository).count)")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.tertiary)
+                            }
+                        }
+                    }
+                }
+            } header: {
+                Text("Мои уроки")
+            } footer: {
+                Text("Папки появляются сами: Документы, Путешествия, Работа…")
+            }
+
+            Section {
+                NavigationLink {
+                    WhoAmIView { lesson in
+                        path.append(lesson)
+                    }
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Label(
+                            profileStore.profile.isSet ? "Профиль · под тебя" : "Кто я · скажи о себе",
+                            systemImage: profileStore.profile.isSet
+                                ? "person.crop.circle.badge.checkmark"
+                                : "person.crop.circle.badge.questionmark"
+                        )
+                        if profileStore.profile.isSet {
+                            Text(profileStore.profile.summaryChipsRU.joined(separator: " · "))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(2)
+                        } else {
+                            Text("Голосом или текстом — подстроим разделы и откроем первый урок.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+
+                if profileStore.profile.isSet, let lesson = profileStore.firstRecommendedLesson() {
+                    Button {
+                        path.append(lesson)
+                    } label: {
+                        Label("К уроку для тебя", systemImage: "play.circle.fill")
+                    }
+                }
             }
 
             if mode == .onSite {
@@ -38,6 +104,10 @@ struct HomeView: View {
         .onAppear {
             // Avoid re-decoding the whole lesson pack on every return to this tab.
             TutorBankStore.setMode(mode == .onSite ? .site : .general)
+            catalog.sync(from: repository.lessons)
+        }
+        .onChange(of: repository.lessons.count) { _, _ in
+            catalog.sync(from: repository.lessons)
         }
         .onChange(of: settings.learningMode) { _, newMode in
             TutorBankStore.setMode(newMode == .onSite ? .site : .general)
@@ -47,32 +117,25 @@ struct HomeView: View {
     @ViewBuilder
     private var onsiteSections: some View {
         Section("Разделы · Onsite") {
-            ForEach(SectionLessonStore.sections(track: .onSite)) { sec in
+            ForEach(profileStore.rankedSections(SectionLessonStore.sections(track: .onSite))) { sec in
                 NavigationLink {
                     SectionLessonsListView(track: .onSite, section: sec)
                 } label: {
-                    sectionLabel(sec)
+                    sectionLabel(sec, highlighted: isPreferred(sec.id))
                 }
             }
         }
 
-        Section {
-            Button {
-                showCreateLesson = true
-            } label: {
-                Label("Новый урок · объект (Gemini)", systemImage: "plus.circle.fill")
-            }
-        }
     }
 
     @ViewBuilder
     private var regularSections: some View {
         Section("Разделы · Regular") {
-            ForEach(SectionLessonStore.sections(track: .regular)) { sec in
+            ForEach(profileStore.rankedSections(SectionLessonStore.sections(track: .regular))) { sec in
                 NavigationLink {
                     SectionLessonsListView(track: .regular, section: sec)
                 } label: {
-                    sectionLabel(sec)
+                    sectionLabel(sec, highlighted: isPreferred(sec.id))
                 }
             }
         }
@@ -112,9 +175,20 @@ struct HomeView: View {
         }
     }
 
-    private func sectionLabel(_ sec: LessonSectionInfo) -> some View {
+    private func isPreferred(_ sectionId: String) -> Bool {
+        profileStore.profile.role.preferredSectionIds.contains(sectionId)
+    }
+
+    private func sectionLabel(_ sec: LessonSectionInfo, highlighted: Bool = false) -> some View {
         VStack(alignment: .leading, spacing: 4) {
-            Text(sec.titleRu).font(.headline)
+            HStack(spacing: 6) {
+                Text(sec.titleRu).font(.headline)
+                if highlighted {
+                    Text("для тебя")
+                        .font(.caption2.weight(.bold))
+                        .foregroundStyle(.tint)
+                }
+            }
             Text(sec.titleEn)
                 .font(.caption)
                 .foregroundStyle(.secondary)
@@ -129,7 +203,7 @@ struct HomeView: View {
 struct SectionLessonsListView: View {
     let track: AppLearningMode
     let section: LessonSectionInfo
-    @State private var band: CEFRLevel.Band = .all
+    @State private var band: CEFRLevel.Band = LearnerProfileStore.shared.preferredBand
 
     private var allLessons: [Lesson] {
         SectionLessonStore.lessons(sectionId: section.id, track: track)
@@ -159,9 +233,16 @@ struct SectionLessonsListView: View {
             }
             Section("Уроки · \(lessons.count)") {
                 if lessons.isEmpty {
-                    Text("Пока нет уроков для \(band.titleRU). Выбери «Все» или другой уровень.")
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("В \(band.titleRU) пока пусто.")
+                            .font(.subheadline.weight(.semibold))
+                        Text("Открой «Все» — там \(allLessons.count) уроков этого раздела.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Button("Показать все уровни") { band = .all }
+                            .buttonStyle(.bordered)
+                    }
+                    .padding(.vertical, 4)
                 }
                 ForEach(lessons) { lesson in
                     // Destination link (not value:/path): section was pushed with

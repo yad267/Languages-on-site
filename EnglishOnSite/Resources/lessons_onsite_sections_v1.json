@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "track": "onsite",
   "sections": [
     {
@@ -120,6 +120,12 @@
         "onsite-electrical-a2-01",
         "onsite-electrical-a2-02",
         "onsite-electrical-a2-03",
+        "onsite-electrical-metal-03",
+        "onsite-electrical-metal-01",
+        "onsite-electrical-metal-02",
+        "onsite-electrical-cable-01",
+        "onsite-electrical-cable-02",
+        "onsite-electrical-cable-03",
         "onsite-electrical-01",
         "onsite-electrical-02",
         "onsite-electrical-03",
@@ -137,7 +143,7 @@
         "onsite-electrical-c1-01",
         "onsite-electrical-c1-02"
       ],
-      "lesson_count": 25
+      "lesson_count": 31
     },
     {
       "id": "tools",
@@ -10169,6 +10175,499 @@
       "created_by": "pack_section_cefr",
       "topic_raw": "construction",
       "order": 41
+    },
+    {
+      "id": "onsite-electrical-metal-01",
+      "title_ru": "Металл · лотки и крепёж",
+      "title_en": "Metal · trays and fixings",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "B1",
+        "metal",
+        "containment"
+      ],
+      "cefr": "B1",
+      "scene_ru": "IE площадка: вешаем кабельный лоток и крепим к металлу.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "created_by": "pack_ie_electrician_metal_cable",
+      "topic_raw": "electrical",
+      "order": 40,
+      "lines": [
+        {
+          "en": "Have we got enough cable tray for this run?",
+          "ru": "Хватает лотка на этот участок?",
+          "role": "electrician",
+          "tip_ru": "Have we got = «есть ли у нас». Cable tray = кабельный лоток (containment).",
+          "practice": true,
+          "transcription": "hav we got i-NUF KAY-bel trey for this ran"
+        },
+        {
+          "en": "Check the drawings — 150 mil tray to the plant room.",
+          "ru": "Смотри чертежи — лоток 150 мм до машинного.",
+          "role": "foreman",
+          "tip_ru": "Mil = мм на площадке IE/UK. Plant room = машинное / техотдел.",
+          "practice": false,
+          "transcription": "chek the DRAW-ingz — wun FIF-tee mil trey to the plant room"
+        },
+        {
+          "en": "I'll fix it to the steel with drop rods and channel.",
+          "ru": "Закреплю к металлу на шпильках и профиле.",
+          "role": "electrician",
+          "tip_ru": "Fix to = крепить к. Drop rods = шпильки. Channel = монтажный профиль (Unistrut).",
+          "practice": true,
+          "transcription": "ile fiks it to the steel with drop rodz and CHAN-el"
+        },
+        {
+          "en": "Use fire-rated anchors where it hits the slab.",
+          "ru": "Где в плиту — только огнестойкий крепёж.",
+          "role": "foreman",
+          "tip_ru": "Fire-rated = огнестойкий. Slab = плита перекрытия. Where it hits = где попадает в.",
+          "practice": false,
+          "transcription": "yooz FIRE-ray-tid AN-kerz weir it hits the slab"
+        },
+        {
+          "en": "Can you pass me the impact driver and a 10 mil bit?",
+          "ru": "Дай шуруповёрт и биту 10 мм?",
+          "role": "electrician",
+          "tip_ru": "Pass me = «передай». Impact driver = ударный шуруповёрт. Bit = бита/сверло.",
+          "practice": true,
+          "transcription": "kan yu pas mee the IM-pakt DRY-ver and a ten mil bit"
+        },
+        {
+          "en": "Mind the existing services — don't drill into the pipe.",
+          "ru": "Смотри существующие коммуникации — не сверли трубу.",
+          "role": "foreman",
+          "tip_ru": "Mind = «учти / осторожно». Existing services = уже проложенные сети.",
+          "practice": false,
+          "transcription": "mynd the eg-ZIS-ting SER-vi-siz — dont dril IN-tu the paip"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Have we got enough cable tray for this run?",
+          "ru": "Хватает лотка на участок?"
+        },
+        {
+          "en": "I'll fix it to the steel with drop rods.",
+          "ru": "Закреплю к металлу на шпильках."
+        }
+      ]
+    },
+    {
+      "id": "onsite-electrical-metal-02",
+      "title_ru": "Металл · резка и отверстия",
+      "title_en": "Metal · cutting and holes",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "B1",
+        "metal"
+      ],
+      "cefr": "B1",
+      "scene_ru": "Режем лоток и сверлим металл под вводы.",
+      "your_role": "electrician",
+      "partner_role": "mate",
+      "created_by": "pack_ie_electrician_metal_cable",
+      "topic_raw": "electrical",
+      "order": 41,
+      "lines": [
+        {
+          "en": "Mark the cut — we need a 90-degree bend here.",
+          "ru": "Разметь рез — тут нужен изгиб на 90.",
+          "role": "electrician",
+          "tip_ru": "Mark the cut = разметить место реза. Bend = изгиб лотка/короба.",
+          "practice": true,
+          "transcription": "mark the kat — we need a NINE-tee di-GREE bend heer"
+        },
+        {
+          "en": "I'll cut it with the angle grinder — stand clear.",
+          "ru": "Режу болгаркой — отойди.",
+          "role": "mate",
+          "tip_ru": "Angle grinder = УШМ/болгарка. Stand clear = отойди / не стой рядом.",
+          "practice": false,
+          "transcription": "ile kat it with the ANG-el GRYN-der — stand kleer"
+        },
+        {
+          "en": "Deburr the edges so the cable doesn't get scored.",
+          "ru": "Сними заусенцы, чтобы кабель не порезать.",
+          "role": "electrician",
+          "tip_ru": "Deburr = снять заусенцы. Scored = поцарапан/надрезан (изоляция).",
+          "practice": true,
+          "transcription": "dee-BER the EJ-iz so the KAY-bel DAZ-ent get skord"
+        },
+        {
+          "en": "Hole saw for the gland — 32 mil, yeah?",
+          "ru": "Коронка под сальник — 32 мм, да?",
+          "role": "mate",
+          "tip_ru": "Hole saw = коронка. Gland = кабельный ввод/сальник.",
+          "practice": false,
+          "transcription": "hol saw for the gland — THUR-tee too mil, yeh"
+        },
+        {
+          "en": "Yes. Put a grommet in before we pull anything.",
+          "ru": "Да. Поставь втулку до протяжки.",
+          "role": "electrician",
+          "tip_ru": "Grommet = резиновая/пластиковая втулка в отверстии. Pull = тянуть кабель.",
+          "practice": true,
+          "transcription": "yes. put a GROM-it in bi-FOR we pul EN-ee-thing"
+        },
+        {
+          "en": "Sparks are flying — keep the extinguisher handy.",
+          "ru": "Искры летят — огнетушитель рядом.",
+          "role": "mate",
+          "tip_ru": "Keep … handy = держи под рукой. Extinguisher = огнетушитель.",
+          "practice": false,
+          "transcription": "sparks are FLY-ing — keep the ik-STING-gwi-sher HAN-dee"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Deburr the edges so the cable doesn't get scored.",
+          "ru": "Сними заусенцы — не порезать кабель."
+        },
+        {
+          "en": "Hole saw for the gland — 32 mil.",
+          "ru": "Коронка под сальник — 32 мм."
+        }
+      ]
+    },
+    {
+      "id": "onsite-electrical-cable-01",
+      "title_ru": "Кабель · протяжка и радиус",
+      "title_en": "Cable · pulling and bend radius",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "B1",
+        "cable"
+      ],
+      "cefr": "B1",
+      "scene_ru": "Тянем кабель по лотку без повреждений.",
+      "your_role": "electrician",
+      "partner_role": "mate",
+      "created_by": "pack_ie_electrician_metal_cable",
+      "topic_raw": "electrical",
+      "order": 42,
+      "lines": [
+        {
+          "en": "We'll pull three singles first, then the earth.",
+          "ru": "Сначала три фазы, потом землю.",
+          "role": "electrician",
+          "tip_ru": "Singles = одножильные. Earth = PE / защитная земля (IE/UK).",
+          "practice": true,
+          "transcription": "weel pul three SING-lz first, then the erth"
+        },
+        {
+          "en": "Don't kink it — keep the bend radius.",
+          "ru": "Не перегибай — держи радиус изгиба.",
+          "role": "mate",
+          "tip_ru": "Kink = заломить. Bend radius = минимальный радиус изгиба кабеля.",
+          "practice": false,
+          "transcription": "dont kink it — keep the bend RAY-dee-us"
+        },
+        {
+          "en": "Can you feed from that end while I pull?",
+          "ru": "Подавай с того конца, я тяну?",
+          "role": "electrician",
+          "tip_ru": "Feed = подавать кабель. While I pull = пока я тяну.",
+          "practice": true,
+          "transcription": "kan yu feed from that end wile I pul"
+        },
+        {
+          "en": "It's catching on the joint — ease off a second.",
+          "ru": "Зацепило на стыке — чуть отпусти.",
+          "role": "mate",
+          "tip_ru": "Catching on = зацепилось. Ease off = ослабить / чуть отпустить.",
+          "practice": false,
+          "transcription": "its KACH-ing on the joint — eez off a SEK-end"
+        },
+        {
+          "en": "Lubricant on the long pull through the trunking.",
+          "ru": "На длинной протяжке через короб — смазка.",
+          "role": "electrician",
+          "tip_ru": "Trunking = кабель-канал/короб. Long pull = длинная протяжка.",
+          "practice": true,
+          "transcription": "LOO-bri-kant on the long pul through the TRUNK-ing"
+        },
+        {
+          "en": "Leave a loop at the board for terminations.",
+          "ru": "Оставь петлю у щита под разделку.",
+          "role": "mate",
+          "tip_ru": "Leave a loop = оставь запас/петлю. Terminations = разделка/оконцевание.",
+          "practice": false,
+          "transcription": "leev a loop at the bord for ter-mi-NAY-shunz"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Don't kink it — keep the bend radius.",
+          "ru": "Не перегибай — держи радиус."
+        },
+        {
+          "en": "Can you feed from that end while I pull?",
+          "ru": "Подавай с того конца, я тяну?"
+        }
+      ]
+    },
+    {
+      "id": "onsite-electrical-cable-02",
+      "title_ru": "Кабель · тип и маркировка",
+      "title_en": "Cable · type and labelling",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "B1",
+        "cable"
+      ],
+      "cefr": "B1",
+      "scene_ru": "Подбираем сечение и маркируем трассу.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "created_by": "pack_ie_electrician_metal_cable",
+      "topic_raw": "electrical",
+      "order": 43,
+      "lines": [
+        {
+          "en": "Is this 4 mil singles or SWA for outside?",
+          "ru": "Это 4 мм одножильные или SWA на улицу?",
+          "role": "electrician",
+          "tip_ru": "SWA = steel wire armour (бронированный). Outside = наружка/улица.",
+          "practice": true,
+          "transcription": "iz this for mil SING-lz or ess-double-yu-ay for OUT-side"
+        },
+        {
+          "en": "SWA to the external board. Indoors — singles in tray.",
+          "ru": "На внешний щит — SWA. Внутри — singles в лотке.",
+          "role": "foreman",
+          "tip_ru": "External board = наружный щит. Indoors = внутри здания.",
+          "practice": false,
+          "transcription": "ess-double-yu-ay to the ek-STER-nal bord. IN-dorz — SING-lz in trey"
+        },
+        {
+          "en": "What's the circuit reference on the drawing?",
+          "ru": "Какой номер цепи на чертеже?",
+          "role": "electrician",
+          "tip_ru": "Circuit reference = обозначение цепи (DB/L/…). Drawing = чертёж.",
+          "practice": true,
+          "transcription": "wots the SER-kit REF-rens on the DRAW-ing"
+        },
+        {
+          "en": "DB2-L14. Label both ends before you terminate.",
+          "ru": "DB2-L14. Бирки с обоих концов до разделки.",
+          "role": "foreman",
+          "tip_ru": "Label both ends = маркировка двух концов. Terminate = оконцевать.",
+          "practice": false,
+          "transcription": "dee-bee-too el-for-TEEN. LAY-bel both endz bi-FOR yu TER-mi-nayt"
+        },
+        {
+          "en": "I'll sleeve the cores brown, black, grey and green-yellow.",
+          "ru": "Одену кембрики: коричн., чёрн., сер. и жёлто-зел.",
+          "role": "electrician",
+          "tip_ru": "Sleeve = кембрик/термоусадка. IE/UK фазы: brown/black/grey; earth green-yellow.",
+          "practice": true,
+          "transcription": "ile sleev the korz brown, blak, gray and green YEL-oh"
+        },
+        {
+          "en": "Good. Megger it before you energise.",
+          "ru": "Ок. Прозвон/мегаомметр до подачи.",
+          "role": "foreman",
+          "tip_ru": "Megger = проверить изоляцию мегаомметром. Energise = подать напряжение.",
+          "practice": false,
+          "transcription": "gud. MEG-er it bi-FOR yu EN-er-jize"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Is this 4 mil singles or SWA for outside?",
+          "ru": "4 мм singles или SWA на улицу?"
+        },
+        {
+          "en": "Label both ends before you terminate.",
+          "ru": "Бирки с обоих концов до разделки."
+        }
+      ]
+    },
+    {
+      "id": "onsite-electrical-metal-03",
+      "title_ru": "Металл · короб и стыки",
+      "title_en": "Metal · trunking and joints",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "A2",
+        "metal",
+        "containment"
+      ],
+      "cefr": "A2",
+      "scene_ru": "Простые фразы: короб, крышка, стык.",
+      "your_role": "electrician",
+      "partner_role": "mate",
+      "created_by": "pack_ie_electrician_metal_cable",
+      "topic_raw": "electrical",
+      "order": 39,
+      "lines": [
+        {
+          "en": "Pass me the trunking lid.",
+          "ru": "Дай крышку короба.",
+          "role": "electrician",
+          "tip_ru": "Trunking lid = крышка кабель-канала. Pass me = передай.",
+          "practice": true,
+          "transcription": "pas mee the TRUNK-ing lid"
+        },
+        {
+          "en": "Here. Need more screws?",
+          "ru": "На. Ещё саморезы надо?",
+          "role": "mate",
+          "tip_ru": "Here = «на / держи». Screws = саморезы/винты.",
+          "practice": false,
+          "transcription": "heer. need mor skrooz"
+        },
+        {
+          "en": "Yes — two for this joint.",
+          "ru": "Да — два на этот стык.",
+          "role": "electrician",
+          "tip_ru": "Joint = стык секций. Two for = два на.",
+          "practice": true,
+          "transcription": "yes — too for this joint"
+        },
+        {
+          "en": "Is the run level?",
+          "ru": "Трасса ровная?",
+          "role": "mate",
+          "tip_ru": "Run = участок трассы. Level = по уровню / ровно.",
+          "practice": false,
+          "transcription": "iz the ran LEV-el"
+        },
+        {
+          "en": "Almost. Lift that end a bit.",
+          "ru": "Почти. Подними тот конец чуть.",
+          "role": "electrician",
+          "tip_ru": "Lift … a bit = подними немного. That end = тот конец.",
+          "practice": true,
+          "transcription": "AWL-most. lift that end a bit"
+        },
+        {
+          "en": "OK. Tighten it now.",
+          "ru": "Ок. Теперь затяни.",
+          "role": "mate",
+          "tip_ru": "Tighten = затянуть крепёж. Now = сейчас.",
+          "practice": false,
+          "transcription": "oh-kay. TYE-ten it now"
+        },
+        {
+          "en": "Done. Next bay.",
+          "ru": "Готово. Следующий пролёт.",
+          "role": "electrician",
+          "tip_ru": "Bay = пролёт/секция между опорами. Next = следующий.",
+          "practice": true,
+          "transcription": "dan. nekst bay"
+        },
+        {
+          "en": "I'll fetch more lid.",
+          "ru": "Схожу за крышкой.",
+          "role": "mate",
+          "tip_ru": "Fetch = сходить принести. More lid = ещё крышки.",
+          "practice": false,
+          "transcription": "ile fech mor lid"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "Pass me the trunking lid.",
+          "ru": "Дай крышку короба."
+        },
+        {
+          "en": "Is the run level?",
+          "ru": "Трасса ровная?"
+        }
+      ]
+    },
+    {
+      "id": "onsite-electrical-cable-03",
+      "title_ru": "Кабель · изоляция и LOTO",
+      "title_en": "Cable · isolation and LOTO",
+      "tags": [
+        "onsite",
+        "electrical",
+        "dialogue",
+        "B2",
+        "cable",
+        "safety"
+      ],
+      "cefr": "B2",
+      "scene_ru": "Перед работой на кабеле: изоляция, замок, prove dead.",
+      "your_role": "electrician",
+      "partner_role": "foreman",
+      "created_by": "pack_ie_electrician_metal_cable",
+      "topic_raw": "electrical",
+      "order": 44,
+      "lines": [
+        {
+          "en": "I need a permit before I cut into that live feeder.",
+          "ru": "Нужен допуск, прежде чем резать этот фидер.",
+          "role": "electrician",
+          "tip_ru": "Permit = допуск/наряд. Cut into = врезаться/резать. Live = под напряжением.",
+          "practice": true,
+          "transcription": "I need a PER-mit bi-FOR I kat IN-tu that live FEE-der"
+        },
+        {
+          "en": "Isolation point is MCCB-4. Lock and tag it.",
+          "ru": "Точка отключения — MCCB-4. Замок и бирка.",
+          "role": "foreman",
+          "tip_ru": "Isolation point = точка изоляции. Lock and tag = LOTO.",
+          "practice": false,
+          "transcription": "eye-so-LAY-shun point iz em-see-see-bee for. lock and tag it"
+        },
+        {
+          "en": "I've proved dead on all three phases and the neutral.",
+          "ru": "Проверил отсутствие на трёх фазах и нуле.",
+          "role": "electrician",
+          "tip_ru": "Proved dead = подтвердил отсутствие напряжения. Neutral = N.",
+          "practice": true,
+          "transcription": "iv proovd ded on awl three FAY-ziz and the NEW-tral"
+        },
+        {
+          "en": "Good. Keep your keys on you until the job is closed.",
+          "ru": "Ок. Ключи при себе, пока наряд не закрыт.",
+          "role": "foreman",
+          "tip_ru": "Keep … on you = носи при себе. Until the job is closed = пока работа/наряд не закрыты.",
+          "practice": false,
+          "transcription": "gud. keep yor keez on yu un-TIL the job iz klozd"
+        },
+        {
+          "en": "If anyone needs to test, they wait for my unlock.",
+          "ru": "Если кому-то тест — ждут, пока я сниму замок.",
+          "role": "electrician",
+          "tip_ru": "Wait for my unlock = ждать снятия моего замка (правило LOTO).",
+          "practice": true,
+          "transcription": "if EN-ee-wan needs to test, thay wayt for my un-LOK"
+        },
+        {
+          "en": "Agreed. Barricade the area while the cover is open.",
+          "ru": "Согласен. Огради зону, пока крышка открыта.",
+          "role": "foreman",
+          "tip_ru": "Barricade = оградить. While the cover is open = пока открыта крышка.",
+          "practice": false,
+          "transcription": "a-GREED. BAR-i-kayd the AIR-ee-a wile the KA-ver iz OH-pen"
+        }
+      ],
+      "say_today": [
+        {
+          "en": "I've proved dead on all three phases.",
+          "ru": "Проверил отсутствие на трёх фазах."
+        },
+        {
+          "en": "Lock and tag the isolation point.",
+          "ru": "Замок и бирка на точку отключения."
+        }
+      ]
     }
   ]
 }
