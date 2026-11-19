@@ -115,7 +115,7 @@ struct WhoAmIView: View {
             } header: {
                 Text("Introduction")
             } footer: {
-                Text("Говори подряд — текст копится целиком. «Готово» → проверь в поле → «Сохранить». «Ещё голосом» дописывает, не затирает.")
+                Text("Можно мешать русский и сленг (трей, джигсо, бенсоу, контентмент) — слова из твоего словаря не «исправляются» на чужие. «Готово» → проверь → «Сохранить».")
             }
 
             if !draft.summaryChipsRU.isEmpty, trimmedIntro.count >= 8 || draft.role != .unknown {
@@ -216,36 +216,39 @@ struct WhoAmIView: View {
         !capture.partialText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || !draftText.isEmpty
     }
 
-    private func speechLocaleId(for code: AppLocaleCode) -> String {
-        switch code {
-        case .ru: return "ru-RU"
-        case .uk: return "uk-UA"
-        case .pl: return "pl-PL"
-        case .en: return "en-IE"
-        }
-    }
-
     /// Append a new take onto the existing introduction (never wipe).
     private func listenAppend() async {
         voiceError = ""
         isListening = true
-        // Introduction is spoken in UI language (RU by default), not target EN.
+        let profileTerms = draft.speechTerms
+        let tools = draft.tools
+        // Mixed RU+EN intro: server ASR + personal lexicon (трей/джигсо/бенсоу…).
         let text = await capture.captureUntilStopped(
-            localeId: speechLocaleId(for: draft.uiLocale),
-            maxSeconds: 180
+            localeId: "mixed-ru-en",
+            maxSeconds: 180,
+            contextualStrings: LearnerSpeechLexicon.contextualStrings(
+                profileTerms: profileTerms,
+                tools: tools
+            ),
+            transcriptCorrector: { raw in
+                LearnerSpeechLexicon.correctASR(raw, profileTerms: profileTerms)
+            }
         )
         isListening = false
-        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        if trimmed.isEmpty {
+        let repaired = LearnerSpeechLexicon.correctASR(
+            text,
+            profileTerms: profileTerms
+        ).trimmingCharacters(in: .whitespacesAndNewlines)
+        if repaired.isEmpty {
             voiceError = capture.errorMessage.isEmpty
                 ? "Не расслышала. Нажми «Голосом» ещё раз или допиши текстом."
                 : capture.errorMessage
             return
         }
         if draftText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-            draftText = trimmed
+            draftText = repaired
         } else {
-            draftText = Self.joinIntro(existing: draftText, addition: trimmed)
+            draftText = Self.joinIntro(existing: draftText, addition: repaired)
         }
         draft = LearnerProfile.infer(from: draftText, base: draft)
         if capture.hitMaxCap {

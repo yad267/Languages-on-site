@@ -132,6 +132,8 @@ struct LearnerProfile: Codable, Hashable, Equatable {
     var aboutRaw: String
     /// Fasteners / tools extracted from introduction (mixed RU/EN compounds kept).
     var tools: [LearnerToolTerm]
+    /// Personal ASR vocabulary (трей, джигсо, бенсоу…) — keep learner slang, don't “fix” it.
+    var speechTerms: [String]
     /// Country / market hint, e.g. IE, UK.
     var market: String?
     /// Interface language (menus). Default ru today.
@@ -143,7 +145,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
     var updatedAt: Date
 
     enum CodingKeys: String, CodingKey {
-        case role, goal, cefr, aboutRaw, tools, market, uiLocale, explainLocale, targetLocale, updatedAt
+        case role, goal, cefr, aboutRaw, tools, speechTerms, market, uiLocale, explainLocale, targetLocale, updatedAt
     }
 
     init(
@@ -152,6 +154,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         cefr: CEFRLevel?,
         aboutRaw: String,
         tools: [LearnerToolTerm] = [],
+        speechTerms: [String] = [],
         market: String?,
         uiLocale: AppLocaleCode,
         explainLocale: AppLocaleCode,
@@ -163,6 +166,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         self.cefr = cefr
         self.aboutRaw = aboutRaw
         self.tools = tools
+        self.speechTerms = speechTerms
         self.market = market
         self.uiLocale = uiLocale
         self.explainLocale = explainLocale
@@ -177,6 +181,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         cefr = try c.decodeIfPresent(CEFRLevel.self, forKey: .cefr)
         aboutRaw = try c.decodeIfPresent(String.self, forKey: .aboutRaw) ?? ""
         tools = try c.decodeIfPresent([LearnerToolTerm].self, forKey: .tools) ?? []
+        speechTerms = try c.decodeIfPresent([String].self, forKey: .speechTerms) ?? []
         market = try c.decodeIfPresent(String.self, forKey: .market)
         uiLocale = try c.decodeIfPresent(AppLocaleCode.self, forKey: .uiLocale) ?? .ru
         explainLocale = try c.decodeIfPresent(AppLocaleCode.self, forKey: .explainLocale) ?? .ru
@@ -190,6 +195,7 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         cefr: nil,
         aboutRaw: "",
         tools: [],
+        speechTerms: [],
         market: nil,
         uiLocale: .ru,
         explainLocale: .ru,
@@ -211,12 +217,25 @@ struct LearnerProfile: Codable, Hashable, Equatable {
         if tools.count > 3 {
             chips.append("+\(tools.count - 3) инструмент.")
         }
+        for term in speechTerms.prefix(4) {
+            chips.append(term)
+        }
         return chips
     }
 
     /// Inject into Gemini / coach — introduction + structured tools.
     var contentContextBlock: String {
-        SiteToolLexicon.promptBlock(for: tools, aboutRaw: aboutRaw)
+        var block = SiteToolLexicon.promptBlock(for: tools, aboutRaw: aboutRaw)
+        if !speechTerms.isEmpty {
+            block += "\nLearner personal speech terms (keep verbatim in lessons): "
+                + speechTerms.joined(separator: ", ")
+        }
+        return block
+    }
+
+    /// SFSpeech contextual bias for this learner.
+    var asrContextualStrings: [String] {
+        LearnerSpeechLexicon.contextualStrings(profileTerms: speechTerms, tools: tools)
     }
 }
 
@@ -231,7 +250,10 @@ extension LearnerProfile {
         var cefr = base.cefr
 
         if t.contains("электрик") || t.contains("electrician") || t.contains("sparky")
-            || t.contains("болт") || t.contains("лотк") || t.contains("кабел") || t.contains("tray") {
+            || t.contains("болт") || t.contains("лотк") || t.contains("кабел") || t.contains("tray")
+            || t.contains("трей") || t.contains("джигсо") || t.contains("бенсоу")
+            || t.contains("jigsaw") || t.contains("bandsaw") || t.contains("containment")
+            || t.contains("контентмент") {
             role = .electricianSiteIE
         } else if t.contains("фриланс") || t.contains("freelance") || t.contains("самозанят") {
             role = .freelancer
@@ -271,10 +293,12 @@ extension LearnerProfile {
             }
         }
 
-        let tools = SiteToolLexicon.extract(from: raw)
+        let cleaned = LearnerSpeechLexicon.correctASR(raw, profileTerms: base.speechTerms)
+        let tools = SiteToolLexicon.extract(from: cleaned)
+        let speech = LearnerSpeechLexicon.extractSpokenTerms(from: cleaned, extras: base.speechTerms)
 
         // Prefer tools section when learner talks fasteners/tools heavily.
-        if !tools.isEmpty, role == .electricianSiteIE || role == .siteGeneral || role == .unknown {
+        if !tools.isEmpty || !speech.isEmpty, role == .electricianSiteIE || role == .siteGeneral || role == .unknown {
             if role == .unknown { role = .electricianSiteIE }
         }
 
@@ -282,8 +306,9 @@ extension LearnerProfile {
             role: role,
             goal: goal,
             cefr: cefr,
-            aboutRaw: raw.trimmingCharacters(in: .whitespacesAndNewlines),
+            aboutRaw: cleaned.trimmingCharacters(in: .whitespacesAndNewlines),
             tools: tools,
+            speechTerms: speech,
             market: market,
             uiLocale: base.uiLocale,
             explainLocale: base.explainLocale,

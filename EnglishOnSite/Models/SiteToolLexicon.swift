@@ -155,6 +155,13 @@ enum SiteToolLexicon {
         if t.contains("шуруп") || t.contains("саморез") || t.contains("screw") { return "screw" }
         if t.contains("болт") || t.contains("bolt") { return "bolt" }
         if t.contains("винт") && !t.contains("отвёрт") { return "screw" }
+        // Learner slang / site metalwork (mixed RU phonetics).
+        if t.contains("джигсо") || t.contains("jigsaw") || t.contains("jig saw") { return "jigsaw" }
+        if t.contains("бенсоу") || t.contains("bandsaw") || t.contains("band saw") { return "bandsaw" }
+        if t.contains("контентмент") || t.contains("containment") || t.contains("контейнмент") {
+            return "containment"
+        }
+        if t.contains("трей") || t.contains("tray") || t.contains("лотк") { return "tray" }
         return nil
     }
 
@@ -229,6 +236,10 @@ enum SiteToolLexicon {
         case "nut": parts.append("nut")
         case "washer": parts.append("washer")
         case "anchor": parts.append("anchor")
+        case "tray": return "cable tray"
+        case "jigsaw": return "jigsaw"
+        case "bandsaw": return "bandsaw"
+        case "containment": return "containment"
         case "screwdriver":
             if let drive {
                 switch drive {
@@ -274,6 +285,10 @@ enum SiteToolLexicon {
         case "screwdriver": base = "отвёртка"
         case "bit": base = "бита"
         case "drill": base = "дрель"
+        case "tray": base = "трей"
+        case "jigsaw": base = "джигсо"
+        case "bandsaw": base = "бенсоу"
+        case "containment": base = "контентмент"
         default: base = raw
         }
         var bits: [String] = [base]
@@ -293,6 +308,10 @@ enum SiteToolLexicon {
             "анкер", "anchor", "дюбел", "rawlplug",
             "отвёрт", "отверт", "screwdriver",
             "бита", " bit", "дрел", "drill",
+            "трей", "tray", "лотк",
+            "джигсо", "jigsaw",
+            "бенсоу", "bandsaw",
+            "контентмент", "containment", "контейнмент",
         ]
     }
 

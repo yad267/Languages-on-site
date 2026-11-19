@@ -56,17 +56,24 @@ final class TimedSpeechCapture {
     /// Throttle Observable `partialText` publishes (ASR still evaluated every partial).
     private var lastPartialPublishAt: Date = .distantPast
     private let partialPublishMinInterval: TimeInterval = 0.12
+    /// Free intro dictation: RU matrix + EN slang in one stream (server ASR + lexicon repair).
+    private var mixedLanguageDictation = false
+    /// Optional post-corrector (personal speech lexicon). Applied to partials + final.
+    private var transcriptCorrector: ((String) -> String)?
 
     /// Start mic + speech recognition; returns when user calls `finish()` / `cancel()` or max reached.
     /// - Parameter contextualStrings: SFSpeech hints (target phrase + site lexemes). Max ~100 used.
     /// - Parameter expectedPhrase: target EN — blocks auto-finish until progressive match covers every token (incl. trailing «hard hat»).
     /// - Parameter autoFinishWhen: live PASS on the *combined* transcript → stop after hold.
+    /// - Parameter localeId: use `mixed-ru-en` for introduction monologues (RU+EN slang).
+    /// - Parameter transcriptCorrector: map ASR near-misses onto learner terms (трей/джигсо…).
     func captureUntilStopped(
         localeId: String,
         maxSeconds: Int,
         contextualStrings: [String] = [],
         expectedPhrase: String = "",
-        autoFinishWhen: ((String) -> Bool)? = nil
+        autoFinishWhen: ((String) -> Bool)? = nil,
+        transcriptCorrector: ((String) -> String)? = nil
     ) async -> String {
         cancel()
         errorMessage = ""
@@ -83,29 +90,43 @@ final class TimedSpeechCapture {
         restartGeneration &+= 1
         self.expectedPhrase = expectedPhrase.trimmingCharacters(in: .whitespacesAndNewlines)
         self.autoFinishWhen = autoFinishWhen
+        self.transcriptCorrector = transcriptCorrector
         // Intro monologues need >60s; keep a hard safety cap so the mic can't hang forever.
         self.maxSeconds = max(5, min(maxSeconds, 180))
         secondsLeft = self.maxSeconds
 
         guard await ensureAuth() else { return "" }
 
-        // Same-language fallbacks only — never cross tongues (was «Ай Don't Hell»).
         let preferred = localeId
         let lower = preferred.lowercased()
+        // Apple has no true bilingual locale. For mixed RU+EN tool talk we:
+        // 1) prefer server en-US (better EN slang: tray/jigsaw/bandsaw/containment),
+        // 2) fall back to ru-RU (Russian matrix),
+        // 3) bias both with bilingual contextualStrings + post-lexicon repair.
         let fallbacks: [String]
-        if lower.hasPrefix("ru") {
+        if lower == "mixed-ru-en" || lower.hasPrefix("mixed") {
+            mixedLanguageDictation = true
+            fallbacks = ["en-US", "en-IE", "en-GB", "ru-RU"]
+        } else if lower.hasPrefix("ru") {
+            mixedLanguageDictation = false
             fallbacks = [preferred, "ru-RU"]
         } else if lower.hasPrefix("es") {
+            mixedLanguageDictation = false
             fallbacks = [preferred, "es-ES", "es-MX", "es-US"]
         } else if lower.hasPrefix("de") {
+            mixedLanguageDictation = false
             fallbacks = [preferred, "de-DE", "de-AT"]
         } else if lower.hasPrefix("fr") {
+            mixedLanguageDictation = false
             fallbacks = [preferred, "fr-FR", "fr-CA"]
         } else if lower.hasPrefix("pt") {
+            mixedLanguageDictation = false
             fallbacks = [preferred, "pt-PT", "pt-BR"]
         } else if lower.hasPrefix("en") {
+            mixedLanguageDictation = false
             fallbacks = [preferred, "en-IE", "en-GB", "en-US"]
         } else {
+            mixedLanguageDictation = false
             fallbacks = [preferred]
         }
         var picked: SFSpeechRecognizer?
@@ -122,7 +143,9 @@ final class TimedSpeechCapture {
             return ""
         }
         recognizer = picked
-        isEnglish = usedLocale.lowercased().hasPrefix("en")
+        // Mixed dictation: do NOT run PhraseSimilarity English site-corrector (it mangles RU).
+        isEnglish = usedLocale.lowercased().hasPrefix("en") && !mixedLanguageDictation
+        log("locale picked=\(usedLocale) mixed=\(mixedLanguageDictation) freeDictation=\(autoFinishWhen == nil)")
 
         do {
             try AudioSessionManager.configureForRecording()
@@ -133,6 +156,9 @@ final class TimedSpeechCapture {
         }
 
         var rawHints = contextualStrings
+        if mixedLanguageDictation {
+            rawHints.append(contentsOf: LearnerSpeechLexicon.contextualStrings())
+        }
         if isEnglish {
             rawHints.append(contentsOf: PhraseSimilarity.siteContextualHints)
         }
@@ -194,13 +220,19 @@ final class TimedSpeechCapture {
             }
         }
 
-        let rawFinal = (lastPassText.isEmpty ? partialText : lastPassText)
+        var rawFinal = (lastPassText.isEmpty ? partialText : lastPassText)
             .trimmingCharacters(in: .whitespacesAndNewlines)
-        log("end take final=\"\(rawFinal)\" auto=\(didAutoFinish) max=\(hitMaxCap) latched=\(passLatched)")
+        if let transcriptCorrector {
+            rawFinal = transcriptCorrector(rawFinal)
+        } else if mixedLanguageDictation {
+            rawFinal = LearnerSpeechLexicon.correctASR(rawFinal)
+        }
+        log("end take final=\"\(rawFinal)\" auto=\(didAutoFinish) max=\(hitMaxCap) latched=\(passLatched) mixed=\(mixedLanguageDictation)")
         let expected = expectedPhrase
+        let applyEnglishSite = isEnglish
         tearDown()
         guard !rawFinal.isEmpty else { return "" }
-        return isEnglish
+        return applyEnglishSite
             ? PhraseSimilarity.correctSiteASR(rawFinal, expected: expected)
             : rawFinal
     }
@@ -249,10 +281,12 @@ final class TimedSpeechCapture {
         if #available(iOS 16.0, *) {
             request.addsPunctuation = true
         }
-        // On-device RU chops long monologues into tiny replacing hypotheses.
-        // Keep on-device only for short auto-finish drills; free dictation → server.
-        if !isEnglish, autoFinishWhen != nil, recognizer.supportsOnDeviceRecognition {
+        // Free / mixed dictation must stay on server (on-device chops + kills code-switch slang).
+        let forceServer = mixedLanguageDictation || autoFinishWhen == nil
+        if !forceServer, !isEnglish, recognizer.supportsOnDeviceRecognition {
             request.requiresOnDeviceRecognition = true
+        } else {
+            request.requiresOnDeviceRecognition = false
         }
         // Prefer short 1–2 word hints first (Apple guidance); already ordered by caller.
         if !contextualHints.isEmpty {
@@ -322,9 +356,14 @@ final class TimedSpeechCapture {
     @discardableResult
     private func publishCombined(force: Bool = false) -> String {
         let combined = Self.joinTranscript(committed: committedText, segment: segmentPartial)
-        let corrected = isEnglish
+        var corrected = isEnglish
             ? PhraseSimilarity.correctSiteASR(combined, expected: expectedPhrase)
             : combined
+        if let transcriptCorrector {
+            corrected = transcriptCorrector(corrected)
+        } else if mixedLanguageDictation {
+            corrected = LearnerSpeechLexicon.correctASR(corrected)
+        }
         let now = Date()
         let changed = corrected != partialText
         let due = corrected.isEmpty
@@ -509,6 +548,8 @@ final class TimedSpeechCapture {
         autoFinishHoldSince = nil
         autoFinishHoldText = ""
         passLatched = false
+        mixedLanguageDictation = false
+        transcriptCorrector = nil
         // Keep lastPassText until captureUntilStopped reads it; cleared on next start.
         restartTask?.cancel()
         restartTask = nil

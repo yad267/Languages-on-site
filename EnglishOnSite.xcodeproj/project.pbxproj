@@ -10,6 +10,7 @@
 		L0LEARNPROFBUILD01 /* LearnerProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0LEARNPROFFILE01 /* LearnerProfile.swift */; };
 		L0LEARNSTOREBUILD01 /* LearnerProfileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */; };
 		L0SITETOOLLEXBUILD01 /* SiteToolLexicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */; };
+		L0SPEECHLEXBUILD01 /* LearnerSpeechLexicon.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */; };
 		L0WHOAMIVIEWBUILD01 /* WhoAmIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L0WHOAMIVIEWFILE01 /* WhoAmIView.swift */; };
 		C6PHRLADBUILD00007 /* TutorPhrasalLadderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6PHRLADFILE00007 /* TutorPhrasalLadderView.swift */; };
 		A08A2CEA358140AD8A75D8D2 /* CloudUserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025B0365C7EE4468A81DC0F1 /* CloudUserModels.swift */; };
@@ -157,6 +158,7 @@
 		L0LEARNPROFFILE01 /* LearnerProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerProfile.swift; sourceTree = "<group>"; };
 		L0LEARNSTOREFILE01 /* LearnerProfileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerProfileStore.swift; sourceTree = "<group>"; };
 		L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteToolLexicon.swift; sourceTree = "<group>"; };
+		L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnerSpeechLexicon.swift; sourceTree = "<group>"; };
 		L0WHOAMIVIEWFILE01 /* WhoAmIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoAmIView.swift; sourceTree = "<group>"; };
 		L9ONJSONFILE01 /* lessons_onsite_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_onsite_sections_v1.json; sourceTree = "<group>"; };
 		L9REGJSONFILE01 /* lessons_regular_sections_v1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = lessons_regular_sections_v1.json; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@ G4SEARCHFILE000004 /* TutorPhrasalSearchView.swift */,
 				L0CEFRLEVELFILE01 /* CEFRLevel.swift */,
 				L0LEARNPROFFILE01 /* LearnerProfile.swift */,
 				L0SITETOOLLEXFILE01 /* SiteToolLexicon.swift */,
+				L0SPEECHLEXFILE01 /* LearnerSpeechLexicon.swift */,
 				7AAD728D7C804353A29AA17B /* AppSettings.swift */,
 				L7APPLMODEFILE01 /* AppLearningMode.swift */,
 				L0CEFRLEVELFILE01 /* CEFRLevel.swift */,
@@ -761,6 +764,7 @@ C1BANKSTOREFILE001 /* TutorBankStore.swift */,
 				L0LEARNPROFBUILD01 /* LearnerProfile.swift in Sources */,
 				L0LEARNSTOREBUILD01 /* LearnerProfileStore.swift in Sources */,
 				L0SITETOOLLEXBUILD01 /* SiteToolLexicon.swift in Sources */,
+				L0SPEECHLEXBUILD01 /* LearnerSpeechLexicon.swift in Sources */,
 				L0CEFRLEVELBUILD01 /* CEFRLevel.swift in Sources */,
 				T9TRNSRCLANGBLD001 /* TranslatorSourceLanguage.swift in Sources */,
 				L7APPLMODEBUILD01 /* AppLearningMode.swift in Sources */,
