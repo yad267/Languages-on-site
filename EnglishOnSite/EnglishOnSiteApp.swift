@@ -62,9 +62,16 @@ struct EnglishOnSiteApp: App {
                 .onAppear {
                     // Keep first paint light: configure store + secrets, defer banks / cloud / DEBUG checks.
                     CloudUserDataStore.configure(container: container, settings: settings)
-                    let seedMsg = AppSecrets.seedKeychainIfNeeded(into: settings)
+                    // Always force Secrets.local → Keychain when baked keys exist so a new
+                    // elevenLabsAPIKey in the binary replaces a stale Keychain value on launch.
+                    let seedMsg = (AppSecrets.hasLocalElevenLabs || AppSecrets.hasLocalGemini)
+                        ? AppSecrets.rereadSecretsIntoKeychain(into: settings)
+                        : AppSecrets.seedKeychainIfNeeded(into: settings)
                     settings.geminiAPIKeyDraft = KeychainStore.loadGeminiAPIKey()
                     settings.elevenLabsAPIKeyDraft = KeychainStore.loadElevenLabsAPIKey()
+                    if KeychainStore.hasElevenLabsAPIKey() || AppSecrets.hasLocalElevenLabs {
+                        settings.useElevenLabs = true
+                    }
                     print("[secrets] \(seedMsg)")
                     print("[secrets] \(AppSecrets.settingsStatusLine)")
                     PhoneWatchBridge.shared.configure(settings: settings, container: container)
@@ -72,6 +79,13 @@ struct EnglishOnSiteApp: App {
                     Task { @MainActor in
                         await Task.yield()
                         CloudUserDataStore.applyCloudPrefs(to: settings)
+                        // Re-assert after cloud prefs (they must not leave EL off with a baked key).
+                        if KeychainStore.hasElevenLabsAPIKey() || AppSecrets.hasLocalElevenLabs {
+                            settings.useElevenLabs = true
+                            if AppSecrets.hasLocalElevenLabs {
+                                _ = AppSecrets.rereadSecretsIntoKeychain(into: settings)
+                            }
+                        }
                         CloudUserDataStore.savePrefs(from: settings)
                         PairsKnownStore.refreshFromCloud()
                         LessonProgressStore.refreshFromCloud()

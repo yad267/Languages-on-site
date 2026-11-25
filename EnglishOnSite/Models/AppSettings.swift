@@ -552,7 +552,17 @@ final class AppSettings {
         if let tr = TranslateDuration(rawValue: payload.translateDuration) { translateDuration = tr }
         if let loc = RememberLocale(rawValue: payload.rememberLocale) { rememberLocale = loc }
         useGemini = payload.useGemini
-        useElevenLabs = payload.useElevenLabs
+        // Stale CloudKit/local prefs often have useElevenLabs=false from an older session.
+        // Baked Secrets.local / Keychain key must win — otherwise TTS falls back to AVSpeech
+        // even though xi-api-key is present.
+        if payload.useElevenLabs {
+            useElevenLabs = true
+        } else if KeychainStore.hasElevenLabsAPIKey() || AppSecrets.hasLocalElevenLabs {
+            useElevenLabs = true
+            print("[secrets] cloud prefs had EL off — forcing ON (Keychain/Secrets key present)")
+        } else {
+            useElevenLabs = false
+        }
         if let model = ElevenLabsModelID(rawValue: payload.elModel) { elModel = model }
         elStabilityEN = payload.elStabilityEN
         elStabilityRU = payload.elStabilityRU
