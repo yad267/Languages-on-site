@@ -37,30 +37,150 @@
           "en": "Have you got your Safe Pass?",
           "ru": "У тебя есть Safe Pass?",
           "role": "foreman",
-          "tip_ru": "Safe Pass — обязательная карта безопасности на стройке в Ireland"
+          "tip_ru": "safe pass = карта Safe Pass (допуск на стройку в Ireland)",
+          "transcription": "хаве иау гот иаур сафе пасс"
         },
         {
           "en": "Yes. Here's my card.",
           "ru": "Да. Вот моя карта.",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "Here's — важное слово; смотри перевод ниже · my — важное слово; смотри перевод ниже · card — важное слово; смотри перевод ниже",
+          "transcription": "иес херес ми кард"
         },
         {
           "en": "Good. Sign in at the gate, then sit down for the induction.",
           "ru": "Хорошо. Отметься на воротах, потом садись на инструктаж.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Sign — важное слово; смотри перевод ниже · gate — важное слово; смотри перевод ниже · sit — важное слово; смотри перевод ниже",
+          "transcription": "гуд сигн ин ат зе гате зен сит доун фор зе индакшн"
         },
         {
           "en": "Where do I sign in?",
           "ru": "Где мне отметиться?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "Where — важное слово; смотри перевод ниже · sign — важное слово; смотри перевод ниже",
+          "transcription": "ухере до и сигн ин"
         },
         {
           "en": "Sign in at the cabin by the gate.",
           "ru": "Отметься в вагончике у ворот.",
           "role": "foreman",
-          "tip_ru": "cabin = вагончик / бытовка на объекте"
+          "tip_ru": "cabin = вагончик / бытовка",
+          "transcription": "сигн ин ат зе кабин би зе гате"
+        },
+        {
+          "en": "Listen for the fire alarm test.",
+          "ru": "Слушай тест пожарной тревоги.",
+          "role": "foreman",
+          "tip_ru": "Listen — важное слово; смотри перевод ниже · fire — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "листен фор зе фире аларм тест"
+        },
+        {
+          "en": "What does the alarm sound like?",
+          "ru": "Как звучит тревога?",
+          "role": "electrician",
+          "tip_ru": "What — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже · sound — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "ухат доес зе аларм саунд лике"
+        },
+        {
+          "en": "A continuous siren. Then go to the assembly point.",
+          "ru": "Непрерывная сирена. Потом на точку сбора.",
+          "role": "foreman",
+          "tip_ru": "assembly point = точка сбора при тревоге",
+          "practice": false,
+          "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
+        },
+        {
+          "en": "Where is the assembly point from here?",
+          "ru": "Где точка сбора отсюда?",
+          "role": "electrician",
+          "tip_ru": "assembly point = точка сбора при тревоге",
+          "practice": true,
+          "transcription": "ухере ис зе ассембли пойнт фром хере"
+        },
+        {
+          "en": "Outside the canteen by the green sign.",
+          "ru": "У столовой у зелёного знака.",
+          "role": "foreman",
+          "tip_ru": "canteen = столовая на объекте",
+          "practice": false,
+          "transcription": "аутсиде зе кантин би зе грин сигн"
+        },
+        {
+          "en": "Do I take tools with me?",
+          "ru": "Инструмент брать с собой?",
+          "role": "electrician",
+          "tip_ru": "take — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · me — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "до и таке тулс уиз ме"
+        },
+        {
+          "en": "No. Leave tools. Move fast.",
+          "ru": "Нет. Инструмент оставь. Иди быстро.",
+          "role": "foreman",
+          "tip_ru": "Leave — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · Move — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "но ливе тулс мове фаст"
+        },
+        {
+          "en": "Who do I report to there?",
+          "ru": "Кому там докладывать?",
+          "role": "electrician",
+          "tip_ru": "Who — важное слово; смотри перевод ниже · report — важное слово; смотри перевод ниже · there — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "ухо до и репорт то зере"
+        },
+        {
+          "en": "Your supervisor with your name.",
+          "ru": "Своему супервайзеру — назови имя.",
+          "role": "foreman",
+          "tip_ru": "Your — важное слово; смотри перевод ниже · supervisor — важное слово; смотри перевод ниже · your — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "иаур сапе·рвис·ор уиз иаур наме"
+        },
+        {
+          "en": "Understood. I will go straight there.",
+          "ru": "Понял. Пойду сразу туда.",
+          "role": "electrician",
+          "tip_ru": "Understood — важное слово; смотри перевод ниже · will — важное слово; смотри перевод ниже · go — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "анде·рсту·д и уилл го стрейгхт зере"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
+        },
+        {
+          "en": "Confirm step 2, please.",
+          "ru": "Подтверди шаг 2, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 2 плисе"
+        },
+        {
+          "en": "Step 2 is done.",
+          "ru": "Шаг 2 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 2 ис доне"
         }
       ],
       "say_today": [
@@ -108,31 +228,151 @@
         {
           "en": "Listen carefully. These are the site rules.",
           "ru": "Слушай внимательно. Это правила объекта.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Listen — важное слово; смотри перевод ниже · carefully — важное слово; смотри перевод ниже · These — важное слово; смотри перевод ниже",
+          "transcription": "листен каре·фалл·и зесе аре зе сите ралес"
         },
         {
           "en": "Where is the assembly point?",
           "ru": "Где место сбора?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "assembly point = muster point — куда идти по тревоге"
+          "tip_ru": "assembly point = точка сбора при тревоге",
+          "transcription": "ухере ис зе ассембли пойнт"
         },
         {
           "en": "Outside the canteen. If the alarm goes, go there.",
           "ru": "Снаружи у столовой. Если сирена — иди туда.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая / бытовка с едой на объекте"
+          "tip_ru": "canteen = столовая на объекте",
+          "transcription": "аутсиде зе кантин иф зе аларм гоес го зере"
         },
         {
           "en": "Who is the first aider?",
           "ru": "Кто отвечает за первую помощь?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "Who — важное слово; смотри перевод ниже · first — важное слово; смотри перевод ниже · aider — важное слово; смотри перевод ниже",
+          "transcription": "ухо ис зе фирст ейдер"
         },
         {
           "en": "Ask in the cabin. Report any hazard straight away.",
           "ru": "Спроси в вагончике. О любой опасности сообщай сразу.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "cabin = вагончик / бытовка",
+          "transcription": "аск ин зе кабин репорт ани хазард стрейгхт ауей"
+        },
+        {
+          "en": "Listen for the fire alarm test.",
+          "ru": "Слушай тест пожарной тревоги.",
+          "role": "foreman",
+          "tip_ru": "Listen — важное слово; смотри перевод ниже · fire — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "листен фор зе фире аларм тест"
+        },
+        {
+          "en": "What does the alarm sound like?",
+          "ru": "Как звучит тревога?",
+          "role": "electrician",
+          "tip_ru": "What — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже · sound — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "ухат доес зе аларм саунд лике"
+        },
+        {
+          "en": "A continuous siren. Then go to the assembly point.",
+          "ru": "Непрерывная сирена. Потом на точку сбора.",
+          "role": "foreman",
+          "tip_ru": "assembly point = точка сбора при тревоге",
+          "practice": false,
+          "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
+        },
+        {
+          "en": "Where is the assembly point from here?",
+          "ru": "Где точка сбора отсюда?",
+          "role": "electrician",
+          "tip_ru": "assembly point = точка сбора при тревоге",
+          "practice": true,
+          "transcription": "ухере ис зе ассембли пойнт фром хере"
+        },
+        {
+          "en": "Outside the canteen by the green sign.",
+          "ru": "У столовой у зелёного знака.",
+          "role": "foreman",
+          "tip_ru": "canteen = столовая на объекте",
+          "practice": false,
+          "transcription": "аутсиде зе кантин би зе грин сигн"
+        },
+        {
+          "en": "Do I take tools with me?",
+          "ru": "Инструмент брать с собой?",
+          "role": "electrician",
+          "tip_ru": "take — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · me — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "до и таке тулс уиз ме"
+        },
+        {
+          "en": "No. Leave tools. Move fast.",
+          "ru": "Нет. Инструмент оставь. Иди быстро.",
+          "role": "foreman",
+          "tip_ru": "Leave — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · Move — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "но ливе тулс мове фаст"
+        },
+        {
+          "en": "Who do I report to there?",
+          "ru": "Кому там докладывать?",
+          "role": "electrician",
+          "tip_ru": "Who — важное слово; смотри перевод ниже · report — важное слово; смотри перевод ниже · there — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "ухо до и репорт то зере"
+        },
+        {
+          "en": "Your supervisor with your name.",
+          "ru": "Своему супервайзеру — назови имя.",
+          "role": "foreman",
+          "tip_ru": "Your — важное слово; смотри перевод ниже · supervisor — важное слово; смотри перевод ниже · your — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "иаур сапе·рвис·ор уиз иаур наме"
+        },
+        {
+          "en": "Understood. I will go straight there.",
+          "ru": "Понял. Пойду сразу туда.",
+          "role": "electrician",
+          "tip_ru": "Understood — важное слово; смотри перевод ниже · will — важное слово; смотри перевод ниже · go — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "анде·рсту·д и уилл го стрейгхт зере"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
+        },
+        {
+          "en": "Confirm step 2, please.",
+          "ru": "Подтверди шаг 2, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 2 плисе"
+        },
+        {
+          "en": "Step 2 is done.",
+          "ru": "Шаг 2 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 2 ис доне"
         }
       ],
       "say_today": [
@@ -181,31 +421,150 @@
           "en": "Wear full PPE before you go on site.",
           "ru": "Надень полный СИЗ, прежде чем выходить на объект.",
           "role": "foreman",
-          "tip_ru": "PPE = personal protective equipment / СИЗ"
+          "tip_ru": "ppe = СИЗ / средства защиты",
+          "transcription": "уир фалл ппе бефоре иау го он сите"
         },
         {
           "en": "Hard hat, hi-vis, and safety boots?",
           "ru": "Каска, жилет и защитные ботинки?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "hi-vis = high-visibility vest"
+          "tip_ru": "hard hat = каска · hi-vis = светоотражающий жилет (hi-vis)",
+          "transcription": "хард хат хи вис анд сафети бутс"
         },
         {
           "en": "Yes. And safety glasses.",
           "ru": "Да. И защитные очки.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "safety — важное слово; смотри перевод ниже · glasses — важное слово; смотри перевод ниже",
+          "transcription": "иес анд сафети глассес"
         },
         {
           "en": "Am I allowed on site now?",
           "ru": "Мне уже можно на объект?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "allowed — важное слово; смотри перевод ниже · site — важное слово; смотри перевод ниже",
+          "transcription": "ам и аллоуед он сите ноу"
         },
         {
           "en": "After induction — yes. Stay on the walkways.",
           "ru": "После инструктажа — да. Ходи только по дорожкам.",
           "role": "foreman",
-          "tip_ru": "walkways = пешеходные дорожки на объекте"
+          "tip_ru": "walkways = пешеходные дорожки",
+          "transcription": "афтер индакшн иес стей он зе уалкуейс"
+        },
+        {
+          "en": "Put your hard hat on before the gate.",
+          "ru": "Надень каску до ворот.",
+          "role": "foreman",
+          "tip_ru": "hard hat = каска",
+          "practice": false,
+          "transcription": "пат иаур хард хат он бефоре зе гате"
+        },
+        {
+          "en": "Hard hat is on.",
+          "ru": "Каска надета.",
+          "role": "electrician",
+          "tip_ru": "hard hat = каска",
+          "practice": true,
+          "transcription": "хард хат ис он"
+        },
+        {
+          "en": "Zip the hi-vis fully.",
+          "ru": "Застегни hi-vis полностью.",
+          "role": "foreman",
+          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "practice": false,
+          "transcription": "зип зе хи вис фалли"
+        },
+        {
+          "en": "Done. Boots are steel toe.",
+          "ru": "Готово. Ботинки со стальным носком.",
+          "role": "electrician",
+          "tip_ru": "Done — важное слово; смотри перевод ниже · Boots — важное слово; смотри перевод ниже · steel — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "доне бутс аре стил тое"
+        },
+        {
+          "en": "Gloves for the cut work.",
+          "ru": "Перчатки для резки.",
+          "role": "foreman",
+          "tip_ru": "Gloves — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже · work — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "гловес фор зе кат уорк"
+        },
+        {
+          "en": "I have cut-resistant gloves.",
+          "ru": "У меня перчатки cut-resistant.",
+          "role": "electrician",
+          "tip_ru": "have — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже · resistant — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "и хаве кат реси·стан·т гловес"
+        },
+        {
+          "en": "Glasses too — grinding today.",
+          "ru": "И очки — сегодня шлифовка.",
+          "role": "foreman",
+          "tip_ru": "Glasses — важное слово; смотри перевод ниже · too — важное слово; смотри перевод ниже · grinding — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "глассес ту гриндинг тодей"
+        },
+        {
+          "en": "Glasses are on.",
+          "ru": "Очки надеты.",
+          "role": "electrician",
+          "tip_ru": "Glasses — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "глассес аре он"
+        },
+        {
+          "en": "You are clear to enter.",
+          "ru": "Можно заходить.",
+          "role": "foreman",
+          "tip_ru": "clear — важное слово; смотри перевод ниже · enter — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "иау аре клир то ентер"
+        },
+        {
+          "en": "Thanks. Going to the cabin first.",
+          "ru": "Спасибо. Сначала в бытовку.",
+          "role": "electrician",
+          "tip_ru": "cabin = вагончик / бытовка",
+          "practice": true,
+          "transcription": "занкс гойнг то зе кабин фирст"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
+        },
+        {
+          "en": "Confirm step 2, please.",
+          "ru": "Подтверди шаг 2, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 2 плисе"
+        },
+        {
+          "en": "Step 2 is done.",
+          "ru": "Шаг 2 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 2 ис доне"
         }
       ],
       "say_today": [
@@ -255,29 +614,150 @@
           "en": "We need cable tray to the plant room.",
           "ru": "Нужен tray до щитовой.",
           "role": "foreman",
-          "tip_ru": "plant room = щитовая / техпомещение"
+          "tip_ru": "cable tray = лоток для кабеля (tray) · plant room = щитовая / техпомещение · tray = лоток (tray)",
+          "transcription": "уе нид кабле трей то зе плант рум"
         },
         {
           "en": "Basket or tray?",
           "ru": "Basket или tray?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "tray = лоток (tray) · basket = корзина / basket",
+          "transcription": "баскет ор трей"
         },
         {
           "en": "Tray on the main run. Basket for the short drop.",
           "ru": "Tray на основной трассе. Basket на короткий спуск.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "tray = лоток (tray) · basket = корзина / basket",
+          "transcription": "трей он зе мейн ран баскет фор зе шорт дроп"
         },
         {
           "en": "How many metres of tray?",
           "ru": "Сколько метров tray?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "tray = лоток (tray)",
+          "transcription": "хоу мани метрес оф трей"
         },
         {
           "en": "About twenty metres. Mark it on the drawing.",
           "ru": "Около двадцати метров. Отметь на чертеже.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "About — важное слово; смотри перевод ниже · twenty — важное слово; смотри перевод ниже · metres — важное слово; смотри перевод ниже",
+          "transcription": "абаут туенти метрес марк ит он зе драуинг"
+        },
+        {
+          "en": "Hold the spirit level on the tray.",
+          "ru": "Держи пузырьковый уровень на лотке.",
+          "role": "foreman",
+          "tip_ru": "spirit level = пузырьковый уровень · level = по уровню / ровно · tray = лоток (tray)",
+          "practice": false,
+          "transcription": "холд зе спирит левел он зе трей"
+        },
+        {
+          "en": "Bubble is in the middle now.",
+          "ru": "Пузырёк сейчас посередине.",
+          "role": "electrician",
+          "tip_ru": "bubble = пузырёк в уровне",
+          "practice": true,
+          "transcription": "баббле ис ин зе миддле ноу"
+        },
+        {
+          "en": "Mark the high side with chalk.",
+          "ru": "Отметь высокую сторону мелом.",
+          "role": "foreman",
+          "tip_ru": "chalk = мел",
+          "practice": false,
+          "transcription": "марк зе хигх сиде уиз чалк"
+        },
+        {
+          "en": "I marked the left side.",
+          "ru": "Я отметил левую сторону.",
+          "role": "electrician",
+          "tip_ru": "marked = отметил",
+          "practice": true,
+          "transcription": "и маркед зе лефт сиде"
+        },
+        {
+          "en": "Add a washer under that support.",
+          "ru": "Добавь шайбу под эту опору.",
+          "role": "foreman",
+          "tip_ru": "support = опора / кронштейн · washer = шайба",
+          "practice": false,
+          "transcription": "адд а уашер андер зат саппорт"
+        },
+        {
+          "en": "Washer is on. Checking again.",
+          "ru": "Шайба стоит. Проверяю снова.",
+          "role": "electrician",
+          "tip_ru": "washer = шайба · checking again = проверяю снова",
+          "practice": true,
+          "transcription": "уашер ис он чекинг агейн"
+        },
+        {
+          "en": "Is the joint flush?",
+          "ru": "Стык в плоскости?",
+          "role": "foreman",
+          "tip_ru": "joint = стык · flush = в одной плоскости / заподлицо",
+          "practice": false,
+          "transcription": "ис зе джойнт флаш"
+        },
+        {
+          "en": "Almost. One millimetre more.",
+          "ru": "Почти. Ещё миллиметр.",
+          "role": "electrician",
+          "tip_ru": "almost = почти · millimetre = миллиметр",
+          "practice": true,
+          "transcription": "алмост оне милл·имет·ре море"
+        },
+        {
+          "en": "Raise it one more millimetre.",
+          "ru": "Подними ещё на миллиметр.",
+          "role": "foreman",
+          "tip_ru": "raise = поднять · millimetre = миллиметр",
+          "practice": false,
+          "transcription": "рейсе ит оне море милл·имет·ре"
+        },
+        {
+          "en": "Done. It looks level.",
+          "ru": "Готово. Выглядит по уровню.",
+          "role": "electrician",
+          "tip_ru": "level = по уровню / ровно",
+          "practice": true,
+          "transcription": "доне ит лукс левел"
+        },
+        {
+          "en": "Torque the bolts to spec.",
+          "ru": "Затяни болты по норме.",
+          "role": "foreman",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом · spec = по норме / по спецификации",
+          "practice": false,
+          "transcription": "торкве зе болтс то спек"
+        },
+        {
+          "en": "All bolts are torqued.",
+          "ru": "Все болты затянуты по моменту.",
+          "role": "electrician",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом",
+          "practice": true,
+          "transcription": "алл болтс аре торквед"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
         }
       ],
       "say_today": [
@@ -325,30 +805,151 @@
         {
           "en": "Run trunking along this wall.",
           "ru": "Веди trunking вдоль этой стены.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "trunking = кабель-канал / короб",
+          "transcription": "ран транкинг алонг зис уалл"
         },
         {
           "en": "Do we need lids on now?",
           "ru": "Крышки ставить сейчас?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "need — важное слово; смотри перевод ниже · lids — важное слово; смотри перевод ниже",
+          "transcription": "до уе нид лидс он ноу"
         },
         {
           "en": "Fit the lids after the cables are in.",
           "ru": "Крышки — после прокладки кабелей.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Fit — важное слово; смотри перевод ниже · lids — важное слово; смотри перевод ниже · after — важное слово; смотри перевод ниже",
+          "transcription": "фит зе лидс афтер зе каблес аре ин"
         },
         {
           "en": "Is the fill OK?",
           "ru": "Наполнение в норме?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "fill = насколько trunking заполнен кабелем"
+          "tip_ru": "fill = насколько trunking заполнен кабелем",
+          "transcription": "ис зе филл ок"
         },
         {
           "en": "Leave space for two more circuits.",
           "ru": "Оставь место ещё на две цепи.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Leave — важное слово; смотри перевод ниже · space — важное слово; смотри перевод ниже · two — важное слово; смотри перевод ниже",
+          "transcription": "ливе спаке фор туо море киркаитс"
+        },
+        {
+          "en": "Say that again slower, please.",
+          "ru": "Повтори медленнее, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Say — важное слово; смотри перевод ниже · again — важное слово; смотри перевод ниже · slower — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "сей зат агейн слоуер плисе"
+        },
+        {
+          "en": "OK. I say it slowly.",
+          "ru": "Ок. Говорю медленно.",
+          "role": "electrician",
+          "tip_ru": "say — важное слово; смотри перевод ниже · slowly — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "ок и сей ит слоули"
+        },
+        {
+          "en": "What do you need from me now?",
+          "ru": "Что тебе сейчас нужно от меня?",
+          "role": "foreman",
+          "tip_ru": "What — важное слово; смотри перевод ниже · need — важное слово; смотри перевод ниже · from — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "ухат до иау нид фром ме ноу"
+        },
+        {
+          "en": "I need five more minutes.",
+          "ru": "Мне нужно ещё пять минут.",
+          "role": "electrician",
+          "tip_ru": "need — важное слово; смотри перевод ниже · five — важное слово; смотри перевод ниже · more — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "и нид фиве море минатес"
+        },
+        {
+          "en": "Call me when it is ready.",
+          "ru": "Позвони, когда будет готово.",
+          "role": "foreman",
+          "tip_ru": "Call — важное слово; смотри перевод ниже · me — важное слово; смотри перевод ниже · when — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "калл ме ухен ит ис риди"
+        },
+        {
+          "en": "I will call you on the radio.",
+          "ru": "Позову тебя по рации.",
+          "role": "electrician",
+          "tip_ru": "will — важное слово; смотри перевод ниже · call — важное слово; смотри перевод ниже · radio — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "и уилл калл иау он зе радио"
+        },
+        {
+          "en": "Keep the area tidy.",
+          "ru": "Держи зону в порядке.",
+          "role": "foreman",
+          "tip_ru": "Keep — важное слово; смотри перевод ниже · area — важное слово; смотри перевод ниже · tidy — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "кип зе ари тиди"
+        },
+        {
+          "en": "I will sweep before lunch.",
+          "ru": "Подмету до обеда.",
+          "role": "electrician",
+          "tip_ru": "will — важное слово; смотри перевод ниже · sweep — важное слово; смотри перевод ниже · before — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "и уилл суип бефоре ланч"
+        },
+        {
+          "en": "Any questions before we move on?",
+          "ru": "Есть вопросы, прежде чем идём дальше?",
+          "role": "foreman",
+          "tip_ru": "Any — важное слово; смотри перевод ниже · questions — важное слово; смотри перевод ниже · before — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "ани квесшнс бефоре уе мове он"
+        },
+        {
+          "en": "No questions. I am ready.",
+          "ru": "Вопросов нет. Я готов.",
+          "role": "electrician",
+          "tip_ru": "questions — важное слово; смотри перевод ниже · ready — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "но квесшнс и ам риди"
+        },
+        {
+          "en": "Good. Next task.",
+          "ru": "Хорошо. Следующая задача.",
+          "role": "foreman",
+          "tip_ru": "Next — важное слово; смотри перевод ниже · task — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "гуд некст таск"
+        },
+        {
+          "en": "Starting the next task now.",
+          "ru": "Начинаю следующую задачу.",
+          "role": "electrician",
+          "tip_ru": "Starting — важное слово; смотри перевод ниже · next — важное слово; смотри перевод ниже · task — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "стартинг зе некст таск ноу"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
         }
       ],
       "say_today": [
@@ -396,29 +997,151 @@
         {
           "en": "Hang the tray on Unistrut.",
           "ru": "Подвесь tray на Unistrut.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "unistrut = монтажный профиль Unistrut · tray = лоток (tray)",
+          "transcription": "ханг зе трей он анистрат"
         },
         {
           "en": "What length of threaded rod?",
           "ru": "Какая длина шпильки?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "threaded rod = шпилька",
+          "transcription": "ухат ленгз оф зридед род"
         },
         {
           "en": "Use one-metre drops and cut them square.",
           "ru": "Бери метровые подвесы и режь их ровно.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Use — важное слово; смотри перевод ниже · one — важное слово; смотри перевод ниже · metre — важное слово; смотри перевод ниже",
+          "transcription": "асе оне метре дропс анд кат зем скваре"
         },
         {
           "en": "Channel nuts are in the bag.",
           "ru": "Channel nuts в сумке.",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "Channel — важное слово; смотри перевод ниже · nuts — важное слово; смотри перевод ниже · bag — важное слово; смотри перевод ниже",
+          "transcription": "чаннел натс аре ин зе баг"
         },
         {
           "en": "Tighten them before you load the tray.",
           "ru": "Затяни до того, как грузить tray.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "tighten = затянуть · tray = лоток (tray) · tight = туго / затянуто",
+          "transcription": "тигхтен зем бефоре иау лоад зе трей"
+        },
+        {
+          "en": "Hold the spirit level on the tray.",
+          "ru": "Держи пузырьковый уровень на лотке.",
+          "role": "foreman",
+          "tip_ru": "spirit level = пузырьковый уровень · level = по уровню / ровно · tray = лоток (tray)",
+          "practice": false,
+          "transcription": "холд зе спирит левел он зе трей"
+        },
+        {
+          "en": "Bubble is in the middle now.",
+          "ru": "Пузырёк сейчас посередине.",
+          "role": "electrician",
+          "tip_ru": "bubble = пузырёк в уровне",
+          "practice": true,
+          "transcription": "баббле ис ин зе миддле ноу"
+        },
+        {
+          "en": "Mark the high side with chalk.",
+          "ru": "Отметь высокую сторону мелом.",
+          "role": "foreman",
+          "tip_ru": "chalk = мел",
+          "practice": false,
+          "transcription": "марк зе хигх сиде уиз чалк"
+        },
+        {
+          "en": "I marked the left side.",
+          "ru": "Я отметил левую сторону.",
+          "role": "electrician",
+          "tip_ru": "marked = отметил",
+          "practice": true,
+          "transcription": "и маркед зе лефт сиде"
+        },
+        {
+          "en": "Add a washer under that support.",
+          "ru": "Добавь шайбу под эту опору.",
+          "role": "foreman",
+          "tip_ru": "support = опора / кронштейн · washer = шайба",
+          "practice": false,
+          "transcription": "адд а уашер андер зат саппорт"
+        },
+        {
+          "en": "Washer is on. Checking again.",
+          "ru": "Шайба стоит. Проверяю снова.",
+          "role": "electrician",
+          "tip_ru": "washer = шайба · checking again = проверяю снова",
+          "practice": true,
+          "transcription": "уашер ис он чекинг агейн"
+        },
+        {
+          "en": "Is the joint flush?",
+          "ru": "Стык в плоскости?",
+          "role": "foreman",
+          "tip_ru": "joint = стык · flush = в одной плоскости / заподлицо",
+          "practice": false,
+          "transcription": "ис зе джойнт флаш"
+        },
+        {
+          "en": "Almost. One millimetre more.",
+          "ru": "Почти. Ещё миллиметр.",
+          "role": "electrician",
+          "tip_ru": "almost = почти · millimetre = миллиметр",
+          "practice": true,
+          "transcription": "алмост оне милл·имет·ре море"
+        },
+        {
+          "en": "Raise it one more millimetre.",
+          "ru": "Подними ещё на миллиметр.",
+          "role": "foreman",
+          "tip_ru": "raise = поднять · millimetre = миллиметр",
+          "practice": false,
+          "transcription": "рейсе ит оне море милл·имет·ре"
+        },
+        {
+          "en": "Done. It looks level.",
+          "ru": "Готово. Выглядит по уровню.",
+          "role": "electrician",
+          "tip_ru": "level = по уровню / ровно",
+          "practice": true,
+          "transcription": "доне ит лукс левел"
+        },
+        {
+          "en": "Torque the bolts to spec.",
+          "ru": "Затяни болты по норме.",
+          "role": "foreman",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом · spec = по норме / по спецификации",
+          "practice": false,
+          "transcription": "торкве зе болтс то спек"
+        },
+        {
+          "en": "All bolts are torqued.",
+          "ru": "Все болты затянуты по моменту.",
+          "role": "electrician",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом",
+          "practice": true,
+          "transcription": "алл болтс аре торквед"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
         }
       ],
       "say_today": [
@@ -466,30 +1189,151 @@
         {
           "en": "Measure twice, cut once.",
           "ru": "Два раза замерь, один раз режь.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Measure — важное слово; смотри перевод ниже · twice — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже",
+          "transcription": "мисаре туике кат онке"
         },
         {
           "en": "Where do I mark the cut?",
           "ru": "Где отметить рез?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "Where — важное слово; смотри перевод ниже · mark — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже",
+          "transcription": "ухере до и марк зе кат"
         },
         {
           "en": "At two point four metres. Use the tape.",
           "ru": "На двух метрах сорока. Бери рулетку.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "two — важное слово; смотри перевод ниже · point — важное слово; смотри перевод ниже · four — важное слово; смотри перевод ниже",
+          "transcription": "ат туо пойнт фаур метрес асе зе тапе"
         },
         {
           "en": "I'll deburr the edges.",
           "ru": "Сниму заусенцы.",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "deburr = убрать острые края после реза"
+          "tip_ru": "deburr = убрать заусенцы после реза",
+          "transcription": "илл дебарр зе едгес"
         },
         {
           "en": "Good. Don't leave sharp edges on site.",
           "ru": "Хорошо. На объекте без острых краёв.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Don't — важное слово; смотри перевод ниже · leave — важное слово; смотри перевод ниже · sharp — важное слово; смотри перевод ниже",
+          "transcription": "гуд донт ливе шарп едгес он сите"
+        },
+        {
+          "en": "Hold the spirit level on the tray.",
+          "ru": "Держи пузырьковый уровень на лотке.",
+          "role": "foreman",
+          "tip_ru": "spirit level = пузырьковый уровень · level = по уровню / ровно · tray = лоток (tray)",
+          "practice": false,
+          "transcription": "холд зе спирит левел он зе трей"
+        },
+        {
+          "en": "Bubble is in the middle now.",
+          "ru": "Пузырёк сейчас посередине.",
+          "role": "electrician",
+          "tip_ru": "bubble = пузырёк в уровне",
+          "practice": true,
+          "transcription": "баббле ис ин зе миддле ноу"
+        },
+        {
+          "en": "Mark the high side with chalk.",
+          "ru": "Отметь высокую сторону мелом.",
+          "role": "foreman",
+          "tip_ru": "chalk = мел",
+          "practice": false,
+          "transcription": "марк зе хигх сиде уиз чалк"
+        },
+        {
+          "en": "I marked the left side.",
+          "ru": "Я отметил левую сторону.",
+          "role": "electrician",
+          "tip_ru": "marked = отметил",
+          "practice": true,
+          "transcription": "и маркед зе лефт сиде"
+        },
+        {
+          "en": "Add a washer under that support.",
+          "ru": "Добавь шайбу под эту опору.",
+          "role": "foreman",
+          "tip_ru": "support = опора / кронштейн · washer = шайба",
+          "practice": false,
+          "transcription": "адд а уашер андер зат саппорт"
+        },
+        {
+          "en": "Washer is on. Checking again.",
+          "ru": "Шайба стоит. Проверяю снова.",
+          "role": "electrician",
+          "tip_ru": "washer = шайба · checking again = проверяю снова",
+          "practice": true,
+          "transcription": "уашер ис он чекинг агейн"
+        },
+        {
+          "en": "Is the joint flush?",
+          "ru": "Стык в плоскости?",
+          "role": "foreman",
+          "tip_ru": "joint = стык · flush = в одной плоскости / заподлицо",
+          "practice": false,
+          "transcription": "ис зе джойнт флаш"
+        },
+        {
+          "en": "Almost. One millimetre more.",
+          "ru": "Почти. Ещё миллиметр.",
+          "role": "electrician",
+          "tip_ru": "almost = почти · millimetre = миллиметр",
+          "practice": true,
+          "transcription": "алмост оне милл·имет·ре море"
+        },
+        {
+          "en": "Raise it one more millimetre.",
+          "ru": "Подними ещё на миллиметр.",
+          "role": "foreman",
+          "tip_ru": "raise = поднять · millimetre = миллиметр",
+          "practice": false,
+          "transcription": "рейсе ит оне море милл·имет·ре"
+        },
+        {
+          "en": "Done. It looks level.",
+          "ru": "Готово. Выглядит по уровню.",
+          "role": "electrician",
+          "tip_ru": "level = по уровню / ровно",
+          "practice": true,
+          "transcription": "доне ит лукс левел"
+        },
+        {
+          "en": "Torque the bolts to spec.",
+          "ru": "Затяни болты по норме.",
+          "role": "foreman",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом · spec = по норме / по спецификации",
+          "practice": false,
+          "transcription": "торкве зе болтс то спек"
+        },
+        {
+          "en": "All bolts are torqued.",
+          "ru": "Все болты затянуты по моменту.",
+          "role": "electrician",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом",
+          "practice": true,
+          "transcription": "алл болтс аре торквед"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
         }
       ],
       "say_today": [
@@ -537,29 +1381,151 @@
         {
           "en": "Hang the first section level.",
           "ru": "Подвесь первый кусок по уровню.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "level = по уровню / ровно",
+          "transcription": "ханг зе фирст секшн левел"
         },
         {
           "en": "What's the max span?",
           "ru": "Какой максимальный пролёт?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "What's — важное слово; смотри перевод ниже · max — важное слово; смотри перевод ниже · span — важное слово; смотри перевод ниже",
+          "transcription": "ухатс зе макс спан"
         },
         {
           "en": "Every metre and a half on this tray.",
           "ru": "Каждые полтора метра на этом tray.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "tray = лоток (tray)",
+          "transcription": "евери метре анд а халф он зис трей"
         },
         {
           "en": "The join is tight.",
           "ru": "Стык плотный.",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "tight = туго / затянуто",
+          "transcription": "зе джойн ис тигхт"
         },
         {
           "en": "Check it's level before you walk away.",
           "ru": "Проверь уровень, прежде чем уходить.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "level = по уровню / ровно",
+          "transcription": "чек итс левел бефоре иау уалк ауей"
+        },
+        {
+          "en": "Hold the spirit level on the tray.",
+          "ru": "Держи пузырьковый уровень на лотке.",
+          "role": "foreman",
+          "tip_ru": "spirit level = пузырьковый уровень · level = по уровню / ровно · tray = лоток (tray)",
+          "practice": false,
+          "transcription": "холд зе спирит левел он зе трей"
+        },
+        {
+          "en": "Bubble is in the middle now.",
+          "ru": "Пузырёк сейчас посередине.",
+          "role": "electrician",
+          "tip_ru": "bubble = пузырёк в уровне",
+          "practice": true,
+          "transcription": "баббле ис ин зе миддле ноу"
+        },
+        {
+          "en": "Mark the high side with chalk.",
+          "ru": "Отметь высокую сторону мелом.",
+          "role": "foreman",
+          "tip_ru": "chalk = мел",
+          "practice": false,
+          "transcription": "марк зе хигх сиде уиз чалк"
+        },
+        {
+          "en": "I marked the left side.",
+          "ru": "Я отметил левую сторону.",
+          "role": "electrician",
+          "tip_ru": "marked = отметил",
+          "practice": true,
+          "transcription": "и маркед зе лефт сиде"
+        },
+        {
+          "en": "Add a washer under that support.",
+          "ru": "Добавь шайбу под эту опору.",
+          "role": "foreman",
+          "tip_ru": "support = опора / кронштейн · washer = шайба",
+          "practice": false,
+          "transcription": "адд а уашер андер зат саппорт"
+        },
+        {
+          "en": "Washer is on. Checking again.",
+          "ru": "Шайба стоит. Проверяю снова.",
+          "role": "electrician",
+          "tip_ru": "washer = шайба · checking again = проверяю снова",
+          "practice": true,
+          "transcription": "уашер ис он чекинг агейн"
+        },
+        {
+          "en": "Is the joint flush?",
+          "ru": "Стык в плоскости?",
+          "role": "foreman",
+          "tip_ru": "joint = стык · flush = в одной плоскости / заподлицо",
+          "practice": false,
+          "transcription": "ис зе джойнт флаш"
+        },
+        {
+          "en": "Almost. One millimetre more.",
+          "ru": "Почти. Ещё миллиметр.",
+          "role": "electrician",
+          "tip_ru": "almost = почти · millimetre = миллиметр",
+          "practice": true,
+          "transcription": "алмост оне милл·имет·ре море"
+        },
+        {
+          "en": "Raise it one more millimetre.",
+          "ru": "Подними ещё на миллиметр.",
+          "role": "foreman",
+          "tip_ru": "raise = поднять · millimetre = миллиметр",
+          "practice": false,
+          "transcription": "рейсе ит оне море милл·имет·ре"
+        },
+        {
+          "en": "Done. It looks level.",
+          "ru": "Готово. Выглядит по уровню.",
+          "role": "electrician",
+          "tip_ru": "level = по уровню / ровно",
+          "practice": true,
+          "transcription": "доне ит лукс левел"
+        },
+        {
+          "en": "Torque the bolts to spec.",
+          "ru": "Затяни болты по норме.",
+          "role": "foreman",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом · spec = по норме / по спецификации",
+          "practice": false,
+          "transcription": "торкве зе болтс то спек"
+        },
+        {
+          "en": "All bolts are torqued.",
+          "ru": "Все болты затянуты по моменту.",
+          "role": "electrician",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом",
+          "practice": true,
+          "transcription": "алл болтс аре торквед"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
         }
       ],
       "say_today": [
@@ -608,29 +1574,150 @@
           "en": "Bond the tray to earth.",
           "ru": "Свяжи tray с землёй.",
           "role": "foreman",
-          "tip_ru": "earth bond = перемычка на заземление"
+          "tip_ru": "tray = лоток (tray) · earth = заземление · bond = перемычка / соединить на землю",
+          "transcription": "бонд зе трей то ирз"
         },
         {
           "en": "Where do I land the bond?",
           "ru": "Куда сажать перемычку?",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "bond = перемычка / соединить на землю",
+          "transcription": "ухере до и ланд зе бонд"
         },
         {
           "en": "On the steel and on the tray joint.",
           "ru": "На сталь и на стык tray.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "tray = лоток (tray) · joint = стык",
+          "transcription": "он зе стил анд он зе трей джойнт"
         },
         {
           "en": "Continuity looks good.",
           "ru": "Непрерывность в порядке.",
           "role": "electrician",
-          "practice": true
+          "practice": true,
+          "tip_ru": "Continuity — важное слово; смотри перевод ниже · looks — важное слово; смотри перевод ниже",
+          "transcription": "конт·инаи·ти лукс гуд"
         },
         {
           "en": "Tidy the offcuts. Don't leave metal on the floor.",
           "ru": "Убери обрезки. Металл на полу не оставляй.",
-          "role": "foreman"
+          "role": "foreman",
+          "tip_ru": "Tidy — важное слово; смотри перевод ниже · offcuts — важное слово; смотри перевод ниже · Don't — важное слово; смотри перевод ниже",
+          "transcription": "тиди зе оффкатс донт ливе метал он зе флур"
+        },
+        {
+          "en": "Hold the spirit level on the tray.",
+          "ru": "Держи пузырьковый уровень на лотке.",
+          "role": "foreman",
+          "tip_ru": "spirit level = пузырьковый уровень · level = по уровню / ровно · tray = лоток (tray)",
+          "practice": false,
+          "transcription": "холд зе спирит левел он зе трей"
+        },
+        {
+          "en": "Bubble is in the middle now.",
+          "ru": "Пузырёк сейчас посередине.",
+          "role": "electrician",
+          "tip_ru": "bubble = пузырёк в уровне",
+          "practice": true,
+          "transcription": "баббле ис ин зе миддле ноу"
+        },
+        {
+          "en": "Mark the high side with chalk.",
+          "ru": "Отметь высокую сторону мелом.",
+          "role": "foreman",
+          "tip_ru": "chalk = мел",
+          "practice": false,
+          "transcription": "марк зе хигх сиде уиз чалк"
+        },
+        {
+          "en": "I marked the left side.",
+          "ru": "Я отметил левую сторону.",
+          "role": "electrician",
+          "tip_ru": "marked = отметил",
+          "practice": true,
+          "transcription": "и маркед зе лефт сиде"
+        },
+        {
+          "en": "Add a washer under that support.",
+          "ru": "Добавь шайбу под эту опору.",
+          "role": "foreman",
+          "tip_ru": "support = опора / кронштейн · washer = шайба",
+          "practice": false,
+          "transcription": "адд а уашер андер зат саппорт"
+        },
+        {
+          "en": "Washer is on. Checking again.",
+          "ru": "Шайба стоит. Проверяю снова.",
+          "role": "electrician",
+          "tip_ru": "washer = шайба · checking again = проверяю снова",
+          "practice": true,
+          "transcription": "уашер ис он чекинг агейн"
+        },
+        {
+          "en": "Is the joint flush?",
+          "ru": "Стык в плоскости?",
+          "role": "foreman",
+          "tip_ru": "joint = стык · flush = в одной плоскости / заподлицо",
+          "practice": false,
+          "transcription": "ис зе джойнт флаш"
+        },
+        {
+          "en": "Almost. One millimetre more.",
+          "ru": "Почти. Ещё миллиметр.",
+          "role": "electrician",
+          "tip_ru": "almost = почти · millimetre = миллиметр",
+          "practice": true,
+          "transcription": "алмост оне милл·имет·ре море"
+        },
+        {
+          "en": "Raise it one more millimetre.",
+          "ru": "Подними ещё на миллиметр.",
+          "role": "foreman",
+          "tip_ru": "raise = поднять · millimetre = миллиметр",
+          "practice": false,
+          "transcription": "рейсе ит оне море милл·имет·ре"
+        },
+        {
+          "en": "Done. It looks level.",
+          "ru": "Готово. Выглядит по уровню.",
+          "role": "electrician",
+          "tip_ru": "level = по уровню / ровно",
+          "practice": true,
+          "transcription": "доне ит лукс левел"
+        },
+        {
+          "en": "Torque the bolts to spec.",
+          "ru": "Затяни болты по норме.",
+          "role": "foreman",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом · spec = по норме / по спецификации",
+          "practice": false,
+          "transcription": "торкве зе болтс то спек"
+        },
+        {
+          "en": "All bolts are torqued.",
+          "ru": "Все болты затянуты по моменту.",
+          "role": "electrician",
+          "tip_ru": "bolts = болты · torque = затянуть с моментом",
+          "practice": true,
+          "transcription": "алл болтс аре торквед"
+        },
+        {
+          "en": "Confirm step 1, please.",
+          "ru": "Подтверди шаг 1, пожалуйста.",
+          "role": "foreman",
+          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "practice": false,
+          "transcription": "конфирм степ 1 плисе"
+        },
+        {
+          "en": "Step 1 is done.",
+          "ru": "Шаг 1 сделан.",
+          "role": "electrician",
+          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "practice": true,
+          "transcription": "степ 1 ис доне"
         }
       ],
       "say_today": [

@@ -20,6 +20,9 @@ struct PhraseLoopView: View {
     @State private var speaker: SpeechSpeaker?
     @State private var statusNote = ""
     @State private var listenTask: Task<Void, Never>?
+    /// TTS of the target — mic stays off until playback finishes.
+    @State private var isSpeakingPrompt = false
+    @State private var speakHandoffEpoch = 0
 
     init(lesson: Lesson, backTitle: String = "К плееру") {
         self.lesson = lesson
@@ -76,7 +79,7 @@ struct PhraseLoopView: View {
             Button("Пропустить") { skip() }
                 .font(.footnote)
                 .foregroundStyle(.secondary)
-                .disabled(phase == .listening || phase == .finished || phase == .scored || current == nil)
+                .disabled(phase == .listening || isSpeakingPrompt || phase == .finished || phase == .scored || current == nil)
         }
         .padding(16)
         .scrollDismissesKeyboard(.interactively)
@@ -118,10 +121,10 @@ struct PhraseLoopView: View {
                 print("[PhraseSimilarity] selfCheck OK (3 phrases)")
             }
             #endif
-            // Вошёл в тренажёр → сразу слушаем (без «Говорю»).
+            // Вошёл в тренажёр → сначала эталон (TTS), потом микрофон.
             if !phrases.isEmpty {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                    startListening()
+                    speakPromptThenListen()
                 }
             }
         }
@@ -161,21 +164,24 @@ struct PhraseLoopView: View {
 
     private var transcriptBlock: some View {
         let expected = current?.en ?? ""
-        let rawShown: String = {
-            if phase == .listening, !capture.partialText.isEmpty {
-                return PhraseSimilarity.displayAgainstTarget(capture.partialText, expected: expected)
+        let shown: String = {
+            if isSpeakingPrompt { return "" }
+            if phase == .listening {
+                return PhraseSimilarity.correctOnlyDisplay(
+                    recognized: capture.partialText,
+                    expected: expected
+                )
             }
-            return transcript
+            if phase == .passed {
+                return transcript.isEmpty ? expected : transcript
+            }
+            // failed / unclear / ready: never show incorrect STT
+            return ""
         }()
-        let pair = PhraseSimilarity.displayHeard(rawShown)
         return VStack(alignment: .leading, spacing: 4) {
-            Text("Ты сказал: \(pair.heard.isEmpty ? "…" : pair.heard)")
+            Text(shown.isEmpty ? "…" : shown)
                 .font(.body.weight(.medium))
-            if let norm = pair.normalized, phase != .listening {
-                Text("для сравнения: \(norm)")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
+                .foregroundStyle(shown.isEmpty ? .tertiary : .primary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(10)
@@ -187,35 +193,31 @@ struct PhraseLoopView: View {
 
     @ViewBuilder
     private var resultBlock: some View {
-        switch phase {
-        case .listening:
-            Text("Слушаю…")
+        if isSpeakingPrompt {
+            Text("Озвучка эталона… микрофон выкл")
                 .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.red)
+                .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
-        case .passed:
-            Text("\(scorePercent)% · Ок")
-                .font(.title2.weight(.bold))
-                .foregroundStyle(.green)
-                .frame(maxWidth: .infinity, alignment: .leading)
-        case .failed:
-            VStack(alignment: .leading, spacing: 6) {
-                Text("\(scorePercent)% · Ещё раз")
+        } else {
+            switch phase {
+            case .listening:
+                Text("Слушаю… повторяй, пока засчитаем")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            case .passed:
+                Text("Верно · Дальше…")
                     .font(.title2.weight(.bold))
-                    .foregroundStyle(.orange)
-                if let phrase = current {
-                    Text("Эталон: \(phrase.en)")
-                        .font(.subheadline.weight(.semibold))
-                }
+                    .foregroundStyle(.green)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            case .failed, .unclear:
+                Text("Ещё раз ту же фразу")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            default:
+                EmptyView()
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
-        case .unclear:
-            Text("Не расслышал — ещё раз")
-                .font(.title3.weight(.bold))
-                .foregroundStyle(.orange)
-                .frame(maxWidth: .infinity, alignment: .leading)
-        default:
-            EmptyView()
         }
     }
 
@@ -224,47 +226,65 @@ struct PhraseLoopView: View {
         switch phase {
         case .ready, .failed, .unclear:
             VStack(spacing: 10) {
-                // No «Говорю» — auto-listen on enter; Ещё раз restarts mic.
-                Button {
-                    startListening()
-                } label: {
-                    Text("Ещё раз")
-                        .font(.system(size: 24, weight: .bold))
-                        .frame(maxWidth: .infinity, minHeight: 60)
-                }
-                .buttonStyle(.borderedProminent)
+                if isSpeakingPrompt {
+                    Text("Слушай эталон…")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                } else {
+                    // Ещё раз / Слушать эталон → TTS fully, then mic.
+                    Button {
+                        speakPromptThenListen()
+                    } label: {
+                        Text("Ещё раз")
+                            .font(.system(size: 24, weight: .bold))
+                            .frame(maxWidth: .infinity, minHeight: 60)
+                    }
+                    .buttonStyle(.borderedProminent)
 
+                    Button {
+                        speakPromptThenListen()
+                    } label: {
+                        Text("Слушать эталон")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity, minHeight: 48)
+                    }
+                    .buttonStyle(.bordered)
+                }
+            }
+        case .listening:
+            VStack(spacing: 10) {
+                HStack(spacing: 8) {
+                    Button {
+                        capture.finish()
+                    } label: {
+                        Text("Стоп")
+                            .font(.system(size: 22, weight: .bold))
+                            .frame(maxWidth: .infinity, minHeight: 60)
+                    }
+                    .buttonStyle(.borderedProminent)
+
+                    Button {
+                        capture.cancel()
+                        listenTask?.cancel()
+                        phase = .unclear
+                        statusNote = "Отменено"
+                    } label: {
+                        Text("Отмена")
+                            .font(.headline)
+                            .frame(maxWidth: .infinity, minHeight: 60)
+                    }
+                    .buttonStyle(.bordered)
+                }
                 Button {
-                    speakReference(phrase.en)
+                    speakPromptThenListen()
                 } label: {
                     Text("Слушать эталон")
                         .font(.headline)
                         .frame(maxWidth: .infinity, minHeight: 48)
                 }
                 .buttonStyle(.bordered)
-            }
-        case .listening:
-            HStack(spacing: 8) {
-                Button {
-                    capture.finish()
-                } label: {
-                    Text("Стоп")
-                        .font(.system(size: 22, weight: .bold))
-                        .frame(maxWidth: .infinity, minHeight: 60)
-                }
-                .buttonStyle(.borderedProminent)
-
-                Button {
-                    capture.cancel()
-                    listenTask?.cancel()
-                    phase = .unclear
-                    statusNote = "Отменено"
-                } label: {
-                    Text("Отмена")
-                        .font(.headline)
-                        .frame(maxWidth: .infinity, minHeight: 60)
-                }
-                .buttonStyle(.bordered)
+                .disabled(isSpeakingPrompt)
             }
         case .passed:
             Button {
@@ -300,8 +320,40 @@ struct PhraseLoopView: View {
 
     // MARK: - Actions
 
+    /// TTS first (mic off, no «Слушаю…»). After full phrase finishes → open STT.
+    private func speakPromptThenListen() {
+        guard let phrase = current else { return }
+
+        listenTask?.cancel()
+        capture.cancel()
+        transcript = ""
+        scorePercent = 0
+        statusNote = ""
+        phase = .ready
+
+        speakHandoffEpoch &+= 1
+        let epoch = speakHandoffEpoch
+        let targetEN = phrase.en
+        isSpeakingPrompt = true
+
+        speaker?.updateSettings(settings)
+        speaker?.speakEN(targetEN) {
+            Task { @MainActor in
+                guard epoch == speakHandoffEpoch else { return }
+                isSpeakingPrompt = false
+                statusNote = speaker?.statusNote ?? ""
+                try? await Task.sleep(nanoseconds: 450_000_000)
+                guard epoch == speakHandoffEpoch else { return }
+                guard current?.en == targetEN else { return }
+                startListening()
+            }
+        }
+    }
+
     private func startListening() {
         guard let phrase = current else { return }
+        // Never open mic while TTS is still playing.
+        guard !isSpeakingPrompt else { return }
         // Release TTS before mic — otherwise STT hears the speaker.
         speaker?.stop()
         ElevenLabsTTS.shared.stop()
@@ -314,14 +366,16 @@ struct PhraseLoopView: View {
         listenTask?.cancel()
         let targetEN = phrase.en
         listenTask = Task {
-            try? await Task.sleep(nanoseconds: 200_000_000)
+            try? await Task.sleep(nanoseconds: 150_000_000)
             try? AudioSessionManager.configureForRecording()
             let locale = settings.rememberLocale.rawValue
             let hints = PhraseSimilarity.sttVariants(for: targetEN)
+                + PhraseSimilarity.siteContextualHints
             let text = await capture.captureUntilStopped(
                 localeId: locale,
                 maxSeconds: 60,
                 contextualStrings: hints,
+                expectedPhrase: targetEN,
                 autoFinishWhen: { PhraseSimilarity.passes(recognized: $0, expected: targetEN) }
             )
             guard !Task.isCancelled else { return }
@@ -334,56 +388,45 @@ struct PhraseLoopView: View {
 
     private func evaluate(_ raw: String) {
         guard let phrase = current else { return }
-        let collapsed = PhraseSimilarity.displayAgainstTarget(raw, expected: phrase.en)
-        transcript = collapsed
-
-        let words = collapsed.split { $0.isWhitespace || $0.isNewline }.filter { !$0.isEmpty }
         let ok = PhraseSimilarity.passes(recognized: raw, expected: phrase.en)
-        let compactPass = ok && PhraseSimilarity.compactKey(collapsed).count >= 3
-        // Short STT like «Handover» can be 1 token but still PASS (B4).
-        if !compactPass,
-           (words.count < 2 || PhraseSimilarity.looksLikeSTTFail(recognized: collapsed, expected: phrase.en)) {
-            scorePercent = 0
-            phase = .unclear
-            statusNote = capture.errorMessage.isEmpty
-                ? "Не расслышал — ещё раз (не «плохой английский»)"
-                : capture.errorMessage
-            scheduleAutoRetry()
+        if ok {
+            // Only the correct phrase is shown; then advance immediately.
+            transcript = phrase.en
+            scorePercent = 100
+            phase = .passed
+            statusNote = ""
+            successHaptic()
+            let prior = listenTask
+            listenTask = nil
+            prior?.cancel()
+            capture.cancel()
+            advance()
             return
         }
-
-        scorePercent = PhraseSimilarity.percent(recognized: raw, expected: phrase.en)
-
-        if ok {
-            phase = .passed
-            statusNote = "≥75%"
-            successHaptic()
-            // B6: PASS → stop mic (already finished) → next phrase, no manual Стоп.
-            listenTask?.cancel()
-            listenTask = Task { @MainActor in
-                try? await Task.sleep(nanoseconds: 350_000_000)
-                guard !Task.isCancelled else { return }
-                advance()
-            }
-        } else {
-            phase = .failed
-            statusNote = "Ещё раз ту же фразу"
-            scheduleAutoRetry()
-        }
+        // Incorrect / unclear: hide wrong words, keep same target, listen again.
+        transcript = ""
+        scorePercent = 0
+        phase = .failed
+        statusNote = capture.errorMessage.isEmpty ? "" : capture.errorMessage
+        scheduleAutoRetry()
     }
 
     private func scheduleAutoRetry() {
         listenTask?.cancel()
         listenTask = Task {
-            try? await Task.sleep(nanoseconds: 700_000_000)
+            try? await Task.sleep(nanoseconds: 250_000_000)
             guard !Task.isCancelled else { return }
+            // Mic only — avoid TTS covering trailing words of the same attempt.
             startListening()
         }
     }
 
     private func advance() {
+        speakHandoffEpoch &+= 1
+        isSpeakingPrompt = false
         speaker?.stop()
         listenTask?.cancel()
+        listenTask = nil
         if index + 1 >= phrases.count {
             phase = .finished
             statusNote = ""
@@ -394,27 +437,24 @@ struct PhraseLoopView: View {
         scorePercent = 0
         statusNote = ""
         phase = .ready
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            startListening()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            speakPromptThenListen()
         }
     }
 
     private func skip() {
-        guard phase != .listening else { return }
+        guard phase != .listening, !isSpeakingPrompt else { return }
+        speakHandoffEpoch &+= 1
+        isSpeakingPrompt = false
         speaker?.stop()
         capture.cancel()
         listenTask?.cancel()
         advance()
     }
 
-    private func speakReference(_ en: String) {
-        speaker?.updateSettings(settings)
-        speaker?.speakEN(en) {
-            statusNote = speaker?.statusNote ?? ""
-        }
-    }
-
     private func tearDown() {
+        speakHandoffEpoch &+= 1
+        isSpeakingPrompt = false
         listenTask?.cancel()
         listenTask = nil
         capture.cancel()

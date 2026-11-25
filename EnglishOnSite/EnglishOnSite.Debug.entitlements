@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<!-- CloudKit returns after paid Apple Developer team: com.apple.developer.icloud-container-identifiers = iCloud.com.sputnik.englishonsite; com.apple.developer.icloud-services = CloudKit. Debug is empty so Personal Team can sign. -->
+<dict>
+</dict>
+</plist>

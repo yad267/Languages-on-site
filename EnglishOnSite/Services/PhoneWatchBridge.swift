@@ -101,7 +101,11 @@ final class PhoneWatchBridge: NSObject {
         guard let settings else {
             return offlineFail(requestId: requestId, text: text)
         }
-        let result = await TranslationService.translate(recognized: text, settings: settings)
+        let result = await TranslationService.translate(
+            recognized: text,
+            settings: settings,
+            sourceLanguage: settings.translatorSourceLanguage
+        )
         let en = result.sourceIsRussian ? result.translatedText : result.sourceText
         let ru = result.sourceIsRussian ? result.sourceText : result.translatedText
         if result.matched || result.viaGemini {
