@@ -399,7 +399,7 @@ struct PlayerView: View {
                     .multilineTextAlignment(supervisor ? .leading : .trailing)
                     .fixedSize(horizontal: false, vertical: true)
 
-                if let transcription, !transcription.isEmpty, isCurrent {
+                if let transcription, Self.isUsefulTranscription(transcription), isCurrent {
                     Text(transcription)
                         .font(.footnote.monospaced())
                         .foregroundStyle(.tertiary)
@@ -941,13 +941,29 @@ private struct PlayerVoiceHintBanner: View {
     }
 }
 
-/// Tap/long-press card: translation + short grammar tip + transcription.
+extension PlayerView {
+    /// Skip broken Latin stubs like "e bit loh" — prefer Cyrillic / longer hints.
+    static func isUsefulTranscription(_ raw: String) -> Bool {
+        let t = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !t.isEmpty else { return false }
+        let hasCyrillic = t.range(of: "\\p{Cyrillic}", options: .regularExpression) != nil
+        if hasCyrillic { return true }
+        return t.count >= 12
+    }
+}
+
+/// Tap/long-press card: translation + word gloss tip + simple sounding hint.
 struct LessonLineExplainSheet: View {
     let line: LessonLine
     let roleLabel: String
     var onSpeak: (() -> Void)?
 
     @Environment(\.dismiss) private var dismiss
+
+    private var usefulTranscription: String? {
+        guard let raw = line.transcription else { return nil }
+        return PlayerView.isUsefulTranscription(raw) ? raw : nil
+    }
 
     var body: some View {
         NavigationStack {
@@ -967,18 +983,17 @@ struct LessonLineExplainSheet: View {
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
 
-                    if let transcription = line.transcription, !transcription.isEmpty {
-                        labeled("Как звучит", transcription)
-                            .font(.body.monospaced())
-                    }
-
                     if let tip = line.tip(forExplainLocale: LearnerProfileStore.shared.profile.explainLocale) {
-                        labeled("Грамматика / зачем так", tip)
+                        labeled("Слова / пояснение", tip)
                     } else {
                         labeled(
-                            "Грамматика / зачем так",
-                            "Короткой подсказки пока нет — слушай фразу и сравни с переводом."
+                            "Слова / пояснение",
+                            "Пока нет разбора слов — слушай фразу и сверь с переводом."
                         )
+                    }
+
+                    if let transcription = usefulTranscription {
+                        labeled("Как звучит", transcription)
                     }
 
                     if let onSpeak {
