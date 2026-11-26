@@ -37,7 +37,7 @@
           "en": "Have you got your Safe Pass?",
           "ru": "У тебя есть Safe Pass?",
           "role": "foreman",
-          "tip_ru": "safe pass = карта Safe Pass (допуск на стройку в Ireland)",
+          "tip_ru": "safe pass = карта Safe Pass (допуск на стройку) · Have = есть / имею · your = твой / ваш",
           "transcription": "хаве иау гот иаур сафе пасс"
         },
         {
@@ -67,7 +67,7 @@
           "en": "Sign in at the cabin by the gate.",
           "ru": "Отметься в вагончике у ворот.",
           "role": "foreman",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Sign = знак / подпиши · cabin = бытовка · gate = ворота / калитка",
           "transcription": "сигн ин ат зе кабин би зе гате"
         },
         {
@@ -90,7 +90,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -98,7 +98,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -106,7 +106,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -237,14 +237,14 @@
           "ru": "Где место сбора?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "transcription": "ухере ис зе ассембли пойнт"
         },
         {
           "en": "Outside the canteen. If the alarm goes, go there.",
           "ru": "Снаружи у столовой. Если сирена — иди туда.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · alarm = тревога / сигнал · go = иди / поезжай",
           "transcription": "аутсиде зе кантин иф зе аларм гоес го зере"
         },
         {
@@ -259,7 +259,7 @@
           "en": "Ask in the cabin. Report any hazard straight away.",
           "ru": "Спроси в вагончике. О любой опасности сообщай сразу.",
           "role": "foreman",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "cabin = бытовка · Report = доложи / отчёт · any = какие-нибудь / любой · straight = прямо / сразу",
           "transcription": "аск ин зе кабин репорт ани хазард стрейгхт ауей"
         },
         {
@@ -282,7 +282,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -290,7 +290,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -298,7 +298,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -421,7 +421,7 @@
           "en": "Wear full PPE before you go on site.",
           "ru": "Надень полный СИЗ, прежде чем выходить на объект.",
           "role": "foreman",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "PPE = СИЗ · before = до / перед · go = иди / поезжай · site = площадка / объект",
           "transcription": "уир фалл ппе бефоре иау го он сите"
         },
         {
@@ -451,14 +451,14 @@
           "en": "After induction — yes. Stay on the walkways.",
           "ru": "После инструктажа — да. Ходи только по дорожкам.",
           "role": "foreman",
-          "tip_ru": "walkways = пешеходные дорожки",
+          "tip_ru": "After = после · induction = инструктаж · yes = да · walkways = пешеходные дорожки",
           "transcription": "афтер индакшн иес стей он зе уалкуейс"
         },
         {
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "foreman",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -474,7 +474,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "foreman",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -530,7 +530,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         },
@@ -637,7 +637,7 @@
           "ru": "Сколько метров tray?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "How = как · tray = лоток",
           "transcription": "хоу мани метрес оф трей"
         },
         {
@@ -659,7 +659,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -667,7 +667,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -675,7 +675,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -723,7 +723,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -806,7 +806,7 @@
           "en": "Run trunking along this wall.",
           "ru": "Веди trunking вдоль этой стены.",
           "role": "foreman",
-          "tip_ru": "trunking = кабель-канал / короб",
+          "tip_ru": "trunking = кабель-канал",
           "transcription": "ран транкинг алонг зис уалл"
         },
         {
@@ -829,7 +829,7 @@
           "ru": "Наполнение в норме?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "fill = насколько trunking заполнен кабелем",
+          "tip_ru": "OK = ок",
           "transcription": "ис зе филл ок"
         },
         {
@@ -1006,7 +1006,7 @@
           "ru": "Какая длина шпильки?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "threaded rod = шпилька",
+          "tip_ru": "threaded rod = шпилька · What = что",
           "transcription": "ухат ленгз оф зридед род"
         },
         {
@@ -1043,7 +1043,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -1051,7 +1051,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -1059,7 +1059,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -1107,7 +1107,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -1213,7 +1213,7 @@
           "ru": "Сниму заусенцы.",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "deburr = убрать заусенцы после реза",
+          "tip_ru": "I'll = я сделаю / я · deburr = убрать заусенцы",
           "transcription": "илл дебарр зе едгес"
         },
         {
@@ -1235,7 +1235,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -1243,7 +1243,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -1251,7 +1251,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -1299,7 +1299,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -1382,7 +1382,7 @@
           "en": "Hang the first section level.",
           "ru": "Подвесь первый кусок по уровню.",
           "role": "foreman",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "first = сначала / первый · level = уровень / по уровню",
           "transcription": "ханг зе фирст секшн левел"
         },
         {
@@ -1397,7 +1397,7 @@
           "en": "Every metre and a half on this tray.",
           "ru": "Каждые полтора метра на этом tray.",
           "role": "foreman",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "tray = лоток",
           "transcription": "евери метре анд а халф он зис трей"
         },
         {
@@ -1412,7 +1412,7 @@
           "en": "Check it's level before you walk away.",
           "ru": "Проверь уровень, прежде чем уходить.",
           "role": "foreman",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Check = проверь · level = уровень / по уровню · before = до / перед",
           "transcription": "чек итс левел бефоре иау уалк ауей"
         },
         {
@@ -1427,7 +1427,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -1435,7 +1435,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -1443,7 +1443,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -1491,7 +1491,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -1582,7 +1582,7 @@
           "ru": "Куда сажать перемычку?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "bond = перемычка / соединить на землю",
+          "tip_ru": "Where = где · bond = перемычка / на землю",
           "transcription": "ухере до и ланд зе бонд"
         },
         {
@@ -1619,7 +1619,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -1627,7 +1627,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -1635,7 +1635,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -1683,7 +1683,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },

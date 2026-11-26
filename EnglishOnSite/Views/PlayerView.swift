@@ -984,10 +984,10 @@ struct LessonLineExplainSheet: View {
                         .fixedSize(horizontal: false, vertical: true)
 
                     if let tip = line.tip(forExplainLocale: LearnerProfileStore.shared.profile.explainLocale) {
-                        labeled("Слова / пояснение", tip)
+                        glossBlock(title: "Слова — перевод", tip: tip)
                     } else {
                         labeled(
-                            "Слова / пояснение",
+                            "Слова — перевод",
                             "Слушай фразу и сверь слова с переводом выше."
                         )
                     }
@@ -1029,6 +1029,38 @@ struct LessonLineExplainSheet: View {
             Text(body)
                 .font(.body)
                 .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(Color(.secondarySystemBackground))
+        )
+    }
+
+    /// Split «word = перевод · …» into clear lines so each gloss reads as a translation.
+    @ViewBuilder
+    private func glossBlock(title: String, tip: String) -> some View {
+        let parts = tip
+            .components(separatedBy: "·")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title)
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+            if parts.count > 1 {
+                ForEach(parts, id: \.self) { part in
+                    Text(part)
+                        .font(.body)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            } else {
+                Text(tip)
+                    .font(.body)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
         .padding(12)
         .frame(maxWidth: .infinity, alignment: .leading)

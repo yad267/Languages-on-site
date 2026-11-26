@@ -207,7 +207,7 @@
           "en": "We start on the ground floor slab.",
           "ru": "Начинаем с плиты на первом этаже.",
           "role": "foreman",
-          "tip_ru": "slab = плита перекрытия",
+          "tip_ru": "start = начни / старт · slab = плита перекрытия",
           "practice": false,
           "transcription": "уе старт он зе граунд флур слаб"
         },
@@ -215,7 +215,7 @@
           "en": "Do we need barriers up first?",
           "ru": "Сначала поставить ограждения?",
           "role": "electrician",
-          "tip_ru": "barriers = ограждения",
+          "tip_ru": "need = нужно · barriers = ограждения · first = сначала / первый",
           "practice": true,
           "transcription": "до уе нид баррирс ап фирст"
         },
@@ -389,7 +389,7 @@
           "en": "Where do these bags go?",
           "ru": "Куда эти мешки?",
           "role": "electrician",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где · go = иди / поезжай",
           "practice": true,
           "transcription": "ухере до зесе багс го"
         },
@@ -397,7 +397,7 @@
           "en": "Take them to bay three.",
           "ru": "Отнеси их в отсек три.",
           "role": "foreman",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "Take = возьми · bay = пролёт / секция",
           "practice": false,
           "transcription": "таке зем то бей зри"
         },
@@ -405,7 +405,7 @@
           "en": "Is the hoist free?",
           "ru": "Подъёмник свободен?",
           "role": "electrician",
-          "tip_ru": "hoist = подъёмник / лебёдка",
+          "tip_ru": "hoist = подъёмник",
           "practice": true,
           "transcription": "ис зе хойст фри"
         },
@@ -413,7 +413,7 @@
           "en": "Use the hoist. Don't carry them up the stairs.",
           "ru": "Используй подъёмник. Не тащи по лестнице.",
           "role": "foreman",
-          "tip_ru": "hoist = подъёмник / лебёдка",
+          "tip_ru": "Use = используй · hoist = подъёмник",
           "practice": false,
           "transcription": "асе зе хойст донт карри зем ап зе стейрс"
         },
@@ -579,7 +579,7 @@
           "en": "Is this area closed?",
           "ru": "Эта зона закрыта?",
           "role": "electrician",
-          "tip_ru": "Is/Are …? — вопрос на be: состояние или наличие.",
+          "tip_ru": "area = зона / участок",
           "practice": true,
           "transcription": "ис зис ари клосед"
         },
@@ -595,7 +595,7 @@
           "en": "Who can go in?",
           "ru": "Кто может заходить?",
           "role": "electrician",
-          "tip_ru": "Who …? — «кто?» Человек или роль (бригадир, электрик).",
+          "tip_ru": "Who = кто · go = иди / поезжай",
           "practice": true,
           "transcription": "ухо кан го ин"
         },
@@ -611,7 +611,7 @@
           "en": "I'll stay outside then.",
           "ru": "Тогда останусь снаружи.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · outside = снаружи",
           "practice": true,
           "transcription": "илл стей аутсиде зен"
         },
@@ -825,7 +825,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -833,7 +833,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -841,7 +841,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -889,7 +889,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -959,7 +959,7 @@
           "en": "The trunking delivery is late.",
           "ru": "Поставка короба опаздывает.",
           "role": "electrician",
-          "tip_ru": "trunking = кабель-канал / короб",
+          "tip_ru": "trunking = кабель-канал",
           "practice": true,
           "transcription": "зе транкинг деливери ис лате"
         },
@@ -999,7 +999,7 @@
           "en": "Yes — pull cable on level two meanwhile.",
           "ru": "Да — пока тяни кабель на втором уровне.",
           "role": "foreman",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Yes = да · cable = кабель · level = уровень / по уровню · two = два",
           "practice": false,
           "transcription": "иес палл кабле он левел туо минухиле"
         },
@@ -1181,7 +1181,7 @@
           "en": "We'll move inside to the plant room.",
           "ru": "Перейдём внутрь в венткамеру.",
           "role": "electrician",
-          "tip_ru": "plant room = щитовая / техпомещение",
+          "tip_ru": "plant room = щитовая / техпомещение · move = двигайся / перенеси",
           "practice": true,
           "transcription": "уелл мове инсиде то зе плант рум"
         },
@@ -1355,7 +1355,7 @@
           "en": "Two hundred mil from the corner, level.",
           "ru": "Двести миллиметров от угла, по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Two = два · level = уровень / по уровню",
           "practice": true,
           "transcription": "туо хандред мил фром зе корнер левел"
         },
@@ -1561,7 +1561,7 @@
           "en": "I'll prep terminations outside.",
           "ru": "Подготовлю оконцовки снаружи.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · outside = снаружи",
           "practice": true,
           "transcription": "илл преп терм·инаш·нс аутсиде"
         },
@@ -1719,7 +1719,7 @@
           "en": "What do you need before we leave?",
           "ru": "Что нужно перед уходом?",
           "role": "electrician",
-          "tip_ru": "What …? — вопрос «что/какой», когда предмет ещё не уточнён.",
+          "tip_ru": "What = что · need = нужно · before = до / перед · leave = оставь / уходи",
           "practice": true,
           "transcription": "ухат до иау нид бефоре уе ливе"
         },
@@ -1735,7 +1735,7 @@
           "en": "Tools are back on the board.",
           "ru": "Инструмент на месте на стенде.",
           "role": "electrician",
-          "tip_ru": "board = щит / панель",
+          "tip_ru": "Tools = инструмент · board = щит / панель",
           "practice": true,
           "transcription": "тулс аре бак он зе боард"
         },
@@ -1917,7 +1917,7 @@
           "en": "How bad is it?",
           "ru": "Насколько серьёзно?",
           "role": "foreman",
-          "tip_ru": "How …? — «как?» Способ или состояние.",
+          "tip_ru": "How = как",
           "practice": false,
           "transcription": "хоу бад ис ит"
         },
@@ -2479,7 +2479,7 @@
           "en": "Where do you want the entrance camera?",
           "ru": "Куда поставить камеру на входе?",
           "role": "technician",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где · camera = камера",
           "practice": true,
           "transcription": "ухере до иау уант зе ентранке камера"
         },
@@ -2511,7 +2511,7 @@
           "en": "I'll mark both positions on the plan.",
           "ru": "Отмечу обе точки на плане.",
           "role": "technician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · mark = отметь",
           "practice": true,
           "transcription": "илл марк боз посишнс он зе план"
         },
@@ -2543,7 +2543,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -2575,7 +2575,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -2591,7 +2591,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -2599,7 +2599,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -2701,7 +2701,7 @@
           "en": "I'll test voltage at the camera end.",
           "ru": "Проверю напряжение на конце у камеры.",
           "role": "technician",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "I'll = я сделаю / я · test = тест / проверь · camera = камера",
           "practice": true,
           "transcription": "илл тест волтаге ат зе камера енд"
         },
@@ -2733,7 +2733,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -2765,7 +2765,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -2781,7 +2781,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -2789,7 +2789,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -2859,7 +2859,7 @@
           "en": "Can I share the same tray as power?",
           "ru": "Можно в один лоток с силой?",
           "role": "technician",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "tray = лоток",
           "practice": true,
           "transcription": "кан и шаре зе саме трей ас поуер"
         },
@@ -2875,7 +2875,7 @@
           "en": "There's a spare data tray above.",
           "ru": "Сверху есть свободный лоток для данных.",
           "role": "technician",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "tray = лоток",
           "practice": true,
           "transcription": "зерес а спаре дата трей абове"
         },
@@ -2915,7 +2915,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -2923,7 +2923,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "client",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -2931,7 +2931,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -2979,7 +2979,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -3049,7 +3049,7 @@
           "en": "The NVR is online. Need the admin password.",
           "ru": "NVR в сети. Нужен пароль админа.",
           "role": "technician",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "NVR = видеорегистратор (NVR) · Need = нужно",
           "practice": true,
           "transcription": "зе нвр ис онлине нид зе админ пассуорд"
         },
@@ -3057,7 +3057,7 @@
           "en": "I'll text it. Change it after setup.",
           "ru": "Пришлю в сообщении. Потом смени.",
           "role": "client",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · after = после",
           "practice": false,
           "transcription": "илл текст ит чанге ит афтер сетап"
         },
@@ -3081,7 +3081,7 @@
           "en": "I'll create two user accounts.",
           "ru": "Создам две учётки.",
           "role": "technician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · two = два",
           "practice": true,
           "transcription": "илл крите туо асер аккаунтс"
         },
@@ -3113,7 +3113,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -3145,7 +3145,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -3161,7 +3161,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -3169,7 +3169,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -3263,7 +3263,7 @@
           "en": "Left a bit… stop. Tilt down.",
           "ru": "Чуть влево… стоп. Ниже.",
           "role": "client",
-          "tip_ru": "a bit = чуть-чуть",
+          "tip_ru": "Left = левый / слева · bit = чуть-чуть",
           "practice": false,
           "transcription": "лефт а бит стоп тилт доун"
         },
@@ -3303,7 +3303,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -3335,7 +3335,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -3351,7 +3351,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -3359,7 +3359,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -3493,7 +3493,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -3525,7 +3525,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -3541,7 +3541,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -3549,7 +3549,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -3619,7 +3619,7 @@
           "en": "Recording stopped on channel two.",
           "ru": "Запись остановилась на канале два.",
           "role": "technician",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "two = два",
           "practice": true,
           "transcription": "реко·рдин·г стоппед он чаннел туо"
         },
@@ -3651,7 +3651,7 @@
           "en": "Done. I'll check twenty-four hours later.",
           "ru": "Готово. Проверю через сутки.",
           "role": "technician",
-          "tip_ru": "Короткий статус-ответ: Done / That's it — сигнал, что шаг завершён.",
+          "tip_ru": "Done = готово / сделано · I'll = я сделаю / я · check = проверь",
           "practice": true,
           "transcription": "доне илл чек туенти фаур хаурс латер"
         },
@@ -3667,7 +3667,7 @@
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "client",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -3683,7 +3683,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "client",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -3739,7 +3739,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         },
@@ -3817,7 +3817,7 @@
           "en": "Are you on the site Wi‑Fi?",
           "ru": "Ты в Wi‑Fi объекта?",
           "role": "client",
-          "tip_ru": "Is/Are …? — вопрос на be: состояние или наличие.",
+          "tip_ru": "site = площадка / объект",
           "practice": false,
           "transcription": "аре иау он зе сите уи фи"
         },
@@ -3825,7 +3825,7 @@
           "en": "Yes. Scanning the QR on the NVR.",
           "ru": "Да. Сканирую QR на NVR.",
           "role": "technician",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Yes = да · NVR = видеорегистратор (NVR)",
           "practice": true,
           "transcription": "иес сканнинг зе р он зе нвр"
         },
@@ -3873,7 +3873,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -3905,7 +3905,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -3921,7 +3921,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -3929,7 +3929,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -4031,7 +4031,7 @@
           "en": "I'll use the spare conduit path.",
           "ru": "Пойду запасным путём в трубе.",
           "role": "technician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · use = используй",
           "practice": true,
           "transcription": "илл асе зе спаре кондаит паз"
         },
@@ -4063,7 +4063,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -4095,7 +4095,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -4111,7 +4111,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -4119,7 +4119,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -4221,7 +4221,7 @@
           "en": "Done. Old defaults are disabled.",
           "ru": "Готово. Старые пароли отключены.",
           "role": "technician",
-          "tip_ru": "Короткий статус-ответ: Done / That's it — сигнал, что шаг завершён.",
+          "tip_ru": "Done = готово / сделано",
           "practice": true,
           "transcription": "доне олд дефаалтс аре дисаблед"
         },
@@ -4253,7 +4253,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -4285,7 +4285,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -4301,7 +4301,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -4309,7 +4309,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -4403,7 +4403,7 @@
           "en": "Raise the sensitivity threshold.",
           "ru": "Подними порог чувствительности.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними",
           "practice": false,
           "transcription": "рейсе зе сенс·итив·ити зрешолд"
         },
@@ -4411,7 +4411,7 @@
           "en": "I'll also mask the tree zone.",
           "ru": "Ещё замаскирую зону с деревьями.",
           "role": "technician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я",
           "practice": true,
           "transcription": "илл алсо маск зе три зоне"
         },
@@ -4443,7 +4443,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -4475,7 +4475,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -4491,7 +4491,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -4499,7 +4499,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -4593,7 +4593,7 @@
           "en": "Add it to the NVR and name it Stock.",
           "ru": "Добавь в NVR и назови Stock.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Add = добавь · NVR = видеорегистратор (NVR) · name = имя",
           "practice": false,
           "transcription": "адд ит то зе нвр анд наме ит сток"
         },
@@ -4633,7 +4633,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -4665,7 +4665,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -4681,7 +4681,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -4689,7 +4689,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -4767,7 +4767,7 @@
           "en": "Have you got your Safe Pass with you?",
           "ru": "Safe Pass с собой?",
           "role": "supervisor",
-          "tip_ru": "safe pass = карта Safe Pass (допуск на стройку в Ireland)",
+          "tip_ru": "safe pass = карта Safe Pass (допуск на стройку) · Have = есть / имею · your = твой / ваш",
           "practice": false,
           "transcription": "хаве иау гот иаур сафе пасс уиз иау"
         },
@@ -4791,7 +4791,7 @@
           "en": "What time does it start?",
           "ru": "Во сколько начинается?",
           "role": "new_starter",
-          "tip_ru": "What …? — вопрос «что/какой», когда предмет ещё не уточнён.",
+          "tip_ru": "What = что · start = начни / старт",
           "practice": true,
           "transcription": "ухат тиме доес ит старт"
         },
@@ -4823,7 +4823,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -4831,7 +4831,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -4839,7 +4839,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -4997,7 +4997,7 @@
           "en": "What PPE do I need on this site?",
           "ru": "Какие СИЗ нужны на этом объекте?",
           "role": "new_starter",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "What = что · PPE = СИЗ · need = нужно · site = площадка / объект",
           "practice": true,
           "transcription": "ухат ппе до и нид он зис сите"
         },
@@ -5005,7 +5005,7 @@
           "en": "Hard hat, hi‑vis, safety boots, and glasses.",
           "ru": "Каска, жилет, ботинки и очки.",
           "role": "supervisor",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · boots = ботинки · glasses = очки (защитные)",
           "practice": false,
           "transcription": "хард хат хи вис сафети бутс анд глассес"
         },
@@ -5013,7 +5013,7 @@
           "en": "Are gloves mandatory everywhere?",
           "ru": "Перчатки обязательны везде?",
           "role": "new_starter",
-          "tip_ru": "Is/Are …? — вопрос на be: состояние или наличие.",
+          "tip_ru": "gloves = перчатки",
           "practice": true,
           "transcription": "аре гловес манд·атор·и евер·иухе·ре"
         },
@@ -5037,7 +5037,7 @@
           "en": "Store is next to the canteen.",
           "ru": "Склад рядом со столовой.",
           "role": "supervisor",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "next = следующий · canteen = столовая на объекте",
           "practice": false,
           "transcription": "сторе ис некст то зе кантин"
         },
@@ -5045,7 +5045,7 @@
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "foreman",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -5061,7 +5061,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "foreman",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -5117,7 +5117,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         },
@@ -5235,7 +5235,7 @@
           "en": "Where is the nearest fire exit?",
           "ru": "Где ближайший пожарный выход?",
           "role": "new_starter",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где · fire = пожар / огонь",
           "practice": true,
           "transcription": "ухере ис зе нирест фире ексит"
         },
@@ -5251,7 +5251,7 @@
           "en": "Where do we assemble?",
           "ru": "Где точка сбора?",
           "role": "new_starter",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где",
           "practice": true,
           "transcription": "ухере до уе ассембле"
         },
@@ -5259,7 +5259,7 @@
           "en": "Assembly point B by the gate.",
           "ru": "Точка B у ворот.",
           "role": "supervisor",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · gate = ворота / калитка",
           "practice": false,
           "transcription": "ассембли пойнт б би зе гате"
         },
@@ -5267,7 +5267,7 @@
           "en": "Who do I report to after a drill?",
           "ru": "Кому докладывать после тренировки?",
           "role": "new_starter",
-          "tip_ru": "Who …? — «кто?» Человек или роль (бригадир, электрик).",
+          "tip_ru": "Who = кто · report = доложи / отчёт · after = после",
           "practice": true,
           "transcription": "ухо до и репорт то афтер а дрилл"
         },
@@ -5299,7 +5299,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -5307,7 +5307,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -5315,7 +5315,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -5473,7 +5473,7 @@
           "en": "Do I need a permit for hot works?",
           "ru": "Нужен наряд на огневые работы?",
           "role": "new_starter",
-          "tip_ru": "Do/Does/Did — общий вопрос да/нет; ответ часто short: Yes, I do / No, I don't.",
+          "tip_ru": "need = нужно · works = работает / работы",
           "practice": true,
           "transcription": "до и нид а пермит фор хот уоркс"
         },
@@ -5489,7 +5489,7 @@
           "en": "Who signs it?",
           "ru": "Кто подписывает?",
           "role": "new_starter",
-          "tip_ru": "Who …? — «кто?» Человек или роль (бригадир, электрик).",
+          "tip_ru": "Who = кто",
           "practice": true,
           "transcription": "ухо сигнс ит"
         },
@@ -5505,7 +5505,7 @@
           "en": "I'll raise it before I start.",
           "ru": "Оформлю до начала.",
           "role": "new_starter",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "I'll = я сделаю / я · raise = подними · before = до / перед · start = начни / старт",
           "practice": true,
           "transcription": "илл рейсе ит бефоре и старт"
         },
@@ -5537,7 +5537,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -5545,7 +5545,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -5553,7 +5553,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -5719,7 +5719,7 @@
           "en": "Show me your lock and tag first.",
           "ru": "Сначала покажи свой замок и бирку.",
           "role": "supervisor",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "your = твой / ваш · tag = бирка · first = сначала / первый",
           "practice": false,
           "transcription": "шоу ме иаур лок анд таг фирст"
         },
@@ -5735,7 +5735,7 @@
           "en": "Prove dead before you touch anything.",
           "ru": "Проверь отсутствие напряжения до касания.",
           "role": "supervisor",
-          "tip_ru": "prove dead = проверить, что напряжения нет",
+          "tip_ru": "prove dead = проверить, что напряжения нет · before = до / перед",
           "practice": false,
           "transcription": "прове дид бефоре иау тауч анизинг"
         },
@@ -5775,7 +5775,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -5783,7 +5783,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -5791,7 +5791,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -5973,7 +5973,7 @@
           "en": "Good. We'll get a proper cover on it.",
           "ru": "Хорошо. Поставим нормальное перекрытие.",
           "role": "supervisor",
-          "tip_ru": "cover = крышка",
+          "tip_ru": "Good = хорошо · get = возьми / достань · cover = крышка",
           "practice": false,
           "transcription": "гуд уелл гет а пропер ковер он ит"
         },
@@ -6013,7 +6013,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -6021,7 +6021,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -6029,7 +6029,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -6187,7 +6187,7 @@
           "en": "Can I use a ladder for that light?",
           "ru": "Можно лестницу для того светильника?",
           "role": "new_starter",
-          "tip_ru": "Can/Could I …? — вежливая просьба разрешения перед действием.",
+          "tip_ru": "use = используй",
           "practice": true,
           "transcription": "кан и асе а ладдер фор зат лигхт"
         },
@@ -6251,7 +6251,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -6259,7 +6259,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -6267,7 +6267,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -6425,7 +6425,7 @@
           "en": "Where are the safety data sheets?",
           "ru": "Где паспорта безопасности?",
           "role": "new_starter",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где",
           "practice": true,
           "transcription": "ухере аре зе сафети дата шитс"
         },
@@ -6457,7 +6457,7 @@
           "en": "Where do I dispose of the rags?",
           "ru": "Куда девать ветошь?",
           "role": "new_starter",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где",
           "practice": true,
           "transcription": "ухере до и диспосе оф зе рагс"
         },
@@ -6489,7 +6489,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -6497,7 +6497,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -6505,7 +6505,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -6663,7 +6663,7 @@
           "en": "Who is the first aider today?",
           "ru": "Кто сегодня оказывающий первую помощь?",
           "role": "new_starter",
-          "tip_ru": "Who …? — «кто?» Человек или роль (бригадир, электрик).",
+          "tip_ru": "first aider = человек с первой помощью · Who = кто · today = сегодня",
           "practice": true,
           "transcription": "ухо ис зе фирст ейдер тодей"
         },
@@ -6679,7 +6679,7 @@
           "en": "Where is the first aid kit?",
           "ru": "Где аптечка?",
           "role": "new_starter",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где · first = сначала / первый",
           "practice": true,
           "transcription": "ухере ис зе фирст ейд кит"
         },
@@ -6687,7 +6687,7 @@
           "en": "In the welfare cabin, left shelf.",
           "ru": "В бытовке, левая полка.",
           "role": "supervisor",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "cabin = бытовка · left = левый / слева",
           "practice": false,
           "transcription": "ин зе уелфаре кабин лефт шелф"
         },
@@ -6727,7 +6727,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -6735,7 +6735,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -6743,7 +6743,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -6901,7 +6901,7 @@
           "en": "Where can delivery vans park?",
           "ru": "Где могут парковаться доставки?",
           "role": "new_starter",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где",
           "practice": true,
           "transcription": "ухере кан деливери ванс парк"
         },
@@ -6917,7 +6917,7 @@
           "en": "Is reversing without a banksman allowed?",
           "ru": "Сдача назад без сигнальщика можно?",
           "role": "new_starter",
-          "tip_ru": "Is/Are …? — вопрос на be: состояние или наличие.",
+          "tip_ru": "allowed = разрешено",
           "practice": true,
           "transcription": "ис реве·рсин·г уизаут а банксман аллоуед"
         },
@@ -6933,7 +6933,7 @@
           "en": "I'll radio before the truck enters.",
           "ru": "Перед въездом грузовика вызову по рации.",
           "role": "new_starter",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · radio = рация · before = до / перед",
           "practice": true,
           "transcription": "илл радио бефоре зе трак ентерс"
         },
@@ -6965,7 +6965,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -6973,7 +6973,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -6981,7 +6981,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -7155,7 +7155,7 @@
           "en": "I'm waiting for the site electrician.",
           "ru": "Жду электрика объекта.",
           "role": "new_starter",
-          "tip_ru": "I'm + … — состояние или роль прямо сейчас (I'm ready / I'm on it).",
+          "tip_ru": "site = площадка / объект",
           "practice": true,
           "transcription": "им уейтинг фор зе сите елек·трик·иан"
         },
@@ -7171,7 +7171,7 @@
           "en": "I'll stay clear and watch the area.",
           "ru": "Отойду и прослежу зону.",
           "role": "new_starter",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · clear = можно / свободно · area = зона / участок",
           "practice": true,
           "transcription": "илл стей клир анд уатч зе ари"
         },
@@ -7179,7 +7179,7 @@
           "en": "Thanks. Report if anyone removes the cover.",
           "ru": "Спасибо. Скажи, если кто снимет крышку.",
           "role": "supervisor",
-          "tip_ru": "cover = крышка",
+          "tip_ru": "Thanks = спасибо · Report = доложи / отчёт · cover = крышка",
           "practice": false,
           "transcription": "занкс репорт иф анионе ремовес зе ковер"
         },
@@ -7203,7 +7203,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -7211,7 +7211,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -7219,7 +7219,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -7385,7 +7385,7 @@
           "en": "Who do I call if I feel unsafe?",
           "ru": "Кому звонить, если небезопасно?",
           "role": "new_starter",
-          "tip_ru": "Who …? — «кто?» Человек или роль (бригадир, электрик).",
+          "tip_ru": "Who = кто · call = позвони / вызови",
           "practice": true,
           "transcription": "ухо до и калл иф и фил ансафе"
         },
@@ -7401,7 +7401,7 @@
           "en": "Where do I get task briefings?",
           "ru": "Где брать брифинги на задачу?",
           "role": "new_starter",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где · get = возьми / достань · task = задача",
           "practice": true,
           "transcription": "ухере до и гет таск брифингс"
         },
@@ -7441,7 +7441,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -7449,7 +7449,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -7457,7 +7457,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -7631,7 +7631,7 @@
           "en": "I'll lock it off and prove dead.",
           "ru": "Отключу, повешу замок и проверю отсутствие.",
           "role": "electrician",
-          "tip_ru": "prove dead = проверить, что напряжения нет",
+          "tip_ru": "prove dead = проверить, что напряжения нет · I'll = я сделаю / я",
           "practice": true,
           "transcription": "илл лок ит офф анд прове дид"
         },
@@ -7639,7 +7639,7 @@
           "en": "Tag it with your name and time.",
           "ru": "Бирка с именем и временем.",
           "role": "foreman",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "Tag = бирка · your = твой / ваш · name = имя",
           "practice": false,
           "transcription": "таг ит уиз иаур наме анд тиме"
         },
@@ -7647,7 +7647,7 @@
           "en": "Done. Safe to open the cover.",
           "ru": "Готово. Можно открывать крышку.",
           "role": "electrician",
-          "tip_ru": "cover = крышка",
+          "tip_ru": "Done = готово / сделано · Safe = безопасно / Safe Pass · cover = крышка",
           "practice": true,
           "transcription": "доне сафе то опен зе ковер"
         },
@@ -7655,7 +7655,7 @@
           "en": "Keep one person as a standby.",
           "ru": "Оставь одного наблюдающим.",
           "role": "foreman",
-          "tip_ru": "standby = наблюдающий / страхующий",
+          "tip_ru": "Keep = держи / продолжай · one = один · standby = наблюдающий",
           "practice": false,
           "transcription": "кип оне персон ас а стандби"
         },
@@ -7829,7 +7829,7 @@
           "en": "Yes, from the drum in bay two.",
           "ru": "Да, с барабана во втором отсеке.",
           "role": "foreman",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "Yes = да · bay = пролёт / секция · two = два",
           "practice": false,
           "transcription": "иес фром зе драм ин бей туо"
         },
@@ -7837,7 +7837,7 @@
           "en": "I'll label both ends before I pull.",
           "ru": "Помечу оба конца до протяжки.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · label = бирка / наклейка · before = до / перед",
           "practice": true,
           "transcription": "илл лабел боз ендс бефоре и палл"
         },
@@ -8209,7 +8209,7 @@
           "en": "Yes. Earth to the metal body.",
           "ru": "Да. Землю на металлический корпус.",
           "role": "foreman",
-          "tip_ru": "earth = заземление",
+          "tip_ru": "Yes = да · Earth = заземление",
           "practice": false,
           "transcription": "иес ирз то зе метал боди"
         },
@@ -8391,7 +8391,7 @@
           "en": "Can I use temporary tags tonight?",
           "ru": "Можно временные бирки на сегодня?",
           "role": "electrician",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "use = используй",
           "practice": true,
           "transcription": "кан и асе темп·орар·и тагс тонигхт"
         },
@@ -8407,7 +8407,7 @@
           "en": "I'll photo the schedule for the pack.",
           "ru": "Сфоткаю схему для пакета.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я",
           "practice": true,
           "transcription": "илл фото зе счедале фор зе пак"
         },
@@ -8565,7 +8565,7 @@
           "en": "Mains outage starts at two.",
           "ru": "Отключение сети в два.",
           "role": "foreman",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "two = два",
           "practice": false,
           "transcription": "мейнс аутаге стартс ат туо"
         },
@@ -8755,7 +8755,7 @@
           "en": "How deep should this chase be?",
           "ru": "Какой глубины должна быть штроба?",
           "role": "electrician",
-          "tip_ru": "How …? — «как?» Способ или состояние.",
+          "tip_ru": "How = как",
           "practice": true,
           "transcription": "хоу дип шаулд зис часе бе"
         },
@@ -8787,7 +8787,7 @@
           "en": "I'll vacuum before plastering.",
           "ru": "Пропылесосю до штукатурки.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · before = до / перед",
           "practice": true,
           "transcription": "илл вакаам бефоре плас·тери·нг"
         },
@@ -8795,7 +8795,7 @@
           "en": "Don't leave sharp edges on the chase.",
           "ru": "Не оставляй острые края штробы.",
           "role": "foreman",
-          "tip_ru": "Don't + глагол — запрет или предупреждение на объекте.",
+          "tip_ru": "leave = оставь / уходи",
           "practice": false,
           "transcription": "донт ливе шарп едгес он зе часе"
         },
@@ -8945,7 +8945,7 @@
           "en": "Time to test the RCDs on this board.",
           "ru": "Пора тестить УЗО на этом щите.",
           "role": "foreman",
-          "tip_ru": "board = щит / панель",
+          "tip_ru": "test = тест / проверь · board = щит / панель",
           "practice": false,
           "transcription": "тиме то тест зе ркдс он зис боард"
         },
@@ -8953,7 +8953,7 @@
           "en": "I'll use the tester and log the times.",
           "ru": "Тестером замерю и запишу времена.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · use = используй",
           "practice": true,
           "transcription": "илл асе зе тестер анд лог зе тимес"
         },
@@ -9349,7 +9349,7 @@
           "en": "Repair the cable and inspect neighbours.",
           "ru": "Почини кабель и проверь соседние.",
           "role": "foreman",
-          "tip_ru": "spec = по норме / по спецификации",
+          "tip_ru": "cable = кабель",
           "practice": false,
           "transcription": "репейр зе кабле анд инспект неиг·хбау·рс"
         },
@@ -9745,7 +9745,7 @@
           "en": "Done. Ready to sign off.",
           "ru": "Готово. Можно подписывать.",
           "role": "electrician",
-          "tip_ru": "Короткий статус-ответ: Done / That's it — сигнал, что шаг завершён.",
+          "tip_ru": "Done = готово / сделано · Ready = готов · sign = знак / подпиши",
           "practice": true,
           "transcription": "доне риди то сигн офф"
         },
@@ -10085,7 +10085,7 @@
           "en": "Laser level battery is dead.",
           "ru": "Батарея лазерного уровня села.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "level = уровень / по уровню",
           "practice": true,
           "transcription": "ласер левел баттери ис дид"
         },
@@ -10117,7 +10117,7 @@
           "en": "I'll swap batteries in twenty minutes.",
           "ru": "Через двадцать минут поменяю батареи.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · minutes = минут",
           "practice": true,
           "transcription": "илл суап баттерис ин туенти минатес"
         },
@@ -10283,7 +10283,7 @@
           "en": "Are you using the right bit for concrete?",
           "ru": "Правильное сверло по бетону?",
           "role": "foreman",
-          "tip_ru": "Is/Are …? — вопрос на be: состояние или наличие.",
+          "tip_ru": "right = правый / справа · bit = чуть-чуть",
           "practice": false,
           "transcription": "аре иау асинг зе ригхт бит фор конкрете"
         },
@@ -10473,7 +10473,7 @@
           "en": "That's Tom's. Don't take it.",
           "ru": "Тома. Не бери.",
           "role": "foreman",
-          "tip_ru": "Короткий статус-ответ: Done / That's it — сигнал, что шаг завершён.",
+          "tip_ru": "take = возьми",
           "practice": false,
           "transcription": "затс томс донт таке ит"
         },
@@ -10497,7 +10497,7 @@
           "en": "Got the spare. Tagged against my name.",
           "ru": "Взял запасной. Записал на себя.",
           "role": "electrician",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "name = имя",
           "practice": true,
           "transcription": "гот зе спаре таггед агейнст ми наме"
         },
@@ -10663,7 +10663,7 @@
           "en": "Red tag it. Do not use.",
           "ru": "Красную бирку. Не использовать.",
           "role": "foreman",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "tag = бирка · use = используй",
           "practice": false,
           "transcription": "ред таг ит до нот асе"
         },
@@ -10671,7 +10671,7 @@
           "en": "Where do condemned tools go?",
           "ru": "Куда бракованный инструмент?",
           "role": "electrician",
-          "tip_ru": "Where …? — «где?» Место или направление на площадке.",
+          "tip_ru": "Where = где · tools = инструмент · go = иди / поезжай",
           "practice": true,
           "transcription": "ухере до конд·емне·д тулс го"
         },
@@ -10845,7 +10845,7 @@
           "en": "My cable stripper is missing.",
           "ru": "Пропал мой стриппер.",
           "role": "electrician",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "cable = кабель",
           "practice": true,
           "transcription": "ми кабле стриппер ис миссинг"
         },
@@ -10877,7 +10877,7 @@
           "en": "I'll replace it — grip is gone.",
           "ru": "Заменю — хват пропал.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я",
           "practice": true,
           "transcription": "илл реплаке ит грип ис гоне"
         },
@@ -10885,7 +10885,7 @@
           "en": "Put the order on the board.",
           "ru": "Заявку на доску.",
           "role": "foreman",
-          "tip_ru": "board = щит / панель",
+          "tip_ru": "Put = надень / поставь · board = щит / панель",
           "practice": false,
           "transcription": "пат зе ордер он зе боард"
         },
@@ -10893,7 +10893,7 @@
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "colleague",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -10909,7 +10909,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "colleague",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -10965,7 +10965,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         },
@@ -11051,7 +11051,7 @@
           "en": "Is daisy‑chaining allowed?",
           "ru": "Можно соединять несколько?",
           "role": "electrician",
-          "tip_ru": "Is/Are …? — вопрос на be: состояние или наличие.",
+          "tip_ru": "allowed = разрешено",
           "practice": true,
           "transcription": "ис дейси чейнинг аллоуед"
         },
@@ -11067,7 +11067,7 @@
           "en": "I'll get the 20 metre yellow lead.",
           "ru": "Возьму жёлтый на 20 метров.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · get = возьми / достань",
           "practice": true,
           "transcription": "илл гет зе 20 метре иеллоу лид"
         },
@@ -11249,7 +11249,7 @@
           "en": "Don't leave packs in the cold van overnight.",
           "ru": "Не оставляй их ночью в холодном фургоне.",
           "role": "foreman",
-          "tip_ru": "Don't + глагол — запрет или предупреждение на объекте.",
+          "tip_ru": "leave = оставь / уходи",
           "practice": false,
           "transcription": "донт ливе пакс ин зе колд ван овер·нигх·т"
         },
@@ -11605,7 +11605,7 @@
           "en": "Torque wrench sticker is out of date.",
           "ru": "Наклейка калибровки на ключе просрочена.",
           "role": "electrician",
-          "tip_ru": "torque = затянуть с моментом",
+          "tip_ru": "Torque = затяни с моментом",
           "practice": true,
           "transcription": "торкве уренч стикер ис аут оф дате"
         },
@@ -11613,7 +11613,7 @@
           "en": "Don't use it for terminations then.",
           "ru": "Тогда не используй для оконцовки.",
           "role": "foreman",
-          "tip_ru": "Don't + глагол — запрет или предупреждение на объекте.",
+          "tip_ru": "use = используй",
           "practice": false,
           "transcription": "донт асе ит фор терм·инаш·нс зен"
         },
@@ -11803,7 +11803,7 @@
           "en": "I'll sort it before lunch.",
           "ru": "Разложу до обеда.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я · before = до / перед · lunch = обед",
           "practice": true,
           "transcription": "илл сорт ит бефоре ланч"
         },
@@ -11993,7 +11993,7 @@
           "en": "I'll bring everything back to the container.",
           "ru": "Снесу всё в контейнер.",
           "role": "electrician",
-          "tip_ru": "I'll + глагол — план или обещание «сделаю сейчас / сразу».",
+          "tip_ru": "I'll = я сделаю / я",
           "practice": true,
           "transcription": "илл бринг евер·изин·г бак то зе конт·ейне·р"
         },
@@ -12176,7 +12176,7 @@
           "en": "Go get the drill.",
           "ru": "Пойди возьми дрель.",
           "role": "foreman",
-          "tip_ru": "пойди возьми",
+          "tip_ru": "Go = иди / поезжай · get = возьми / достань",
           "practice": false,
           "transcription": "го гет зе дрилл"
         },
@@ -12192,7 +12192,7 @@
           "en": "Take it and bring it here.",
           "ru": "Возьми и принеси сюда.",
           "role": "foreman",
-          "tip_ru": "возьми и принеси",
+          "tip_ru": "Take = возьми",
           "practice": false,
           "transcription": "таке ит анд бринг ит хере"
         },
@@ -12208,7 +12208,7 @@
           "en": "Go cut that trunking.",
           "ru": "Пойди отрежь тот короб.",
           "role": "foreman",
-          "tip_ru": "trunking = кабель-канал / короб",
+          "tip_ru": "Go = иди / поезжай · cut = рез / резка · trunking = кабель-канал",
           "practice": false,
           "transcription": "го кат зат транкинг"
         },
@@ -12216,7 +12216,7 @@
           "en": "Give me that over there.",
           "ru": "Дай мне вон то.",
           "role": "foreman",
-          "tip_ru": "дай мне вон то",
+          "tip_ru": "Слушай фразу и сверь с переводом ниже.",
           "practice": false,
           "transcription": "гиве ме зат овер зере"
         },
@@ -12232,7 +12232,7 @@
           "en": "Give me something to mark with.",
           "ru": "Дай мне чем разметить.",
           "role": "foreman",
-          "tip_ru": "дай мне что-то",
+          "tip_ru": "mark = отметь",
           "practice": false,
           "transcription": "гиве ме сомезинг то марк уиз"
         },
@@ -12386,7 +12386,7 @@
           "en": "Hello. How are you?",
           "ru": "Привет. Как дела?",
           "role": "foreman",
-          "tip_ru": "How are you? — вежливый вопрос «как ты?»",
+          "tip_ru": "How = как",
           "transcription": "хелло хоу аре иау",
           "practice": false
         },
@@ -12394,7 +12394,7 @@
           "en": "I am fine, thanks.",
           "ru": "Нормально, спасибо.",
           "role": "electrician",
-          "tip_ru": "I am / I'm — «я есть». Thanks = thank you.",
+          "tip_ru": "thanks = спасибо",
           "transcription": "и ам фине занкс",
           "practice": true
         },
@@ -12402,7 +12402,7 @@
           "en": "What is the plan today?",
           "ru": "Какой план на сегодня?",
           "role": "electrician",
-          "tip_ru": "What is…? — вопрос «что / какой?»",
+          "tip_ru": "What = что · today = сегодня",
           "transcription": "ухат ис зе план тодей",
           "practice": true
         },
@@ -12410,7 +12410,7 @@
           "en": "We work on the first floor.",
           "ru": "Работаем на первом этаже.",
           "role": "foreman",
-          "tip_ru": "first floor в Ireland/UK часто = 1-й над землёй; уточняй на объекте.",
+          "tip_ru": "work = работа · first = сначала / первый",
           "transcription": "уе уорк он зе фирст флур",
           "practice": false
         },
@@ -12426,7 +12426,7 @@
           "en": "Start now, please.",
           "ru": "Начинай сейчас, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "please смягчает приказ.",
+          "tip_ru": "Start = начни / старт · please = пожалуйста",
           "transcription": "старт ноу плисе",
           "practice": false
         },
@@ -12434,7 +12434,7 @@
           "en": "Yes. I start now.",
           "ru": "Да. Начинаю сейчас.",
           "role": "electrician",
-          "tip_ru": "Yes + короткое действие. Простой Present.",
+          "tip_ru": "Yes = да · start = начни / старт",
           "transcription": "иес и старт ноу",
           "practice": true
         },
@@ -12568,7 +12568,7 @@
           "en": "Where is the cabin?",
           "ru": "Где вагончик?",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Where = где · cabin = бытовка",
           "transcription": "ухере ис зе кабин",
           "practice": true
         },
@@ -12576,7 +12576,7 @@
           "en": "It is near the gate.",
           "ru": "Он возле ворот.",
           "role": "foreman",
-          "tip_ru": "near = рядом с.",
+          "tip_ru": "gate = ворота / калитка",
           "transcription": "ит ис нир зе гате",
           "practice": false
         },
@@ -12584,7 +12584,7 @@
           "en": "Where is the toilet?",
           "ru": "Где туалет?",
           "role": "electrician",
-          "tip_ru": "toilet — обычное слово на объекте в Ireland.",
+          "tip_ru": "Where = где",
           "transcription": "ухере ис зе тойлет",
           "practice": true
         },
@@ -12592,7 +12592,7 @@
           "en": "Go left, then right.",
           "ru": "Иди налево, потом направо.",
           "role": "foreman",
-          "tip_ru": "left / right — лево / право.",
+          "tip_ru": "Go = иди / поезжай · left = левый / слева · right = правый / справа",
           "transcription": "го лефт зен ригхт",
           "practice": false
         },
@@ -12600,7 +12600,7 @@
           "en": "Is this the right place?",
           "ru": "Это правильное место?",
           "role": "electrician",
-          "tip_ru": "right = правильный / правый — смотри контекст.",
+          "tip_ru": "right = правый / справа",
           "transcription": "ис зис зе ригхт плаке",
           "practice": true
         },
@@ -12608,7 +12608,7 @@
           "en": "Yes. Wait here.",
           "ru": "Да. Жди здесь.",
           "role": "foreman",
-          "tip_ru": "Wait here — короткая команда.",
+          "tip_ru": "Yes = да",
           "transcription": "иес уейт хере",
           "practice": false
         },
@@ -12616,7 +12616,7 @@
           "en": "OK. I wait here.",
           "ru": "Ок. Жду здесь.",
           "role": "electrician",
-          "tip_ru": "I wait — простой Present для «сейчас делаю».",
+          "tip_ru": "OK = ок",
           "transcription": "ок и уейт хере",
           "practice": true
         },
@@ -12774,7 +12774,7 @@
           "en": "Can I have a screwdriver?",
           "ru": "Можно отвёртку?",
           "role": "electrician",
-          "tip_ru": "Can I have…? — вежливая просьба.",
+          "tip_ru": "have = есть / имею",
           "transcription": "кан и хаве а скре·удри·вер",
           "practice": true
         },
@@ -12782,7 +12782,7 @@
           "en": "Yes. Take this one.",
           "ru": "Да. Возьми эту.",
           "role": "foreman",
-          "tip_ru": "Take this one — укажи на предмет.",
+          "tip_ru": "Yes = да · Take = возьми · one = один",
           "transcription": "иес таке зис оне",
           "practice": false
         },
@@ -12790,7 +12790,7 @@
           "en": "Where is my hammer?",
           "ru": "Где мой молоток?",
           "role": "electrician",
-          "tip_ru": "my = мой.",
+          "tip_ru": "Where = где",
           "transcription": "ухере ис ми хаммер",
           "practice": true
         },
@@ -12806,7 +12806,7 @@
           "en": "I need gloves too.",
           "ru": "Мне ещё нужны перчатки.",
           "role": "electrician",
-          "tip_ru": "too = тоже / ещё.",
+          "tip_ru": "need = нужно · gloves = перчатки",
           "transcription": "и нид гловес ту",
           "practice": true
         },
@@ -12814,7 +12814,7 @@
           "en": "OK. Get them now.",
           "ru": "Ок. Возьми их сейчас.",
           "role": "foreman",
-          "tip_ru": "Get = взять / принести (разговорно).",
+          "tip_ru": "OK = ок · Get = возьми / достань",
           "transcription": "ок гет зем ноу",
           "practice": false
         },
@@ -12948,7 +12948,7 @@
           "en": "Put on your hard hat.",
           "ru": "Надень каску.",
           "role": "foreman",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш",
           "transcription": "пат он иаур хард хат",
           "practice": false
         },
@@ -12956,7 +12956,7 @@
           "en": "OK. I put it on.",
           "ru": "Ок. Надеваю.",
           "role": "electrician",
-          "tip_ru": "I put it on — Present для действия сейчас.",
+          "tip_ru": "OK = ок · put = надень / поставь",
           "transcription": "ок и пат ит он",
           "practice": true
         },
@@ -12964,7 +12964,7 @@
           "en": "Wear your vest.",
           "ru": "Надень жилет.",
           "role": "foreman",
-          "tip_ru": "Wear = носить (одежду/СИЗ).",
+          "tip_ru": "your = твой / ваш",
           "transcription": "уир иаур вест",
           "practice": false
         },
@@ -12972,7 +12972,7 @@
           "en": "Is this area safe?",
           "ru": "Эта зона безопасна?",
           "role": "electrician",
-          "tip_ru": "safe = безопасный.",
+          "tip_ru": "area = зона / участок · safe = безопасно / Safe Pass",
           "transcription": "ис зис ари сафе",
           "practice": true
         },
@@ -12980,7 +12980,7 @@
           "en": "No. Stop. Look.",
           "ru": "Нет. Стой. Смотри.",
           "role": "foreman",
-          "tip_ru": "Stop / Look — короткие команды.",
+          "tip_ru": "No = нет",
           "transcription": "но стоп лук",
           "practice": false
         },
@@ -13012,7 +13012,7 @@
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "foreman",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -13028,7 +13028,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "foreman",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -13084,7 +13084,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         }
@@ -13122,7 +13122,7 @@
           "en": "What time is break?",
           "ru": "Во сколько перерыв?",
           "role": "electrician",
-          "tip_ru": "What time is…? — «во сколько?»",
+          "tip_ru": "What = что",
           "transcription": "ухат тиме ис брик",
           "practice": true
         },
@@ -13130,7 +13130,7 @@
           "en": "Break is at ten.",
           "ru": "Перерыв в десять.",
           "role": "foreman",
-          "tip_ru": "at ten = в 10:00.",
+          "tip_ru": "ten = десять",
           "transcription": "брик ис ат тен",
           "practice": false
         },
@@ -13170,7 +13170,7 @@
           "en": "I need ten minutes.",
           "ru": "Мне нужно десять минут.",
           "role": "electrician",
-          "tip_ru": "I need + время.",
+          "tip_ru": "need = нужно · ten = десять · minutes = минут",
           "transcription": "и нид тен минатес",
           "practice": true
         },
@@ -13178,7 +13178,7 @@
           "en": "OK. Ten minutes.",
           "ru": "Ок. Десять минут.",
           "role": "foreman",
-          "tip_ru": "Повтор для подтверждения.",
+          "tip_ru": "OK = ок · Ten = десять · minutes = минут",
           "transcription": "ок тен минатес",
           "practice": false
         },
@@ -13320,7 +13320,7 @@
           "en": "Yes. One minute.",
           "ru": "Да. Одну минуту.",
           "role": "foreman",
-          "tip_ru": "One minute = сейчас / минутку.",
+          "tip_ru": "Yes = да · One = один",
           "transcription": "иес оне минате",
           "practice": false
         },
@@ -13328,7 +13328,7 @@
           "en": "Please hold this.",
           "ru": "Подержи это, пожалуйста.",
           "role": "electrician",
-          "tip_ru": "Hold = держать.",
+          "tip_ru": "Please = пожалуйста · hold = держи",
           "transcription": "плисе холд зис",
           "practice": true
         },
@@ -13336,7 +13336,7 @@
           "en": "OK. I hold it.",
           "ru": "Ок. Держу.",
           "role": "foreman",
-          "tip_ru": "Короткий ответ-действие.",
+          "tip_ru": "OK = ок · hold = держи",
           "transcription": "ок и холд ит",
           "practice": false
         },
@@ -13344,7 +13344,7 @@
           "en": "Is it ready?",
           "ru": "Готово?",
           "role": "foreman",
-          "tip_ru": "ready = готово.",
+          "tip_ru": "ready = готов",
           "transcription": "ис ит риди",
           "practice": false
         },
@@ -13499,7 +13499,7 @@
           "en": "Is this the cable?",
           "ru": "Это кабель?",
           "role": "electrician",
-          "tip_ru": "Is this …? — «это …?» для проверки предмета.",
+          "tip_ru": "cable = кабель",
           "practice": true,
           "transcription": "ис зис зе кабле"
         },
@@ -13507,7 +13507,7 @@
           "en": "Yes. This cable.",
           "ru": "Да. Этот кабель.",
           "role": "foreman",
-          "tip_ru": "Короткий ответ Yes + уточнение.",
+          "tip_ru": "Yes = да · cable = кабель",
           "practice": false,
           "transcription": "иес зис кабле"
         },
@@ -13515,7 +13515,7 @@
           "en": "Where is the board?",
           "ru": "Где щит?",
           "role": "electrician",
-          "tip_ru": "board = щит / панель",
+          "tip_ru": "Where = где · board = щит / панель",
           "practice": true,
           "transcription": "ухере ис зе боард"
         },
@@ -13531,7 +13531,7 @@
           "en": "I check the cable.",
           "ru": "Я проверяю кабель.",
           "role": "electrician",
-          "tip_ru": "I + глагол — простое настоящее для действия сейчас/по плану.",
+          "tip_ru": "check = проверь · cable = кабель",
           "practice": true,
           "transcription": "и чек зе кабле"
         },
@@ -13547,7 +13547,7 @@
           "en": "It is OK.",
           "ru": "Всё в порядке.",
           "role": "electrician",
-          "tip_ru": "It is OK — простой статус.",
+          "tip_ru": "OK = ок",
           "practice": true,
           "transcription": "ит ис ок"
         },
@@ -13697,7 +13697,7 @@
           "en": "No. Power is off.",
           "ru": "Нет. Питание выключено.",
           "role": "foreman",
-          "tip_ru": "Off = выключено.",
+          "tip_ru": "No = нет",
           "practice": false,
           "transcription": "но поуер ис офф"
         },
@@ -13713,7 +13713,7 @@
           "en": "Yes. Switch it on.",
           "ru": "Да. Включай.",
           "role": "foreman",
-          "tip_ru": "Switch it on — команда.",
+          "tip_ru": "Yes = да",
           "practice": false,
           "transcription": "иес суитч ит он"
         },
@@ -13729,7 +13729,7 @@
           "en": "OK. Be careful.",
           "ru": "Ок. Будь осторожен.",
           "role": "foreman",
-          "tip_ru": "Be careful — предупреждение.",
+          "tip_ru": "OK = ок",
           "practice": false,
           "transcription": "ок бе карефал"
         },
@@ -13903,7 +13903,7 @@
           "en": "Yes. Take this one.",
           "ru": "Да. Возьми эту.",
           "role": "foreman",
-          "tip_ru": "Take this one — «возьми эту».",
+          "tip_ru": "Yes = да · Take = возьми · one = один",
           "practice": false,
           "transcription": "иес таке зис оне"
         },
@@ -14069,7 +14069,7 @@
           "en": "Is it safe?",
           "ru": "Это безопасно?",
           "role": "electrician",
-          "tip_ru": "Is it safe? — ключевой вопрос перед работой.",
+          "tip_ru": "safe = безопасно / Safe Pass",
           "practice": true,
           "transcription": "ис ит сафе"
         },
@@ -14085,7 +14085,7 @@
           "en": "Is the power off?",
           "ru": "Питание выключено?",
           "role": "electrician",
-          "tip_ru": "Повтор проверки состояния.",
+          "tip_ru": "Слушай фразу и сверь с переводом ниже.",
           "practice": true,
           "transcription": "ис зе поуер офф"
         },
@@ -14093,7 +14093,7 @@
           "en": "Yes. Power is off.",
           "ru": "Да. Выключено.",
           "role": "foreman",
-          "tip_ru": "Yes + повтор факта.",
+          "tip_ru": "Yes = да",
           "practice": false,
           "transcription": "иес поуер ис офф"
         },
@@ -14109,7 +14109,7 @@
           "en": "Yes. Open it.",
           "ru": "Да. Открывай.",
           "role": "foreman",
-          "tip_ru": "Open it — повелительное.",
+          "tip_ru": "Yes = да",
           "practice": false,
           "transcription": "иес опен ит"
         },
@@ -14267,7 +14267,7 @@
           "en": "What is the problem?",
           "ru": "В чём проблема?",
           "role": "foreman",
-          "tip_ru": "What is …? — «что / в чём?»",
+          "tip_ru": "What = что",
           "practice": false,
           "transcription": "ухат ис зе проблем"
         },
@@ -14283,7 +14283,7 @@
           "en": "OK. Fix it please.",
           "ru": "Ок. Почини, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Fix it — «почини»; please смягчает.",
+          "tip_ru": "OK = ок · please = пожалуйста",
           "practice": false,
           "transcription": "ок фикс ит плисе"
         },
@@ -14299,7 +14299,7 @@
           "en": "Is it OK now?",
           "ru": "Теперь нормально?",
           "role": "foreman",
-          "tip_ru": "Is it OK now? — проверка результата.",
+          "tip_ru": "OK = ок",
           "practice": false,
           "transcription": "ис ит ок ноу"
         },
@@ -14307,7 +14307,7 @@
           "en": "Yes. It is OK.",
           "ru": "Да. Всё ок.",
           "role": "electrician",
-          "tip_ru": "Слушай фразу целиком и сверь с русским переводом.",
+          "tip_ru": "Yes = да · OK = ок",
           "practice": true,
           "transcription": "иес ит ис ок"
         },
@@ -14457,7 +14457,7 @@
           "en": "Is everything OK?",
           "ru": "Всё в порядке?",
           "role": "foreman",
-          "tip_ru": "Is everything OK? — финальная проверка.",
+          "tip_ru": "OK = ок",
           "practice": false,
           "transcription": "ис евер·изин·г ок"
         },
@@ -14473,7 +14473,7 @@
           "en": "Close the board please.",
           "ru": "Закрой щит, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "board = щит / панель",
+          "tip_ru": "board = щит / панель · please = пожалуйста",
           "practice": false,
           "transcription": "клосе зе боард плисе"
         },
@@ -14489,7 +14489,7 @@
           "en": "Good. Clean the area.",
           "ru": "Хорошо. Убери зону.",
           "role": "foreman",
-          "tip_ru": "Clean the area — уборка.",
+          "tip_ru": "Good = хорошо · area = зона / участок",
           "practice": false,
           "transcription": "гуд клин зе ари"
         },
@@ -14497,7 +14497,7 @@
           "en": "OK. I clean it.",
           "ru": "Ок. Уберу.",
           "role": "electrician",
-          "tip_ru": "I clean it — согласие + действие.",
+          "tip_ru": "OK = ок",
           "practice": true,
           "transcription": "ок и клин ит"
         },
@@ -14663,7 +14663,7 @@
           "en": "Prove it dead first.",
           "ru": "Сначала проверь отсутствие напряжения.",
           "role": "foreman",
-          "tip_ru": "First = сначала; prove dead — термин площадки.",
+          "tip_ru": "first = сначала / первый",
           "practice": false,
           "transcription": "прове ит дид фирст"
         },
@@ -14679,7 +14679,7 @@
           "en": "Put your tag on it.",
           "ru": "Повесь свою бирку.",
           "role": "foreman",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "Put = надень / поставь · your = твой / ваш · tag = бирка",
           "practice": false,
           "transcription": "пат иаур таг он ит"
         },
@@ -14687,7 +14687,7 @@
           "en": "Tag is on. Safe to work?",
           "ru": "Бирка на месте. Можно работать?",
           "role": "electrician",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "Tag = бирка · Safe = безопасно / Safe Pass · work = работа",
           "practice": true,
           "transcription": "таг ис он сафе то уорк"
         },
@@ -14853,7 +14853,7 @@
           "en": "Check the outgoing cables.",
           "ru": "Проверь отходящие кабели.",
           "role": "foreman",
-          "tip_ru": "Outgoing — отходящие.",
+          "tip_ru": "Check = проверь",
           "practice": false,
           "transcription": "чек зе аутгойнг каблес"
         },
@@ -14861,7 +14861,7 @@
           "en": "One cable is damaged.",
           "ru": "Один кабель повреждён.",
           "role": "electrician",
-          "tip_ru": "is damaged — состояние.",
+          "tip_ru": "One = один · cable = кабель",
           "practice": true,
           "transcription": "оне кабле ис дамагед"
         },
@@ -14869,7 +14869,7 @@
           "en": "Isolate that cable.",
           "ru": "Отключи этот кабель.",
           "role": "foreman",
-          "tip_ru": "Isolate — изолировать/отключить.",
+          "tip_ru": "cable = кабель",
           "practice": false,
           "transcription": "исолате зат кабле"
         },
@@ -14885,7 +14885,7 @@
           "en": "Yes. Reset and test.",
           "ru": "Да. Включи и проверь.",
           "role": "foreman",
-          "tip_ru": "Reset and test — два шага.",
+          "tip_ru": "Yes = да · test = тест / проверь",
           "practice": false,
           "transcription": "иес ресет анд тест"
         },
@@ -14893,7 +14893,7 @@
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "foreman",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -14909,7 +14909,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "foreman",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -14965,7 +14965,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         },
@@ -15019,7 +15019,7 @@
           "en": "I need to check the earth.",
           "ru": "Нужно проверить землю.",
           "role": "electrician",
-          "tip_ru": "earth = заземление",
+          "tip_ru": "need = нужно · check = проверь · earth = заземление",
           "practice": true,
           "transcription": "и нид то чек зе ирз"
         },
@@ -15027,7 +15027,7 @@
           "en": "Use the tester on earth and phase.",
           "ru": "Тестером: земля и фаза.",
           "role": "foreman",
-          "tip_ru": "earth = заземление",
+          "tip_ru": "Use = используй · earth = заземление",
           "practice": false,
           "transcription": "асе зе тестер он ирз анд фасе"
         },
@@ -15035,7 +15035,7 @@
           "en": "Earth is good.",
           "ru": "Земля в норме.",
           "role": "electrician",
-          "tip_ru": "earth = заземление",
+          "tip_ru": "Earth = заземление · good = хорошо",
           "practice": true,
           "transcription": "ирз ис гуд"
         },
@@ -15067,7 +15067,7 @@
           "en": "I will put the cover back.",
           "ru": "Поставлю крышку обратно.",
           "role": "electrician",
-          "tip_ru": "cover = крышка",
+          "tip_ru": "put = надень / поставь · cover = крышка",
           "practice": true,
           "transcription": "и уилл пат зе ковер бак"
         },
@@ -15233,7 +15233,7 @@
           "en": "Who is your standby person?",
           "ru": "Кто у тебя наблюдающий?",
           "role": "foreman",
-          "tip_ru": "standby = наблюдающий / страхующий",
+          "tip_ru": "Who = кто · your = твой / ваш · standby = наблюдающий",
           "practice": false,
           "transcription": "ухо ис иаур стандби персон"
         },
@@ -15241,7 +15241,7 @@
           "en": "Tom is standby outside the room.",
           "ru": "Том — наблюдающий у двери.",
           "role": "electrician",
-          "tip_ru": "standby = наблюдающий / страхующий",
+          "tip_ru": "standby = наблюдающий · outside = снаружи",
           "practice": true,
           "transcription": "том ис стандби аутсиде зе рум"
         },
@@ -15415,7 +15415,7 @@
           "en": "Cable C12 lands on a spare that is already live.",
           "ru": "Кабель C12 приходит на уже живой резерв.",
           "role": "electrician",
-          "tip_ru": "Lands on — садится на клемму/ячейку.",
+          "tip_ru": "Cable = кабель",
           "practice": true,
           "transcription": "кабле к 12 ландс он а спаре зат ис алриди ливе"
         },
@@ -15423,7 +15423,7 @@
           "en": "Stop terminating. We'll get engineering to redline it.",
           "ru": "Стоп разделку. Инженеры внесут в красную правку.",
           "role": "foreman",
-          "tip_ru": "We'll get X to … — поручим.",
+          "tip_ru": "get = возьми / достань",
           "practice": false,
           "transcription": "стоп терм·инат·инг уелл гет енги·нири·нг то редлине ит"
         },
@@ -15589,7 +15589,7 @@
           "en": "We can't take F3 offline until the UPS load transfer is confirmed.",
           "ru": "F3 нельзя снимать, пока не подтверждён перевод нагрузки с UPS.",
           "role": "electrician",
-          "tip_ru": "Can't … until … — нельзя, пока не …",
+          "tip_ru": "take = возьми",
           "practice": true,
           "transcription": "уе кант таке ф 3 оффлине антил зе апс лоад трансфер ис конф·ирме·д"
         },
@@ -16001,7 +16001,7 @@
           "en": "I need a bit too.",
           "ru": "Ещё нужна бита.",
           "role": "electrician",
-          "tip_ru": "a bit = чуть-чуть",
+          "tip_ru": "need = нужно · bit = чуть-чуть",
           "practice": true,
           "transcription": "и нид а бит ту"
         },
@@ -16191,7 +16191,7 @@
           "en": "Is this level OK?",
           "ru": "Этот уровень нормальный?",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "level = уровень / по уровню · OK = ок",
           "practice": true,
           "transcription": "ис зис левел ок"
         },
@@ -16199,7 +16199,7 @@
           "en": "Yes. It is good.",
           "ru": "Да. Хороший.",
           "role": "colleague",
-          "tip_ru": "Слушай фразу целиком и сверь с русским переводом.",
+          "tip_ru": "Yes = да · good = хорошо",
           "practice": false,
           "transcription": "иес ит ис гуд"
         },
@@ -16231,7 +16231,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -16239,7 +16239,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "colleague",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -16247,7 +16247,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -16295,7 +16295,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -16761,7 +16761,7 @@
           "en": "One, two, three.",
           "ru": "Раз, два, три.",
           "role": "electrician",
-          "tip_ru": "Счёт.",
+          "tip_ru": "One = один · two = два",
           "practice": true,
           "transcription": "оне туо зри"
         },
@@ -16777,7 +16777,7 @@
           "en": "It is OK now.",
           "ru": "Теперь нормально.",
           "role": "electrician",
-          "tip_ru": "Слушай фразу целиком и сверь с русским переводом.",
+          "tip_ru": "OK = ок",
           "practice": true,
           "transcription": "ит ис ок ноу"
         },
@@ -17489,7 +17489,7 @@
           "en": "I will cut this tray.",
           "ru": "Буду резать этот лоток.",
           "role": "electrician",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "cut = рез / резка · tray = лоток",
           "practice": true,
           "transcription": "и уилл кат зис трей"
         },
@@ -17521,7 +17521,7 @@
           "en": "Barriers are up.",
           "ru": "Барьеры стоят.",
           "role": "electrician",
-          "tip_ru": "barriers = ограждения",
+          "tip_ru": "Barriers = ограждения",
           "practice": true,
           "transcription": "баррирс аре ап"
         },
@@ -17561,7 +17561,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -17569,7 +17569,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "colleague",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -17577,7 +17577,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -17625,7 +17625,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -17679,7 +17679,7 @@
           "en": "This torque wrench isn't ours — it's from the hire kit.",
           "ru": "Этот динамометрический ключ не наш — из проката.",
           "role": "electrician",
-          "tip_ru": "torque = затянуть с моментом",
+          "tip_ru": "torque = затяни с моментом",
           "practice": true,
           "transcription": "зис торкве уренч иснт аурс итс фром зе хире кит"
         },
@@ -17711,7 +17711,7 @@
           "en": "Found it under the tray offcut.",
           "ru": "Нашёл под обрезком лотка.",
           "role": "electrician",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "under = под · tray = лоток",
           "practice": true,
           "transcription": "фаунд ит андер зе трей оффкат"
         },
@@ -17909,7 +17909,7 @@
           "en": "Good. Do not jury-rig a temporary fix.",
           "ru": "Хорошо. Без самодельного временного ремонта.",
           "role": "colleague",
-          "tip_ru": "Jury-rig — кустарно чинить.",
+          "tip_ru": "Good = хорошо",
           "practice": false,
           "transcription": "гуд до нот джари риг а темп·орар·и фикс"
         },
@@ -18075,7 +18075,7 @@
           "en": "I'll remap the register so only green-tagged kit can be booked out.",
           "ru": "Перестрою реестр: в выдачу только «зелёные».",
           "role": "electrician",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "I'll = я сделаю / я · only = только · green = зелёный",
           "practice": true,
           "transcription": "илл ремап зе регистер со онли грин таггед кит кан бе букед аут"
         },
@@ -18265,7 +18265,7 @@
           "en": "It was signed out to Bay 4, but returned with no defect note.",
           "ru": "Выдан на Bay 4, но возвращён без записи о дефекте.",
           "role": "electrician",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "Bay = пролёт / секция · no = нет",
           "practice": true,
           "transcription": "ит уас сигнед аут то бей 4 бат ретарнед уиз но дефект ноте"
         },
@@ -18273,7 +18273,7 @@
           "en": "Then we treat it as an undeclared incident — brief the supervisor, don't speculate.",
           "ru": "Тогда это незаявленный инцидент — доложи супервайзеру, без домыслов.",
           "role": "colleague",
-          "tip_ru": "spec = по норме / по спецификации",
+          "tip_ru": "supervisor = супервайзер / бригадир",
           "practice": false,
           "transcription": "зен уе трит ит ас ан анде·клар·ед инкидент бриф зе сапе·рвис·ор донт спек·алат·е"
         },
@@ -18313,7 +18313,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "colleague",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -18345,7 +18345,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "colleague",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -18361,7 +18361,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "colleague",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -18369,7 +18369,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -18629,7 +18629,7 @@
           "en": "Do I need a hard hat?",
           "ru": "Нужна каска?",
           "role": "electrician",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · need = нужно",
           "practice": true,
           "transcription": "до и нид а хард хат"
         },
@@ -18693,7 +18693,7 @@
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "foreman",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -18701,7 +18701,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "foreman",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -18757,7 +18757,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         },
@@ -18835,7 +18835,7 @@
           "en": "Yes. This is it.",
           "ru": "Да. Это он.",
           "role": "foreman",
-          "tip_ru": "Слушай фразу целиком и сверь с русским переводом.",
+          "tip_ru": "Yes = да",
           "practice": false,
           "transcription": "иес зис ис ит"
         },
@@ -19437,7 +19437,7 @@
           "en": "Ask your foreman at Bay 2.",
           "ru": "Спроси бригадира на Bay 2.",
           "role": "foreman",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "your = твой / ваш · Bay = пролёт / секция",
           "practice": false,
           "transcription": "аск иаур фореман ат бей 2"
         },
@@ -19461,7 +19461,7 @@
           "en": "A continuous siren. Then go to the assembly point.",
           "ru": "Непрерывная сирена. Потом на точку сбора.",
           "role": "foreman",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · continuous = непрерывный · siren = сирена · go = иди / поезжай",
           "practice": false,
           "transcription": "а конт·инаа·ус сирен зен го то зе ассембли пойнт"
         },
@@ -19469,7 +19469,7 @@
           "en": "Where is the assembly point from here?",
           "ru": "Где точка сбора отсюда?",
           "role": "electrician",
-          "tip_ru": "assembly point = точка сбора при тревоге",
+          "tip_ru": "assembly point = точка сбора при тревоге · Where = где",
           "practice": true,
           "transcription": "ухере ис зе ассембли пойнт фром хере"
         },
@@ -19477,7 +19477,7 @@
           "en": "Outside the canteen by the green sign.",
           "ru": "У столовой у зелёного знака.",
           "role": "foreman",
-          "tip_ru": "canteen = столовая на объекте",
+          "tip_ru": "Outside = снаружи · canteen = столовая на объекте · green = зелёный · sign = знак / подпиши",
           "practice": false,
           "transcription": "аутсиде зе кантин би зе грин сигн"
         },
@@ -19817,7 +19817,7 @@
           "en": "Tell them what happened.",
           "ru": "Скажи им, что случилось.",
           "role": "foreman",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "what = что",
           "practice": false,
           "transcription": "телл зем ухат хаппенед"
         },
@@ -19959,7 +19959,7 @@
           "en": "He needs a visitor pass and PPE.",
           "ru": "Нужны гостевой пропуск и СИЗ.",
           "role": "foreman",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "pass = пропуск / Pass · PPE = СИЗ",
           "practice": false,
           "transcription": "хе нидс а виситор пасс анд ппе"
         },
@@ -19991,7 +19991,7 @@
           "en": "Show him the walkways only.",
           "ru": "Покажи только пешеходные дорожки.",
           "role": "foreman",
-          "tip_ru": "walkways = пешеходные дорожки",
+          "tip_ru": "walkways = пешеходные дорожки · only = только",
           "practice": false,
           "transcription": "шоу хим зе уалкуейс онли"
         },
@@ -20331,7 +20331,7 @@
           "en": "Stop — no hard hat past this line.",
           "ru": "Стоп — без каски дальше линии нельзя.",
           "role": "electrician",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · no = нет",
           "practice": true,
           "transcription": "стоп но хард хат паст зис лине"
         },
@@ -20347,7 +20347,7 @@
           "en": "Walking through still needs PPE here.",
           "ru": "Даже транзит здесь требует СИЗ.",
           "role": "electrician",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "PPE = СИЗ",
           "practice": true,
           "transcription": "уалкинг зраугх стилл нидс ппе хере"
         },
@@ -20379,7 +20379,7 @@
           "en": "Put your hard hat on before the gate.",
           "ru": "Надень каску до ворот.",
           "role": "foreman",
-          "tip_ru": "hard hat = каска",
+          "tip_ru": "hard hat = каска · Put = надень / поставь · your = твой / ваш · before = до / перед",
           "practice": false,
           "transcription": "пат иаур хард хат он бефоре зе гате"
         },
@@ -20395,7 +20395,7 @@
           "en": "Zip the hi-vis fully.",
           "ru": "Застегни hi-vis полностью.",
           "role": "foreman",
-          "tip_ru": "hi-vis = светоотражающий жилет (hi-vis)",
+          "tip_ru": "hi-vis = светоотражающий жилет · Zip = застегни (молнию) · fully = полностью",
           "practice": false,
           "transcription": "зип зе хи вис фалли"
         },
@@ -20451,7 +20451,7 @@
           "en": "Thanks. Going to the cabin first.",
           "ru": "Спасибо. Сначала в бытовку.",
           "role": "electrician",
-          "tip_ru": "cabin = вагончик / бытовка",
+          "tip_ru": "Thanks = спасибо · Going = иду · cabin = бытовка · first = сначала / первый",
           "practice": true,
           "transcription": "занкс гойнг то зе кабин фирст"
         },
@@ -20553,7 +20553,7 @@
           "en": "I'll add a one-pager to the site app and the notice boards.",
           "ru": "Добавлю one-pager в приложение объекта и на доски.",
           "role": "electrician",
-          "tip_ru": "board = щит / панель",
+          "tip_ru": "I'll = я сделаю / я · add = добавь · one = один · site = площадка / объект",
           "practice": true,
           "transcription": "илл адд а оне пагер то зе сите апп анд зе нотике боардс"
         },
@@ -20727,7 +20727,7 @@
           "en": "Missing standby signatures and late close-outs after shift.",
           "ru": "Нет подписей наблюдающих и поздние закрытия после смены.",
           "role": "electrician",
-          "tip_ru": "standby = наблюдающий / страхующий",
+          "tip_ru": "standby = наблюдающий · after = после",
           "practice": true,
           "transcription": "миссинг стандби сигн·атар·ес анд лате клосе аутс афтер шифт"
         },
@@ -20981,7 +20981,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -21013,7 +21013,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -21029,7 +21029,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -21037,7 +21037,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -21171,7 +21171,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -21203,7 +21203,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -21219,7 +21219,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -21227,7 +21227,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -21495,7 +21495,7 @@
           "en": "Yes. It is on.",
           "ru": "Да. Включена.",
           "role": "client",
-          "tip_ru": "Слушай фразу целиком и сверь с русским переводом.",
+          "tip_ru": "Yes = да",
           "practice": false,
           "transcription": "иес ит ис он"
         },
@@ -22121,7 +22121,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -22153,7 +22153,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -22169,7 +22169,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -22177,7 +22177,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -22279,7 +22279,7 @@
           "en": "Camera is online on the NVR.",
           "ru": "Камера онлайн на NVR.",
           "role": "electrician",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Camera = камера · NVR = видеорегистратор (NVR)",
           "practice": true,
           "transcription": "камера ис онлине он зе нвр"
         },
@@ -22311,7 +22311,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -22343,7 +22343,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -22359,7 +22359,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -22367,7 +22367,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -22627,7 +22627,7 @@
           "en": "I'll lock the NVR firewall to that IP and MFA for users.",
           "ru": "Закрою фаервол NVR на этот IP и MFA для пользователей.",
           "role": "electrician",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "I'll = я сделаю / я · NVR = видеорегистратор (NVR)",
           "practice": true,
           "transcription": "илл лок зе нвр фиреуалл то зат ип анд мфа фор асерс"
         },
@@ -22817,7 +22817,7 @@
           "en": "I'll shrink the ROI and raise the sensitivity threshold.",
           "ru": "Уменьшу ROI и подниму порог чувствительности.",
           "role": "electrician",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "I'll = я сделаю / я · raise = подними",
           "practice": true,
           "transcription": "илл шринк зе рой анд рейсе зе сенс·итив·ити зрешолд"
         },
@@ -22825,7 +22825,7 @@
           "en": "Keep person detection on for the loading bay.",
           "ru": "Детекцию людей на рампе оставь.",
           "role": "client",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "Keep = держи / продолжай · bay = пролёт / секция",
           "practice": false,
           "transcription": "кип персон детекшн он фор зе лоадинг бей"
         },
@@ -23015,7 +23015,7 @@
           "en": "Who can export footage without a dual approval?",
           "ru": "Кто может выгрузить запись без двойного согласования?",
           "role": "client",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "Who = кто",
           "practice": false,
           "transcription": "ухо кан експорт футаге уизаут а даал аппровал"
         },
@@ -23245,7 +23245,7 @@
           "en": "Raise it ten centimetres.",
           "ru": "Подними на десять сантиметров.",
           "role": "client",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "Raise = подними · ten = десять · centimetres = сантиметры",
           "practice": false,
           "transcription": "рейсе ит тен кент·имет·рес"
         },
@@ -23277,7 +23277,7 @@
           "en": "Label the port on the NVR.",
           "ru": "Подпиши порт на NVR.",
           "role": "client",
-          "tip_ru": "nvr = видеорегистратор (NVR)",
+          "tip_ru": "Label = бирка / наклейка · port = порт · NVR = видеорегистратор (NVR)",
           "practice": false,
           "transcription": "лабел зе порт он зе нвр"
         },
@@ -23293,7 +23293,7 @@
           "en": "Test night mode before you leave.",
           "ru": "Проверь night mode перед уходом.",
           "role": "client",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · Test = тест / проверь · before = до / перед · leave = оставь / уходи",
           "practice": false,
           "transcription": "тест нигхт моде бефоре иау ливе"
         },
@@ -23301,7 +23301,7 @@
           "en": "Night mode works.",
           "ru": "Night mode работает.",
           "role": "electrician",
-          "tip_ru": "night mode = ночной режим камеры",
+          "tip_ru": "night mode = ночной режим камеры · works = работает / работы",
           "practice": true,
           "transcription": "нигхт моде уоркс"
         },
@@ -23443,7 +23443,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -23451,7 +23451,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -23459,7 +23459,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -23507,7 +23507,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -23577,7 +23577,7 @@
           "en": "Can we work inside Bay 1?",
           "ru": "Можно работать внутри Bay 1?",
           "role": "electrician",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "work = работа · Bay = пролёт / секция",
           "practice": true,
           "transcription": "кан уе уорк инсиде бей 1"
         },
@@ -23941,7 +23941,7 @@
           "en": "HVAC is hanging ductwork on our tray route this afternoon.",
           "ru": "HVAC вешает воздуховоды на нашем маршруте лотков после обеда.",
           "role": "electrician",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "tray = лоток",
           "practice": true,
           "transcription": "хвак ис хангинг дактуорк он аур трей рауте зис афтернун"
         },
@@ -23949,7 +23949,7 @@
           "en": "Sequence it — trays first on Grid C, then they can cross.",
           "ru": "Выстроим порядок: сначала лотки на Grid C, потом они.",
           "role": "foreman",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "first = сначала / первый",
           "practice": false,
           "transcription": "секвенке ит трейс фирст он грид к зен зеи кан кросс"
         },
@@ -23957,7 +23957,7 @@
           "en": "I'll pull two more guys from Bay 5 to finish before 14:00.",
           "ru": "Возьму ещё двоих с Bay 5, чтобы успеть до 14:00.",
           "role": "electrician",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "I'll = я сделаю / я · two = два · more = ещё / больше · Bay = пролёт / секция",
           "practice": true,
           "transcription": "илл палл туо море гаис фром бей 5 то финиш бефоре 14 00"
         },
@@ -23997,7 +23997,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -24005,7 +24005,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -24013,7 +24013,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -24061,7 +24061,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -24163,7 +24163,7 @@
           "en": "Understood. I'll quarantine that bay.",
           "ru": "Понял. Закрою этот пролёт.",
           "role": "electrician",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "Understood = понял · I'll = я сделаю / я · bay = пролёт / секция",
           "practice": true,
           "transcription": "анде·рсту·д илл квар·анти·не зат бей"
         },
@@ -24321,7 +24321,7 @@
           "en": "Client wants two weeks off the tray programme without reducing QA hold points.",
           "ru": "Клиент хочет срезать две недели с программы лотков без урезания QA hold points.",
           "role": "electrician",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "two = два · tray = лоток · hold = держи",
           "practice": true,
           "transcription": "клинт уантс туо уикс офф зе трей прог·рамм·е уизаут редакинг а холд пойнтс"
         },
@@ -24337,7 +24337,7 @@
           "en": "Grids E-F are clear of HVAC at night if we pre-stage materials by 18:00.",
           "ru": "Сетки E-F ночью свободны от HVAC, если материалы подготовим к 18:00.",
           "role": "electrician",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "clear = можно / свободно · night = ночь / ночной",
           "practice": true,
           "transcription": "гридс е ф аре клир оф хвак ат нигхт иф уе пре стаге мате·риал·с би 18 00"
         },
@@ -24377,7 +24377,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -24385,7 +24385,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -24393,7 +24393,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -24441,7 +24441,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -24511,7 +24511,7 @@
           "en": "The coordinated model still shows our 600 tray through a structural haunch.",
           "ru": "В согласованной модели наш лоток 600 всё ещё идёт через усиление балки.",
           "role": "electrician",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "tray = лоток",
           "practice": true,
           "transcription": "зе курд·инат·ед модел стилл шоус аур 600 трей зраугх а стра·ктар·ал хаанч"
         },
@@ -24527,7 +24527,7 @@
           "en": "No sign-off yet — I'll raise an RFI with photos and the clash ID.",
           "ru": "Подписи нет — подниму RFI с фото и ID clash.",
           "role": "electrician",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "No = нет · sign = знак / подпиши · I'll = я сделаю / я · raise = подними",
           "practice": true,
           "transcription": "но сигн офф иет илл рейсе ан рфи уиз фотос анд зе клаш ид"
         },
@@ -24567,7 +24567,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -24575,7 +24575,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -24583,7 +24583,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -24631,7 +24631,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -24722,7 +24722,7 @@
           "en": "I'll fix it to the steel with drop rods and channel.",
           "ru": "Закреплю к металлу на шпильках и профиле.",
           "role": "electrician",
-          "tip_ru": "Fix to = крепить к. Drop rods = шпильки. Channel = монтажный профиль (Unistrut).",
+          "tip_ru": "I'll = я сделаю / я · steel = сталь / стальной",
           "practice": true,
           "transcription": "илл фикс ит то зе стил уиз дроп родс анд чаннел"
         },
@@ -24730,7 +24730,7 @@
           "en": "Use fire-rated anchors where it hits the slab.",
           "ru": "Где в плиту — только огнестойкий крепёж.",
           "role": "foreman",
-          "tip_ru": "slab = плита перекрытия",
+          "tip_ru": "Use = используй · fire = пожар / огонь · where = где · slab = плита перекрытия",
           "practice": false,
           "transcription": "асе фире ратед анчорс ухере ит хитс зе слаб"
         },
@@ -24738,7 +24738,7 @@
           "en": "Can you pass me the impact driver and a 10 mil bit?",
           "ru": "Дай шуруповёрт и биту 10 мм?",
           "role": "electrician",
-          "tip_ru": "Pass me = «передай». Impact driver = ударный шуруповёрт. Bit = бита/сверло.",
+          "tip_ru": "pass = пропуск / Pass · bit = чуть-чуть",
           "practice": true,
           "transcription": "кан иау пасс ме зе импакт дривер анд а 10 мил бит"
         },
@@ -24762,7 +24762,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -24770,7 +24770,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "foreman",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -24778,7 +24778,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -24826,7 +24826,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -24897,7 +24897,7 @@
           "en": "Mark the cut — we need a 90-degree bend here.",
           "ru": "Разметь рез — тут нужен изгиб на 90.",
           "role": "electrician",
-          "tip_ru": "Mark the cut = разметить место реза. Bend = изгиб лотка/короба.",
+          "tip_ru": "Mark = отметь · cut = рез / резка · need = нужно",
           "practice": true,
           "transcription": "марк зе кат уе нид а 90 дегри бенд хере"
         },
@@ -24905,7 +24905,7 @@
           "en": "I'll cut it with the angle grinder — stand clear.",
           "ru": "Режу болгаркой — отойди.",
           "role": "mate",
-          "tip_ru": "Angle grinder = УШМ/болгарка. Stand clear = отойди / не стой рядом.",
+          "tip_ru": "I'll = я сделаю / я · cut = рез / резка · clear = можно / свободно",
           "practice": false,
           "transcription": "илл кат ит уиз зе англе гриндер станд клир"
         },
@@ -24913,7 +24913,7 @@
           "en": "Deburr the edges so the cable doesn't get scored.",
           "ru": "Сними заусенцы, чтобы кабель не порезать.",
           "role": "electrician",
-          "tip_ru": "deburr = убрать заусенцы после реза",
+          "tip_ru": "Deburr = убрать заусенцы · cable = кабель · get = возьми / достань",
           "practice": true,
           "transcription": "дебарр зе едгес со зе кабле доеснт гет скоред"
         },
@@ -24929,7 +24929,7 @@
           "en": "Yes. Put a grommet in before we pull anything.",
           "ru": "Да. Поставь втулку до протяжки.",
           "role": "electrician",
-          "tip_ru": "Grommet = резиновая/пластиковая втулка в отверстии. Pull = тянуть кабель.",
+          "tip_ru": "Yes = да · Put = надень / поставь · before = до / перед",
           "practice": true,
           "transcription": "иес пат а громмет ин бефоре уе палл анизинг"
         },
@@ -24937,7 +24937,7 @@
           "en": "Sparks are flying — keep the extinguisher handy.",
           "ru": "Искры летят — огнетушитель рядом.",
           "role": "mate",
-          "tip_ru": "Keep … handy = держи под рукой. Extinguisher = огнетушитель.",
+          "tip_ru": "keep = держи / продолжай",
           "practice": false,
           "transcription": "спаркс аре флиинг кип зе екст·инга·ишер ханди"
         },
@@ -24953,7 +24953,7 @@
           "en": "Bubble is in the middle now.",
           "ru": "Пузырёк сейчас посередине.",
           "role": "electrician",
-          "tip_ru": "bubble = пузырёк в уровне",
+          "tip_ru": "Bubble = пузырёк (в уровне) · middle = середина",
           "practice": true,
           "transcription": "баббле ис ин зе миддле ноу"
         },
@@ -24961,7 +24961,7 @@
           "en": "Mark the high side with chalk.",
           "ru": "Отметь высокую сторону мелом.",
           "role": "mate",
-          "tip_ru": "chalk = мел",
+          "tip_ru": "Mark = отметь · high = высокий · side = сторона · chalk = мел",
           "practice": false,
           "transcription": "марк зе хигх сиде уиз чалк"
         },
@@ -24969,7 +24969,7 @@
           "en": "I marked the left side.",
           "ru": "Я отметил левую сторону.",
           "role": "electrician",
-          "tip_ru": "marked = отметил",
+          "tip_ru": "marked = отметил · left = левый / слева · side = сторона",
           "practice": true,
           "transcription": "и маркед зе лефт сиде"
         },
@@ -25017,7 +25017,7 @@
           "en": "Done. It looks level.",
           "ru": "Готово. Выглядит по уровню.",
           "role": "electrician",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "Done = готово / сделано · looks = выглядит · level = уровень / по уровню",
           "practice": true,
           "transcription": "доне ит лукс левел"
         },
@@ -25088,7 +25088,7 @@
           "en": "We'll pull three singles first, then the earth.",
           "ru": "Сначала три фазы, потом землю.",
           "role": "electrician",
-          "tip_ru": "earth = заземление",
+          "tip_ru": "first = сначала / первый · earth = заземление",
           "practice": true,
           "transcription": "уелл палл зри синглес фирст зен зе ирз"
         },
@@ -25096,7 +25096,7 @@
           "en": "Don't kink it — keep the bend radius.",
           "ru": "Не перегибай — держи радиус изгиба.",
           "role": "mate",
-          "tip_ru": "Kink = заломить. Bend radius = минимальный радиус изгиба кабеля.",
+          "tip_ru": "keep = держи / продолжай",
           "practice": false,
           "transcription": "донт кинк ит кип зе бенд радиас"
         },
@@ -25120,7 +25120,7 @@
           "en": "Lubricant on the long pull through the trunking.",
           "ru": "На длинной протяжке через короб — смазка.",
           "role": "electrician",
-          "tip_ru": "trunking = кабель-канал / короб",
+          "tip_ru": "trunking = кабель-канал",
           "practice": true,
           "transcription": "лабр·икан·т он зе лонг палл зраугх зе транкинг"
         },
@@ -25128,7 +25128,7 @@
           "en": "Leave a loop at the board for terminations.",
           "ru": "Оставь петлю у щита под разделку.",
           "role": "mate",
-          "tip_ru": "board = щит / панель",
+          "tip_ru": "Leave = оставь / уходи · board = щит / панель",
           "practice": false,
           "transcription": "ливе а луп ат зе боард фор терм·инаш·нс"
         },
@@ -25279,7 +25279,7 @@
           "en": "Is this 4 mil singles or SWA for outside?",
           "ru": "Это 4 мм одножильные или SWA на улицу?",
           "role": "electrician",
-          "tip_ru": "SWA = steel wire armour (бронированный). Outside = наружка/улица.",
+          "tip_ru": "outside = снаружи",
           "practice": true,
           "transcription": "ис зис 4 мил синглес ор суа фор аутсиде"
         },
@@ -25303,7 +25303,7 @@
           "en": "DB2-L14. Label both ends before you terminate.",
           "ru": "DB2-L14. Бирки с обоих концов до разделки.",
           "role": "foreman",
-          "tip_ru": "Label both ends = маркировка двух концов. Terminate = оконцевать.",
+          "tip_ru": "Label = бирка / наклейка · before = до / перед",
           "practice": false,
           "transcription": "дб 2 л 14 лабел боз ендс бефоре иау терм·инат·е"
         },
@@ -25311,7 +25311,7 @@
           "en": "I'll sleeve the cores brown, black, grey and green-yellow.",
           "ru": "Одену кембрики: коричн., чёрн., сер. и жёлто-зел.",
           "role": "electrician",
-          "tip_ru": "Sleeve = кембрик/термоусадка. IE/UK фазы: brown/black/grey; earth green-yellow.",
+          "tip_ru": "I'll = я сделаю / я · green = зелёный",
           "practice": true,
           "transcription": "илл сливе зе корес броун блак греи анд грин иеллоу"
         },
@@ -25319,7 +25319,7 @@
           "en": "Good. Megger it before you energise.",
           "ru": "Ок. Прозвон/мегаомметр до подачи.",
           "role": "foreman",
-          "tip_ru": "Megger = проверить изоляцию мегаомметром. Energise = подать напряжение.",
+          "tip_ru": "Good = хорошо · before = до / перед",
           "practice": false,
           "transcription": "гуд меггер ит бефоре иау енергисе"
         },
@@ -25471,7 +25471,7 @@
           "en": "Pass me the trunking lid.",
           "ru": "Дай крышку короба.",
           "role": "electrician",
-          "tip_ru": "trunking = кабель-канал / короб",
+          "tip_ru": "Pass = пропуск / Pass · trunking = кабель-канал",
           "practice": true,
           "transcription": "пасс ме зе транкинг лид"
         },
@@ -25479,7 +25479,7 @@
           "en": "Here. Need more screws?",
           "ru": "На. Ещё саморезы надо?",
           "role": "mate",
-          "tip_ru": "Here = «на / держи». Screws = саморезы/винты.",
+          "tip_ru": "Need = нужно · more = ещё / больше",
           "practice": false,
           "transcription": "хере нид море скреус"
         },
@@ -25487,7 +25487,7 @@
           "en": "Yes — two for this joint.",
           "ru": "Да — два на этот стык.",
           "role": "electrician",
-          "tip_ru": "joint = стык",
+          "tip_ru": "Yes = да · two = два · joint = стык",
           "practice": true,
           "transcription": "иес туо фор зис джойнт"
         },
@@ -25495,7 +25495,7 @@
           "en": "Is the run level?",
           "ru": "Трасса ровная?",
           "role": "mate",
-          "tip_ru": "level = по уровню / ровно",
+          "tip_ru": "level = уровень / по уровню",
           "practice": false,
           "transcription": "ис зе ран левел"
         },
@@ -25527,7 +25527,7 @@
           "en": "I'll fetch more lid.",
           "ru": "Схожу за крышкой.",
           "role": "mate",
-          "tip_ru": "Fetch = сходить принести. More lid = ещё крышки.",
+          "tip_ru": "I'll = я сделаю / я · more = ещё / больше",
           "practice": false,
           "transcription": "илл фетч море лид"
         },
@@ -25663,7 +25663,7 @@
           "en": "I need a permit before I cut into that live feeder.",
           "ru": "Нужен допуск, прежде чем резать этот фидер.",
           "role": "electrician",
-          "tip_ru": "feeder = фидер / питающая линия",
+          "tip_ru": "need = нужно · before = до / перед · cut = рез / резка · feeder = фидер / питающая линия",
           "practice": true,
           "transcription": "и нид а пермит бефоре и кат инто зат ливе фидер"
         },
@@ -25671,7 +25671,7 @@
           "en": "Isolation point is MCCB-4. Lock and tag it.",
           "ru": "Точка отключения — MCCB-4. Замок и бирка.",
           "role": "foreman",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "point = точка / пункт · tag = бирка",
           "practice": false,
           "transcription": "исолашн пойнт ис мккб 4 лок анд таг ит"
         },
@@ -25687,7 +25687,7 @@
           "en": "Good. Keep your keys on you until the job is closed.",
           "ru": "Ок. Ключи при себе, пока наряд не закрыт.",
           "role": "foreman",
-          "tip_ru": "Keep … on you = носи при себе. Until the job is closed = пока работа/наряд не закрыты.",
+          "tip_ru": "Good = хорошо · Keep = держи / продолжай · your = твой / ваш",
           "practice": false,
           "transcription": "гуд кип иаур кеис он иау антил зе джоб ис клосед"
         },
@@ -25695,7 +25695,7 @@
           "en": "If anyone needs to test, they wait for my unlock.",
           "ru": "Если кому-то тест — ждут, пока я сниму замок.",
           "role": "electrician",
-          "tip_ru": "Wait for my unlock = ждать снятия моего замка (правило LOTO).",
+          "tip_ru": "test = тест / проверь",
           "practice": true,
           "transcription": "иф анионе нидс то тест зеи уейт фор ми анлок"
         },
@@ -25703,7 +25703,7 @@
           "en": "Agreed. Barricade the area while the cover is open.",
           "ru": "Согласен. Огради зону, пока крышка открыта.",
           "role": "foreman",
-          "tip_ru": "cover = крышка",
+          "tip_ru": "area = зона / участок · cover = крышка",
           "practice": false,
           "transcription": "агрид барр·икад·е зе ари ухиле зе ковер ис опен"
         },

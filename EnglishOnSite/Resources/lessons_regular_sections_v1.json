@@ -672,7 +672,7 @@
           "en": "No, tags are still on.",
           "ru": "Нет, бирки на месте.",
           "role": "shopper",
-          "tip_ru": "tag = бирка / повесить бирку",
+          "tip_ru": "No = нет",
           "practice": true,
           "transcription": "но тагс аре стилл он"
         },
@@ -4212,7 +4212,7 @@
           "en": "I'll take the extra cover.",
           "ru": "Возьму доп. покрытие.",
           "role": "traveller",
-          "tip_ru": "cover = крышка",
+          "tip_ru": "I'll = я сделаю / я · take = возьми · cover = крышка",
           "practice": true,
           "transcription": "илл таке зе екстра ковер"
         },
@@ -7052,7 +7052,7 @@
           "en": "I'll raise a ticket with the ISP.",
           "ru": "Открою заявку у провайдера.",
           "role": "landlord",
-          "tip_ru": "raise = поднять",
+          "tip_ru": "I'll = я сделаю / я · raise = подними",
           "practice": false,
           "transcription": "илл рейсе а тикет уиз зе исп"
         },
@@ -7996,7 +7996,7 @@
           "en": "Use the visitor bay meantime.",
           "ru": "Пока встань на гостевое.",
           "role": "landlord",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "Use = используй · bay = пролёт / секция",
           "practice": false,
           "transcription": "асе зе виситор бей минтиме"
         },
@@ -9380,7 +9380,7 @@
           "en": "I run and cook a bit.",
           "ru": "Бегаю и немного готовлю.",
           "role": "them",
-          "tip_ru": "a bit = чуть-чуть",
+          "tip_ru": "bit = чуть-чуть",
           "practice": false,
           "transcription": "и ран анд кук а бит"
         },
@@ -15060,7 +15060,7 @@
           "en": "I'll cover it.",
           "ru": "Я закрою.",
           "role": "manager",
-          "tip_ru": "cover = крышка",
+          "tip_ru": "I'll = я сделаю / я · cover = крышка",
           "practice": false,
           "transcription": "илл ковер ит"
         },
@@ -16460,7 +16460,7 @@
           "en": "Almost. Need the latest metrics.",
           "ru": "Почти. Нужны свежие метрики.",
           "role": "employee",
-          "tip_ru": "almost = почти",
+          "tip_ru": "Almost = почти · Need = нужно",
           "practice": true,
           "transcription": "алмост нид зе латест метрикс"
         },
@@ -17162,7 +17162,7 @@
           "en": "Good morning. Please sit down.",
           "ru": "Доброе утро. Садитесь, пожалуйста.",
           "role": "interviewer",
-          "tip_ru": "Please sit down — вежливое приглашение.",
+          "tip_ru": "Good = хорошо · Please = пожалуйста · sit = садись / сиди",
           "practice": false,
           "transcription": "гуд морнинг плисе сит доун"
         },
@@ -17186,7 +17186,7 @@
           "en": "My name is Alex.",
           "ru": "Меня зовут Алекс.",
           "role": "candidate",
-          "tip_ru": "My name is … — базовая формула.",
+          "tip_ru": "name = имя",
           "practice": true,
           "transcription": "ми наме ис алекс"
         },
@@ -17732,7 +17732,7 @@
           "en": "Please tell me about yourself.",
           "ru": "Расскажите о себе, пожалуйста.",
           "role": "interviewer",
-          "tip_ru": "Tell me about yourself — классический старт.",
+          "tip_ru": "Please = пожалуйста",
           "practice": false,
           "transcription": "плисе телл ме абаут иаурселф"
         },
@@ -18358,7 +18358,7 @@
           "en": "Last month I caught a drawing clash before we cut tray and saved a rework day.",
           "ru": "В прошлом месяце заметил clash на чертеже до резки лотка и сэкономил день переделки.",
           "role": "candidate",
-          "tip_ru": "tray = лоток (tray)",
+          "tip_ru": "before = до / перед · cut = рез / резка · tray = лоток",
           "practice": true,
           "transcription": "ласт монз и каагхт а драуинг клаш бефоре уе кат трей анд савед а реуорк дей"
         },
@@ -18698,7 +18698,7 @@
           "en": "Mostly induction, then you join a bay crew.",
           "ru": "В основном инструктаж, потом бригада на пролёте.",
           "role": "interviewer",
-          "tip_ru": "bay = пролёт / секция",
+          "tip_ru": "induction = инструктаж · bay = пролёт / секция",
           "practice": false,
           "transcription": "мостли индакшн зен иау джойн а бей креу"
         },
@@ -18880,7 +18880,7 @@
           "en": "On a live panel changeover, I noticed the permit didn't list a standby.",
           "ru": "На переключении живого щита заметил, что в допуске нет наблюдающего.",
           "role": "candidate",
-          "tip_ru": "standby = наблюдающий / страхующий",
+          "tip_ru": "standby = наблюдающий",
           "practice": true,
           "transcription": "он а ливе панел чанг·еове·р и нотикед зе пермит диднт лист а стандби"
         },
@@ -19086,7 +19086,7 @@
           "en": "Is PPE and basic hand tools provided?",
           "ru": "СИЗ и базовый ручной инструмент выдаёте?",
           "role": "candidate",
-          "tip_ru": "ppe = СИЗ / средства защиты",
+          "tip_ru": "PPE = СИЗ · tools = инструмент",
           "practice": true,
           "transcription": "ис ппе анд басик ханд тулс провидед"
         },
@@ -19284,7 +19284,7 @@
           "en": "Should I send my tickets and Safe Pass copy to HR?",
           "ru": "Прислать сертификаты и Safe Pass в HR?",
           "role": "candidate",
-          "tip_ru": "safe pass = карта Safe Pass (допуск на стройку в Ireland)",
+          "tip_ru": "safe pass = карта Safe Pass (допуск на стройку)",
           "practice": true,
           "transcription": "шаулд и сенд ми тикетс анд сафе пасс копи то хр"
         },
