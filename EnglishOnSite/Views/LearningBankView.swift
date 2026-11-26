@@ -32,9 +32,23 @@ struct LearningBankView: View {
         }
     }
 
+    /// One pass over library instead of O(n) `isKnown` per row / filter call.
+    private var knownKeys: Set<String> {
+        Set(libraryItems.compactMap { item -> String? in
+            guard item.known else { return nil }
+            let key = item.normalizedKey.isEmpty ? LibraryItem.normalizeEN(item.en) : item.normalizedKey
+            return key.isEmpty ? nil : key
+        })
+    }
+
+    private func entryIsKnown(_ entry: LearningBankEntry) -> Bool {
+        knownKeys.contains(LibraryItem.normalizeEN(entry.en))
+    }
+
     private var filtered: [LearningBankEntry] {
-        bank.filter { entry in
-            let isKnown = LibraryStore.isKnown(en: entry.en, items: libraryItems)
+        let keys = knownKeys
+        return bank.filter { entry in
+            let isKnown = keys.contains(LibraryItem.normalizeEN(entry.en))
             switch filter {
             case .all: return true
             case .learning: return !isKnown
@@ -44,7 +58,10 @@ struct LearningBankView: View {
     }
 
     private var knownCount: Int {
-        bank.filter { LibraryStore.isKnown(en: $0.en, items: libraryItems) }.count
+        let keys = knownKeys
+        return bank.reduce(into: 0) { count, entry in
+            if keys.contains(LibraryItem.normalizeEN(entry.en)) { count += 1 }
+        }
     }
 
     var body: some View {
@@ -89,7 +106,7 @@ struct LearningBankView: View {
     }
 
     private func row(_ entry: LearningBankEntry) -> some View {
-        let known = LibraryStore.isKnown(en: entry.en, items: libraryItems)
+        let known = entryIsKnown(entry)
         return VStack(alignment: .leading, spacing: 8) {
             Text(entry.en)
                 .font(.title3.weight(.bold))

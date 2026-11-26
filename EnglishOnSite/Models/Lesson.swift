@@ -21,6 +21,13 @@ struct Lesson: Codable, Identifiable, Hashable {
     let topicRaw: String?
     /// Path sort key from pack (optional).
     let order: Int?
+    /// CEFR tag for browsing bands (A1…C2). Optional for legacy packs.
+    let cefr: String?
+    /// Auto folder id (documents / travel / work-site / …).
+    let categoryId: String?
+    let categoryTitleRu: String?
+    /// topic | text | photo
+    let sourceKind: String?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -37,6 +44,10 @@ struct Lesson: Codable, Identifiable, Hashable {
         case createdBy = "created_by"
         case topicRaw = "topic_raw"
         case order
+        case cefr
+        case categoryId = "category_id"
+        case categoryTitleRu = "category_title_ru"
+        case sourceKind = "source_kind"
     }
 
     init(
@@ -52,7 +63,11 @@ struct Lesson: Codable, Identifiable, Hashable {
         sayToday: [SayTodayPhrase],
         createdBy: String? = nil,
         topicRaw: String? = nil,
-        order: Int? = nil
+        order: Int? = nil,
+        cefr: String? = nil,
+        categoryId: String? = nil,
+        categoryTitleRu: String? = nil,
+        sourceKind: String? = nil
     ) {
         self.id = id
         self.titleRu = titleRu
@@ -67,6 +82,10 @@ struct Lesson: Codable, Identifiable, Hashable {
         self.createdBy = createdBy
         self.topicRaw = topicRaw
         self.order = order
+        self.cefr = cefr
+        self.categoryId = categoryId
+        self.categoryTitleRu = categoryTitleRu
+        self.sourceKind = sourceKind
     }
 
     init(from decoder: Decoder) throws {
@@ -90,6 +109,10 @@ struct Lesson: Codable, Identifiable, Hashable {
         createdBy = try c.decodeIfPresent(String.self, forKey: .createdBy)
         topicRaw = try c.decodeIfPresent(String.self, forKey: .topicRaw)
         order = try c.decodeIfPresent(Int.self, forKey: .order)
+        cefr = try c.decodeIfPresent(String.self, forKey: .cefr)
+        categoryId = try c.decodeIfPresent(String.self, forKey: .categoryId)
+        categoryTitleRu = try c.decodeIfPresent(String.self, forKey: .categoryTitleRu)
+        sourceKind = try c.decodeIfPresent(String.self, forKey: .sourceKind)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -109,7 +132,13 @@ struct Lesson: Codable, Identifiable, Hashable {
         try c.encodeIfPresent(createdBy, forKey: .createdBy)
         try c.encodeIfPresent(topicRaw, forKey: .topicRaw)
         try c.encodeIfPresent(order, forKey: .order)
+        try c.encodeIfPresent(cefr, forKey: .cefr)
+        try c.encodeIfPresent(categoryId, forKey: .categoryId)
+        try c.encodeIfPresent(categoryTitleRu, forKey: .categoryTitleRu)
+        try c.encodeIfPresent(sourceKind, forKey: .sourceKind)
     }
+
+    var cefrLevel: CEFRLevel? { CEFRLevel.parse(cefr) }
 
     var isUserLesson: Bool {
         if let createdBy, createdBy.hasPrefix("user") { return true }
@@ -186,24 +215,49 @@ struct LessonLine: Codable, Identifiable, Hashable {
     let ru: String
     let role: String
     let tipRu: String?
+    /// Simple learner transcription (not strict IPA), e.g. "wots dhe plan fer te-DEY".
+    let transcription: String?
     let practice: Bool?
 
     enum CodingKeys: String, CodingKey {
         case en, ru, role
         case tipRu = "tip_ru"
+        case transcription
         case practice
     }
 
-    init(en: String, ru: String, role: String, tipRu: String? = nil, practice: Bool? = nil) {
+    init(
+        en: String,
+        ru: String,
+        role: String,
+        tipRu: String? = nil,
+        transcription: String? = nil,
+        practice: Bool? = nil
+    ) {
         self.en = en
         self.ru = ru
         self.role = role
         self.tipRu = tipRu
+        self.transcription = transcription
         self.practice = practice
     }
 
     var isPractice: Bool {
         practice == true || role == "electrician"
+    }
+
+    /// Explain tip for a locale. Today packs use `tip_ru`; keep that as RU fallback.
+    /// Pitfall for i18n: do not invent empty tips for other locales — caller shows placeholder.
+    func tip(forExplainLocale locale: AppLocaleCode) -> String? {
+        switch locale {
+        case .ru:
+            let t = tipRu?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return t.isEmpty ? nil : t
+        case .en, .uk, .pl:
+            // Future: tips[locale] map in JSON. Until then RU tip is better than silence for bilingual users.
+            let t = tipRu?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            return t.isEmpty ? nil : t
+        }
     }
 }
 

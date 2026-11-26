@@ -11,6 +11,7 @@ struct RememberAnalysis: Equatable {
 
 enum TranslateSourceHint: String {
     case en, ru, auto
+    case es, de, fr, pt
 }
 
 /// One place for Gemini model id + 404 fallback chain (translate / remember / lessons).
@@ -131,6 +132,36 @@ final class GeminiSiteCoachService {
     - tag один из: electrical, cctv, sockets, safety, tools, other
     """
 
+    private let regularDialoguePackSystemPrompt = """
+    You create everyday English dialogue lessons (NOT construction site).
+    Learner level A1–B1 unless the topic clearly needs higher.
+    Ireland/UK English preferred. Output ONLY JSON (no markdown):
+    {
+      "topic_raw":"...",
+      "lessons":[
+        {
+          "id":"temp-1",
+          "title_ru":"...",
+          "title_en":"...",
+          "tags":["general","dialogue"],
+          "scene_ru":"...",
+          "your_role":"learner",
+          "partner_role":"friend",
+          "lines":[{"en":"...","ru":"...","role":"friend","tip_ru":null,"practice":false}],
+          "say_today":[{"en":"...","ru":"..."},{"en":"...","ru":"..."}],
+          "created_by":"user_gemini_general",
+          "topic_raw":"..."
+        }
+      ]
+    }
+    Rules:
+    - Return 3–10 lessons (max 10). Each lesson = one short dialogue scene on the SAME topic from different angles.
+    - 6–10 dialogue lines per lesson, EN+RU mirrors.
+    - 2 say_today phrases per lesson.
+    - No Safe Pass / cable tray / Unistrut / PPE site jargon unless the user explicitly asked for site English.
+    - partner_role examples: friend, date, colleague, stranger, shop_assistant, partner.
+    """
+
     private let lessonSystemPrompt = """
     Ты создаёшь короткий roleplay-урок EN↔RU для электрика/CCTV/монтажника на объекте в Ireland (residential).
     Уровень A1–A2. Диалог на объекте, НЕ лекция.
@@ -138,12 +169,14 @@ final class GeminiSiteCoachService {
     Правила языка:
     - Ireland/UK terms only: consumer unit, MCB, two-way, isolator, kopex, back box, earth, live, fused spur, ring…
     - Не US/NEC default (panel, ground wire как основное слово).
+    - Смешанный RU/EN от ученика: сохраняй смысл составных названий крепежа
+      (форма шляпки, шлиц/Phillips/Pozidriv/Torx, «под плоскую отвёртку»).
     - Каждая реплика: зеркало en + ru.
     - 6–10 lines диалога.
     - 2–4 реплики electrician с "practice": true (для «Скажи это»).
     - Ровно 2 фразы в say_today.
     - tip_ru коротко, где полезно (можно null / опустить).
-    - your_role всегда "electrician"; partner_role: "foreman" | "client" | "colleague".
+    - your_role обычно "electrician"; partner_role: "foreman" | "client" | "colleague".
     - tags: подмножество ["electrical","cctv","sockets","safety","tools","other"].
 
     Ответ ТОЛЬКО JSON одного объекта (без markdown):
@@ -160,7 +193,7 @@ final class GeminiSiteCoachService {
       "topic_raw":"..."
     }
 
-    Если тема совсем не про объект/электрика/CCTV/инструмент/safety — сделай ближайший site-урок
+    Если тема совсем не про объект/электрика/CCTV/инструмент/safety/крепёж — сделай ближайший site-урок
     ИЛИ верни: {"error":"off_topic","message_ru":"..."}.
     """
 
@@ -217,14 +250,19 @@ final class GeminiSiteCoachService {
         }
     }
 
-    func translateThrowing(text: String, sourceHint: TranslateSourceHint) async throws -> TranslationResult {
+    func translateThrowing(
+        text: String,
+        sourceHint: TranslateSourceHint,
+        sourceLanguageCode: String? = nil
+    ) async throws -> TranslationResult {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 1 else { throw GeminiRequestError.tooShort }
 
+        let langLine = sourceLanguageCode.map { "source_language: \($0) (treat input as this language; do NOT assume Russian)\n" } ?? ""
         let user = """
         Переведи ЦЕЛИКОМ всё сказанное/написанное для объекта Ireland (electrical/CCTV/tools/safety).
         Не обрезай, не суммаризируй — каждое слово фразы должно попасть в en и ru.
-        source_hint: \(sourceHint.rawValue)
+        \(langLine)source_hint: \(sourceHint.rawValue)
         text: \(trimmed)
         Ответ ТОЛЬКО JSON:
         {"en":"...полный EN...","ru":"...полный RU...","tip_ru":"...","tag":"electrical","say_it":"...","colloquial_note_ru":null}
@@ -249,8 +287,13 @@ final class GeminiSiteCoachService {
         let sourceIsRU: Bool
         switch sourceHint {
         case .ru: sourceIsRU = true
-        case .en: sourceIsRU = false
-        case .auto: sourceIsRU = isMostlyRussian(trimmed)
+        case .en, .es, .de, .fr, .pt: sourceIsRU = false
+        case .auto:
+            if let code = sourceLanguageCode?.lowercased(), code != "ru" {
+                sourceIsRU = false
+            } else {
+                sourceIsRU = isMostlyRussian(trimmed)
+            }
         }
 
         if sourceIsRU {
@@ -359,8 +402,101 @@ final class GeminiSiteCoachService {
         return (ok, en.isEmpty ? h : en, ru)
     }
 
-    /// Create a full site lesson from a free-text topic. Timeout 20s, rate-limit 5s.
-    func generateLesson(topic: String) async throws -> Lesson {
+    func generateRegularDialogueLessons(topic: String, cefr: String = "A2") async throws -> [Lesson] {
+        let trimmed = topic.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard trimmed.count >= 2 else { throw GeminiLessonError.invalidResponse }
+        let level = cefr.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+
+        let apiKey = Self.sanitizedAPIKey()
+        guard !apiKey.isEmpty else { throw GeminiLessonError.noAPIKey }
+
+        let now = Date()
+        guard now.timeIntervalSince(lastLessonRequestAt) >= minLessonInterval else {
+            throw GeminiLessonError.rateLimited
+        }
+        lastLessonRequestAt = now
+
+        let user = """
+        User request (any topic — dating, travel, food, work office, feelings, etc.):
+        \(trimmed)
+
+        Target CEFR level: \(level) only — do not write harder than \(level).
+        Build up to 10 short dialogue lessons about this topic. Prefer ~8 if the topic is rich; never more than 10.
+        Tag each lesson with "general", "dialogue", and "\(level)".
+        """
+
+        let raw: String
+        do {
+            raw = try await generateJSON(
+                userText: user,
+                system: regularDialoguePackSystemPrompt,
+                timeout: max(GeminiConfig.lessonTimeout, 45),
+                maxTokens: 8192,
+                temperature: 0.4,
+                skipRateLimit: true
+            )
+        } catch let e as GeminiRequestError {
+            throw GeminiLessonError.request(e)
+        }
+
+        let lessons = parseRegularLessonPack(raw, topicRaw: trimmed, cefr: level)
+        guard !lessons.isEmpty else { throw GeminiLessonError.invalidResponse }
+        return Array(lessons.prefix(10))
+    }
+
+    private func parseRegularLessonPack(_ raw: String, topicRaw: String, cefr: String) -> [Lesson] {
+        let cleaned = stripMarkdownFence(raw)
+        guard let data = cleaned.data(using: .utf8),
+              let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
+            // Fallback: single lesson object
+            if let one = parseLesson(cleaned), let ok = one.validated() {
+                let id = LessonTopicParser.makeUserLessonId(topic: "general-\(topicRaw)-\(one.titleRu)")
+                return [rewrittenGeneral(ok, id: id, topicRaw: topicRaw, cefr: cefr)]
+            }
+            return []
+        }
+        let arr = (obj["lessons"] as? [[String: Any]]) ?? []
+        var out: [Lesson] = []
+        for (idx, item) in arr.prefix(10).enumerated() {
+            guard let itemData = try? JSONSerialization.data(withJSONObject: item),
+                  let decoded = try? JSONDecoder().decode(Lesson.self, from: itemData),
+                  let ok = decoded.validated() else { continue }
+            let id = LessonTopicParser.makeUserLessonId(topic: "general-\(topicRaw)-\(idx)-\(ok.titleRu)")
+            out.append(rewrittenGeneral(ok, id: id, topicRaw: topicRaw, cefr: cefr))
+        }
+        return out
+    }
+
+    private func rewrittenGeneral(_ lesson: Lesson, id: String, topicRaw: String, cefr: String) -> Lesson {
+        var tags = lesson.tags
+        if !tags.contains("general") { tags.insert("general", at: 0) }
+        if !tags.contains("dialogue") { tags.append("dialogue") }
+        if !cefr.isEmpty, !tags.contains(cefr) { tags.append(cefr) }
+        return Lesson(
+            id: id,
+            titleRu: lesson.titleRu,
+            titleEn: lesson.titleEn,
+            tags: tags,
+            sceneRu: lesson.sceneRu,
+            yourRole: lesson.yourRole.isEmpty ? "learner" : lesson.yourRole,
+            partnerRole: lesson.partnerRole.isEmpty ? "friend" : lesson.partnerRole,
+            cards: lesson.cards,
+            lines: lesson.lines,
+            sayToday: lesson.sayToday,
+            createdBy: "user_gemini_general",
+            topicRaw: topicRaw,
+            order: lesson.order
+        )
+    }
+
+    /// Create a full lesson from free-text topic / pasted text / OCR. Timeout 20s, rate-limit 5s.
+    /// Pass `profile` so introduction shapes the dialogue; `categoryHint` pins the folder.
+    func generateLesson(
+        topic: String,
+        profile: LearnerProfile? = nil,
+        sourceKind: UserLessonSourceKind = .topic,
+        categoryHint: TopicCategoryClassifier.Hit? = nil
+    ) async throws -> Lesson {
         let trimmed = topic.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2 else { throw GeminiLessonError.invalidResponse }
 
@@ -373,10 +509,38 @@ final class GeminiSiteCoachService {
         }
         lastLessonRequestAt = now
 
+        let profile = profile ?? LearnerProfileStore.shared.profile
+        let hit = categoryHint ?? TopicCategoryClassifier.classify(trimmed)
+        // Re-extract from topic too — user may name fasteners only in the lesson request.
+        let topicTools = SiteToolLexicon.extract(from: trimmed)
+        let mergedTools = mergeTools(profile.tools, topicTools)
+        let context = SiteToolLexicon.promptBlock(
+            for: mergedTools,
+            aboutRaw: profile.aboutRaw.isEmpty ? trimmed : profile.aboutRaw
+        )
+        let speech = profile.speechTerms.isEmpty
+            ? ""
+            : "Learner speech slang (Cyrillic): \(profile.speechTerms.joined(separator: ", "))"
+
+        let everyday = hit.id != "work-site"
         let user = """
-        Создай урок по теме пользователя (Ireland site).
-        topic: \(trimmed)
-        Заполни topic_raw исходной темой. id можешь поставить временный — клиент перезапишет.
+        Создай урок по запросу пользователя.
+        source: \(sourceKind.rawValue)
+        topic_or_text: \(trimmed)
+        folder: \(hit.titleRu) / \(hit.titleEn) (id=\(hit.id))
+
+        \(context)
+        \(speech)
+
+        Правила под профиль:
+        - Учитывай introduction профиля во всех репликах (роль, рынок IE, инструменты/сленг).
+        - Английский в репликах — обычный разговорный EN\(everyday ? " (не только стройка)" : " Ireland site").
+        - Смешанный RU/EN ввод нормален; в tip_ru поясняй ключевые EN слова.
+        - Если в профиле есть инструменты/сленг и тема про работу — употреби их в 2+ репликах.
+        - your_role подстрой под профиль (electrician / traveler / applicant…), не выдумывай чужую жизнь.
+        - В tags добавь "\(hit.id)" и при необходимости documents/travel/work.
+
+        Заполни topic_raw исходным текстом. id временный — клиент перезапишет.
         """
 
         let raw: String
@@ -402,23 +566,46 @@ final class GeminiSiteCoachService {
         }
 
         let id = LessonTopicParser.makeUserLessonId(topic: trimmed)
+        let defaultRole: String = {
+            switch profile.role {
+            case .jobseeker: return "applicant"
+            case .freelancer, .ecommerce, .office: return "learner"
+            default: return "electrician"
+            }
+        }()
+        var tags = lesson.tags.isEmpty ? [hit.id] : lesson.tags
+        if !tags.contains(hit.id) { tags.append(hit.id) }
+        if !mergedTools.isEmpty, !tags.contains("tools") { tags.append("tools") }
         lesson = Lesson(
             id: id,
             titleRu: lesson.titleRu,
-            tags: lesson.tags.isEmpty ? ["other"] : lesson.tags,
+            tags: tags,
             sceneRu: lesson.sceneRu,
-            yourRole: lesson.yourRole.isEmpty ? "electrician" : lesson.yourRole,
-            partnerRole: lesson.partnerRole.isEmpty ? "foreman" : lesson.partnerRole,
+            yourRole: lesson.yourRole.isEmpty ? defaultRole : lesson.yourRole,
+            partnerRole: lesson.partnerRole.isEmpty ? (everyday ? "partner" : "foreman") : lesson.partnerRole,
             lines: lesson.lines,
             sayToday: lesson.sayToday,
             createdBy: "user_gemini",
-            topicRaw: trimmed
+            topicRaw: trimmed,
+            categoryId: hit.id,
+            categoryTitleRu: hit.titleRu,
+            sourceKind: sourceKind.rawValue
         )
 
         guard let ok = lesson.validated() else {
             throw GeminiLessonError.invalidResponse
         }
         return ok
+    }
+
+    private func mergeTools(_ a: [LearnerToolTerm], _ b: [LearnerToolTerm]) -> [LearnerToolTerm] {
+        var seen = Set<String>()
+        var out: [LearnerToolTerm] = []
+        for t in a + b {
+            let key = t.enCanonical.lowercased()
+            if seen.insert(key).inserted { out.append(t) }
+        }
+        return out
     }
 
     /// Parse pasted site dialogue into RoleplayScript (roles + turns).
@@ -794,17 +981,20 @@ final class GeminiSiteCoachService {
     func translatePhoto(
         imageJPEG: Data,
         caption: String,
-        settings: AppSettings
+        settings: AppSettings,
+        sourceLanguage: TranslatorSourceLanguage = .english
     ) async throws -> TranslationResult {
         let note = caption.trimmingCharacters(in: .whitespacesAndNewlines)
         let system = """
         You identify Ireland construction-site photos (tools, PPE, labels, signs, forms).
         ALWAYS identify WHAT is in the photo first (name_en / name_ru / kind).
         Then OCR any visible text and translate. If blurry/empty: unclear=true, short RU message in summary_ru.
+        Prefer treating on-photo text as \(sourceLanguage.promptLanguageName) (code \(sourceLanguage.geminiSourceHint)) — do NOT assume Russian unless the glyphs are clearly Cyrillic.
         Output ONLY JSON matching the user schema. No markdown.
         """
         let user = """
         Фото с объекта Ireland (инструмент / бирка / каска / лист / щит / форма).
+        source_language: \(sourceLanguage.geminiSourceHint) (\(sourceLanguage.promptLanguageName)) — OCR/translate from this language toward RU (and EN mirror).
         \(note.isEmpty ? "" : "Подпись пользователя: \(note)\n")
         Сначала ОПРЕДЕЛИ объект, потом OCR/перевод.
         Ответ ТОЛЬКО JSON:
@@ -859,10 +1049,11 @@ final class GeminiSiteCoachService {
         let enOut = photo.translationEN.isEmpty ? (photo.siteTipEN.isEmpty ? photo.nameEN : photo.siteTipEN) : photo.translationEN
         let ruOut = photo.translationRU.isEmpty ? (photo.siteTipRU.isEmpty ? photo.nameRU : photo.siteTipRU) : photo.translationRU
         let source = photo.ocrText.isEmpty ? photo.nameEN : photo.ocrText
-        let sourceIsRU = isMostlyRussian(source)
+        // Picker source language wins over Cyrillic heuristic — never force RU for EN/ES/DE/FR/PT.
+        let sourceIsRU = false
         return TranslationResult(
-            sourceText: sourceIsRU ? (photo.ocrText.isEmpty ? photo.nameRU : photo.ocrText) : source,
-            translatedText: sourceIsRU ? enOut : ruOut,
+            sourceText: source.isEmpty ? photo.nameEN : source,
+            translatedText: ruOut.isEmpty ? enOut : ruOut,
             sourceIsRussian: sourceIsRU,
             matched: true,
             tipRu: photo.siteTipRU.isEmpty ? photo.summaryRU : photo.siteTipRU,

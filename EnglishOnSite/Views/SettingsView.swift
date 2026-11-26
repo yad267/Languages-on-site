@@ -12,6 +12,25 @@ struct SettingsView: View {
 
         Form {
             Section {
+                NavigationLink {
+                    WhoAmIView()
+                } label: {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Label("Кто я", systemImage: "person.crop.circle")
+                        let chips = LearnerProfileStore.shared.profile.summaryChipsRU
+                        Text(chips.isEmpty ? "Introduction голосом или текстом" : chips.joined(separator: " · "))
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(2)
+                    }
+                }
+            } header: {
+                Text("Профиль")
+            } footer: {
+                Text("Introduction сохраняется на этом iPhone (и в iCloud, если включён). Подстраивает разделы и первый урок.")
+            }
+
+            Section {
                 Button {
                     Task { @MainActor in
                         lessonsUpdateNote = "Проверяю…"
@@ -131,6 +150,11 @@ struct SettingsView: View {
                 }
                 if !settings.hasElevenLabsKey {
                     Text("Нет ключа EL в Keychain. Проверь Secrets.local.swift и пересобери.")
+                        .font(.footnote.weight(.bold))
+                        .foregroundStyle(.red)
+                }
+                if AppSecrets.elevenLabsKeyLooksLikeIdOnly {
+                    Text("В Secrets/Keychain лежит ID ключа (64 hex), а ElevenLabs нужен секрет — обычно начинается с sk_. Скопируй Secret из кабинета API keys, не Key ID.")
                         .font(.footnote.weight(.bold))
                         .foregroundStyle(.red)
                 }
