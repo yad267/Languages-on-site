@@ -176,6 +176,14 @@ final class ElevenLabsTTS: NSObject {
         let apiKey = AppSecrets.effectiveElevenLabsAPIKey
         // Presence only — do not gate on sk_ prefix (blocked seed/UI + silent AVSpeech).
         let enabled = settings.useElevenLabs && !apiKey.isEmpty
+        if enabled, AppSecrets.looksLikeElevenLabsKeyId(apiKey) {
+            lastErrorRU = "EL: вставлен ID ключа, нужен секрет (sk_…)"
+            lastUsedSystemVoice = true
+            lastSource = .system
+            print("[el] fail reason=key_id_not_secret")
+            await speakSystem(text: trimmed, lang: lang, settings: settings, onStarted: onPlaybackStarted)
+            return
+        }
         let voiceParams = settings.elVoiceParams(for: lang)
         let cacheURL = ElevenLabsAudioCache.fileURL(
             text: trimmed,
@@ -335,7 +343,10 @@ final class ElevenLabsTTS: NSObject {
                 }
                 let raw = String(data: data, encoding: .utf8) ?? ""
                 if http.statusCode == 400,
-                   raw.contains("api_key") || raw.contains("authentication") {
+                   raw.contains("api_key") || raw.contains("authentication") || raw.contains("invalid_api_key") {
+                    if raw.contains("API key ID") || AppSecrets.looksLikeElevenLabsKeyId(apiKey) {
+                        return .failure("EL: это ID ключа, нужен секрет sk_…")
+                    }
                     return .failure("EL ошибка: HTTP 400 (ключ отклонён)")
                 }
                 // One retry: older accounts / strict validators reject v4 extras or model.

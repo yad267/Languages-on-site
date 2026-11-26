@@ -153,6 +153,11 @@ struct SettingsView: View {
                         .font(.footnote.weight(.bold))
                         .foregroundStyle(.red)
                 }
+                if AppSecrets.elevenLabsKeyLooksLikeIdOnly {
+                    Text("В Secrets/Keychain лежит ID ключа (64 hex), а ElevenLabs нужен секрет — обычно начинается с sk_. Скопируй Secret из кабинета API keys, не Key ID.")
+                        .font(.footnote.weight(.bold))
+                        .foregroundStyle(.red)
+                }
 
                 if showElevenKey {
                     SecureField("ElevenLabs API key", text: $settings.elevenLabsAPIKeyDraft)

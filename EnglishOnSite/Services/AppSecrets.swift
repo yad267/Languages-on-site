@@ -30,6 +30,20 @@ enum AppSecrets {
         return sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
     }
 
+    /// ElevenLabs rejects key *IDs* (64 hex) with HTTP 400 `invalid_api_key`
+    /// ("API key ID used as API key"). Real secrets usually start with `sk_`.
+    static func looksLikeElevenLabsKeyId(_ raw: String) -> Bool {
+        let key = sanitizeSecret(raw)
+        guard !key.isEmpty else { return false }
+        if key.lowercased().hasPrefix("sk_") { return false }
+        let hex = CharacterSet(charactersIn: "0123456789abcdefABCDEF")
+        return key.count == 64 && key.unicodeScalars.allSatisfy { hex.contains($0) }
+    }
+
+    static var elevenLabsKeyLooksLikeIdOnly: Bool {
+        looksLikeElevenLabsKeyId(effectiveElevenLabsAPIKey)
+    }
+
     /// Startup: fill empty slots; if Secrets non-empty and ≠ Keychain → update Keychain (new key after 400).
     @discardableResult
     static func seedKeychainIfNeeded(into settings: AppSettings) -> String {
