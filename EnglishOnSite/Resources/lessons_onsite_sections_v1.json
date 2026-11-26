@@ -12358,8 +12358,8 @@
     },
     {
       "id": "onsite-construction-a1-01",
-      "title_ru": "A1 · Привет и план",
-      "title_en": "A1 · Hello and plan",
+      "title_ru": "A1 · Утро и план",
+      "title_en": "A1 · Morning and plan",
       "tags": [
         "onsite",
         "construction",
@@ -12367,7 +12367,7 @@
         "A1"
       ],
       "cefr": "A1",
-      "scene_ru": "Утро на объекте: простое приветствие и план.",
+      "scene_ru": "Утро на объекте: короткое живое приветствие (не I am fine) и план.",
       "your_role": "electrician",
       "partner_role": "foreman",
       "order": -20,
@@ -12375,174 +12375,166 @@
       "topic_raw": "construction-a1",
       "lines": [
         {
-          "en": "Good morning.",
-          "ru": "Доброе утро.",
+          "en": "Morning.",
+          "ru": "Утро.",
           "role": "electrician",
-          "tip_ru": "Good morning — стандартное утреннее приветствие.",
-          "transcription": "гуд морнинг",
+          "tip_ru": "Morning = утреннее приветствие (короче, чем Good morning)",
+          "transcription": "мо́рнинг",
           "practice": true
         },
         {
-          "en": "Hello. How are you?",
-          "ru": "Привет. Как дела?",
+          "en": "Morning. You alright?",
+          "ru": "Утро. Норм? / Как ты?",
           "role": "foreman",
-          "tip_ru": "How = как",
-          "transcription": "хелло хоу аре иау",
+          "tip_ru": "You alright? = как дела? (разговорно в Ireland, не I'm fine)",
+          "transcription": "мо́рнинг · ю олра́йт",
           "practice": false
         },
         {
-          "en": "I am fine, thanks.",
-          "ru": "Нормально, спасибо.",
+          "en": "Yeah, not bad. You?",
+          "ru": "Да, нормально. Ты как?",
           "role": "electrician",
-          "tip_ru": "thanks = спасибо",
-          "transcription": "и ам фине занкс",
+          "tip_ru": "not bad = нормально · Yeah = ага / да (вместо I am fine)",
+          "transcription": "йеа · нот бэд · ю",
           "practice": true
         },
         {
-          "en": "What is the plan today?",
-          "ru": "Какой план на сегодня?",
-          "role": "electrician",
-          "tip_ru": "What = что · today = сегодня",
-          "transcription": "ухат ис зе план тодей",
-          "practice": true
-        },
-        {
-          "en": "We work on the first floor.",
-          "ru": "Работаем на первом этаже.",
+          "en": "Grand. What's the plan today?",
+          "ru": "Отлично / норм. Какой план на сегодня?",
           "role": "foreman",
-          "tip_ru": "work = работа · first = сначала / первый",
-          "transcription": "уе уорк он зе фирст флур",
+          "tip_ru": "Grand = отлично / норм (Ireland) · What's = What is",
+          "transcription": "грэнд · уотс зе план туде́й",
           "practice": false
         },
         {
-          "en": "OK. I understand.",
-          "ru": "Ок. Понял.",
+          "en": "We're on the first floor today.",
+          "ru": "Сегодня мы на первом этаже.",
           "role": "electrician",
-          "tip_ru": "I understand — «я понимаю».",
-          "transcription": "ок и анде·рста·нд",
+          "tip_ru": "We're = we are · first floor = первый этаж · today = сегодня",
+          "transcription": "уир он зе фёст фло́р туде́й",
           "practice": true
         },
         {
-          "en": "Start now, please.",
-          "ru": "Начинай сейчас, пожалуйста.",
+          "en": "Right — start there.",
+          "ru": "Ок — начинай там.",
           "role": "foreman",
-          "tip_ru": "Start = начни / старт · please = пожалуйста",
-          "transcription": "старт ноу плисе",
+          "tip_ru": "Right = ладно / ок · start = начинай",
+          "transcription": "райт · старт зеа",
           "practice": false
         },
         {
-          "en": "Yes. I start now.",
-          "ru": "Да. Начинаю сейчас.",
+          "en": "OK, got it.",
+          "ru": "Ок, понял.",
           "role": "electrician",
-          "tip_ru": "Yes = да · start = начни / старт",
-          "transcription": "иес и старт ноу",
+          "tip_ru": "got it = понял (вместо I understand)",
+          "transcription": "оке́й · гот ит",
           "practice": true
         },
         {
           "en": "Say that again slower, please.",
           "ru": "Повтори медленнее, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Say = скажи · again = снова · slower = медленнее · please = пожалуйста",
-          "practice": false,
-          "transcription": "сей зат агейн слоуер плисе"
+          "tip_ru": "Say = скажи · again = снова · slower = медленнее",
+          "transcription": "сей зэт эге́йн сло́уэ пли́з",
+          "practice": false
         },
         {
-          "en": "OK. I say it slowly.",
-          "ru": "Ок. Говорю медленно.",
+          "en": "OK. I'll say it slowly.",
+          "ru": "Ок. Скажу медленно.",
           "role": "electrician",
-          "tip_ru": "OK = ок · say = скажи · slowly = медленно",
-          "practice": true,
-          "transcription": "ок и сей ит слоули"
+          "tip_ru": "I'll = I will · slowly = медленно",
+          "transcription": "оке́й · айл сей ит сло́ули",
+          "practice": true
         },
         {
           "en": "What do you need from me now?",
           "ru": "Что тебе сейчас нужно от меня?",
           "role": "foreman",
-          "tip_ru": "What = что · need = нужно",
-          "practice": false,
-          "transcription": "ухат до иау нид фром ме ноу"
+          "tip_ru": "need = нужно · now = сейчас",
+          "transcription": "уот ду ю нид фром ми нау",
+          "practice": false
         },
         {
           "en": "I need five more minutes.",
           "ru": "Мне нужно ещё пять минут.",
           "role": "electrician",
-          "tip_ru": "need = нужно · five = пять · more = ещё / больше · minutes = минут",
-          "practice": true,
-          "transcription": "и нид фиве море минатес"
+          "tip_ru": "need = нужно · five = пять · minutes = минут",
+          "transcription": "ай нид файв мор ми́нитс",
+          "practice": true
         },
         {
-          "en": "Call me when it is ready.",
+          "en": "Call me when it's ready.",
           "ru": "Позвони, когда будет готово.",
           "role": "foreman",
-          "tip_ru": "Call = позвони / вызови · ready = готов",
-          "practice": false,
-          "transcription": "калл ме ухен ит ис риди"
+          "tip_ru": "Call = позвони · ready = готово · it's = it is",
+          "transcription": "кол ми уэн итс ре́ди",
+          "practice": false
         },
         {
-          "en": "I will call you on the radio.",
+          "en": "I'll call you on the radio.",
           "ru": "Позову тебя по рации.",
           "role": "electrician",
-          "tip_ru": "call = позвони / вызови · radio = рация",
-          "practice": true,
-          "transcription": "и уилл калл иау он зе радио"
+          "tip_ru": "I'll = I will · radio = рация",
+          "transcription": "айл кол ю он зе ре́йдио",
+          "practice": true
         },
         {
           "en": "Keep the area tidy.",
           "ru": "Держи зону в порядке.",
           "role": "foreman",
-          "tip_ru": "Keep = держи / продолжай · area = зона / участок · tidy = убери / приведи в порядок",
-          "practice": false,
-          "transcription": "кип зе ари тиди"
+          "tip_ru": "Keep = держи · area = зона · tidy = в порядке",
+          "transcription": "кип зи э́рия та́йди",
+          "practice": false
         },
         {
-          "en": "I will sweep before lunch.",
+          "en": "I'll sweep before lunch.",
           "ru": "Подмету до обеда.",
           "role": "electrician",
-          "tip_ru": "sweep = подмети · before = до / перед · lunch = обед",
-          "practice": true,
-          "transcription": "и уилл суип бефоре ланч"
+          "tip_ru": "sweep = подмести · before = до · lunch = обед",
+          "transcription": "айл свип бифо́р ланч",
+          "practice": true
         },
         {
           "en": "Any questions before we move on?",
           "ru": "Есть вопросы, прежде чем идём дальше?",
           "role": "foreman",
-          "tip_ru": "Any = какие-нибудь / любой · questions = вопросы · before = до / перед · move = двигайся / перенеси",
-          "practice": false,
-          "transcription": "ани квесшнс бефоре уе мове он"
+          "tip_ru": "Any questions = есть вопросы? · move on = идём дальше",
+          "transcription": "э́ни куэ́сченз бифо́р уи мув он",
+          "practice": false
         },
         {
-          "en": "No questions. I am ready.",
+          "en": "No questions. I'm ready.",
           "ru": "Вопросов нет. Я готов.",
           "role": "electrician",
-          "tip_ru": "No = нет · questions = вопросы · ready = готов",
-          "practice": true,
-          "transcription": "но квесшнс и ам риди"
+          "tip_ru": "No questions = вопросов нет · I'm ready = я готов",
+          "transcription": "ноу куэ́сченз · айм ре́ди",
+          "practice": true
         },
         {
-          "en": "Good. Next task.",
-          "ru": "Хорошо. Следующая задача.",
+          "en": "Good. Let's go.",
+          "ru": "Хорошо. Поехали.",
           "role": "foreman",
-          "tip_ru": "Good = хорошо · Next = следующий · task = задача",
-          "practice": false,
-          "transcription": "гуд некст таск"
-        },
-        {
-          "en": "Starting the next task now.",
-          "ru": "Начинаю следующую задачу.",
-          "role": "electrician",
-          "tip_ru": "Starting = начинаем · next = следующий · task = задача",
-          "practice": true,
-          "transcription": "стартинг зе некст таск ноу"
+          "tip_ru": "Let's go = поехали / пошли",
+          "transcription": "гуд · летс гоу",
+          "practice": false
         }
       ],
       "say_today": [
         {
-          "en": "What is the plan today?",
-          "ru": "Какой план на сегодня?"
+          "en": "Morning. You alright?",
+          "ru": "Утро. Норм?"
         },
         {
-          "en": "I understand.",
-          "ru": "Понял."
+          "en": "Yeah, not bad. You?",
+          "ru": "Да, нормально. Ты как?"
+        },
+        {
+          "en": "Grand. What's the plan today?",
+          "ru": "Норм. Какой план на сегодня?"
+        },
+        {
+          "en": "OK, got it.",
+          "ru": "Ок, понял."
         }
       ]
     },
