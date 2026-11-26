@@ -229,7 +229,8 @@ def tip_from_en(en: str, existing: str | None = None) -> str:
     content = [t for t in tokens if t.lower() not in stop][:3]
     if not content:
         return "Слушай фразу целиком и сверь с русским переводом."
-    return " · ".join(f"{w} — важное слово; смотри перевод ниже" for w in content)
+    # Never emit stub «важное слово» — leave a short fallback for rewrite scripts.
+    return "Слушай фразу целиком и сверь с русским переводом."
 
 
 SUPERVISOR_ROLES = {

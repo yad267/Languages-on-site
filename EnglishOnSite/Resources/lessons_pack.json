@@ -45,14 +45,14 @@
           "ru": "Да. Вот моя карта.",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "Here's — важное слово; смотри перевод ниже · my — важное слово; смотри перевод ниже · card — важное слово; смотри перевод ниже",
+          "tip_ru": "Yes = да · card = карта / пропуск",
           "transcription": "иес херес ми кард"
         },
         {
           "en": "Good. Sign in at the gate, then sit down for the induction.",
           "ru": "Хорошо. Отметься на воротах, потом садись на инструктаж.",
           "role": "foreman",
-          "tip_ru": "Sign — важное слово; смотри перевод ниже · gate — важное слово; смотри перевод ниже · sit — важное слово; смотри перевод ниже",
+          "tip_ru": "Good = хорошо · Sign = знак / подпиши · gate = ворота / калитка · sit = садись / сиди",
           "transcription": "гуд сигн ин ат зе гате зен сит доун фор зе индакшн"
         },
         {
@@ -60,7 +60,7 @@
           "ru": "Где мне отметиться?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "Where — важное слово; смотри перевод ниже · sign — важное слово; смотри перевод ниже",
+          "tip_ru": "Where = где · sign = знак / подпиши",
           "transcription": "ухере до и сигн ин"
         },
         {
@@ -74,7 +74,7 @@
           "en": "Listen for the fire alarm test.",
           "ru": "Слушай тест пожарной тревоги.",
           "role": "foreman",
-          "tip_ru": "Listen — важное слово; смотри перевод ниже · fire — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже",
+          "tip_ru": "fire alarm = пожарная тревога · Listen = слушай · test = тест / проверь",
           "practice": false,
           "transcription": "листен фор зе фире аларм тест"
         },
@@ -82,7 +82,7 @@
           "en": "What does the alarm sound like?",
           "ru": "Как звучит тревога?",
           "role": "electrician",
-          "tip_ru": "What — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже · sound — важное слово; смотри перевод ниже",
+          "tip_ru": "What = что · alarm = тревога / сигнал · sound = звук · like = как / нравится",
           "practice": true,
           "transcription": "ухат доес зе аларм саунд лике"
         },
@@ -114,7 +114,7 @@
           "en": "Do I take tools with me?",
           "ru": "Инструмент брать с собой?",
           "role": "electrician",
-          "tip_ru": "take — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · me — важное слово; смотри перевод ниже",
+          "tip_ru": "take = возьми · tools = инструмент",
           "practice": true,
           "transcription": "до и таке тулс уиз ме"
         },
@@ -122,7 +122,7 @@
           "en": "No. Leave tools. Move fast.",
           "ru": "Нет. Инструмент оставь. Иди быстро.",
           "role": "foreman",
-          "tip_ru": "Leave — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · Move — важное слово; смотри перевод ниже",
+          "tip_ru": "No = нет · Leave = оставь / уходи · tools = инструмент · Move = двигайся / перенеси",
           "practice": false,
           "transcription": "но ливе тулс мове фаст"
         },
@@ -130,7 +130,7 @@
           "en": "Who do I report to there?",
           "ru": "Кому там докладывать?",
           "role": "electrician",
-          "tip_ru": "Who — важное слово; смотри перевод ниже · report — важное слово; смотри перевод ниже · there — важное слово; смотри перевод ниже",
+          "tip_ru": "Who = кто · report = доложи / отчёт",
           "practice": true,
           "transcription": "ухо до и репорт то зере"
         },
@@ -138,7 +138,7 @@
           "en": "Your supervisor with your name.",
           "ru": "Своему супервайзеру — назови имя.",
           "role": "foreman",
-          "tip_ru": "Your — важное слово; смотри перевод ниже · supervisor — важное слово; смотри перевод ниже · your — важное слово; смотри перевод ниже",
+          "tip_ru": "Your = твой / ваш · supervisor = супервайзер / бригадир · name = имя",
           "practice": false,
           "transcription": "иаур сапе·рвис·ор уиз иаур наме"
         },
@@ -146,7 +146,7 @@
           "en": "Understood. I will go straight there.",
           "ru": "Понял. Пойду сразу туда.",
           "role": "electrician",
-          "tip_ru": "Understood — важное слово; смотри перевод ниже · will — важное слово; смотри перевод ниже · go — важное слово; смотри перевод ниже",
+          "tip_ru": "Understood = понял · go = иди / поезжай · straight = прямо / сразу",
           "practice": true,
           "transcription": "анде·рсту·д и уилл го стрейгхт зере"
         },
@@ -154,7 +154,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -162,7 +162,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         },
@@ -170,7 +170,7 @@
           "en": "Confirm step 2, please.",
           "ru": "Подтверди шаг 2, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 2 плисе"
         },
@@ -178,7 +178,7 @@
           "en": "Step 2 is done.",
           "ru": "Шаг 2 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 2 ис доне"
         }
@@ -229,7 +229,7 @@
           "en": "Listen carefully. These are the site rules.",
           "ru": "Слушай внимательно. Это правила объекта.",
           "role": "foreman",
-          "tip_ru": "Listen — важное слово; смотри перевод ниже · carefully — важное слово; смотри перевод ниже · These — важное слово; смотри перевод ниже",
+          "tip_ru": "Listen = слушай · carefully = внимательно · site = площадка / объект",
           "transcription": "листен каре·фалл·и зесе аре зе сите ралес"
         },
         {
@@ -252,7 +252,7 @@
           "ru": "Кто отвечает за первую помощь?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "Who — важное слово; смотри перевод ниже · first — важное слово; смотри перевод ниже · aider — важное слово; смотри перевод ниже",
+          "tip_ru": "first aider = человек с первой помощью · Who = кто",
           "transcription": "ухо ис зе фирст ейдер"
         },
         {
@@ -266,7 +266,7 @@
           "en": "Listen for the fire alarm test.",
           "ru": "Слушай тест пожарной тревоги.",
           "role": "foreman",
-          "tip_ru": "Listen — важное слово; смотри перевод ниже · fire — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже",
+          "tip_ru": "fire alarm = пожарная тревога · Listen = слушай · test = тест / проверь",
           "practice": false,
           "transcription": "листен фор зе фире аларм тест"
         },
@@ -274,7 +274,7 @@
           "en": "What does the alarm sound like?",
           "ru": "Как звучит тревога?",
           "role": "electrician",
-          "tip_ru": "What — важное слово; смотри перевод ниже · alarm — важное слово; смотри перевод ниже · sound — важное слово; смотри перевод ниже",
+          "tip_ru": "What = что · alarm = тревога / сигнал · sound = звук · like = как / нравится",
           "practice": true,
           "transcription": "ухат доес зе аларм саунд лике"
         },
@@ -306,7 +306,7 @@
           "en": "Do I take tools with me?",
           "ru": "Инструмент брать с собой?",
           "role": "electrician",
-          "tip_ru": "take — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · me — важное слово; смотри перевод ниже",
+          "tip_ru": "take = возьми · tools = инструмент",
           "practice": true,
           "transcription": "до и таке тулс уиз ме"
         },
@@ -314,7 +314,7 @@
           "en": "No. Leave tools. Move fast.",
           "ru": "Нет. Инструмент оставь. Иди быстро.",
           "role": "foreman",
-          "tip_ru": "Leave — важное слово; смотри перевод ниже · tools — важное слово; смотри перевод ниже · Move — важное слово; смотри перевод ниже",
+          "tip_ru": "No = нет · Leave = оставь / уходи · tools = инструмент · Move = двигайся / перенеси",
           "practice": false,
           "transcription": "но ливе тулс мове фаст"
         },
@@ -322,7 +322,7 @@
           "en": "Who do I report to there?",
           "ru": "Кому там докладывать?",
           "role": "electrician",
-          "tip_ru": "Who — важное слово; смотри перевод ниже · report — важное слово; смотри перевод ниже · there — важное слово; смотри перевод ниже",
+          "tip_ru": "Who = кто · report = доложи / отчёт",
           "practice": true,
           "transcription": "ухо до и репорт то зере"
         },
@@ -330,7 +330,7 @@
           "en": "Your supervisor with your name.",
           "ru": "Своему супервайзеру — назови имя.",
           "role": "foreman",
-          "tip_ru": "Your — важное слово; смотри перевод ниже · supervisor — важное слово; смотри перевод ниже · your — важное слово; смотри перевод ниже",
+          "tip_ru": "Your = твой / ваш · supervisor = супервайзер / бригадир · name = имя",
           "practice": false,
           "transcription": "иаур сапе·рвис·ор уиз иаур наме"
         },
@@ -338,7 +338,7 @@
           "en": "Understood. I will go straight there.",
           "ru": "Понял. Пойду сразу туда.",
           "role": "electrician",
-          "tip_ru": "Understood — важное слово; смотри перевод ниже · will — важное слово; смотри перевод ниже · go — важное слово; смотри перевод ниже",
+          "tip_ru": "Understood = понял · go = иди / поезжай · straight = прямо / сразу",
           "practice": true,
           "transcription": "анде·рсту·д и уилл го стрейгхт зере"
         },
@@ -346,7 +346,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -354,7 +354,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         },
@@ -362,7 +362,7 @@
           "en": "Confirm step 2, please.",
           "ru": "Подтверди шаг 2, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 2 плисе"
         },
@@ -370,7 +370,7 @@
           "en": "Step 2 is done.",
           "ru": "Шаг 2 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 2 ис доне"
         }
@@ -436,7 +436,7 @@
           "en": "Yes. And safety glasses.",
           "ru": "Да. И защитные очки.",
           "role": "foreman",
-          "tip_ru": "safety — важное слово; смотри перевод ниже · glasses — важное слово; смотри перевод ниже",
+          "tip_ru": "Yes = да · glasses = очки (защитные)",
           "transcription": "иес анд сафети глассес"
         },
         {
@@ -444,7 +444,7 @@
           "ru": "Мне уже можно на объект?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "allowed — важное слово; смотри перевод ниже · site — важное слово; смотри перевод ниже",
+          "tip_ru": "allowed = разрешено · site = площадка / объект",
           "transcription": "ам и аллоуед он сите ноу"
         },
         {
@@ -482,7 +482,7 @@
           "en": "Done. Boots are steel toe.",
           "ru": "Готово. Ботинки со стальным носком.",
           "role": "electrician",
-          "tip_ru": "Done — важное слово; смотри перевод ниже · Boots — важное слово; смотри перевод ниже · steel — важное слово; смотри перевод ниже",
+          "tip_ru": "steel toe = со стальным носком (ботинки) · Done = готово / сделано · Boots = ботинки",
           "practice": true,
           "transcription": "доне бутс аре стил тое"
         },
@@ -490,7 +490,7 @@
           "en": "Gloves for the cut work.",
           "ru": "Перчатки для резки.",
           "role": "foreman",
-          "tip_ru": "Gloves — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже · work — важное слово; смотри перевод ниже",
+          "tip_ru": "Gloves = перчатки · cut = рез / резка · work = работа",
           "practice": false,
           "transcription": "гловес фор зе кат уорк"
         },
@@ -498,7 +498,7 @@
           "en": "I have cut-resistant gloves.",
           "ru": "У меня перчатки cut-resistant.",
           "role": "electrician",
-          "tip_ru": "have — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже · resistant — важное слово; смотри перевод ниже",
+          "tip_ru": "cut-resistant = устойчивые к порезу · have = есть / имею · gloves = перчатки",
           "practice": true,
           "transcription": "и хаве кат реси·стан·т гловес"
         },
@@ -506,7 +506,7 @@
           "en": "Glasses too — grinding today.",
           "ru": "И очки — сегодня шлифовка.",
           "role": "foreman",
-          "tip_ru": "Glasses — важное слово; смотри перевод ниже · too — важное слово; смотри перевод ниже · grinding — важное слово; смотри перевод ниже",
+          "tip_ru": "Glasses = очки (защитные) · grinding = шлифовка · today = сегодня",
           "practice": false,
           "transcription": "глассес ту гриндинг тодей"
         },
@@ -514,7 +514,7 @@
           "en": "Glasses are on.",
           "ru": "Очки надеты.",
           "role": "electrician",
-          "tip_ru": "Glasses — важное слово; смотри перевод ниже",
+          "tip_ru": "Glasses = очки (защитные)",
           "practice": true,
           "transcription": "глассес аре он"
         },
@@ -522,7 +522,7 @@
           "en": "You are clear to enter.",
           "ru": "Можно заходить.",
           "role": "foreman",
-          "tip_ru": "clear — важное слово; смотри перевод ниже · enter — важное слово; смотри перевод ниже",
+          "tip_ru": "clear = можно / свободно · enter = заходить",
           "practice": false,
           "transcription": "иау аре клир то ентер"
         },
@@ -538,7 +538,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -546,7 +546,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         },
@@ -554,7 +554,7 @@
           "en": "Confirm step 2, please.",
           "ru": "Подтверди шаг 2, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 2 плисе"
         },
@@ -562,7 +562,7 @@
           "en": "Step 2 is done.",
           "ru": "Шаг 2 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 2 ис доне"
         }
@@ -644,7 +644,7 @@
           "en": "About twenty metres. Mark it on the drawing.",
           "ru": "Около двадцати метров. Отметь на чертеже.",
           "role": "foreman",
-          "tip_ru": "About — важное слово; смотри перевод ниже · twenty — важное слово; смотри перевод ниже · metres — важное слово; смотри перевод ниже",
+          "tip_ru": "Mark = отметь",
           "transcription": "абаут туенти метрес марк ит он зе драуинг"
         },
         {
@@ -747,7 +747,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -755,7 +755,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         }
@@ -814,14 +814,14 @@
           "ru": "Крышки ставить сейчас?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "need — важное слово; смотри перевод ниже · lids — важное слово; смотри перевод ниже",
+          "tip_ru": "need = нужно",
           "transcription": "до уе нид лидс он ноу"
         },
         {
           "en": "Fit the lids after the cables are in.",
           "ru": "Крышки — после прокладки кабелей.",
           "role": "foreman",
-          "tip_ru": "Fit — важное слово; смотри перевод ниже · lids — важное слово; смотри перевод ниже · after — важное слово; смотри перевод ниже",
+          "tip_ru": "after = после",
           "transcription": "фит зе лидс афтер зе каблес аре ин"
         },
         {
@@ -836,14 +836,14 @@
           "en": "Leave space for two more circuits.",
           "ru": "Оставь место ещё на две цепи.",
           "role": "foreman",
-          "tip_ru": "Leave — важное слово; смотри перевод ниже · space — важное слово; смотри перевод ниже · two — важное слово; смотри перевод ниже",
+          "tip_ru": "Leave = оставь / уходи · two = два · more = ещё / больше",
           "transcription": "ливе спаке фор туо море киркаитс"
         },
         {
           "en": "Say that again slower, please.",
           "ru": "Повтори медленнее, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Say — важное слово; смотри перевод ниже · again — важное слово; смотри перевод ниже · slower — важное слово; смотри перевод ниже",
+          "tip_ru": "Say = скажи · again = снова · slower = медленнее · please = пожалуйста",
           "practice": false,
           "transcription": "сей зат агейн слоуер плисе"
         },
@@ -851,7 +851,7 @@
           "en": "OK. I say it slowly.",
           "ru": "Ок. Говорю медленно.",
           "role": "electrician",
-          "tip_ru": "say — важное слово; смотри перевод ниже · slowly — важное слово; смотри перевод ниже",
+          "tip_ru": "OK = ок · say = скажи · slowly = медленно",
           "practice": true,
           "transcription": "ок и сей ит слоули"
         },
@@ -859,7 +859,7 @@
           "en": "What do you need from me now?",
           "ru": "Что тебе сейчас нужно от меня?",
           "role": "foreman",
-          "tip_ru": "What — важное слово; смотри перевод ниже · need — важное слово; смотри перевод ниже · from — важное слово; смотри перевод ниже",
+          "tip_ru": "What = что · need = нужно",
           "practice": false,
           "transcription": "ухат до иау нид фром ме ноу"
         },
@@ -867,7 +867,7 @@
           "en": "I need five more minutes.",
           "ru": "Мне нужно ещё пять минут.",
           "role": "electrician",
-          "tip_ru": "need — важное слово; смотри перевод ниже · five — важное слово; смотри перевод ниже · more — важное слово; смотри перевод ниже",
+          "tip_ru": "need = нужно · five = пять · more = ещё / больше · minutes = минут",
           "practice": true,
           "transcription": "и нид фиве море минатес"
         },
@@ -875,7 +875,7 @@
           "en": "Call me when it is ready.",
           "ru": "Позвони, когда будет готово.",
           "role": "foreman",
-          "tip_ru": "Call — важное слово; смотри перевод ниже · me — важное слово; смотри перевод ниже · when — важное слово; смотри перевод ниже",
+          "tip_ru": "Call = позвони / вызови · ready = готов",
           "practice": false,
           "transcription": "калл ме ухен ит ис риди"
         },
@@ -883,7 +883,7 @@
           "en": "I will call you on the radio.",
           "ru": "Позову тебя по рации.",
           "role": "electrician",
-          "tip_ru": "will — важное слово; смотри перевод ниже · call — важное слово; смотри перевод ниже · radio — важное слово; смотри перевод ниже",
+          "tip_ru": "call = позвони / вызови · radio = рация",
           "practice": true,
           "transcription": "и уилл калл иау он зе радио"
         },
@@ -891,7 +891,7 @@
           "en": "Keep the area tidy.",
           "ru": "Держи зону в порядке.",
           "role": "foreman",
-          "tip_ru": "Keep — важное слово; смотри перевод ниже · area — важное слово; смотри перевод ниже · tidy — важное слово; смотри перевод ниже",
+          "tip_ru": "Keep = держи / продолжай · area = зона / участок · tidy = убери / приведи в порядок",
           "practice": false,
           "transcription": "кип зе ари тиди"
         },
@@ -899,7 +899,7 @@
           "en": "I will sweep before lunch.",
           "ru": "Подмету до обеда.",
           "role": "electrician",
-          "tip_ru": "will — важное слово; смотри перевод ниже · sweep — важное слово; смотри перевод ниже · before — важное слово; смотри перевод ниже",
+          "tip_ru": "sweep = подмети · before = до / перед · lunch = обед",
           "practice": true,
           "transcription": "и уилл суип бефоре ланч"
         },
@@ -907,7 +907,7 @@
           "en": "Any questions before we move on?",
           "ru": "Есть вопросы, прежде чем идём дальше?",
           "role": "foreman",
-          "tip_ru": "Any — важное слово; смотри перевод ниже · questions — важное слово; смотри перевод ниже · before — важное слово; смотри перевод ниже",
+          "tip_ru": "Any = какие-нибудь / любой · questions = вопросы · before = до / перед · move = двигайся / перенеси",
           "practice": false,
           "transcription": "ани квесшнс бефоре уе мове он"
         },
@@ -915,7 +915,7 @@
           "en": "No questions. I am ready.",
           "ru": "Вопросов нет. Я готов.",
           "role": "electrician",
-          "tip_ru": "questions — важное слово; смотри перевод ниже · ready — важное слово; смотри перевод ниже",
+          "tip_ru": "No = нет · questions = вопросы · ready = готов",
           "practice": true,
           "transcription": "но квесшнс и ам риди"
         },
@@ -923,7 +923,7 @@
           "en": "Good. Next task.",
           "ru": "Хорошо. Следующая задача.",
           "role": "foreman",
-          "tip_ru": "Next — важное слово; смотри перевод ниже · task — важное слово; смотри перевод ниже",
+          "tip_ru": "Good = хорошо · Next = следующий · task = задача",
           "practice": false,
           "transcription": "гуд некст таск"
         },
@@ -931,7 +931,7 @@
           "en": "Starting the next task now.",
           "ru": "Начинаю следующую задачу.",
           "role": "electrician",
-          "tip_ru": "Starting — важное слово; смотри перевод ниже · next — важное слово; смотри перевод ниже · task — важное слово; смотри перевод ниже",
+          "tip_ru": "Starting = начинаем · next = следующий · task = задача",
           "practice": true,
           "transcription": "стартинг зе некст таск ноу"
         },
@@ -939,7 +939,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -947,7 +947,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         }
@@ -1013,7 +1013,7 @@
           "en": "Use one-metre drops and cut them square.",
           "ru": "Бери метровые подвесы и режь их ровно.",
           "role": "foreman",
-          "tip_ru": "Use — важное слово; смотри перевод ниже · one — важное слово; смотри перевод ниже · metre — важное слово; смотри перевод ниже",
+          "tip_ru": "Use = используй · one = один · cut = рез / резка",
           "transcription": "асе оне метре дропс анд кат зем скваре"
         },
         {
@@ -1021,7 +1021,7 @@
           "ru": "Channel nuts в сумке.",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "Channel — важное слово; смотри перевод ниже · nuts — важное слово; смотри перевод ниже · bag — важное слово; смотри перевод ниже",
+          "tip_ru": "Слушай фразу и сверь с переводом ниже.",
           "transcription": "чаннел натс аре ин зе баг"
         },
         {
@@ -1131,7 +1131,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -1139,7 +1139,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         }
@@ -1190,7 +1190,7 @@
           "en": "Measure twice, cut once.",
           "ru": "Два раза замерь, один раз режь.",
           "role": "foreman",
-          "tip_ru": "Measure — важное слово; смотри перевод ниже · twice — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже",
+          "tip_ru": "cut = рез / резка",
           "transcription": "мисаре туике кат онке"
         },
         {
@@ -1198,14 +1198,14 @@
           "ru": "Где отметить рез?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "Where — важное слово; смотри перевод ниже · mark — важное слово; смотри перевод ниже · cut — важное слово; смотри перевод ниже",
+          "tip_ru": "Where = где · mark = отметь · cut = рез / резка",
           "transcription": "ухере до и марк зе кат"
         },
         {
           "en": "At two point four metres. Use the tape.",
           "ru": "На двух метрах сорока. Бери рулетку.",
           "role": "foreman",
-          "tip_ru": "two — важное слово; смотри перевод ниже · point — важное слово; смотри перевод ниже · four — важное слово; смотри перевод ниже",
+          "tip_ru": "two = два · point = точка / пункт · Use = используй",
           "transcription": "ат туо пойнт фаур метрес асе зе тапе"
         },
         {
@@ -1220,7 +1220,7 @@
           "en": "Good. Don't leave sharp edges on site.",
           "ru": "Хорошо. На объекте без острых краёв.",
           "role": "foreman",
-          "tip_ru": "Don't — важное слово; смотри перевод ниже · leave — важное слово; смотри перевод ниже · sharp — важное слово; смотри перевод ниже",
+          "tip_ru": "Good = хорошо · leave = оставь / уходи · site = площадка / объект",
           "transcription": "гуд донт ливе шарп едгес он сите"
         },
         {
@@ -1323,7 +1323,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -1331,7 +1331,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         }
@@ -1390,7 +1390,7 @@
           "ru": "Какой максимальный пролёт?",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "What's — важное слово; смотри перевод ниже · max — важное слово; смотри перевод ниже · span — важное слово; смотри перевод ниже",
+          "tip_ru": "Слушай фразу и сверь с переводом ниже.",
           "transcription": "ухатс зе макс спан"
         },
         {
@@ -1515,7 +1515,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -1523,7 +1523,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         }
@@ -1597,14 +1597,14 @@
           "ru": "Непрерывность в порядке.",
           "role": "electrician",
           "practice": true,
-          "tip_ru": "Continuity — важное слово; смотри перевод ниже · looks — важное слово; смотри перевод ниже",
+          "tip_ru": "looks = выглядит · good = хорошо",
           "transcription": "конт·инаи·ти лукс гуд"
         },
         {
           "en": "Tidy the offcuts. Don't leave metal on the floor.",
           "ru": "Убери обрезки. Металл на полу не оставляй.",
           "role": "foreman",
-          "tip_ru": "Tidy — важное слово; смотри перевод ниже · offcuts — важное слово; смотри перевод ниже · Don't — важное слово; смотри перевод ниже",
+          "tip_ru": "Tidy = убери / приведи в порядок · leave = оставь / уходи",
           "transcription": "тиди зе оффкатс донт ливе метал он зе флур"
         },
         {
@@ -1707,7 +1707,7 @@
           "en": "Confirm step 1, please.",
           "ru": "Подтверди шаг 1, пожалуйста.",
           "role": "foreman",
-          "tip_ru": "Confirm — важное слово; смотри перевод ниже · step — важное слово; смотри перевод ниже · please — важное слово; смотри перевод ниже",
+          "tip_ru": "Confirm = подтверди · step = шаг · please = пожалуйста",
           "practice": false,
           "transcription": "конфирм степ 1 плисе"
         },
@@ -1715,7 +1715,7 @@
           "en": "Step 1 is done.",
           "ru": "Шаг 1 сделан.",
           "role": "electrician",
-          "tip_ru": "Step — важное слово; смотри перевод ниже · done — важное слово; смотри перевод ниже",
+          "tip_ru": "Step = шаг · done = готово / сделано",
           "practice": true,
           "transcription": "степ 1 ис доне"
         }
