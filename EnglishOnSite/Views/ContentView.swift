@@ -6,10 +6,13 @@ private enum LessonsRoute: Hashable {
 }
 
 struct ContentView: View {
+    @Environment(AppSettings.self) private var settings
     @State private var lessonsPath = NavigationPath()
     @State private var repository = LessonRepository.shared
     @State private var showCreateLesson = false
     @State private var selectedTab = 0
+    @State private var showIntroOnboarding = false
+    @State private var didCheckOnboarding = false
 
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -31,11 +34,7 @@ struct ContentView: View {
                 #if DEBUG
                 .onAppear {
                     let args = ProcessInfo.processInfo.arguments
-                    if args.contains("-EOSOpenTranslate") {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                            lessonsPath.append(LessonsRoute.translate)
-                        }
-                    } else if args.contains("-EOSOpenLesson11") {
+                    if args.contains("-EOSOpenLesson11") {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
                             if let lesson = LessonStore.shared.lessons.first(where: { $0.id == "lesson_1_1_tray_basket" }) {
                                 lessonsPath.append(lesson)
@@ -65,12 +64,14 @@ struct ContentView: View {
                 .presentationDragIndicator(.visible)
             }
 
-            // B14: Phrasal at root (1 tap)
-            PhrasalHubView()
-                .tabItem {
-                    Label("Фразовые", systemImage: "arrow.left.arrow.right")
-                }
-                .tag(1)
+            // Translator at root (1 tap). Phrasal board remains under Репетитор → Пары.
+            NavigationStack {
+                TranslateView(isRootTab: true)
+            }
+            .tabItem {
+                Label("Переводчик", systemImage: "globe")
+            }
+            .tag(1)
 
             // B17: Мои фразы (= former Library)
             NavigationStack {
@@ -98,12 +99,40 @@ struct ContentView: View {
         .onChange(of: selectedTab) { _, _ in
             NavChrome.dismissKeyboard()
         }
+        .onAppear {
+            let mode = settings.learningMode.tutorMode
+            Task { @MainActor in
+                await Task.yield()
+                TutorBankStore.setMode(mode)
+            }
+            if !didCheckOnboarding {
+                didCheckOnboarding = true
+                if !LearnerProfileStore.shared.profile.isSet {
+                    showIntroOnboarding = true
+                }
+            }
+        }
+        .sheet(isPresented: $showIntroOnboarding) {
+            NavigationStack {
+                WhoAmIView(isOnboarding: true) { lesson in
+                    showIntroOnboarding = false
+                    selectedTab = 0
+                    lessonsPath.append(lesson)
+                }
+            }
+            .presentationDetents([.large])
+            .presentationDragIndicator(.visible)
+        }
+        .onChange(of: settings.learningMode) { _, mode in
+            TutorBankStore.setMode(mode.tutorMode)
+        }
         #if DEBUG
         .onAppear {
             let args = ProcessInfo.processInfo.arguments
             if args.contains("-EOSOpenTutor") {
                 selectedTab = 3
-            } else if args.contains("-EOSOpenPhrasalTab") {
+            } else if args.contains("-EOSOpenTranslate") || args.contains("-EOSOpenPhrasalTab") {
+                // -EOSOpenPhrasalTab kept as alias → translator tab (phrasal lives under Репетитор).
                 selectedTab = 1
             } else if args.contains("-EOSOpenMyPhrases") {
                 selectedTab = 2

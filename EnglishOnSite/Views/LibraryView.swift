@@ -44,6 +44,12 @@ struct LibraryView: View {
     var body: some View {
         List {
             Section {
+                LearningModePicker(mode: Bindable(settings).learningMode)
+            } header: {
+                Text("Режим")
+            }
+
+            Section {
                 Picker("Фильтр", selection: $filter) {
                     ForEach(LibraryFilter.allCases) { f in
                         Text(f.title).tag(f)

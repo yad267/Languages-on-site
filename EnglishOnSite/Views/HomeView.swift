@@ -1,143 +1,294 @@
 import SwiftUI
 
+/// Уроки only: Onsite Language | Regular Language → subsections → 10–15 lessons.
+/// Does not own other tabs.
 struct HomeView: View {
+    @Environment(AppSettings.self) private var settings
     @Bindable var repository: LessonRepository
     @Binding var path: NavigationPath
     @Binding var showCreateLesson: Bool
 
+    private var mode: AppLearningMode { settings.learningMode }
+
+    private var userDialogues: [Lesson] {
+        repository.lessons.filter {
+            $0.tags.contains("general") || $0.createdBy == "user_gemini_general"
+        }
+    }
+
+    /// Held as @State so @Observable profile changes refresh Home (singleton pitfall).
+    @State private var profileStore = LearnerProfileStore.shared
+    @State private var catalog = UserLessonCatalogStore.shared
+
     var body: some View {
         List {
             Section {
-                Text("Ireland · Site induction + Containment · A1–A2 · EN ↔ RU")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .listRowBackground(Color.clear)
-                Text(LessonStore.shared.lastStatusRU)
-                    .font(.caption2)
-                    .foregroundStyle(.tertiary)
-                    .listRowBackground(Color.clear)
-            }
-
-            if let next = LessonStore.shared.firstIncomplete {
-                Section("Продолжить") {
-                    NavigationLink(value: next) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(next.titleRu)
-                                .font(.headline)
-                            if let en = next.titleEn {
-                                Text(en).font(.caption).foregroundStyle(.secondary)
-                            }
-                        }
-                    }
-                }
+                LearningModePicker(mode: Bindable(settings).learningMode)
+            } header: {
+                Text("Уроки")
             }
 
             Section {
                 Button {
                     showCreateLesson = true
                 } label: {
-                    Label("Новый урок", systemImage: "plus.circle.fill")
-                        .font(.title3.weight(.semibold))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.vertical, 10)
+                    Label("Тема · голос · фото · текст", systemImage: "plus.circle.fill")
                 }
-                .buttonStyle(.borderedProminent)
-                .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                .listRowBackground(Color.clear)
+                if !catalog.categories.isEmpty {
+                    ForEach(catalog.categories) { cat in
+                        NavigationLink {
+                            UserCategoryLessonsView(category: cat)
+                        } label: {
+                            HStack {
+                                Label(cat.titleRu, systemImage: "folder")
+                                Spacer()
+                                Text("\(catalog.lessons(in: cat.id, from: repository).count)")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(.tertiary)
+                            }
+                        }
+                    }
+                }
+            } header: {
+                Text("Мои уроки")
+            } footer: {
+                Text("Папки появляются сами: Документы, Путешествия, Работа…")
             }
 
             Section {
                 NavigationLink {
-                    TranslateView()
+                    WhoAmIView { lesson in
+                        path.append(lesson)
+                    }
                 } label: {
-                    Label("Перевод", systemImage: "character.book.closed")
-                        .font(.headline)
-                        .padding(.vertical, 8)
+                    VStack(alignment: .leading, spacing: 4) {
+                        Label(
+                            profileStore.profile.isSet ? "Профиль · под тебя" : "Кто я · скажи о себе",
+                            systemImage: profileStore.profile.isSet
+                                ? "person.crop.circle.badge.checkmark"
+                                : "person.crop.circle.badge.questionmark"
+                        )
+                        if profileStore.profile.isSet {
+                            Text(profileStore.profile.summaryChipsRU.joined(separator: " · "))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(2)
+                        } else {
+                            Text("Голосом или текстом — подстроим разделы и откроем первый урок.")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+
+                if profileStore.profile.isSet, let lesson = profileStore.firstRecommendedLesson() {
+                    Button {
+                        path.append(lesson)
+                    } label: {
+                        Label("К уроку для тебя", systemImage: "play.circle.fill")
+                    }
                 }
             }
 
-            Section("Path") {
-                ForEach(repository.lessons) { lesson in
+            if mode == .onSite {
+                onsiteSections
+            } else {
+                regularSections
+            }
+        }
+        .listStyle(.insetGrouped)
+        .contentMargins(.bottom, 12, for: .scrollContent)
+        .safeAreaPadding(.bottom, 8)
+        .navigationTitle(mode == .onSite ? "Onsite Language" : "Regular Language")
+        .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            // Avoid re-decoding the whole lesson pack on every return to this tab.
+            TutorBankStore.setMode(mode == .onSite ? .site : .general)
+            catalog.sync(from: repository.lessons)
+        }
+        .onChange(of: repository.lessons.count) { _, _ in
+            catalog.sync(from: repository.lessons)
+        }
+        .onChange(of: settings.learningMode) { _, newMode in
+            TutorBankStore.setMode(newMode == .onSite ? .site : .general)
+        }
+    }
+
+    @ViewBuilder
+    private var onsiteSections: some View {
+        Section("Разделы · Onsite") {
+            ForEach(profileStore.rankedSections(SectionLessonStore.sections(track: .onSite))) { sec in
+                NavigationLink {
+                    SectionLessonsListView(track: .onSite, section: sec)
+                } label: {
+                    sectionLabel(sec, highlighted: isPreferred(sec.id))
+                }
+            }
+        }
+
+    }
+
+    @ViewBuilder
+    private var regularSections: some View {
+        Section("Разделы · Regular") {
+            ForEach(profileStore.rankedSections(SectionLessonStore.sections(track: .regular))) { sec in
+                NavigationLink {
+                    SectionLessonsListView(track: .regular, section: sec)
+                } label: {
+                    sectionLabel(sec, highlighted: isPreferred(sec.id))
+                }
+            }
+        }
+
+        Section("Своя тема") {
+            NavigationLink {
+                RegularLanguageRequestView(preferredLevel: .a2) { lessons in
+                    repository.reload()
+                    if let first = lessons.first {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+                            path.append(first)
+                        }
+                    }
+                }
+            } label: {
+                Label("Голос или текст → до 10 диалогов", systemImage: "mic.badge.plus")
+            }
+            Text("Пример: «I want dating dialogues».")
+                .font(.caption)
+                .foregroundStyle(.secondary)
+        }
+
+        if !userDialogues.isEmpty {
+            Section("Мои собранные диалоги") {
+                ForEach(userDialogues) { lesson in
                     NavigationLink(value: lesson) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack(alignment: .firstTextBaseline) {
-                                Text(lesson.titleRu)
-                                    .font(.title3.weight(.semibold))
-                                    .foregroundStyle(.primary)
-                                    .multilineTextAlignment(.leading)
-                                if LessonProgressStore.isCompleted(lesson.id) {
-                                    Text("✓")
-                                        .font(.caption.weight(.bold))
-                                        .foregroundStyle(.green)
-                                }
-                                if lesson.isSiteInduction {
-                                    Text("Site induction")
-                                        .font(.caption2.weight(.bold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 3)
-                                        .background(Color.accentColor.opacity(0.18))
-                                        .foregroundStyle(.tint)
-                                        .clipShape(Capsule())
-                                } else if lesson.tags.contains("containment") {
-                                    Text("Containment")
-                                        .font(.caption2.weight(.bold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 3)
-                                        .background(Color.accentColor.opacity(0.18))
-                                        .foregroundStyle(.tint)
-                                        .clipShape(Capsule())
-                                }
-                                if lesson.isUserLesson {
-                                    Text("Мой")
-                                        .font(.caption2.weight(.bold))
-                                        .padding(.horizontal, 8)
-                                        .padding(.vertical, 3)
-                                        .background(Color.orange.opacity(0.2))
-                                        .foregroundStyle(.orange)
-                                        .clipShape(Capsule())
-                                }
-                            }
-
-                            if let titleEn = lesson.titleEn, !titleEn.isEmpty {
-                                Text(titleEn)
-                                    .font(.subheadline.weight(.medium))
-                                    .foregroundStyle(.secondary)
-                            }
-
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text(lesson.titleRu).font(.headline)
                             Text(lesson.sceneRu)
-                                .font(.subheadline)
+                                .font(.caption)
                                 .foregroundStyle(.secondary)
                                 .lineLimit(2)
-                                .multilineTextAlignment(.leading)
-
-                            HStack(spacing: 8) {
-                                ForEach(lesson.tags.filter { $0 != "induction" }, id: \.self) { tag in
-                                    Text(tag)
-                                        .font(.caption.weight(.medium))
-                                        .padding(.horizontal, 10)
-                                        .padding(.vertical, 5)
-                                        .background(Color.accentColor.opacity(0.15))
-                                        .clipShape(Capsule())
-                                }
-                            }
-                        }
-                        .padding(.vertical, 8)
-                    }
-                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
-                        if lesson.isUserLesson {
-                            Button(role: .destructive) {
-                                try? repository.deleteUser(id: lesson.id)
-                            } label: {
-                                Label("Удалить", systemImage: "trash")
-                            }
                         }
                     }
                 }
             }
         }
+    }
+
+    private func isPreferred(_ sectionId: String) -> Bool {
+        profileStore.profile.role.preferredSectionIds.contains(sectionId)
+    }
+
+    private func sectionLabel(_ sec: LessonSectionInfo, highlighted: Bool = false) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: 6) {
+                Text(sec.titleRu).font(.headline)
+                if highlighted {
+                    Text("для тебя")
+                        .font(.caption2.weight(.bold))
+                        .foregroundStyle(.tint)
+                }
+            }
+            Text(sec.titleEn)
+                .font(.caption)
+                .foregroundStyle(.secondary)
+            Text("\(sec.lessonCount) уроков")
+                .font(.caption2.weight(.semibold))
+                .foregroundStyle(.tertiary)
+        }
+        .padding(.vertical, 2)
+    }
+}
+
+struct SectionLessonsListView: View {
+    let track: AppLearningMode
+    let section: LessonSectionInfo
+    @State private var band: CEFRLevel.Band = LearnerProfileStore.shared.preferredBand
+
+    private var allLessons: [Lesson] {
+        SectionLessonStore.lessons(sectionId: section.id, track: track)
+    }
+
+    private var lessons: [Lesson] {
+        allLessons.filter { band.contains($0.cefrLevel) }
+    }
+
+    var body: some View {
+        List {
+            Section {
+                Text(track == .onSite
+                     ? "Onsite · только этот раздел"
+                     : "Regular · только этот раздел")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                Picker("Уровень", selection: $band) {
+                    ForEach(CEFRLevel.Band.allCases) { b in
+                        Text(b.titleRU).tag(b)
+                    }
+                }
+                .pickerStyle(.segmented)
+                Text(band.subtitleRU)
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+            Section("Уроки · \(lessons.count)") {
+                if lessons.isEmpty {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("В \(band.titleRU) пока пусто.")
+                            .font(.subheadline.weight(.semibold))
+                        Text("Открой «Все» — там \(allLessons.count) уроков этого раздела.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Button("Показать все уровни") { band = .all }
+                            .buttonStyle(.bordered)
+                    }
+                    .padding(.vertical, 4)
+                }
+                ForEach(lessons) { lesson in
+                    // Destination link (not value:/path): section was pushed with
+                    // NavigationLink { … }, so value-based Lesson pushes bounce back
+                    // to this menu instead of opening PlayerView.
+                    NavigationLink {
+                        PlayerView(lesson: lesson)
+                    } label: {
+                        VStack(alignment: .leading, spacing: 4) {
+                            HStack(spacing: 8) {
+                                Text(lesson.titleRu).font(.headline)
+                                if let cefr = lesson.cefr, !cefr.isEmpty {
+                                    Text(cefr)
+                                        .font(.caption2.weight(.bold))
+                                        .padding(.horizontal, 6)
+                                        .padding(.vertical, 2)
+                                        .background(
+                                            Capsule(style: .continuous)
+                                                .fill(Color.accentColor.opacity(0.15))
+                                        )
+                                        .foregroundStyle(Color.accentColor)
+                                }
+                            }
+                            if let en = lesson.titleEn {
+                                Text(en).font(.caption).foregroundStyle(.secondary)
+                            }
+                            Text(lesson.sceneRu)
+                                .font(.caption)
+                                .foregroundStyle(.tertiary)
+                                .lineLimit(2)
+                            if let first = lesson.lines.first?.en, !first.isEmpty {
+                                Text(first)
+                                    .font(.caption2)
+                                    .foregroundStyle(.quaternary)
+                                    .lineLimit(1)
+                            }
+                        }
+                        .padding(.vertical, 2)
+                    }
+                }
+            }
+        }
         .listStyle(.insetGrouped)
-        .navigationTitle("Уроки")
-        .navigationBarTitleDisplayMode(.large)
-        .onAppear { repository.reload() }
+        .contentMargins(.bottom, 12, for: .scrollContent)
+        .safeAreaPadding(.bottom, 8)
+        .navigationTitle(section.titleRu)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
