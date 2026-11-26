@@ -482,10 +482,8 @@ struct TutorPhrasalLadderView: View {
     }
 
     private var actionRow: some View {
-        HStack(spacing: 10) {
-            if stage == .gap {
-                // choice buttons already check
-            } else {
+        VStack(spacing: 10) {
+            if stage != .gap {
                 Button("Проверить") {
                     guard let p = current else { return }
                     if stage == .translate { checkTranslate(for: p) }
@@ -493,12 +491,15 @@ struct TutorPhrasalLadderView: View {
                 }
                 .buttonStyle(.borderedProminent)
                 .disabled(passed || typed.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                .frame(maxWidth: .infinity, minHeight: 48)
             }
             if passed {
                 Button(itemIndex + 1 >= pageItems.count ? "Стр. дальше / снова" : "Дальше") {
                     advanceAfterPass()
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(.borderedProminent)
+                .frame(maxWidth: .infinity, minHeight: 52)
+                .accessibilityHint("Следующее задание лесенки")
             }
         }
     }
@@ -510,8 +511,10 @@ struct TutorPhrasalLadderView: View {
         passed = ok
         feedback = ok ? "Верно · \(p.en)" : "Нет — нужен «\(p.en)»"
         if ok {
-            speak(targetSentence)
             registerSuccess()
+            // Hear the full sentence, then move on — don't leave the board dead
+            // with only «Верно» and disabled «Выбрать» (no visible path forward).
+            scheduleAdvanceAfterPass(speaking: targetSentence)
         }
     }
 
@@ -526,8 +529,8 @@ struct TutorPhrasalLadderView: View {
             ? "Ок · есть «\(p.en)»"
             : (hasPhrasal ? "Слабо похоже на образец — поправь или слушай EN" : "Вставь «\(p.en)» в предложение")
         if ok {
-            speak(t)
             registerSuccess()
+            scheduleAdvanceAfterPass(speaking: t)
         }
     }
 
@@ -538,8 +541,47 @@ struct TutorPhrasalLadderView: View {
         passed = ok
         feedback = ok ? "Принято · своё с «\(p.en)»" : "Нужно своё предложение (≥3 слов) с «\(p.en)»"
         if ok {
-            speak(t)
             registerSuccess()
+            scheduleAdvanceAfterPass(speaking: t)
+        }
+    }
+
+    /// Speak (best-effort), then advance. Safety timer if TTS never finishes (EL key fail).
+    private func scheduleAdvanceAfterPass(speaking text: String) {
+        let token = itemIndex
+        let stageAtPass = stage
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        speaker?.updateSettings(settings)
+
+        let advanceIfStillHere: @MainActor () -> Void = {
+            guard self.passed, self.itemIndex == token, self.stage == stageAtPass else { return }
+            self.advanceAfterPass()
+        }
+
+        if trimmed.isEmpty {
+            Task { @MainActor in
+                try? await Task.sleep(nanoseconds: 450_000_000)
+                advanceIfStillHere()
+            }
+            return
+        }
+
+        var didAdvance = false
+        let once: @MainActor () -> Void = {
+            guard !didAdvance else { return }
+            didAdvance = true
+            advanceIfStillHere()
+        }
+
+        let isRU = trimmed.unicodeScalars.contains { $0.value >= 0x0400 && $0.value <= 0x04FF }
+        if isRU {
+            speaker?.speakRU(trimmed) { Task { @MainActor in once() } }
+        } else {
+            speaker?.speakEN(trimmed) { Task { @MainActor in once() } }
+        }
+        Task { @MainActor in
+            try? await Task.sleep(nanoseconds: 3_500_000_000)
+            once()
         }
     }
 

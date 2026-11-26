@@ -547,35 +547,49 @@ struct TutorPairsView: View {
             warmingPairId = nil
 
             var removed = false
+            let unlockBoard = {
+                // Must clear even if TTS hangs (bad EL key / network) — otherwise
+                // all further taps die on `guard !matchBusy`.
+                self.matchBusy = false
+                self.warmingPairId = nil
+            }
             let removeOnce = {
                 guard !removed else { return }
                 removed = true
                 self.commitRemove(pairId: pairId, meta: meta)
+                unlockBoard()
             }
 
             let safety = Task { @MainActor in
                 try? await Task.sleep(nanoseconds: 400_000_000)
                 guard epoch == self.playEpoch else { return }
                 removeOnce()
+                // Hard unlock if speakSequence never finishes (EL 400 hang, etc.).
+                try? await Task.sleep(nanoseconds: 2_500_000_000)
+                guard epoch == self.playEpoch else { return }
+                unlockBoard()
+                self.captureTTSNote()
             }
 
             let parts = playList.map { (text: $0, english: true) }
             if parts.isEmpty {
                 safety.cancel()
                 removeOnce()
-                matchBusy = false
+                unlockBoard()
                 return
             }
 
             lastPlayedEN = ""
             speaker?.speakSequence(parts, onFirstStarted: {
                 guard epoch == self.playEpoch else { return }
-                safety.cancel()
+                // Keep safety's hard-unlock arm; only cancel the early remove race
+                // by removing immediately here.
                 removeOnce()
             }, then: {
                 guard epoch == self.playEpoch else { return }
+                safety.cancel()
                 self.captureTTSNote()
-                self.matchBusy = false
+                unlockBoard()
             })
         }
     }
