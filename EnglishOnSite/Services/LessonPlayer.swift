@@ -257,6 +257,48 @@ final class LessonPlayer {
         }
     }
 
+    /// Tap a dialogue row: jump to that line (forward or back) and play it.
+    func selectAndPlayDialogueLine(at index: Int) {
+        guard let lesson, lesson.lines.indices.contains(index) else { return }
+        hardStopSpeaking()
+        mode = .lesson
+        practiceMessage = nil
+        feedbackQueue = []
+        currentIndex = index
+        isRepeating = false
+        speakingLanguage = .en
+        isPaused = false
+        isPlaying = true
+        statusText = "Играет"
+        guard configureSession() else {
+            isPlaying = false
+            statusText = "Готов"
+            return
+        }
+        speakCurrentSegment()
+    }
+
+    /// Tap a «Скажи сегодня» row: jump to that phrase and play it.
+    func selectAndPlaySayToday(at index: Int) {
+        guard let lesson, lesson.sayToday.indices.contains(index) else { return }
+        hardStopSpeaking()
+        mode = .sayToday
+        practiceMessage = nil
+        feedbackQueue = []
+        sayTodayIndex = index
+        isRepeating = false
+        speakingLanguage = .en
+        isPaused = false
+        isPlaying = true
+        statusText = "Играет"
+        guard configureSession() else {
+            isPlaying = false
+            statusText = "Готов"
+            return
+        }
+        speakCurrentSegment()
+    }
+
     func repeatCurrentPhrase() {
         guard lesson != nil else { return }
         guard configureSession() else { return }
@@ -402,6 +444,7 @@ final class LessonPlayer {
             contentVersion: LessonStore.shared.contentVersion
         )
         suppressAdvance = false
+        voiceNote = "…"
         speakTask = Task { @MainActor in
             await self.tts.speak(
                 text: text,

@@ -91,7 +91,7 @@ final class ElevenLabsTTS: NSObject {
     func isCached(text: String, lang: SiteVoiceLang = .en, settings: AppSettings) -> Bool {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return false }
-        let apiKey = AppSecrets.sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        let apiKey = AppSecrets.effectiveElevenLabsAPIKey
         guard settings.useElevenLabs, !apiKey.isEmpty else {
             // System voice is local — treat as "ready".
             return true
@@ -112,7 +112,7 @@ final class ElevenLabsTTS: NSObject {
     ) async {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
-        let apiKey = AppSecrets.sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        let apiKey = AppSecrets.effectiveElevenLabsAPIKey
         guard settings.useElevenLabs, !apiKey.isEmpty else { return }
         let voiceId = lang.voiceId
         let voiceParams = settings.elVoiceParams(for: lang)
@@ -172,9 +172,18 @@ final class ElevenLabsTTS: NSObject {
         lastErrorRU = ""
         lastSource = .system
 
-        let apiKey = AppSecrets.sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        // Prefer baked Secrets.local over Keychain (stale Keychain → 401 → system voice).
+        let apiKey = AppSecrets.effectiveElevenLabsAPIKey
         // Presence only — do not gate on sk_ prefix (blocked seed/UI + silent AVSpeech).
         let enabled = settings.useElevenLabs && !apiKey.isEmpty
+        if enabled, AppSecrets.looksLikeElevenLabsKeyId(apiKey) {
+            lastErrorRU = "EL: вставлен ID ключа, нужен секрет (sk_…)"
+            lastUsedSystemVoice = true
+            lastSource = .system
+            print("[el] fail reason=key_id_not_secret")
+            await speakSystem(text: trimmed, lang: lang, settings: settings, onStarted: onPlaybackStarted)
+            return
+        }
         let voiceParams = settings.elVoiceParams(for: lang)
         let cacheURL = ElevenLabsAudioCache.fileURL(
             text: trimmed,
@@ -321,21 +330,44 @@ final class ElevenLabsTTS: NSObject {
 
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body)
-            print("[el] cache miss → HTTP")
+            print("[el] cache miss → HTTP model=\(params.model.rawValue)")
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let http = response as? HTTPURLResponse else {
                 return .failure("EL ошибка: нет ответа")
             }
             print("[el] status=\(http.statusCode) bytes=\(data.count)")
             guard (200...299).contains(http.statusCode) else {
-                // Surface auth failures clearly (never log body if it might echo key hints only — safe codes).
+                // Surface auth failures clearly (never log key material).
                 if http.statusCode == 401 || http.statusCode == 403 {
                     return .failure("EL ошибка: HTTP \(http.statusCode) (ключ)")
                 }
+                let raw = String(data: data, encoding: .utf8) ?? ""
                 if http.statusCode == 400,
-                   let raw = String(data: data, encoding: .utf8),
-                   raw.contains("api_key") || raw.contains("authentication") {
+                   raw.contains("api_key") || raw.contains("authentication") || raw.contains("invalid_api_key") {
+                    if raw.contains("API key ID") || AppSecrets.looksLikeElevenLabsKeyId(apiKey) {
+                        return .failure("EL: это ID ключа, нужен секрет sk_…")
+                    }
                     return .failure("EL ошибка: HTTP 400 (ключ отклонён)")
+                }
+                // One retry: older accounts / strict validators reject v4 extras or model.
+                if http.statusCode == 400, params.model == .v4 {
+                    print("[el] HTTP 400 on eleven_v4 → retry multilingual_v2")
+                    var fallback = params
+                    fallback.model = .multilingualV2
+                    let fallbackURL = ElevenLabsAudioCache.fileURL(
+                        text: text,
+                        voice: voiceId,
+                        params: fallback
+                    )
+                    return await fetchFromNetwork(
+                        text: text,
+                        voiceId: voiceId,
+                        apiKey: apiKey,
+                        cacheURL: fallbackURL,
+                        params: fallback,
+                        settings: settings,
+                        sync: sync
+                    )
                 }
                 return .failure("EL ошибка: HTTP \(http.statusCode)")
             }
@@ -347,19 +379,34 @@ final class ElevenLabsTTS: NSObject {
             ElevenLabsAudioCache.pruneIfNeeded()
             print("[el] cache store \(cacheURL.lastPathComponent)")
             if let sync {
-                EosSyncService.postAudioIfConfigured(
-                    settings: settings,
-                    payload: EosSyncService.AudioPayload(
-                        lessonId: sync.lessonId,
-                        lineId: sync.lineId,
-                        role: sync.role,
-                        textEN: sync.textEN,
-                        textRU: sync.textRU,
-                        voiceId: voiceId,
-                        audioBase64: data.base64EncodedString(),
-                        contentVersion: sync.contentVersion
-                    )
-                )
+                // Base64 encode off the audio path — don't stall playback start.
+                let audioData = data
+                let settingsRef = settings
+                let lessonId = sync.lessonId
+                let lineId = sync.lineId
+                let role = sync.role
+                let textEN = sync.textEN
+                let textRU = sync.textRU
+                let contentVersion = sync.contentVersion
+                let voice = voiceId
+                Task.detached(priority: .utility) {
+                    let b64 = audioData.base64EncodedString()
+                    await MainActor.run {
+                        EosSyncService.postAudioIfConfigured(
+                            settings: settingsRef,
+                            payload: EosSyncService.AudioPayload(
+                                lessonId: lessonId,
+                                lineId: lineId,
+                                role: role,
+                                textEN: textEN,
+                                textRU: textRU,
+                                voiceId: voice,
+                                audioBase64: b64,
+                                contentVersion: contentVersion
+                            )
+                        )
+                    }
+                }
             }
             return .success(cacheURL)
         } catch {

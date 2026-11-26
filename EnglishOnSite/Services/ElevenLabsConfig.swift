@@ -34,13 +34,23 @@ struct ElevenLabsVoiceParams: Equatable {
         return "\(model.rawValue)|s\(s)|sim\(sim)|st\(st)|b\(boost)"
     }
 
+    /// Body for `voice_settings`. Eleven v4 rejects unknown fields (style / speaker_boost)
+    /// with HTTP 400 — app then fell back to AVSpeech and looked "broken".
     var voiceSettingsJSON: [String: Any] {
-        [
-            "stability": stability,
-            "similarity_boost": similarityBoost,
-            "style": style,
-            "use_speaker_boost": useSpeakerBoost,
-        ]
+        switch model {
+        case .v4:
+            return [
+                "stability": stability,
+                "similarity_boost": similarityBoost,
+            ]
+        case .multilingualV2, .turboV25:
+            return [
+                "stability": stability,
+                "similarity_boost": similarityBoost,
+                "style": style,
+                "use_speaker_boost": useSpeakerBoost,
+            ]
+        }
     }
 }
 
