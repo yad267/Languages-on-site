@@ -351,6 +351,7 @@ final class AppSettings {
     var hasElevenLabsKey: Bool {
         !elevenLabsAPIKeyDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
             || KeychainStore.hasElevenLabsAPIKey()
+            || AppSecrets.hasLocalElevenLabs
     }
 
     var elevenLabsEnabledAndReady: Bool {

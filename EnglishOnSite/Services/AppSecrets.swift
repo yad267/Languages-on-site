@@ -23,6 +23,13 @@ enum AppSecrets {
     static var hasLocalElevenLabs: Bool { !elevenLabsAPIKey.isEmpty }
     static var hasAnyLocal: Bool { hasLocalGemini || hasLocalElevenLabs }
 
+    /// Runtime TTS key: baked Secrets.local wins over Keychain so a stale Keychain
+    /// value cannot silently drive HTTP 401 → AVSpeech after a Secrets rotate.
+    static var effectiveElevenLabsAPIKey: String {
+        if hasLocalElevenLabs { return elevenLabsAPIKey }
+        return sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+    }
+
     /// Startup: fill empty slots; if Secrets non-empty and ≠ Keychain → update Keychain (new key after 400).
     @discardableResult
     static func seedKeychainIfNeeded(into settings: AppSettings) -> String {

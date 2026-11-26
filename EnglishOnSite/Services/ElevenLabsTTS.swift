@@ -91,7 +91,7 @@ final class ElevenLabsTTS: NSObject {
     func isCached(text: String, lang: SiteVoiceLang = .en, settings: AppSettings) -> Bool {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return false }
-        let apiKey = AppSecrets.sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        let apiKey = AppSecrets.effectiveElevenLabsAPIKey
         guard settings.useElevenLabs, !apiKey.isEmpty else {
             // System voice is local — treat as "ready".
             return true
@@ -112,7 +112,7 @@ final class ElevenLabsTTS: NSObject {
     ) async {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
-        let apiKey = AppSecrets.sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        let apiKey = AppSecrets.effectiveElevenLabsAPIKey
         guard settings.useElevenLabs, !apiKey.isEmpty else { return }
         let voiceId = lang.voiceId
         let voiceParams = settings.elVoiceParams(for: lang)
@@ -172,7 +172,8 @@ final class ElevenLabsTTS: NSObject {
         lastErrorRU = ""
         lastSource = .system
 
-        let apiKey = AppSecrets.sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        // Prefer baked Secrets.local over Keychain (stale Keychain → 401 → system voice).
+        let apiKey = AppSecrets.effectiveElevenLabsAPIKey
         // Presence only — do not gate on sk_ prefix (blocked seed/UI + silent AVSpeech).
         let enabled = settings.useElevenLabs && !apiKey.isEmpty
         let voiceParams = settings.elVoiceParams(for: lang)
@@ -321,21 +322,41 @@ final class ElevenLabsTTS: NSObject {
 
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: body)
-            print("[el] cache miss → HTTP")
+            print("[el] cache miss → HTTP model=\(params.model.rawValue)")
             let (data, response) = try await URLSession.shared.data(for: request)
             guard let http = response as? HTTPURLResponse else {
                 return .failure("EL ошибка: нет ответа")
             }
             print("[el] status=\(http.statusCode) bytes=\(data.count)")
             guard (200...299).contains(http.statusCode) else {
-                // Surface auth failures clearly (never log body if it might echo key hints only — safe codes).
+                // Surface auth failures clearly (never log key material).
                 if http.statusCode == 401 || http.statusCode == 403 {
                     return .failure("EL ошибка: HTTP \(http.statusCode) (ключ)")
                 }
+                let raw = String(data: data, encoding: .utf8) ?? ""
                 if http.statusCode == 400,
-                   let raw = String(data: data, encoding: .utf8),
                    raw.contains("api_key") || raw.contains("authentication") {
                     return .failure("EL ошибка: HTTP 400 (ключ отклонён)")
+                }
+                // One retry: older accounts / strict validators reject v4 extras or model.
+                if http.statusCode == 400, params.model == .v4 {
+                    print("[el] HTTP 400 on eleven_v4 → retry multilingual_v2")
+                    var fallback = params
+                    fallback.model = .multilingualV2
+                    let fallbackURL = ElevenLabsAudioCache.fileURL(
+                        text: text,
+                        voice: voiceId,
+                        params: fallback
+                    )
+                    return await fetchFromNetwork(
+                        text: text,
+                        voiceId: voiceId,
+                        apiKey: apiKey,
+                        cacheURL: fallbackURL,
+                        params: fallback,
+                        settings: settings,
+                        sync: sync
+                    )
                 }
                 return .failure("EL ошибка: HTTP \(http.statusCode)")
             }

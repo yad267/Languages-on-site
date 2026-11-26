@@ -444,6 +444,7 @@ final class LessonPlayer {
             contentVersion: LessonStore.shared.contentVersion
         )
         suppressAdvance = false
+        voiceNote = "…"
         speakTask = Task { @MainActor in
             await self.tts.speak(
                 text: text,
