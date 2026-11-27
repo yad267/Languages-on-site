@@ -154,17 +154,17 @@ struct SettingsView: View {
                         .foregroundStyle(.red)
                 }
                 if AppSecrets.elevenLabsKeyLooksLikeIdOnly {
-                    Text("В Secrets/Keychain лежит ID ключа (64 hex), а ElevenLabs нужен секрет — обычно начинается с sk_. Скопируй Secret из кабинета API keys, не Key ID.")
+                    Text("Вставлен ID ключа (64 hex), а нужен Secret — обычно начинается с sk_. В кабинете ElevenLabs: API keys → скопируй Secret, не Key ID. Вставь ниже или в Secrets.local.swift на Mac.")
                         .font(.footnote.weight(.bold))
                         .foregroundStyle(.red)
                 }
 
-                if showElevenKey {
-                    SecureField("ElevenLabs API key", text: $settings.elevenLabsAPIKeyDraft)
+                if showElevenKey || AppSecrets.elevenLabsKeyLooksLikeIdOnly || !settings.hasElevenLabsKey {
+                    SecureField("ElevenLabs Secret (sk_…)", text: $settings.elevenLabsAPIKeyDraft)
                         .textInputAutocapitalization(.never)
                         .autocorrectionDisabled()
                 } else {
-                    Button(settings.hasElevenLabsKey ? "Изменить ключ…" : "Вставить ключ…") {
+                    Button("Изменить ключ…") {
                         showElevenKey = true
                     }
                 }

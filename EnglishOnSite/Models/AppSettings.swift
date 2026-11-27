@@ -319,6 +319,13 @@ final class AppSettings {
                 elevenLabsAPIKeyDraft = trimmed
                 return
             }
+            // Refuse Key ID paste — ElevenLabs needs the secret (usually sk_…).
+            if AppSecrets.looksLikeElevenLabsKeyId(trimmed) {
+                KeychainStore.saveElevenLabsAPIKey("")
+                useElevenLabs = false
+                print("[secrets] refused ElevenLabs Key ID paste into Keychain")
+                return
+            }
             KeychainStore.saveElevenLabsAPIKey(trimmed)
             if trimmed.isEmpty {
                 useElevenLabs = false
@@ -349,13 +356,13 @@ final class AppSettings {
     }
 
     var hasElevenLabsKey: Bool {
-        !elevenLabsAPIKeyDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            || KeychainStore.hasElevenLabsAPIKey()
+        AppSecrets.isUsableElevenLabsKey(elevenLabsAPIKeyDraft)
+            || AppSecrets.isUsableElevenLabsKey(KeychainStore.loadElevenLabsAPIKey())
             || AppSecrets.hasLocalElevenLabs
     }
 
     var elevenLabsEnabledAndReady: Bool {
-        useElevenLabs && hasElevenLabsKey
+        useElevenLabs && hasElevenLabsKey && !AppSecrets.elevenLabsKeyLooksLikeIdOnly
     }
 
     var englishRate: Float { englishSpeed.rate }

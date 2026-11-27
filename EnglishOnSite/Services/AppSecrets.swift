@@ -20,14 +20,21 @@ enum AppSecrets {
     static var elevenLabsAPIKey: String { sanitizeSecret(SecretsLocal.elevenLabsAPIKey) }
 
     static var hasLocalGemini: Bool { !geminiAPIKey.isEmpty }
-    static var hasLocalElevenLabs: Bool { !elevenLabsAPIKey.isEmpty }
+    /// True only when Secrets.local holds a usable secret — not an ElevenLabs Key ID.
+    static var hasLocalElevenLabs: Bool { isUsableElevenLabsKey(elevenLabsAPIKey) }
     static var hasAnyLocal: Bool { hasLocalGemini || hasLocalElevenLabs }
 
-    /// Runtime TTS key: baked Secrets.local wins over Keychain so a stale Keychain
+    /// Runtime TTS key: usable Secrets.local wins over Keychain so a stale Keychain
     /// value cannot silently drive HTTP 401 → AVSpeech after a Secrets rotate.
+    /// Key IDs (64 hex) are never treated as a usable secret.
     static var effectiveElevenLabsAPIKey: String {
         if hasLocalElevenLabs { return elevenLabsAPIKey }
-        return sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        let fromKeychain = sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        if isUsableElevenLabsKey(fromKeychain) { return fromKeychain }
+        // Surface Key ID for UI warning / lastErrorRU; callers must not call the API with it.
+        if looksLikeElevenLabsKeyId(fromKeychain) { return fromKeychain }
+        if looksLikeElevenLabsKeyId(elevenLabsAPIKey) { return elevenLabsAPIKey }
+        return ""
     }
 
     /// ElevenLabs rejects key *IDs* (64 hex) with HTTP 400 `invalid_api_key`
@@ -40,8 +47,16 @@ enum AppSecrets {
         return key.count == 64 && key.unicodeScalars.allSatisfy { hex.contains($0) }
     }
 
+    /// Non-empty and not a mistaken Key ID paste.
+    static func isUsableElevenLabsKey(_ raw: String) -> Bool {
+        let key = sanitizeSecret(raw)
+        return !key.isEmpty && !looksLikeElevenLabsKeyId(key)
+    }
+
     static var elevenLabsKeyLooksLikeIdOnly: Bool {
         looksLikeElevenLabsKeyId(effectiveElevenLabsAPIKey)
+            || looksLikeElevenLabsKeyId(elevenLabsAPIKey)
+            || looksLikeElevenLabsKeyId(KeychainStore.loadElevenLabsAPIKey())
     }
 
     /// Startup: fill empty slots; if Secrets non-empty and ≠ Keychain → update Keychain (new key after 400).
@@ -84,15 +99,27 @@ enum AppSecrets {
             print("[secrets] Gemini Secrets empty — skip")
         }
 
-        // --- ElevenLabs (same rules; fixes stale Keychain after owner rotates Secrets) ---
-        let existingE = KeychainStore.loadElevenLabsAPIKey()
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        if hasLocalElevenLabs {
-            if existingE.isEmpty {
+        // --- ElevenLabs (same rules; never seed a Key ID — that caused HTTP 400 forever) ---
+        let existingE = sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
+        let secretsIsKeyId = looksLikeElevenLabsKeyId(elevenLabsAPIKey)
+        let keychainIsKeyId = looksLikeElevenLabsKeyId(existingE)
+
+        if secretsIsKeyId {
+            print("[secrets] ElevenLabs Secrets looks like Key ID — refuse seed (need sk_…)")
+            parts.append("EL Secrets=ID✗")
+            if keychainIsKeyId || existingE.isEmpty {
+                KeychainStore.saveElevenLabsAPIKey("")
+                settings.elevenLabsAPIKeyDraft = ""
+                settings.useElevenLabs = false
+                parts.append("EL Keychain cleared (was ID)")
+                print("[secrets] cleared ElevenLabs Keychain Key ID")
+            }
+        } else if hasLocalElevenLabs {
+            if existingE.isEmpty || keychainIsKeyId {
                 KeychainStore.saveElevenLabsAPIKey(elevenLabsAPIKey)
                 settings.elevenLabsAPIKeyDraft = elevenLabsAPIKey
                 settings.useElevenLabs = true
-                parts.append("EL→Keychain")
+                parts.append(keychainIsKeyId ? "EL ID→sk_←Secrets" : "EL→Keychain")
                 print("[secrets] seeded ElevenLabs → Keychain")
             } else if force || existingE != elevenLabsAPIKey {
                 KeychainStore.saveElevenLabsAPIKey(elevenLabsAPIKey)
@@ -105,8 +132,16 @@ enum AppSecrets {
                 parts.append("EL toggle ON")
                 print("[secrets] ElevenLabs Keychain matches Secrets → toggle ON")
             }
-        } else if existingE.isEmpty {
-            print("[secrets] ElevenLabs Secrets empty — skip")
+        } else {
+            if keychainIsKeyId {
+                KeychainStore.saveElevenLabsAPIKey("")
+                settings.elevenLabsAPIKeyDraft = ""
+                settings.useElevenLabs = false
+                parts.append("EL Keychain cleared (was ID)")
+                print("[secrets] cleared ElevenLabs Keychain Key ID (Secrets empty)")
+            } else if existingE.isEmpty {
+                print("[secrets] ElevenLabs Secrets empty — skip")
+            }
         }
 
         let g = KeychainStore.loadGeminiAPIKey()
