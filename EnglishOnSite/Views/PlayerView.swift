@@ -20,6 +20,7 @@ struct PlayerView: View {
     @State private var statusBanner = ""
     @State private var coachBadge: CoachSourceBadge.Kind = .offline
     @State private var showPhraseLoop = false
+    @State private var explainLine: LessonLine?
 
     enum OverlayKind {
         case none, translating, translateResult, remembering, rememberResult
@@ -272,13 +273,42 @@ struct PlayerView: View {
             ForEach(Array(lesson.lines.enumerated()), id: \.offset) { idx, line in
                 let isCurrent = (player.mode == .lesson || player.mode == .practiceFeedback)
                     && player.currentIndex == idx
-                dialogueBubble(
-                    role: line.role,
-                    en: line.en,
-                    ru: line.ru,
-                    tipRu: line.tipRu,
-                    isCurrent: isCurrent
-                )
+                // Keep play Button free of LongPress — competing gestures made taps feel laggy.
+                HStack(alignment: .top, spacing: 6) {
+                    Button {
+                        player.selectAndPlayDialogueLine(at: idx)
+                        syncListening(with: player)
+                    } label: {
+                        dialogueBubble(
+                            role: line.role,
+                            en: line.en,
+                            ru: line.ru,
+                            tipRu: line.tipRu,
+                            transcription: line.transcription,
+                            isCurrent: isCurrent,
+                            showsExplainHint: false
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .contextMenu {
+                        Button("Пояснить", systemImage: "text.book.closed") {
+                            explainLine = line
+                        }
+                    }
+                    .accessibilityHint("Тап — слушать. Удерживай для меню «Пояснить».")
+
+                    Button {
+                        explainLine = line
+                    } label: {
+                        Image(systemName: "text.book.closed")
+                            .font(.body.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                            .frame(width: 36, height: 36)
+                            .background(Circle().fill(Color(.secondarySystemBackground)))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Пояснить")
+                }
                 .id("line-\(idx)")
             }
 
@@ -292,19 +322,43 @@ struct PlayerView: View {
 
                 ForEach(Array(lesson.sayToday.enumerated()), id: \.offset) { idx, phrase in
                     let isCurrent = player.mode == .sayToday && player.sayTodayIndex == idx
-                    dialogueBubble(
-                        role: lesson.yourRole,
-                        en: phrase.en,
-                        ru: phrase.ru,
-                        tipRu: nil,
-                        isCurrent: isCurrent,
-                        forceWorker: true
-                    )
+                    Button {
+                        player.selectAndPlaySayToday(at: idx)
+                        syncListening(with: player)
+                    } label: {
+                        dialogueBubble(
+                            role: lesson.yourRole,
+                            en: phrase.en,
+                            ru: phrase.ru,
+                            tipRu: nil,
+                            transcription: nil,
+                            isCurrent: isCurrent,
+                            forceWorker: true,
+                            showsExplainHint: false
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityHint("Воспроизвести эту фразу")
                     .id("say-\(idx)")
                 }
             }
         }
         .frame(maxWidth: .infinity, alignment: .topLeading)
+        .sheet(item: $explainLine) { line in
+            LessonLineExplainSheet(
+                line: line,
+                roleLabel: lesson.roleLabel(for: line.role),
+                onSpeak: {
+                    let sp = speaker ?? SpeechSpeaker(settings: settings)
+                    speaker = sp
+                    sp.updateSettings(settings)
+                    sp.stop()
+                    sp.speakEN(line.en)
+                }
+            )
+            .presentationDetents([.medium, .large])
+            .presentationDragIndicator(.visible)
+        }
     }
 
     @ViewBuilder
@@ -313,8 +367,10 @@ struct PlayerView: View {
         en: String,
         ru: String,
         tipRu: String?,
+        transcription: String?,
         isCurrent: Bool,
-        forceWorker: Bool = false
+        forceWorker: Bool = false,
+        showsExplainHint: Bool = false
     ) -> some View {
         let supervisor = forceWorker ? false : lesson.isSupervisorRole(role)
         let align: Alignment = supervisor ? .leading : .trailing
@@ -343,11 +399,23 @@ struct PlayerView: View {
                     .multilineTextAlignment(supervisor ? .leading : .trailing)
                     .fixedSize(horizontal: false, vertical: true)
 
+                if let transcription, Self.isUsefulTranscription(transcription), isCurrent {
+                    Text(transcription)
+                        .font(.footnote.monospaced())
+                        .foregroundStyle(.tertiary)
+                        .multilineTextAlignment(supervisor ? .leading : .trailing)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
                 if settings.showTips, let tipRu, !tipRu.isEmpty, isCurrent {
                     Text(tipRu)
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .fixedSize(horizontal: false, vertical: true)
+                } else if showsExplainHint, isCurrent {
+                    Text("Кнопка 📖 · пояснение")
+                        .font(.caption2.weight(.semibold))
+                        .foregroundStyle(.tertiary)
                 }
             }
             .padding(12)
@@ -589,20 +657,8 @@ struct PlayerView: View {
 
     @ViewBuilder
     private func voiceHint(_ player: LessonPlayer) -> some View {
-        VStack(spacing: 2) {
-            Text("стоп · дальше · повтори")
-                .font(.caption2)
-                .foregroundStyle(.tertiary)
-                .multilineTextAlignment(.center)
-            if let listener {
-                if !listener.authorizationMessage.isEmpty {
-                    Text(listener.authorizationMessage).font(.caption2).foregroundStyle(.orange)
-                } else if listener.isListening {
-                    Text(listener.lastHeard.isEmpty ? "Слушаю…" : listener.lastHeard)
-                        .font(.caption2).foregroundStyle(.tertiary).lineLimit(1)
-                }
-            }
-        }
+        // Isolated subview so ASR partials don't rebuild the whole player/chat thread.
+        PlayerVoiceHintBanner(listener: listener)
     }
 
     private func setup() async {
@@ -685,7 +741,11 @@ struct PlayerView: View {
             statusBanner = settings.geminiEnabledAndReady
                 ? "Офлайн не нашёл — Gemini…"
                 : "Gemini выкл / нет ключа"
-            let cloud = await TranslationService.translate(recognized: recognized, settings: settings)
+            let cloud = await TranslationService.translate(
+                recognized: recognized,
+                settings: settings,
+                sourceLanguage: settings.translatorSourceLanguage
+            )
             if cloud.viaGemini {
                 translateResult = cloud
                 coachBadge = .gemini
@@ -842,12 +902,171 @@ struct PlayerView: View {
         player.updateSettings(settings)
         speaker?.updateSettings(settings)
 
-        if overlay != .none { return }
+        if overlay != .none {
+            if listener.isListening { listener.stop() }
+            return
+        }
 
-        if player.isPlaying && !player.isPaused && player.mode != .practiceFeedback {
-            listener.start()
-        } else {
+        let wantListen = player.isPlaying && !player.isPaused && player.mode != .practiceFeedback
+        if wantListen {
+            // Don't block the tap; audio engine start is deferred inside start().
+            if !listener.isListening {
+                listener.start()
+            }
+        } else if listener.isListening {
             listener.stop()
         }
+    }
+}
+
+/// Owns observation of ASR partials so PlayerView chat bubbles stay snappy.
+private struct PlayerVoiceHintBanner: View {
+    let listener: SpeechCommandListener?
+
+    var body: some View {
+        VStack(spacing: 2) {
+            Text("стоп · дальше · повтори")
+                .font(.caption2)
+                .foregroundStyle(.tertiary)
+                .multilineTextAlignment(.center)
+            if let listener {
+                if !listener.authorizationMessage.isEmpty {
+                    Text(listener.authorizationMessage).font(.caption2).foregroundStyle(.orange)
+                } else if listener.isListening {
+                    Text(listener.lastHeard.isEmpty ? "Слушаю…" : listener.lastHeard)
+                        .font(.caption2).foregroundStyle(.tertiary).lineLimit(1)
+                }
+            }
+        }
+    }
+}
+
+extension PlayerView {
+    /// Skip broken Latin stubs like "e bit loh" — prefer Cyrillic / longer hints.
+    static func isUsefulTranscription(_ raw: String) -> Bool {
+        let t = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !t.isEmpty else { return false }
+        let hasCyrillic = t.range(of: "\\p{Cyrillic}", options: .regularExpression) != nil
+        if hasCyrillic { return true }
+        return t.count >= 12
+    }
+}
+
+/// Tap/long-press card: translation + word gloss tip + simple sounding hint.
+struct LessonLineExplainSheet: View {
+    let line: LessonLine
+    let roleLabel: String
+    var onSpeak: (() -> Void)?
+
+    @Environment(\.dismiss) private var dismiss
+
+    private var usefulTranscription: String? {
+        guard let raw = line.transcription else { return nil }
+        return PlayerView.isUsefulTranscription(raw) ? raw : nil
+    }
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(roleLabel)
+                        .font(.caption.weight(.bold))
+                        .foregroundStyle(.secondary)
+                        .textCase(.uppercase)
+
+                    Text(line.en)
+                        .font(.title2.weight(.bold))
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    Text(line.ru)
+                        .font(.title3.weight(.medium))
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    if let tip = line.tip(forExplainLocale: LearnerProfileStore.shared.profile.explainLocale) {
+                        glossBlock(title: "Слова — перевод", tip: tip)
+                    } else {
+                        labeled(
+                            "Слова — перевод",
+                            "Слушай фразу и сверь слова с переводом выше."
+                        )
+                    }
+
+                    if let transcription = usefulTranscription {
+                        labeled("Как звучит", transcription)
+                    }
+
+                    if let onSpeak {
+                        Button {
+                            onSpeak()
+                        } label: {
+                            Label("Слушать ещё раз", systemImage: "speaker.wave.2.fill")
+                                .frame(maxWidth: .infinity, minHeight: 44)
+                        }
+                        .buttonStyle(.borderedProminent)
+                    }
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .navigationTitle("Пояснение")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button("Готово") { dismiss() }
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func labeled(_ title: String, _ body: String) -> some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title)
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+            Text(body)
+                .font(.body)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(Color(.secondarySystemBackground))
+        )
+    }
+
+    /// Split «word = перевод · …» into clear lines so each gloss reads as a translation.
+    @ViewBuilder
+    private func glossBlock(title: String, tip: String) -> some View {
+        let parts = tip
+            .components(separatedBy: "·")
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title)
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.secondary)
+                .textCase(.uppercase)
+            if parts.count > 1 {
+                ForEach(parts, id: \.self) { part in
+                    Text(part)
+                        .font(.body)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            } else {
+                Text(tip)
+                    .font(.body)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .fill(Color(.secondarySystemBackground))
+        )
     }
 }

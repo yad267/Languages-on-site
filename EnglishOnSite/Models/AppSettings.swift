@@ -62,6 +62,8 @@ final class AppSettings {
         static let rememberDuration = "rememberDuration"
         static let translateDuration = "translateDuration"
         static let rememberLocale = "rememberLocale"
+        static let translatorSourceLanguage = "translatorSourceLanguage"
+        static let preferOfflineTranslation = "preferOfflineTranslation"
         static let useGemini = "useGemini"
         static let useElevenLabs = "useElevenLabs"
         static let elModel = "elModel"
@@ -75,14 +77,29 @@ final class AppSettings {
         static let lessonsPackURL = "lessonsPackURL"
         static let voiceIdEnSupervisor = "voiceIdEnSupervisor"
         static let eosSyncWebhookURL = "eosSyncWebhookURL"
+        static let learningMode = "learningMode"
+    }
+
+    /// Language on Site vs Regular Language (persisted).
+    var learningMode: AppLearningMode {
+        didSet {
+            UserDefaults.standard.set(learningMode.rawValue, forKey: Keys.learningMode)
+            cloudNoteChanged()
+        }
     }
 
     var englishSpeed: EnglishSpeechSpeed {
-        didSet { UserDefaults.standard.set(englishSpeed.rawValue, forKey: Keys.englishSpeed) }
+        didSet {
+            UserDefaults.standard.set(englishSpeed.rawValue, forKey: Keys.englishSpeed)
+            cloudNoteChanged()
+        }
     }
 
     var showTips: Bool {
-        didSet { UserDefaults.standard.set(showTips, forKey: Keys.showTips) }
+        didSet {
+            UserDefaults.standard.set(showTips, forKey: Keys.showTips)
+            cloudNoteChanged()
+        }
     }
 
     var voiceCommands: VoiceCommands {
@@ -90,28 +107,60 @@ final class AppSettings {
             if let data = try? JSONEncoder().encode(voiceCommands) {
                 UserDefaults.standard.set(data, forKey: Keys.voiceCommands)
             }
+            cloudNoteChanged()
         }
     }
 
     var rememberDuration: RememberDuration {
-        didSet { UserDefaults.standard.set(rememberDuration.rawValue, forKey: Keys.rememberDuration) }
+        didSet {
+            UserDefaults.standard.set(rememberDuration.rawValue, forKey: Keys.rememberDuration)
+            cloudNoteChanged()
+        }
     }
 
     var translateDuration: TranslateDuration {
-        didSet { UserDefaults.standard.set(translateDuration.rawValue, forKey: Keys.translateDuration) }
+        didSet {
+            UserDefaults.standard.set(translateDuration.rawValue, forKey: Keys.translateDuration)
+            cloudNoteChanged()
+        }
     }
 
     var rememberLocale: RememberLocale {
-        didSet { UserDefaults.standard.set(rememberLocale.rawValue, forKey: Keys.rememberLocale) }
+        didSet {
+            UserDefaults.standard.set(rememberLocale.rawValue, forKey: Keys.rememberLocale)
+            cloudNoteChanged()
+        }
+    }
+
+    /// Translator mic + Gemini/ML Kit source (EN / ES / DE / FR / PT).
+    var translatorSourceLanguage: TranslatorSourceLanguage {
+        didSet {
+            UserDefaults.standard.set(translatorSourceLanguage.rawValue, forKey: Keys.translatorSourceLanguage)
+            cloudNoteChanged()
+        }
+    }
+
+    /// Prefer on-device ML Kit before Gemini (models ~30 MB per language + RU).
+    var preferOfflineTranslation: Bool {
+        didSet {
+            UserDefaults.standard.set(preferOfflineTranslation, forKey: Keys.preferOfflineTranslation)
+            cloudNoteChanged()
+        }
     }
 
     /// Toggle only — key lives in Keychain.
     var useGemini: Bool {
-        didSet { UserDefaults.standard.set(useGemini, forKey: Keys.useGemini) }
+        didSet {
+            UserDefaults.standard.set(useGemini, forKey: Keys.useGemini)
+            cloudNoteChanged()
+        }
     }
 
     var useElevenLabs: Bool {
-        didSet { UserDefaults.standard.set(useElevenLabs, forKey: Keys.useElevenLabs) }
+        didSet {
+            UserDefaults.standard.set(useElevenLabs, forKey: Keys.useElevenLabs)
+            cloudNoteChanged()
+        }
     }
 
     /// Shared model for EN + RU TTS requests.
@@ -122,31 +171,50 @@ final class AppSettings {
                 let n = ElevenLabsAudioCache.clearAll()
                 print("[el] model changed →\(elModel.rawValue) cache cleared files=\(n)")
             }
+            cloudNoteChanged()
         }
     }
 
     var elStabilityEN: Double {
-        didSet { UserDefaults.standard.set(elStabilityEN, forKey: Keys.elStabilityEN) }
+        didSet {
+            UserDefaults.standard.set(elStabilityEN, forKey: Keys.elStabilityEN)
+            cloudNoteChanged()
+        }
     }
 
     var elStabilityRU: Double {
-        didSet { UserDefaults.standard.set(elStabilityRU, forKey: Keys.elStabilityRU) }
+        didSet {
+            UserDefaults.standard.set(elStabilityRU, forKey: Keys.elStabilityRU)
+            cloudNoteChanged()
+        }
     }
 
     var elSimilarityEN: Double {
-        didSet { UserDefaults.standard.set(elSimilarityEN, forKey: Keys.elSimilarityEN) }
+        didSet {
+            UserDefaults.standard.set(elSimilarityEN, forKey: Keys.elSimilarityEN)
+            cloudNoteChanged()
+        }
     }
 
     var elSimilarityRU: Double {
-        didSet { UserDefaults.standard.set(elSimilarityRU, forKey: Keys.elSimilarityRU) }
+        didSet {
+            UserDefaults.standard.set(elSimilarityRU, forKey: Keys.elSimilarityRU)
+            cloudNoteChanged()
+        }
     }
 
     var elStyleEN: Double {
-        didSet { UserDefaults.standard.set(elStyleEN, forKey: Keys.elStyleEN) }
+        didSet {
+            UserDefaults.standard.set(elStyleEN, forKey: Keys.elStyleEN)
+            cloudNoteChanged()
+        }
     }
 
     var elStyleRU: Double {
-        didSet { UserDefaults.standard.set(elStyleRU, forKey: Keys.elStyleRU) }
+        didSet {
+            UserDefaults.standard.set(elStyleRU, forKey: Keys.elStyleRU)
+            cloudNoteChanged()
+        }
     }
 
     func elVoiceParams(for lang: SiteVoiceLang) -> ElevenLabsVoiceParams {
@@ -172,17 +240,26 @@ final class AppSettings {
 
     /// Google Drive direct download URL for lessons_pack.json
     var lessonsPackURL: String {
-        didSet { UserDefaults.standard.set(lessonsPackURL, forKey: Keys.lessonsPackURL) }
+        didSet {
+            UserDefaults.standard.set(lessonsPackURL, forKey: Keys.lessonsPackURL)
+            cloudNoteChanged()
+        }
     }
 
     /// Second EN voice for бригадир / supervisor in lesson dialogue. Empty → placeholder (= worker for now).
     var voiceIdEnSupervisor: String {
-        didSet { UserDefaults.standard.set(voiceIdEnSupervisor, forKey: Keys.voiceIdEnSupervisor) }
+        didSet {
+            UserDefaults.standard.set(voiceIdEnSupervisor, forKey: Keys.voiceIdEnSupervisor)
+            cloudNoteChanged()
+        }
     }
 
     /// Optional n8n/Drive sync webhook. Empty = sync off (not an error).
     var eosSyncWebhookURL: String {
-        didSet { UserDefaults.standard.set(eosSyncWebhookURL, forKey: Keys.eosSyncWebhookURL) }
+        didSet {
+            UserDefaults.standard.set(eosSyncWebhookURL, forKey: Keys.eosSyncWebhookURL)
+            cloudNoteChanged()
+        }
     }
 
     /// Resolved supervisor EN voice id (Settings override or factory placeholder).
@@ -242,6 +319,30 @@ final class AppSettings {
                 elevenLabsAPIKeyDraft = trimmed
                 return
             }
+            // Refuse Key ID paste — ElevenLabs needs the secret (usually sk_…).
+            // If Secrets.local already has sk_, restore it — never wipe a Mac-baked key.
+            if AppSecrets.looksLikeElevenLabsKeyId(trimmed) {
+                if AppSecrets.hasLocalElevenLabs {
+                    elevenLabsAPIKeyDraft = AppSecrets.elevenLabsAPIKey
+                    KeychainStore.saveElevenLabsAPIKey(AppSecrets.elevenLabsAPIKey)
+                    useElevenLabs = true
+                    print("[secrets] refused Key ID; restored Secrets.local sk_")
+                } else {
+                    print("[secrets] refused ElevenLabs Key ID paste into Keychain")
+                }
+                return
+            }
+            // Mac Secrets.local wins: phone edits must not override a baked sk_.
+            if AppSecrets.hasLocalElevenLabs {
+                let baked = AppSecrets.elevenLabsAPIKey
+                if trimmed != baked {
+                    elevenLabsAPIKeyDraft = baked
+                    KeychainStore.saveElevenLabsAPIKey(baked)
+                    useElevenLabs = true
+                    print("[secrets] phone edit ignored — Secrets.local sk_ wins")
+                    return
+                }
+            }
             KeychainStore.saveElevenLabsAPIKey(trimmed)
             if trimmed.isEmpty {
                 useElevenLabs = false
@@ -272,8 +373,9 @@ final class AppSettings {
     }
 
     var hasElevenLabsKey: Bool {
-        !elevenLabsAPIKeyDraft.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
-            || KeychainStore.hasElevenLabsAPIKey()
+        AppSecrets.isUsableElevenLabsKey(elevenLabsAPIKeyDraft)
+            || AppSecrets.isUsableElevenLabsKey(KeychainStore.loadElevenLabsAPIKey())
+            || AppSecrets.hasLocalElevenLabs
     }
 
     var elevenLabsEnabledAndReady: Bool {
@@ -328,6 +430,19 @@ final class AppSettings {
             rememberLocale = .enIE
         }
 
+        if let raw = UserDefaults.standard.string(forKey: Keys.translatorSourceLanguage),
+           let lang = TranslatorSourceLanguage(rawValue: raw) {
+            translatorSourceLanguage = lang
+        } else {
+            translatorSourceLanguage = .english
+        }
+
+        if UserDefaults.standard.object(forKey: Keys.preferOfflineTranslation) != nil {
+            preferOfflineTranslation = UserDefaults.standard.bool(forKey: Keys.preferOfflineTranslation)
+        } else {
+            preferOfflineTranslation = true
+        }
+
         // Load toggle before key draft to avoid didSet forcing ON on launch.
         if UserDefaults.standard.object(forKey: Keys.useGemini) != nil {
             useGemini = UserDefaults.standard.bool(forKey: Keys.useGemini)
@@ -364,6 +479,13 @@ final class AppSettings {
         lessonsPackURL = UserDefaults.standard.string(forKey: Keys.lessonsPackURL) ?? ""
         voiceIdEnSupervisor = UserDefaults.standard.string(forKey: Keys.voiceIdEnSupervisor) ?? ""
         eosSyncWebhookURL = UserDefaults.standard.string(forKey: Keys.eosSyncWebhookURL) ?? ""
+
+        if let raw = UserDefaults.standard.string(forKey: Keys.learningMode),
+           let mode = AppLearningMode(rawValue: raw) {
+            learningMode = mode
+        } else {
+            learningMode = .onSite
+        }
 
         let storedKey = KeychainStore.loadGeminiAPIKey()
         geminiAPIKeyDraft = storedKey
@@ -406,5 +528,75 @@ final class AppSettings {
         elevenLabsAPIKeyDraft = ""
         KeychainStore.saveElevenLabsAPIKey("")
         useElevenLabs = false
+    }
+
+    /// Debounced mirror of non-secret prefs into SwiftData + private CloudKit.
+    private func cloudNoteChanged() {
+        guard !isBootstrapping else { return }
+        Task { @MainActor in
+            CloudUserDataStore.schedulePrefsSave(from: self)
+        }
+    }
+
+    /// Apply restored CloudKit prefs after reinstall (API keys stay in Keychain).
+    func applyCloudPayload(_ payload: CloudUserDataStore.PrefsPayload) {
+        isBootstrapping = true
+        defer {
+            isBootstrapping = false
+            // Re-persist locally so UserDefaults matches cloud after reinstall.
+            UserDefaults.standard.set(learningMode.rawValue, forKey: Keys.learningMode)
+            UserDefaults.standard.set(englishSpeed.rawValue, forKey: Keys.englishSpeed)
+            UserDefaults.standard.set(showTips, forKey: Keys.showTips)
+            UserDefaults.standard.set(rememberDuration.rawValue, forKey: Keys.rememberDuration)
+            UserDefaults.standard.set(translateDuration.rawValue, forKey: Keys.translateDuration)
+            UserDefaults.standard.set(rememberLocale.rawValue, forKey: Keys.rememberLocale)
+            UserDefaults.standard.set(useGemini, forKey: Keys.useGemini)
+            UserDefaults.standard.set(useElevenLabs, forKey: Keys.useElevenLabs)
+            UserDefaults.standard.set(elModel.rawValue, forKey: Keys.elModel)
+            UserDefaults.standard.set(elStabilityEN, forKey: Keys.elStabilityEN)
+            UserDefaults.standard.set(elStabilityRU, forKey: Keys.elStabilityRU)
+            UserDefaults.standard.set(elSimilarityEN, forKey: Keys.elSimilarityEN)
+            UserDefaults.standard.set(elSimilarityRU, forKey: Keys.elSimilarityRU)
+            UserDefaults.standard.set(elStyleEN, forKey: Keys.elStyleEN)
+            UserDefaults.standard.set(elStyleRU, forKey: Keys.elStyleRU)
+            UserDefaults.standard.set(lessonsPackURL, forKey: Keys.lessonsPackURL)
+            UserDefaults.standard.set(voiceIdEnSupervisor, forKey: Keys.voiceIdEnSupervisor)
+            UserDefaults.standard.set(eosSyncWebhookURL, forKey: Keys.eosSyncWebhookURL)
+            if let data = payload.voiceCommandsJSON.data(using: .utf8) {
+                UserDefaults.standard.set(data, forKey: Keys.voiceCommands)
+            }
+        }
+        if let mode = AppLearningMode(rawValue: payload.learningMode) { learningMode = mode }
+        if let speed = EnglishSpeechSpeed(rawValue: payload.englishSpeed) { englishSpeed = speed }
+        showTips = payload.showTips
+        if let data = payload.voiceCommandsJSON.data(using: .utf8),
+           let vc = try? JSONDecoder().decode(VoiceCommands.self, from: data) {
+            voiceCommands = vc
+        }
+        if let rem = RememberDuration(rawValue: payload.rememberDuration) { rememberDuration = rem }
+        if let tr = TranslateDuration(rawValue: payload.translateDuration) { translateDuration = tr }
+        if let loc = RememberLocale(rawValue: payload.rememberLocale) { rememberLocale = loc }
+        useGemini = payload.useGemini
+        // Stale CloudKit/local prefs often have useElevenLabs=false from an older session.
+        // Baked Secrets.local / Keychain key must win — otherwise TTS falls back to AVSpeech
+        // even though xi-api-key is present.
+        if payload.useElevenLabs {
+            useElevenLabs = true
+        } else if KeychainStore.hasElevenLabsAPIKey() || AppSecrets.hasLocalElevenLabs {
+            useElevenLabs = true
+            print("[secrets] cloud prefs had EL off — forcing ON (Keychain/Secrets key present)")
+        } else {
+            useElevenLabs = false
+        }
+        if let model = ElevenLabsModelID(rawValue: payload.elModel) { elModel = model }
+        elStabilityEN = payload.elStabilityEN
+        elStabilityRU = payload.elStabilityRU
+        elSimilarityEN = payload.elSimilarityEN
+        elSimilarityRU = payload.elSimilarityRU
+        elStyleEN = payload.elStyleEN
+        elStyleRU = payload.elStyleRU
+        lessonsPackURL = payload.lessonsPackURL
+        voiceIdEnSupervisor = payload.voiceIdEnSupervisor
+        eosSyncWebhookURL = payload.eosSyncWebhookURL
     }
 }
