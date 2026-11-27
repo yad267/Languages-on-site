@@ -320,11 +320,28 @@ final class AppSettings {
                 return
             }
             // Refuse Key ID paste — ElevenLabs needs the secret (usually sk_…).
+            // If Secrets.local already has sk_, restore it — never wipe a Mac-baked key.
             if AppSecrets.looksLikeElevenLabsKeyId(trimmed) {
-                KeychainStore.saveElevenLabsAPIKey("")
-                useElevenLabs = false
-                print("[secrets] refused ElevenLabs Key ID paste into Keychain")
+                if AppSecrets.hasLocalElevenLabs {
+                    elevenLabsAPIKeyDraft = AppSecrets.elevenLabsAPIKey
+                    KeychainStore.saveElevenLabsAPIKey(AppSecrets.elevenLabsAPIKey)
+                    useElevenLabs = true
+                    print("[secrets] refused Key ID; restored Secrets.local sk_")
+                } else {
+                    print("[secrets] refused ElevenLabs Key ID paste into Keychain")
+                }
                 return
+            }
+            // Mac Secrets.local wins: phone edits must not override a baked sk_.
+            if AppSecrets.hasLocalElevenLabs {
+                let baked = AppSecrets.elevenLabsAPIKey
+                if trimmed != baked {
+                    elevenLabsAPIKeyDraft = baked
+                    KeychainStore.saveElevenLabsAPIKey(baked)
+                    useElevenLabs = true
+                    print("[secrets] phone edit ignored — Secrets.local sk_ wins")
+                    return
+                }
             }
             KeychainStore.saveElevenLabsAPIKey(trimmed)
             if trimmed.isEmpty {
@@ -362,7 +379,7 @@ final class AppSettings {
     }
 
     var elevenLabsEnabledAndReady: Bool {
-        useElevenLabs && hasElevenLabsKey && !AppSecrets.elevenLabsKeyLooksLikeIdOnly
+        useElevenLabs && hasElevenLabsKey
     }
 
     var englishRate: Float { englishSpeed.rate }

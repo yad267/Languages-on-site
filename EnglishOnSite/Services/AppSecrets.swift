@@ -53,10 +53,10 @@ enum AppSecrets {
         return !key.isEmpty && !looksLikeElevenLabsKeyId(key)
     }
 
+    /// True only when the *effective* runtime key is a Key ID (usable Secrets.local sk_ wins → false).
     static var elevenLabsKeyLooksLikeIdOnly: Bool {
-        looksLikeElevenLabsKeyId(effectiveElevenLabsAPIKey)
-            || looksLikeElevenLabsKeyId(elevenLabsAPIKey)
-            || looksLikeElevenLabsKeyId(KeychainStore.loadElevenLabsAPIKey())
+        if hasLocalElevenLabs { return false }
+        return looksLikeElevenLabsKeyId(effectiveElevenLabsAPIKey)
     }
 
     /// Startup: fill empty slots; if Secrets non-empty and ≠ Keychain → update Keychain (new key after 400).
@@ -99,49 +99,53 @@ enum AppSecrets {
             print("[secrets] Gemini Secrets empty — skip")
         }
 
-        // --- ElevenLabs (same rules; never seed a Key ID — that caused HTTP 400 forever) ---
+        // --- ElevenLabs: Secrets.local.swift (Mac) is source of truth when it holds sk_… ---
+        // Never seed a Key ID. Do not wipe a usable Keychain secret just because Secrets still has an ID.
         let existingE = sanitizeSecret(KeychainStore.loadElevenLabsAPIKey())
         let secretsIsKeyId = looksLikeElevenLabsKeyId(elevenLabsAPIKey)
         let keychainIsKeyId = looksLikeElevenLabsKeyId(existingE)
+        let keychainUsable = isUsableElevenLabsKey(existingE)
 
-        if secretsIsKeyId {
-            print("[secrets] ElevenLabs Secrets looks like Key ID — refuse seed (need sk_…)")
+        if hasLocalElevenLabs {
+            // Always push baked sk_ → Keychain + toggle ON (phone must not re-enter).
+            if force || existingE != elevenLabsAPIKey || keychainIsKeyId || !settings.useElevenLabs {
+                KeychainStore.saveElevenLabsAPIKey(elevenLabsAPIKey)
+                settings.elevenLabsAPIKeyDraft = elevenLabsAPIKey
+                settings.useElevenLabs = true
+                if keychainIsKeyId {
+                    parts.append("EL ID→sk_←Secrets")
+                } else if existingE.isEmpty {
+                    parts.append("EL→Keychain")
+                } else if existingE != elevenLabsAPIKey {
+                    parts.append(force ? "EL force←Secrets" : "EL обновлён←Secrets")
+                } else {
+                    parts.append("EL toggle ON")
+                }
+                print("[secrets] Secrets.local sk_ → Keychain / toggle ON")
+            }
+        } else if secretsIsKeyId {
+            print("[secrets] ElevenLabs Secrets is Key ID — refuse seed (need sk_… on Mac)")
             parts.append("EL Secrets=ID✗")
-            if keychainIsKeyId || existingE.isEmpty {
-                KeychainStore.saveElevenLabsAPIKey("")
-                settings.elevenLabsAPIKeyDraft = ""
-                settings.useElevenLabs = false
-                parts.append("EL Keychain cleared (was ID)")
-                print("[secrets] cleared ElevenLabs Keychain Key ID")
-            }
-        } else if hasLocalElevenLabs {
-            if existingE.isEmpty || keychainIsKeyId {
-                KeychainStore.saveElevenLabsAPIKey(elevenLabsAPIKey)
-                settings.elevenLabsAPIKeyDraft = elevenLabsAPIKey
-                settings.useElevenLabs = true
-                parts.append(keychainIsKeyId ? "EL ID→sk_←Secrets" : "EL→Keychain")
-                print("[secrets] seeded ElevenLabs → Keychain")
-            } else if force || existingE != elevenLabsAPIKey {
-                KeychainStore.saveElevenLabsAPIKey(elevenLabsAPIKey)
-                settings.elevenLabsAPIKeyDraft = elevenLabsAPIKey
-                settings.useElevenLabs = true
-                parts.append(force ? "EL force←Secrets" : "EL обновлён←Secrets")
-                print("[secrets] updated ElevenLabs Keychain from Secrets force=\(force)")
-            } else if !settings.useElevenLabs {
-                settings.useElevenLabs = true
-                parts.append("EL toggle ON")
-                print("[secrets] ElevenLabs Keychain matches Secrets → toggle ON")
-            }
-        } else {
+            // Soft clear: only remove a Key ID from Keychain. Keep a usable sk_ already on device.
             if keychainIsKeyId {
                 KeychainStore.saveElevenLabsAPIKey("")
                 settings.elevenLabsAPIKeyDraft = ""
                 settings.useElevenLabs = false
-                parts.append("EL Keychain cleared (was ID)")
-                print("[secrets] cleared ElevenLabs Keychain Key ID (Secrets empty)")
-            } else if existingE.isEmpty {
-                print("[secrets] ElevenLabs Secrets empty — skip")
+                parts.append("EL Keychain ID cleared")
+                print("[secrets] cleared Keychain Key ID only")
+            } else if keychainUsable, !settings.useElevenLabs {
+                settings.useElevenLabs = true
+                parts.append("EL Keychain sk_ kept")
             }
+        } else if keychainIsKeyId {
+            // Secrets empty / not usable, Keychain holds ID → clear ID so UI asks Mac, not fake “has key”.
+            KeychainStore.saveElevenLabsAPIKey("")
+            settings.elevenLabsAPIKeyDraft = ""
+            settings.useElevenLabs = false
+            parts.append("EL Keychain ID cleared")
+            print("[secrets] cleared Keychain Key ID (Secrets empty)")
+        } else if existingE.isEmpty {
+            print("[secrets] ElevenLabs Secrets empty — skip")
         }
 
         let g = KeychainStore.loadGeminiAPIKey()
@@ -166,12 +170,18 @@ enum AppSecrets {
 
     static var settingsStatusLine: String {
         var bits: [String] = []
-        bits.append(hasAnyLocal ? "Secrets.local на Mac ✓" : "Secrets.local пустой")
+        if hasLocalElevenLabs {
+            bits.append("EL из Secrets.local (Mac) ✓ — телефон ввод не нужен")
+        } else if looksLikeElevenLabsKeyId(elevenLabsAPIKey) {
+            bits.append("EL Secrets.local = Key ID ✗ — вставь sk_… на Mac")
+        } else {
+            bits.append(hasAnyLocal ? "Secrets.local на Mac (EL пустой)" : "Secrets.local пустой")
+        }
         bits.append(KeychainStore.hasGeminiAPIKey() ? "Gemini Keychain ✓" : "Gemini Keychain ✗")
-        if KeychainStore.hasElevenLabsAPIKey() {
-            let match = hasLocalElevenLabs
-                && KeychainStore.loadElevenLabsAPIKey() == elevenLabsAPIKey
-            bits.append(match ? "EL Keychain ✓ из Secrets" : "EL Keychain ✓")
+        if hasLocalElevenLabs {
+            bits.append("приоритет Mac")
+        } else if isUsableElevenLabsKey(KeychainStore.loadElevenLabsAPIKey()) {
+            bits.append("EL Keychain ✓")
         } else {
             bits.append("EL Keychain ✗")
         }

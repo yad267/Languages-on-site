@@ -117,18 +117,22 @@ struct SettingsView: View {
                     .foregroundStyle(settings.hasElevenLabsKey && settings.useElevenLabs ? Color.secondary : Color.red)
 
                 HStack {
-                    Text(settings.hasElevenLabsKey ? "ключ сохранён (Keychain)" : "нет ключа")
-                        .font(.subheadline)
-                        .foregroundStyle(settings.hasElevenLabsKey ? Color.secondary : Color.red)
+                    Text(
+                        AppSecrets.hasLocalElevenLabs
+                            ? "ключ из Secrets.local (Mac)"
+                            : (settings.hasElevenLabsKey ? "ключ сохранён (Keychain)" : "нет ключа")
+                    )
+                    .font(.subheadline)
+                    .foregroundStyle(settings.hasElevenLabsKey ? Color.secondary : Color.red)
                     Spacer()
                     if AppSecrets.hasLocalElevenLabs {
-                        Text("Ключи из Secrets")
+                        Text("только Mac")
                             .font(.caption2.weight(.semibold))
                             .foregroundStyle(.tint)
                     }
                 }
 
-                if AppSecrets.hasAnyLocal {
+                if AppSecrets.hasAnyLocal || AppSecrets.looksLikeElevenLabsKeyId(AppSecrets.elevenLabsAPIKey) {
                     Button("Перечитать Secrets") {
                         secretsRereadNote = settings.rereadSecretsFromDisk()
                         print("[secrets] reread button: \(secretsRereadNote)")
@@ -148,31 +152,41 @@ struct SettingsView: View {
                         .font(.footnote.weight(.bold))
                         .foregroundStyle(.red)
                 }
-                if !settings.hasElevenLabsKey {
-                    Text("Нет ключа EL в Keychain. Проверь Secrets.local.swift и пересобери.")
+                if AppSecrets.hasLocalElevenLabs {
+                    Text("Ключ задан один раз на Mac в Secrets.local.swift. На телефоне вводить не нужно — после установки сборки озвучка подхватит сама.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                } else if AppSecrets.looksLikeElevenLabsKeyId(AppSecrets.elevenLabsAPIKey) {
+                    Text("В Secrets.local.swift на Mac лежит Key ID (64 hex). Вставь Secret sk_… туда и пересобери — не вводи на телефоне.")
                         .font(.footnote.weight(.bold))
                         .foregroundStyle(.red)
-                }
-                if AppSecrets.elevenLabsKeyLooksLikeIdOnly {
-                    Text("Вставлен ID ключа (64 hex), а нужен Secret — обычно начинается с sk_. В кабинете ElevenLabs: API keys → скопируй Secret, не Key ID. Вставь ниже или в Secrets.local.swift на Mac.")
+                } else if AppSecrets.elevenLabsKeyLooksLikeIdOnly {
+                    Text("В Keychain лежит Key ID. Нужен Secret sk_… в Secrets.local.swift на Mac, затем новая сборка.")
+                        .font(.footnote.weight(.bold))
+                        .foregroundStyle(.red)
+                } else if !settings.hasElevenLabsKey {
+                    Text("Нет ключа EL. Вставь sk_… в Secrets.local.swift на Mac и пересобери.")
                         .font(.footnote.weight(.bold))
                         .foregroundStyle(.red)
                 }
 
-                if showElevenKey || AppSecrets.elevenLabsKeyLooksLikeIdOnly || !settings.hasElevenLabsKey {
-                    SecureField("ElevenLabs Secret (sk_…)", text: $settings.elevenLabsAPIKeyDraft)
-                        .textInputAutocapitalization(.never)
-                        .autocorrectionDisabled()
-                } else {
-                    Button("Изменить ключ…") {
-                        showElevenKey = true
+                // Phone paste only as emergency fallback when Mac Secrets has no usable sk_.
+                if !AppSecrets.hasLocalElevenLabs {
+                    if showElevenKey || !settings.hasElevenLabsKey {
+                        SecureField("Запасной ввод (лучше Secrets.local на Mac)", text: $settings.elevenLabsAPIKeyDraft)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                    } else {
+                        Button("Запасной ввод ключа…") {
+                            showElevenKey = true
+                        }
                     }
-                }
 
-                if settings.hasElevenLabsKey {
-                    Button("Удалить ключ", role: .destructive) {
-                        settings.clearElevenLabsKey()
-                        showElevenKey = false
+                    if settings.hasElevenLabsKey {
+                        Button("Удалить ключ", role: .destructive) {
+                            settings.clearElevenLabsKey()
+                            showElevenKey = false
+                        }
                     }
                 }
 
